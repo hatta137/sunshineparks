@@ -48,31 +48,27 @@ p{
     text-align: center;
 
 }
+.RoundBtn{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #C5D3E1;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
 
 #HelpBtn{
     position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: gray;
-    float: right;
-    text-align: center;
     top: 20px;
     right: 30px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+    float: right;
 }
 
 #AccountBtn{
     position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: gray;
-    float: right;
-    text-align: center;
     top: 20px;
     right: 20px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+    float: right;
 }
 
 /* ---------- Section MainBox ---------- */
@@ -141,7 +137,7 @@ p{
 .SubBox{
     position: relative;
     max-width: 60rem;
-    top: 6rem;
+    top: 10rem;
     display: flex;
     margin: 0 auto;
 
