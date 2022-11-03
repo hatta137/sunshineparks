@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="/datadisk/Entwicklung/DWP_GWP/sunshine-parks/icons/Fragezeichen.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="Fragezeichen.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="px"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="11.313709"
+     inkscape:cx="18.075417"
+     inkscape:cy="11.799844"
+     inkscape:window-width="2560"
+     inkscape:window-height="1373"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid930" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter950"
+       x="-1.2196668e-05"
+       y="-1.2200631e-05"
+       width="1.0000244"
+       height="1.0000244">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.000243904"
+         id="feGaussianBlur952" />
+    </filter>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Kreis"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Fragezeichen"
+     style="display:inline">
+    <g
+       id="g14161"
+       transform="matrix(0.99631301,0,0,1.0014186,0.10737872,-0.07962973)"
+       inkscape:export-filename="/datadisk/Entwicklung/DWP_GWP/sunshine-parks/icons/Fragezeichen.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <ellipse
+         style="display:inline;mix-blend-mode:normal;fill:#c5d3e1;fill-opacity:1;fill-rule:evenodd;stroke-width:0.924;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter950)"
+         id="path848"
+         cx="24.003439"
+         cy="24.024897"
+         rx="23.99711"
+         ry="23.989317"
+         transform="matrix(1.0009234,0,0,1.0010056,-5.2787632e-6,-3.5318953e-5)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="13.384395"
+         y="37.830807"
+         id="text12993"><tspan
+           sodipodi:role="line"
+           id="tspan12991"
+           x="13.384395"
+           y="37.830807">?</tspan></text>
+    </g>
+  </g>
+</svg>

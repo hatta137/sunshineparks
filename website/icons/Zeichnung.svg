@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter950"
+       x="-1.2196668e-05"
+       y="-1.2200631e-05"
+       width="1.0000244"
+       height="1.0000244">
+      <feGaussianBlur
+         stdDeviation="0.000243904"
+         id="feGaussianBlur952" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter950-3"
+       x="-1.2196668e-05"
+       y="-1.2200631e-05"
+       width="1.0000244"
+       height="1.0000244">
+      <feGaussianBlur
+         stdDeviation="0.000243904"
+         id="feGaussianBlur952-6" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter1151"
+       x="-0.23535749"
+       y="-0.23543395"
+       width="1.470715"
+       height="1.4708679">
+      <feGaussianBlur
+         stdDeviation="4.4413437"
+         id="feGaussianBlur1153" />
+    </filter>
+  </defs>
+  <g
+     id="layer1"
+     style="display:inline" />
+  <g
+     id="layer4"
+     style="filter:url(#filter1151)">
+    <ellipse
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.924;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter950-3)"
+       id="path848-7"
+       cx="23.989635"
+       cy="24.018553"
+       rx="23.99711"
+       ry="23.989317"
+       transform="matrix(0.94369396,0,0,0.94369396,2.2604791,2.8850818)" />
+  </g>
+  <g
+     id="layer3"
+     style="display:inline">
+    <ellipse
+       style="mix-blend-mode:normal;fill:#c5d3e1;fill-opacity:1;fill-rule:evenodd;stroke-width:0.924;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter950)"
+       id="path848"
+       cx="24.003439"
+       cy="24.024897"
+       rx="23.99711"
+       ry="23.989317"
+       transform="matrix(0.98228634,0,0,0.98228634,1.0173331e-4,6.1987724e-4)" />
+  </g>
+  <g
+     id="layer2">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+       x="13.384395"
+       y="37.830807"
+       id="text12993"><tspan
+         id="tspan12991"
+         x="13.384395"
+         y="37.830807">?</tspan></text>
+  </g>
+</svg>
