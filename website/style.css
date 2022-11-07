@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     /*background: rgba(220, 220, 220, 1);*/
-    background-color: #C5D3E1;
+    background-color: white;
 }
 
 p{
@@ -18,12 +18,13 @@ p{
 .NavBar{
     position: fixed;
     width:  100%;
-
     height: 80px;
-    background: rgba(182, 194, 207, 0.9);
-
+    background: rgba(255, 255, 255);
     z-index: 1;
+}
 
+.NavBar:hover{
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
 }
 
 #Logo{
@@ -41,12 +42,9 @@ p{
     left: 50%;
     top: -40%;
     transform: translateX(-50%);
-
-
     font-family: "beau";
     font-size: 45px;
     text-align: center;
-
 }
 .RoundBtn{
     width: 48px;
@@ -75,7 +73,7 @@ p{
 
 .MainBox{
     position: relative;
-    max-width: 70rem;
+    max-width: 100%;
     top: 6rem;
     margin: 0 auto;
 }
@@ -97,7 +95,7 @@ p{
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     overflow-x: hidden; /* Hide scrollbars */
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
 }
 .slider img{
     flex: 1 0 100%;
@@ -141,17 +139,15 @@ p{
     display: flex;
     margin: 0 auto;
 
+
 }
 
 .InfoBox{
     position: absolute;
     width: 400px;
     height: auto;
-
     border-radius: 0.5rem;
-
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-
 
 }
 
