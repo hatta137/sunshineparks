@@ -13,18 +13,46 @@
     <div class="MainTitle">
         <p>Sunshine Parks</p>
     </div>
-    <!-- <img class="RoundBtn"    id="AccountBtn" src="icons/line/account-circle.svg" alt="Account Button"> -->
-    <!-- <img class="RoundBtn"    id="HelpBtn"    src="icons/line/help-outline.svg"   alt="Help Button"/> -->
 
-
+    <div id="NavList">
+        <ul>
+            <li><a href="#">Hilfe</a></li>
+            <li><a href="#">Einloggen</a></li>
+            <li><a href="#">Registrieren</a></li>
+        </ul>
+    </div>
 </nav>
 
+<div class="FilterBox">
+    <p id="HeadLineFilterBox">
+        Wo soll es hingehen?
+    </p>
+    <p id="TextFilterBox">
+        Sag uns wo es hingehen soll. Entdecke unsere Ferienresorts.
+    </p>
 
-
-<section class="MainBox">
-    <div class="FilterBox">
-
+    <div class="SubBoxFilter" id="Location">
+        <p class="LocationText">Ort</p>
     </div>
+
+    <div class="SubBoxFilter" id="Date">
+        <p class="LocationText" id="CheckIn">Check In</p>
+        <p class="LocationText" id="CheckOut">Check Out</p>
+    </div>
+
+    <div class="SubBoxFilter" id="Guests">
+        <p class="LocationText" id="GuestText">Anzahl Gäste</p>
+    </div>
+
+    <button class="LongBtn" id="SearchFilter">
+        <p>Suche</p>
+    </button>
+
+</div>
+
+
+<section class="SliderBox">
+
     <div class="slider-wrapper">
         <div class="slider">
             <img id="slide-1" src="graphics/mainpagebanner/Berchtesgaden.jpg"   alt="Berchtesgaden">

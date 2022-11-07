@@ -4,8 +4,8 @@
 }
 
 body {
-    /*verhindert den Rand*/
-    margin: 0;
+
+    margin: 0;/*verhindert den Rand*/
     padding: 0;
     /*background: rgba(220, 220, 220, 1);*/
     background-color: white;
@@ -16,7 +16,8 @@ p{
 }
 
 .NavBar{
-    position: fixed;
+    position: relative;
+    object-position: top;
     width:  100%;
     height: 80px;
     background: rgba(255, 255, 255);
@@ -24,7 +25,7 @@ p{
 }
 
 .NavBar:hover{
-    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.25)
 }
 
 #Logo{
@@ -35,6 +36,32 @@ p{
     top: 0.5rem;
     left: 20px;
     z-index: 2;
+}
+
+#NavList{
+    position: relative;
+    float: right;
+    text-decoration: none;
+}
+
+#NavList li{
+    list-style: none;
+    float: right;
+}
+
+#NavList a:link{
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 5px 1px 5px;
+}
+#NavList a:hover{
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+#NavList a:after{
+    text-decoration: none;
 }
 
 .MainTitle{
@@ -71,23 +98,13 @@ p{
 
 /* ---------- Section MainBox ---------- */
 
-.MainBox{
+.SliderBox{
     position: relative;
-    max-width: 100%;
-    top: 6rem;
+    max-width: 70%;
+    top: 2rem;
     margin: 0 auto;
 }
-.FilterBox{
-    position: absolute;
-    width: 70%;
-    height: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 2rem;
-    background: rgba(197, 211, 225, 0.9);
-    border-radius: 60px;
-    margin: auto;
-}
+
 .slider{
     display: flex;
     aspect-ratio: 16 / 9;
@@ -95,7 +112,7 @@ p{
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     overflow-x: hidden; /* Hide scrollbars */
-    /* border-radius: 0.5rem; */
+    border-radius: 0.5rem;
 }
 .slider img{
     flex: 1 0 100%;
@@ -127,8 +144,98 @@ p{
     width: 100%;
     bottom: 0;
     border-radius: 0.5rem;
+}
+
+
+
+.FilterBox{
+    position: absolute;
+    width: 30%;
+    height: 30rem;
+    left: 25%;
+    transform: translateX(-50%);
+    top: 20%;
+    background: white;
+    border-radius: 0.5rem;
+    margin: auto;
+    z-index: 3;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.25);
+}
+
+#HeadLineFilterBox{
+    font-family: sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
+    padding: 30px 0px 0px 30px;
+    margin: 0;
+}
+
+#TextFilterBox{
+    font-family: sans-serif;
+    font-size: large;
+    padding: 10px 0px 0px 30px;
 
 }
+
+.SubBoxFilter{
+    position: absolute;
+    width: 80%;
+    height: 10%;
+    border-style: solid;
+    border-radius: 0.5rem;
+}
+
+#Location{
+    left: 2rem;
+    top: 10rem;
+}
+.LocationText{
+    font-family: sans-serif;
+    padding-left: 10px;
+}
+
+#Date{
+    left: 2rem;
+    top: 15rem;
+}
+
+#CheckIn{
+    position: absolute;
+
+}
+
+#CheckOut{
+    position: absolute;
+    right: 80px;
+}
+
+#Guests{
+    left: 2rem;
+    top: 20rem;
+}
+
+#GuestText{
+    position: absolute;
+}
+
+.LongBtn{
+    color: #FFF;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: large;
+}
+
+#SearchFilter{
+    top: 25rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+
 
 /* ---------- Section SubBox ---------- */
 
