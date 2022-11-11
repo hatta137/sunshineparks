@@ -13,21 +13,75 @@
     <div class="MainTitle">
         <p>Sunshine Parks</p>
     </div>
-    <img id="AccountBtn" src="icons/Account.svg" alt="Account Button">
-    <img id="HelpBtn" src="icons/Fragezeichen.svg" alt="Help Button"/>
 
+    <div id="LogBox">
+        <ul id="NavList">
+            <li><a href="#">Hilfe</a></li>
+            <li><a href="#">Einloggen</a></li>
+            <li><a href="#">Registrieren</a></li>
+        </ul>
+    </div>
 </nav>
 
+<div class="FilterBox">
+    <p id="HeadLineFilterBox">
+        Wo soll es hingehen?
+    </p>
+    <p id="TextFilterBox">
+        Sag uns wo es hingehen soll. Entdecke unsere Ferienresorts.
+    </p>
 
+    <form action="http://yourserver.com/test.php" method="get">
 
-<section class="MainBox">
-    <div class="FilterBox">
+        <label>
+            <select name="Resort">
+                <option value="Usedom">Usedom</option>
+                <option value="Erfurt">Erfurt</option>
+                <option value="Oberhof">Oberhof</option>
+                <option value="Berchtesgaden">Berchtesgaden</option>
+            </select>
+        </label>
+        <br />
 
+        <label>
+            <input type="Date" name="StartDate" placeholder="Von">
+        </label>
+
+        <label>
+            <input type="Date" name="EndDate" placeholder="Von">
+        </label>
+        <br />
+
+        <label>
+            <input type="number" name="NumberOfGuests" min="1" max="16" placeholder="Anzahl Gäste">
+        </label>
+        <br />
+        <input type="submit" name="Submit">
+
+    </form>
+    <!--<div class="SubBoxFilter" id="Location">
+        <p class="LocationText">Ort</p>
     </div>
+
+    <div class="SubBoxFilter" id="Date">
+        <p class="LocationText" id="CheckIn">Check In</p>
+        <p class="LocationText" id="CheckOut">Check Out</p>
+    </div>
+
+    <div class="SubBoxFilter" id="Guests">
+        <p class="LocationText" id="GuestText">Anzahl Gäste</p>
+    </div>
+
+    <button class="LongBtn" id="SearchFilter">
+        <p>Suche</p>
+    </button>-->
+
+</div>
+
+
+<section class="SliderBox">
+
     <div class="slider-wrapper">
-
-
-
         <div class="slider">
             <img id="slide-1" src="graphics/mainpagebanner/Berchtesgaden.jpg"   alt="Berchtesgaden">
             <img id="slide-2" src="graphics/mainpagebanner/Erfurt.jpg"          alt="Erfurt">
