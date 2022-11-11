@@ -14,12 +14,12 @@ body {
 p{
     font-family: "beau";
 }
-
+/*----- Navigations Bar -----*/
 .NavBar{
     position: relative;
     object-position: top;
     width:  100%;
-    height: 80px;
+    height: 70px;
     background: rgba(255, 255, 255);
     z-index: 1;
 }
@@ -38,15 +38,29 @@ p{
     z-index: 2;
 }
 
+#LogBox{
+    color: black;
+
+}
+
 #NavList{
-    position: relative;
-    float: right;
+    position: absolute;
+    right: 10px;
     text-decoration: none;
+    font-family: arial;
+    font-size: large;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #NavList li{
     list-style: none;
     float: right;
+}
+
+#NavList a{
+    color: black;
 }
 
 #NavList a:link{
@@ -108,7 +122,7 @@ p{
 .slider{
     display: flex;
     aspect-ratio: 16 / 9;
-    scroll-snap-type: x mandatory;
+    /*scroll-snap-type: x mandatory;*/
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     overflow-x: hidden; /* Hide scrollbars */
@@ -116,7 +130,7 @@ p{
 }
 .slider img{
     flex: 1 0 100%;
-    scroll-snap-align: start;
+    /*scroll-snap-align: start;*/
     object-fit: cover;
 }
 .slider-nav{
@@ -147,6 +161,29 @@ p{
 }
 
 
+/*----- FilterBox -----*/
+form{
+    position: absolute;
+    margin: auto;
+    left: 10px;
+}
+label{
+    font-family: arial;
+}
+input, select{
+    width: 100%;
+    font-size: 1.1em;
+    padding: 4px;
+    font-family: inherit;
+    font-weight: lighter;
+    border-radius: 0.3em;
+}
+
+input[type=submit]{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-25%);
+}
 
 .FilterBox{
     position: absolute;
@@ -166,7 +203,7 @@ p{
     font-family: sans-serif;
     font-size: xx-large;
     font-weight: bold;
-    padding: 30px 0px 0px 30px;
+    padding: 30px 0 0 30;
     margin: 0;
 }
 
