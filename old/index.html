@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>SunshineParks</title>
+
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+
+<nav class="NavBar">
+    <img id="Logo" src="../website/graphics/LogoNB.png" alt="Logo SunshineParks"/>
+    <div class="MainTitle">
+        <p>Sunshine Parks</p>
+    </div>
+
+    <div id="LogBox">
+        <ul id="NavList">
+            <li><a href="#">Hilfe</a></li>
+            <li><a href="#">Einloggen</a></li>
+            <li><a href="#">Registrieren</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="FilterBox">
+    <p id="HeadLineFilterBox">
+        Wo soll es hingehen?
+    </p>
+    <p id="TextFilterBox">
+        Sag uns wo es hingehen soll. Entdecke unsere Ferienresorts.
+    </p>
+
+    <form action="http://yourserver.com/test.php" method="get">
+
+        <label>
+            <select name="Resort">
+                <option value="Usedom">Usedom</option>
+                <option value="Erfurt">Erfurt</option>
+                <option value="Oberhof">Oberhof</option>
+                <option value="Berchtesgaden">Berchtesgaden</option>
+            </select>
+        </label>
+        <br />
+
+        <label>
+            <input type="Date" name="StartDate" placeholder="Von">
+        </label>
+
+        <label>
+            <input type="Date" name="EndDate" placeholder="Von">
+        </label>
+        <br />
+
+        <label>
+            <input type="number" name="NumberOfGuests" min="1" max="16" placeholder="Anzahl Gäste">
+        </label>
+        <br />
+        <input type="submit" name="Submit">
+
+    </form>
+    <!--<div class="SubBoxFilter" id="Location">
+        <p class="LocationText">Ort</p>
+    </div>
+
+    <div class="SubBoxFilter" id="Date">
+        <p class="LocationText" id="CheckIn">Check In</p>
+        <p class="LocationText" id="CheckOut">Check Out</p>
+    </div>
+
+    <div class="SubBoxFilter" id="Guests">
+        <p class="LocationText" id="GuestText">Anzahl Gäste</p>
+    </div>
+
+    <button class="LongBtn" id="SearchFilter">
+        <p>Suche</p>
+    </button>-->
+
+</div>
+
+
+<section class="SliderBox">
+
+    <div class="slider-wrapper">
+        <div class="slider">
+            <img id="slide-1" src="../website/graphics/mainpagebanner/Berchtesgaden.jpg" alt="Berchtesgaden">
+            <img id="slide-2" src="../website/graphics/mainpagebanner/Erfurt.jpg" alt="Erfurt">
+            <img id="slide-3" src="../website/graphics/mainpagebanner/Usedom.jpg" alt="Usedom">
+            <img id="slide-4" src="../website/graphics/mainpagebanner/Oberhof.jpg" alt="Oberhof">
+        </div>
+        <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+            <a href="#slide-4"></a>
+        </div>
+    </div>
+    <img class="BottomFrame" src="../website/graphics/mainpagebanner/Banner.svg" alt="Banner">
+</section>
+
+<section class="SubBox">
+    <div class="InfoBox" id="LeftInfoBox">
+        <p class="InfoHeadline"> Loram Ipsum </p>
+        <p class="InfoText">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+            et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+            ipsum dolor sit amet.
+        </p>
+    </div>
+    <div class="InfoBox" id="RightInfoBox">
+        <p class="InfoHeadline"> Loram Ipsum </p>
+        <p class="InfoText">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+            et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+            ipsum dolor sit amet.
+        </p>
+    </div>
+</section>
+
+
+
+</body>
+</html>
