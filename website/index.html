@@ -33,8 +33,12 @@
                 <option value="Oberhof">Oberhof</option>
                 <option value="Berchtesgaden">Berchtesgaden</option>
             </select>
-            <input type="date" name="StartDate" placeholder="von">
-            <input type="date" name="EndDate" placeholder="bis">
+            <input type="text" name="StartDate" placeholder="von"
+                   onfocus="(this.type='date')"
+                   onblur="(this.type='text')">
+            <input type="text" name="EndDate" placeholder="bis"
+                   onfocus="(this.type='date')"
+                   onblur="(this.type='text')">
             <input type="number" placeholder="Anzahl der Reisenden">
             <input type="submit" value="Subscribe">
         </form>
