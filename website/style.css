@@ -315,6 +315,14 @@ footer ul li a:hover{
 .content-1-privacy a{
     color: #222222;
 }
+.content-1-privacy ul{
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+.content-1-privacy li{
+    font-size: 1.8rem;
+}
+
 
 
 /* ---------------------------------------------- Media Querrys ----------------------------------------------------- */
