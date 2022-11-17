@@ -139,7 +139,7 @@ input::placeholder{
     color: #ccc;
 }
 
-/* About-Section */
+/* ------------------------------------------------- About-Section ----------------------------------------------- */
 
 .about-left,
 .about-middle,
@@ -225,6 +225,32 @@ input::placeholder{
 }
 .process-content h2{
     color: #48AC98;
+}
+/* ----------------------------------- AllObjects---------------------------------------------*/
+.allObjects .row{
+    flex-wrap: wrap;
+}
+.objectBox{
+    width: 20%;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 10px;
+}
+.objectBox img{
+    border-radius: 4px;
+}
+.objectBoxText h2{
+    font-family: "Arial";
+    font-weight: lighter;
+}
+.objectBox table{
+    font-size: 8rem;
+    padding: 1rem;
+}
+.objectBox td,
+.objectBox th{
+    padding: 5px;
 }
 
 /* ----------------------------------- Testimony-----------------------------------------------*/
