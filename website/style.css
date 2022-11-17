@@ -231,7 +231,7 @@ input::placeholder{
     flex-wrap: wrap;
 }
 .objectBox{
-    width: 20%;
+    width: 30%;
     padding: 1.5rem;
     margin: 1.5rem;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
