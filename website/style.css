@@ -236,6 +236,10 @@ input::placeholder{
     margin: 1.5rem;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 25rem;
 }
 .objectBox img{
     border-radius: 4px;
