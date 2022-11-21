@@ -2,28 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GeileSeite</title>
+    <title>SunshineParks</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="graphics/LogoIconNB.png" sizes="lg">
 </head>
 <body>
 
 <header>
     <nav>
         <div>
-            <img id="Logo" src="graphics/LogoNB_S.png">
+            <a href="index.html"><img id="Logo" src="graphics/LogoNB_S.png"></a>
         </div>
         <div class="logo">
             <h1>SunshineParks</h1>
         </div>
         <ul>
-            <li><a href="">About</a></li>
+            <li><a href="#aboutAnchor">About</a></li>
             <li><a href="">Help</a></li>
             <li><a href="">Account</a></li>
         </ul>
         <box-icon name='menu' color="whitesmoke" size="lg" id="menu"></box-icon>
     </nav>
     <div class="header-content">
-        <h1>Erleben Sie einen traumhaften Urlaub in unseren Resorts!</h1>
+        <h1>Erlebe einen traumhaften Urlaub in unseren Resorts!</h1>
         <p>Wohin soll es gehen?</p>
         <form>
             <select name="Resort" placeholder="Resort">
@@ -32,16 +33,22 @@
                 <option value="Oberhof">Oberhof</option>
                 <option value="Berchtesgaden">Berchtesgaden</option>
             </select>
-            <input type="date" name="StartDate" placeholder="von">
-            <input type="date" name="EndDate" placeholder="bis">
-            <input type="number" placeholder="Anzahl der Reisenden">
-            <input type="submit" value="Subscribe">
+            <input type="text" name="StartDate" placeholder="von"
+                   onfocus="(this.type='date')"
+                   onblur="(this.type='text')">
+            <input type="text" name="EndDate" placeholder="bis"
+                   onfocus="(this.type='date')"
+                   onblur="(this.type='text')">
+            <input type="number" min="0" max="16" placeholder="Anzahl der Reisenden">
+            <input type="submit" value="Suche">
+            <a href="allObjects.html"><input type="button" value="Zeig Alle"></a>
+
         </form>
     </div>
 </header>
 
 <!--   About -->
-<section class="about">
+<section id="aboutAnchor" class="about">
     <div class="row">
         <div class="about-left">
             <h2>Sunshine Parks ist dein Ferienerlebnis</h2>

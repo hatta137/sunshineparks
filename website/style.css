@@ -26,7 +26,6 @@ h1{
     font-weight: 800;
     font-size: 3.6rem;
 }
-
 h2{
     font-weight: 800;
     font-size: 2.4rem;
@@ -93,7 +92,7 @@ nav ul li a:hover{
 .header-content{
     width: 50%;
     position: relative;
-    top: 16%;
+    top: 9%;
     left: 8%;
 }
 form{
@@ -106,25 +105,32 @@ select,
 input[type=date],
 input[type=number],
 input[type=text],
-input[type=email]{
+input[type=email],
+input[type=button],
+input[type=submit]{
     width: 50%;
     padding: 12px 20px;
     margin: 1.2rem 0;
     display: block;
     border: 1px solid #ccc;
+    border-radius: 4px;
 }
 select{
     font-size: 1.3rem;
     color: #ccc;
 }
-input[type=submit]{
+select option{
+    font-size: 1.3rem;
+    color: #ccc;
+}
+input[type=submit],
+input[type=button]{
     width: 50%;
     background-color: #48AC98;
     color: #fff;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 1.2rem 0;
     border:none;
-    border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -133,7 +139,7 @@ input::placeholder{
     color: #ccc;
 }
 
-/* About-Section */
+/* ------------------------------------------------- About-Section ----------------------------------------------- */
 
 .about-left,
 .about-middle,
@@ -220,6 +226,36 @@ input::placeholder{
 .process-content h2{
     color: #48AC98;
 }
+/* ----------------------------------- AllObjects---------------------------------------------*/
+.allObjects .row{
+    flex-wrap: wrap;
+}
+.objectBox{
+    width: 30%;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 25rem;
+}
+.objectBox img{
+    border-radius: 4px;
+}
+.objectBoxText h2{
+    font-family: "Arial";
+    font-weight: lighter;
+}
+.objectBox table{
+    font-size: 8rem;
+    padding: 1rem;
+}
+.objectBox td,
+.objectBox th{
+    padding: 5px;
+}
 
 /* ----------------------------------- Testimony-----------------------------------------------*/
 .testimony{
@@ -293,6 +329,36 @@ footer ul li a:hover{
     transition: .5s ease-in-out;
 }
 
+/*---------------------------------------------Specil-Privacy---------------------------------------------------------*/
+
+.header-privacy{
+    width: 50%;
+    position: relative;
+    left: 8%;
+}
+.contentlist-privacy{
+    padding: 5%;
+    background-color: #222;
+    color: whitesmoke;
+}
+.index {
+    list-style-type: circle;
+}
+.content-1-privacy{
+    background-color: whitesmoke;
+    color: #222;
+    padding: 5%;
+}
+.content-1-privacy a{
+    color: #222222;
+}
+.content-1-privacy ul{
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+.content-1-privacy li{
+    font-size: 1.8rem;
+}
 
 
 
