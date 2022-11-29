@@ -362,6 +362,7 @@ footer ul li a:hover{
 
 
 
+
 /* ---------------------------------------------- Media Querrys ----------------------------------------------------- */
 
 
@@ -417,7 +418,8 @@ footer ul li a:hover{
     input[type=number],
     input[type=text],
     input[type=email],
-    input[type=submit]{
+    input[type=submit],
+    input[type=button]{
         width: 80%;
         margin: 1.2rem auto;
     }
