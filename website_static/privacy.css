@@ -1,0 +1,31 @@
+/*---------------------------------------------Specil-Privacy---------------------------------------------------------*/
+
+.header-privacy{
+    width: 50%;
+    position: relative;
+    left: 8%;
+}
+.contentlist-privacy{
+    padding: 5%;
+    background-color: #222;
+    color: whitesmoke;
+}
+.index {
+    list-style-type: circle;
+}
+.content-1-privacy{
+    background-color: whitesmoke;
+    color: #222;
+    padding: 5%;
+}
+.content-1-privacy a{
+    color: #222222;
+}
+.content-1-privacy ul{
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+.content-1-privacy li{
+    font-size: 1.8rem;
+}
+
