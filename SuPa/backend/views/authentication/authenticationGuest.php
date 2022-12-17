@@ -14,8 +14,8 @@
 
             <input type="submit" value="Login">
             <p>Noch kein Konto?</p>
-            <input type="submit" onclick="window.location.href='registration.html'" value="Zur Registrierung">
-            <input type="submit" onclick="window.location.href='login_intern.html'" value="Intern">
+            <input type="submit" onclick="window.location.href='index.php?page=registration&view=registration'" value="Zur Registrierung">
+            <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationIntern'" value="Intern">
 
         </div>
     </div>

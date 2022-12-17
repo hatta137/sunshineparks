@@ -27,7 +27,9 @@ if (file_exists($controllerPath)) {
         if (method_exists($controllerInstance, $actionMethodName)) {
             // execute function matching the name
             $controllerInstance->$actionMethodName();
-
+            echo $actionName;
+            echo $actionMethodName;
+            echo $controllerPath;
             // render corresponding view
             $controllerInstance->renderHTML();
         } else {

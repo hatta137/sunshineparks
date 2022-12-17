@@ -28,6 +28,7 @@ class Controller
 
         if (file_exists($viewPath)) {
             View::render($viewPath, $this->_params);
+            echo "aosijaosijdoaisjdosijdoaisjd";
         } else {
             echo $viewPath;
             echo "file not found";

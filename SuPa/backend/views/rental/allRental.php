@@ -1,9 +1,10 @@
 <!--   AllObjects -->
 <section class="allObjects">
     <div class="row">
+        allRentals
         <?php foreach ($allRentals as $rental): ?>
         <div class="objectBox">
-            <img src="graphics/Objekte/Usedom/Usedom1.jpg" alt="Haus Usedom 1">
+            <img src="../assets/graphics/Objekte/Usedom/Usedom1.jpg" alt="Haus Usedom 1">
             <div class="objectBoxText">
                 <h2>Usedom Haus am Meer</h2>
                 <table>

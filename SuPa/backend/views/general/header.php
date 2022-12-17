@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assets/css/allObjects.css">
     <link rel="stylesheet" href="../assets/css/imprint.css">
     <link rel="stylesheet" href="../assets/css/privacy.css">
+    <link rel="stylesheet" href="../assets/css/authentication.css">
 
 
 
@@ -30,7 +31,7 @@
         <ul>
             <li><a href="#aboutAnchor">About</a></li>
             <li><a href="">Help</a></li>
-            <li><a href="login.html">Account</a></li>
+            <li><a href="index.php?page=authentication&view=authenticationGuest">Account</a></li>
         </ul>
         <box-icon name='menu' color="whitesmoke" size="lg" id="menu"></box-icon>
     </nav>

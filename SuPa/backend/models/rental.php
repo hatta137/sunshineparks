@@ -2,22 +2,49 @@
 
 class Rental extends Model{
 
-    public function __construct($rowId)
+    public function __construct($rentalId)
     {
-        parent::__construct('RENTAL', $rowId);
+        //echo "constrr<br>";
+        parent::__construct('RENTAL', $rentalId);
     }
 
-    public static function getAllRental(){
 
+    //TODO funktioniert nicht
+    public static function getAllRental() : array
+    {
+        echo "getDB<br>";
         $db = self::getDB();
-        $stmt = $db->prepare('SELECT RentalID FROM RENTAL');
+
+        $stmt = $db->prepare('SELECT * FROM RENTAL');
         $stmt->execute();
-        $result = array();
-        foreach ($stmt->fetchAll() as $row){
-            $result[] = new Rental($row['RentalID']);
+        echo "exe<br>";
+        $result = $stmt->fetchAll();
+        $rentals = array();
+        foreach ($result as $rental){
+
+            foreach ($rental as $items){
+                echo $items."<br>";
+                //$rentals [] = new Rental($items['RentalID']);
+            }
+
+
+
+
         }
-        return $result;
+        echo $rentals;
+        return $rentals;
     }
+
+    public static function findById($id): ?Rental {
+        $db = self::getDB();
+        $stmt = $db->prepare('SELECT * FROM RENTAL WHERE');
+        $stmt->execute();
+        echo "exe<br>";
+        $result[] = $stmt->fetchAll();
+        $newRental = new Rental($result['RentalID']);
+        return $newRental;
+    }
+
 
 
 }

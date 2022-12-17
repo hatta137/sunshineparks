@@ -39,7 +39,7 @@
     <div class="footer">
         <input type="submit" value="Registrieren">
         Bereits ein Konto erstellt?
-        <input type="submit" onclick="window.location.href='login.html'" value="Zur Anmeldung">
+        <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
     </div>
 
 </div>

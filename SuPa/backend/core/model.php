@@ -11,6 +11,7 @@ class Model
 
     protected static function getDB(): PDO{
 
+
         static $db = null;
 
         if ($db == null) {
