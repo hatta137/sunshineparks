@@ -52,23 +52,38 @@ section{
 /* Hero Section */
 header{
     top: -100rem;
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url('graphics/usedom.jpg');
+    height: 8vh;
+    background-color: #222222;
+    background-repeat:  no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: whitesmoke;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.topbox{
+    height: 92vh;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url('../assets/graphics/usedom.jpg');
     background-repeat:  no-repeat;
     background-size: cover;
     background-position: center;
     color: whitesmoke;
 }
+
+
+
 .logo{
     font-size: 3.2rem;
     color: #48AC98;
     font-family: Beau;
+    cursor: pointer;
 }
 #Logo{
     width: 150px;
 }
 nav{
-    padding: 2% 8%;
+    padding: 0 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SunshineParks</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaQuerrys.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="contactBox.css">
-
-    <link rel="icon" type="image/png" href="graphics/LogoIconNB.png" sizes="lg">
-</head>
-<body>
-
-
-
-<header>
-    <nav>
-        <div>
-            <a href="index.html"><img id="Logo" src="graphics/LogoNB_S.png" alt="LogoSP"></a>
-        </div>
-        <div class="logo">
-            <h1>SunshineParks</h1>
-        </div>
-        <ul>
-            <li><a href="#aboutAnchor">About</a></li>
-            <li><a href="">Help</a></li>
-            <li><a href="login.html">Account</a></li>
-        </ul>
-        <box-icon name='menu' color="whitesmoke" size="lg" id="menu"></box-icon>
-    </nav>
-
-
-
+<section class="topbox">
     <div class="header-content">
         <h1>Erlebe einen traumhaften Urlaub in unseren Resorts!</h1>
         <p>Wohin soll es gehen?</p>
@@ -50,18 +17,20 @@
                    onblur="(this.type='text')">
             <input type="number" min="0" max="16" placeholder="Anzahl der Reisenden">
             <input type="submit" value="Suche">
-            <a href="allObjects.html"><input type="button" value="Zeig Alle"></a>
+            <a href="index.php?page=rental&view=allRental"><input type="button" value="Zeig Alle"></a>
 
         </form>
     </div>
-</header>
+</section>
+
+
 
 <!--   About -->
 <section id="aboutAnchor" class="about">
     <div class="row">
         <div class="about-left">
             <h2>Sunshine Parks ist dein Ferienerlebnis</h2>
-            <img src="graphics/mainpagebanner/Berchtesgaden.jpg" alt="Berchtesgaden">
+            <img src="../assets/graphics/mainpagebanner/Berchtesgaden.jpg" alt="Berchtesgaden">
         </div>
         <div class="about-middle">
             <h2>Geschichte ist Leidenschaft</h2>
@@ -146,12 +115,13 @@
     </div>
 </section>
 
-<!--   Testimonial -->
+
+<!--   Testimony -->
 <section class="testimony">
     <div class="row">
         <div class="test">
             <div class="image">
-                <img src="graphics/Testimony/Mann.jpeg" alt="MannLeft">
+                <img src="../assets/graphics/Testimonial/Mann.jpeg" alt="MannLeft">
             </div>
             <div class="test-content">
                 <p>Suuuuper Geil und alles hier.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
@@ -166,7 +136,7 @@
         </div>
         <div class="test">
             <div class="image">
-                <img src="graphics/Testimony/Frau.jpeg" alt="FrauRight">
+                <img src="../assets/graphics/Testimonial/Frau.jpeg" alt="FrauRight">
             </div>
             <div class="test-content">
                 <p>Läässig!.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
@@ -181,76 +151,6 @@
         </div>
     </div>
 </section>
-
-<!--    Contact-->
-<section class="contact">
-    <div class="row">
-        <h1>Nimm Kontakt zu uns auf!</h1>
-    </div>
-    <div class="row">
-        <form>
-            <input type="text" placeholder="Dein Name">
-            <input type="email" placeholder="Deine E-Mailadresse">
-            <textarea>Deine Nachricht</textarea>
-            <input type="submit" value="Absenden">
-        </form>
-    </div>
-</section>
-
-<!--    Footer-->
-<footer>
-    <div class="row">
-        <p>Made with <box-icon name="heart" type="solid" color="whitesmoke"></box-icon>by BeOne - WebDevelopment</p>
-    </div>
-    <div class="row">
-        <ul>
-            <li><a href="">Kontakt</a></li>
-            <li><a href="imprint.html">Impressum</a></li>
-            <li><a href="privacy.html">Datenschutz</a></li>
-            <li><a href="">Nutzungsbedingungen</a></li>
-        </ul>
-    </div>
-
-</footer>
-
-
-
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script src="app.js"></script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

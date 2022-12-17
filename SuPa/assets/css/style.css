@@ -52,23 +52,38 @@ section{
 /* Hero Section */
 header{
     top: -100rem;
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url('graphics/usedom.jpg');
+    height: 8vh;
+    background-color: #222;
+    color: #fff;
+    background-repeat:  no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+}
+
+.topbox{
+    height: 92vh;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url("../graphics/usedom.jpg");
     background-repeat:  no-repeat;
     background-size: cover;
     background-position: center;
     color: whitesmoke;
 }
+
+
+
 .logo{
     font-size: 3.2rem;
     color: #48AC98;
     font-family: Beau;
+    cursor: pointer;
 }
 #Logo{
     width: 150px;
 }
 nav{
-    padding: 2% 8%;
+    padding: 0 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,6 +99,7 @@ nav ul{
 nav ul li{
     display: inline-block;
     margin-left: 2.5rem;
+
 }
 nav ul li a:hover{
     color: #48AC98;
@@ -161,42 +177,9 @@ footer ul{
 footer ul li{
     display: inline-block;
     margin-left: 2.5rem;
+    color: #fff;
 }
 footer ul li a:hover{
     color: #48AC98;
     transition: .5s ease-in-out;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
