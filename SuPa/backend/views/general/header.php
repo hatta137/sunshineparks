@@ -22,7 +22,7 @@
 <header>
     <nav>
         <div>
-            <a href="index.html"><img id="Logo" src="../assets/graphics/LogoNB_S.png" alt="LogoSP"></a>
+            <a href="index.php"><img id="Logo" src="../assets/graphics/LogoNB_S.png" alt="LogoSP"></a>
         </div>
         <div class="logo">
             <h1>SunshineParks</h1>

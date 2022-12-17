@@ -10,11 +10,11 @@ class Rental extends Model{
     public static function getAllRental(){
 
         $db = self::getDB();
-        $stmt = $db->prepare('SELECT rentalId FROM RENTAL');
+        $stmt = $db->prepare('SELECT RentalID FROM RENTAL');
         $stmt->execute();
         $result = array();
         foreach ($stmt->fetchAll() as $row){
-            $result[] = new Rental($row['rentalId']);
+            $result[] = new Rental($row['RentalID']);
         }
         return $result;
     }

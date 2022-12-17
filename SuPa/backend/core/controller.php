@@ -29,7 +29,9 @@ class Controller
         if (file_exists($viewPath)) {
             View::render($viewPath, $this->_params);
         } else {
-           // header('Location: index.php?page=pages&view=error&error=404');
+            echo $viewPath;
+            echo "file not found";
+            //header('Location: index.php?page=pages&view=error&error=404');
         }
 
         // Render Footer
@@ -39,6 +41,7 @@ class Controller
     protected function viewPath(string $actionName, string $controllerName) : string
     {
         return __DIR__ . '/../views/' . $controllerName . "/" . $actionName . '.php';
+        //return __DIR__ . '/../views/' . implode("/", array($controllerName, $actionName)) . '.php';
     }
 }
 
