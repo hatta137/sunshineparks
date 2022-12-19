@@ -5,11 +5,12 @@ class RentalController extends Controller{
     public function actionAllRental(){
 
 
-        echo "actionAllRental <br>";
+
         $allRentals[] = Rental::getAllRental();
-        echo "getAllRental<br>";
+
         $this->_params['allRentals'] = $allRentals;
-        echo "_paramsAllRental<br>";
+
+
     }
 
 

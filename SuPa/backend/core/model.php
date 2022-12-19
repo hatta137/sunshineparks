@@ -33,7 +33,10 @@ class Model
     function __construct($tableName, $rowId)
     {
         $db = self::getDB();
-        $stmt = $db->prepare("SELECT * FROM $tableName WHERE ID = ?");
+        $id = ucfirst(strtolower($tableName))."ID";
+        //echo $id;
+        $stmt = $db->prepare("SELECT * FROM $tableName WHERE $id = ?");
+        //var_dump($stmt);
         $stmt->execute([$rowId]);
         $result = $stmt->fetch();
         if ($result)

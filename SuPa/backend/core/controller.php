@@ -28,10 +28,10 @@ class Controller
 
         if (file_exists($viewPath)) {
             View::render($viewPath, $this->_params);
-            echo "aosijaosijdoaisjdosijdoaisjd";
+
         } else {
-            echo $viewPath;
-            echo "file not found";
+            //echo $viewPath;
+            //echo "file not found";
             //header('Location: index.php?page=pages&view=error&error=404');
         }
 

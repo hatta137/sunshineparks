@@ -9,7 +9,7 @@ $controllerName = $_GET['page'] ?? 'home';
 $actionName     = $_GET['view'] ?? 'home';
 
 $controllerPath = __DIR__ . '/controllers/' . $controllerName . '-controller.php';
-//echo $controllerPath;
+
 
 if (file_exists($controllerPath)) {
     require_once $controllerPath;
@@ -27,9 +27,7 @@ if (file_exists($controllerPath)) {
         if (method_exists($controllerInstance, $actionMethodName)) {
             // execute function matching the name
             $controllerInstance->$actionMethodName();
-            echo $actionName;
-            echo $actionMethodName;
-            echo $controllerPath;
+
             // render corresponding view
             $controllerInstance->renderHTML();
         } else {
