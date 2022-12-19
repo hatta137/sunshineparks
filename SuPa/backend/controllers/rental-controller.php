@@ -12,22 +12,27 @@ class RentalController extends Controller{
         echo "_paramsAllRental<br>";
     }
 
-    public function actionSingleRental(){
-        $requestId = $_GET['id'] ?? 0;
 
-        if ($requestId != 0) {
-            $rental = Rental::findById($requestId);
+    //TODO singleRental mit filter Eingaben suchen
 
-            if (is_null($rental)) {
-                //header('Location: index.php?page=pages&view=error&error=404');
-            }
+    //public function actionSingleRental(){
+    //    $requestId = $_GET['id'] ?? 0;
+//
+    //    if ($requestId != 0) {
+    //        $rental = Rental::findById($requestId);
+//
+    //        if (is_null($rental)) {
+    //            //header('Location: index.php?page=pages&view=error&error=404');
+    //        }
+//
+    //        $this->_params['rental'] = $rental;
+    //    } else {
+    //        //header('Location: index.php?page=pages&view=error&error=404');
+    //    }
+//
+    //}
 
-            $this->_params['rental'] = $rental;
-        } else {
-            //header('Location: index.php?page=pages&view=error&error=404');
-        }
 
-    }
-
+    //TODO add new Object function -> siehe SQL procedure letztes Semester
 
 }

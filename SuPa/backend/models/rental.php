@@ -22,28 +22,30 @@ class Rental extends Model{
         $rentals = array();
         foreach ($result as $rental){
 
-            foreach ($rental as $items){
-                echo $items."<br>";
-                //$rentals [] = new Rental($items['RentalID']);
-            }
+            //foreach ($rental as $items){
+            //    echo $items."<br>";
+            //    //$rentals [] = new Rental($items['RentalID']);
+            //}
 
-
+            $rentals [] = new Rental($rental['ID']);
 
 
         }
-        echo $rentals;
+        //echo $rentals;
         return $rentals;
     }
 
-    public static function findById($id): ?Rental {
-        $db = self::getDB();
-        $stmt = $db->prepare('SELECT * FROM RENTAL WHERE');
-        $stmt->execute();
-        echo "exe<br>";
-        $result[] = $stmt->fetchAll();
-        $newRental = new Rental($result['RentalID']);
-        return $newRental;
-    }
+    //TODO singleRental mit filter Eingaben suchen
+
+    //public static function findByFilter(....): ?Rental {
+    //    $db = self::getDB();
+    //    $stmt = $db->prepare('SELECT * FROM RENTAL WHERE');
+    //    $stmt->execute();
+    //    echo "exe<br>";
+    //    $result[] = $stmt->fetchAll();
+    //    $newRental = new Rental($result['RentalID']);
+    //    return $newRental;
+    //}
 
 
 

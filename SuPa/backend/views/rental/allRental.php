@@ -2,7 +2,7 @@
 <section class="allObjects">
     <div class="row">
         allRentals
-        <?php foreach ($allRentals as $rental): ?>
+        <?php foreach  ($allRentals as $rental): ;?>
         <div class="objectBox">
             <img src="../assets/graphics/Objekte/Usedom/Usedom1.jpg" alt="Haus Usedom 1">
             <div class="objectBoxText">
@@ -10,11 +10,11 @@
                 <table>
                     <tr>
                         <td>Schlafzimmer:</td>
-                        <td><?= $rental->Bedroom?></td>
+                        <td><?= $rental[0]->Bedroom?></td>
                     </tr>
                     <tr>
                         <td>Bäder:</td>
-                        <td><?= $rental->Bathroom?></td>
+                        <td><?= $rental[0]->Bathroom?></td>
                     </tr>
                     <tr>
                         <td>Küchen:</td>
@@ -22,17 +22,17 @@
                     </tr>
                     <tr>
                         <td>Max. Gäste:</td>
-                        <td><?= $rental->MaxVisitor?></td>
+                        <td><?= $rental[0]->MaxVisitor?></td>
                     </tr>
                     <tr>
                         <td>Quadratmeter:</td>
-                        <td><?= $rental->SqrMeter?></td>
+                        <td><?= $rental[0]->SqrMeter?></td>
                     </tr>
                 </table>
                 <a href="" class="btn">Buchen</a>
                 <a href="" class="btn">Mehr</a>
             </div>
         </div>
-        <?php endforeach;?>
+        <?php endforeach; var_dump($allRentals)?>
     </div>
 </section>
