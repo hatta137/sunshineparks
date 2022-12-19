@@ -1,3 +1,5 @@
+
+
 <!--   AllObjects -->
 <section class="allObjects">
     <div class="row">
@@ -8,7 +10,21 @@
         <div class="objectBox">
             <img src="../assets/graphics/Objekte/Usedom/Usedom1.jpg" alt="Haus Usedom 1">
             <div class="objectBoxText">
-                <h2>Usedom Haus am Meer</h2>
+                <h2><?php
+
+                    echo Rental::getRentalType($items->RentalID);
+
+                    if ($items->AreaID === 10){
+                        echo 'am Meer';
+                    }elseif ($items->AreaID === 20){
+                        echo 'in den Bergen';
+                    }elseif ($items->AreaID === 30){
+                        echo 'in der Stadt';
+                    }
+
+
+
+                    ?></h2>
                 <table>
                     <tr>
                         <td>Schlafzimmer:</td>

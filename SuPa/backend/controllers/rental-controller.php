@@ -8,6 +8,19 @@ class RentalController extends Controller{
 
         $allRentals[] = Rental::getAllRental();
 
+        /***
+         * Needed Model functions:
+         * - getRentalArea
+         * - getRentalType(RentalID) : String ("House" oder "Appartment")
+         *
+         */
+        //$allRentalAreas = array();
+        //foreach ($allRentals as $rental){
+        //    $allRentalAreas[] = Rental::getRentalArea($rental->RentalID);
+        //}
+
+
+
         $this->_params['allRentals'] = $allRentals;
 
 
