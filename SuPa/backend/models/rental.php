@@ -45,12 +45,12 @@ class Rental extends Model{
 
 
             if ($appartment['RentalID'] === $renatlID)
-                return "Appartment ";
+                return "Apartment ";
         }
 
         foreach ($houses as $house){
             if ($house['RentalID'] === $renatlID)
-                return "House ";
+                return "Haus ";
         }
         return "No Rental Found ";
 
