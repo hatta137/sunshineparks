@@ -58,7 +58,7 @@ class Rental extends Model{
     }
 
 
-    public static function getRentalArea($rentalID){
+    public static function getRentalArea($rentalID) :string{
 
         $db = self::getDB();
 
@@ -73,6 +73,44 @@ class Rental extends Model{
 
 
     //TODO singleRental mit filter Eingaben suchen
+
+    public static function findRentalsByFilter($resort, $startDate, $endDate, $numberOfGuests) :array{
+
+
+        $db = self::getDB();
+
+        // Setzt Funktion fn_GetResortID("ResortName") voraus
+
+        $stmtGetResortID = $db->prepare('call fn_GetResortID("?")');
+        $stmtGetResortID->execute($resort);
+        $resortID = $stmtGetResortID->fetch();
+
+        $stmtRentalsInResort = $db->prepare('SELECT * FROM RENTAL JOIN RESORT ON RENTAL.ResortID = RESORT.ResortID WHERE ResortID = $resortID');
+        $stmtRentalsInResort->execute();
+        $rentalsInResort = $stmtRentalsInResort->fetchAll();
+
+        $stmtRentalsInBooking = $db->prepare('SELECT * FROM RENTAL 
+                                                    JOIN BOOKINGDETAIL ON RENTAL.RentalID = BOOKINGDETAIL.RentalID 
+                                                    JOIN BOOKING ON BOOKING.BookingID = BOOKINGDETAIL.BookingID 
+                                                    JOIN RESORT ON RENTAL.ResortID = ?
+                                                    WHERE RENTAL.MaxVisitor >= ?');
+
+        foreach ($rentalsInResort as $rental){
+            if ($rental['MaxVisitor'] >= $numberOfGuests){
+
+            }
+        }
+
+
+
+        $resultRentals = array();
+
+       // foreach ($rentals as $rental){
+
+        //}
+        return $resultRentals;
+
+    }
 
     //public static function findByFilter(....): ?Rental {
     //    $db = self::getDB();
