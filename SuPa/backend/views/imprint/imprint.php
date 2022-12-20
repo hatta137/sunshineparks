@@ -30,6 +30,7 @@
     <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
     <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
+    <a href="index.php?page=documentation&view=documentation"><h2> Dokumentation des Projektes  </h2></a>
 
 
 </section>

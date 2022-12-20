@@ -106,14 +106,14 @@ class Rental extends Model{
              */
 
             $stmtRentals = $db->prepare('SELECT RENTAL.RentalID   FROM RENTAL
-                                                                    LEFT JOIN BOOKINGDETAIL ON RENTAL.RentalID = BOOKINGDETAIL.RentalID 
-                                                                    LEFT JOIN BOOKING ON BOOKING.BookingID = BOOKINGDETAIL.BookingID 
-                                                                    AND     (BOOKING.EndDateRent < ? OR BOOKING.StartDateRent > ?)
-                                                            
-                                                                    JOIN RESORT ON RESORT.ResortID = RENTAL.ResortID
-                                                                    WHERE   RENTAL.MaxVisitor >= ?
-                                                                    AND     RENTAL.ResortID = ?
-                                                                    AND		BOOKING.BookingID IS null;');
+                                                                        LEFT JOIN BOOKINGDETAIL ON RENTAL.RentalID = BOOKINGDETAIL.RentalID 
+                                                                        LEFT JOIN BOOKING ON BOOKING.BookingID = BOOKINGDETAIL.BookingID 
+                                                                        AND     (BOOKING.EndDateRent < ? OR BOOKING.StartDateRent > ?)
+                                                                        
+                                                                        JOIN RESORT ON RESORT.ResortID = RENTAL.ResortID
+                                                                        WHERE   RENTAL.MaxVisitor >= ?
+                                                                        AND     RENTAL.ResortID = ?
+                                                                        AND		BOOKING.BookingID IS null;');
             $stmtRentals->execute([$startDate, $endDate, $numberOfGuests, $resortID]);
             $rentalIDs = $stmtRentals->fetchAll();
 
@@ -239,10 +239,12 @@ class Rental extends Model{
 
         try {
             $db = self::getDB();
+
+            // TODO check ob das so mit den vielen Fragezeichen richtig ist?!
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-            $stmtNewRental->execute([$maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
-                $resortName, $balcony, $roomnumber, $floor, $terrace, $kitchen,
-                $street, $houseNumber, $zipCode, $city, $state]);
+            $stmtNewRental->execute([   $maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
+                                        $resortName, $balcony, $roomnumber, $floor, $terrace, $kitchen,
+                                        $street, $houseNumber, $zipCode, $city, $state]);
             return true;
         }catch (PDOException $e){
             echo $e;

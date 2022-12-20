@@ -1,0 +1,10 @@
+.odd{
+    background-color: whitesmoke;
+    color: #222;
+    padding: 5%;
+}
+.even{
+    padding: 5%;
+    background-color: #222;
+    color: whitesmoke;
+}

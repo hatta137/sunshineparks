@@ -93,24 +93,23 @@ class RentalController extends Controller{
 
 
         $newRental = Rental::newRental(
-            $maxVisitors,
-            $bedroom,
-            $bathroom,
-            $sqrMeter,
-            $status,
-            $isApartment,
-            $resortName,
-            $balcony,
-            $roomnumber,
-            $floor,
-            $terrace,
-            $kitchen,
-            $street,
-            $houseNumber,
-            $zipCode,
-            $city,
-            $state);
-
+                                        $maxVisitors,
+                                        $bedroom,
+                                        $bathroom,
+                                        $sqrMeter,
+                                        $status,
+                                        $isApartment,
+                                        $resortName,
+                                        $balcony,
+                                        $roomnumber,
+                                        $floor,
+                                        $terrace,
+                                        $kitchen,
+                                        $street,
+                                        $houseNumber,
+                                        $zipCode,
+                                        $city,
+                                        $state);
 
         $this->_params['newRental'] = $newRental; // achtung boolean
     }
