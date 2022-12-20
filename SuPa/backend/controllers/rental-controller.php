@@ -13,23 +13,26 @@ class RentalController extends Controller{
             $rentals = Rental::findRentalsByFilter($_GET['resort'], $_GET['startDate'], $_GET['endDate'], $_GET['numberOfGuests']);
         }
 
+
+
         /** Array that Provides the TypeOf and Location String for each Rental */
         $rentalTypes = [];
-
         foreach ($rentals as $rental){
             $rentalTypes[] = $rental->getRentalType();
         }
 
+
+
         /** Array that Provides the Number of Kitchens in a Rental */
-
         $rentalKitchen = [];
-
         foreach ($rentals as $rental){
             $rentalKitchen[] = $rental->getNumberOfKitchen();
         }
 
-        $rentalFreeSeat = [];
 
+
+        /** Array that Provides the Type of FreeSeat (Apartment -> Balcony Y/N or House -> Terrace Y/N in a Rental */
+        $rentalFreeSeat = [];
         foreach ($rentals as $rental){
             $rentalFreeSeat[] = $rental->getTypeOfFreeSeat();
         }

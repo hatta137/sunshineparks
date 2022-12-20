@@ -126,31 +126,42 @@ class Rental extends Model{
     }
 
 
-
-
+    /***
+     * Author: Hendrik Lendeckel
+     * @return int the Number of Kitchens in the Rental
+     */
 
     public function getNumberOfKitchen() :int{
 
         $typeOfRental = substr($this->getRentalType(), 0, 4);
 
+
+        /** A Apartment has no kitchens */
         if ($typeOfRental === "Apar"){
             return  0;
+        }else{
+
+            /** if it is a house, the database is checked to see how many kitchens it has */
+
+            $db = self::getDB();
+            $stmtNumberOFKitchens = $db->prepare('SELECT Kitchen FROM HOUSE WHERE RentalID = ?');
+            $stmtNumberOFKitchens->execute([$this->RentalID]);
+
+            $numberOfKitchens = $stmtNumberOFKitchens->fetch();
+
+            return  $numberOfKitchens['Kitchen'];
         }
-
-        $db = self::getDB();
-        $stmtNumberOFKitchens = $db->prepare('SELECT Kitchen FROM HOUSE WHERE RentalID = ?');
-        $stmtNumberOFKitchens->execute([$this->RentalID]);
-
-        $numberOfKitchens = $stmtNumberOFKitchens->fetch();
-
-        return  $numberOfKitchens['Kitchen'];
     }
 
 
-
-
+    /**
+     * Author: Hendrik Lendeckel
+     * @return String with the information whether the house or apartment has a balcony or a terrace
+     */
 
     public function getTypeOfFreeSeat() :String{
+
+        /** getting the Type of the rental from the function way above*/
         $typeOfRental = substr($this->getRentalType(), 0, 4);
         $db = self::getDB();
 
@@ -169,7 +180,9 @@ class Rental extends Model{
             }else{
                 $typeOfFreeSeat = "Ohne Terrasse";
             }
+
         }elseif ($typeOfRental === "Apar"){
+
             $stmtBalcony = $db->prepare('SELECT Balcony FROM APPARTMENT WHERE RentalID = ?');
             $stmtBalcony->execute([$this->RentalID]);
             $boolBalcony = $stmtBalcony->fetch();
@@ -185,8 +198,6 @@ class Rental extends Model{
         }
 
         return $typeOfFreeSeat;
-
-
     }
 
 
