@@ -114,6 +114,8 @@ class RentalController extends Controller{
         $this->_params['newRental'] = $newRental; // achtung boolean
     }
 
+    //TODO Check & Comments
+
     public function actionShowRenovation(){
 
         $allRenovations = Rental::getAllRenovation();
@@ -124,21 +126,42 @@ class RentalController extends Controller{
 
     }
 
-    public function actionNewRenovation(){
 
-        $rentalID  = $_GET['rentalID'];
-        $startDate = $_GET['startDate'];
-        $plannedEndDate = $_GET['plannedEndDate'];
-        $description = $_GET['description'];
-        $plannedCosts = $_GET['plannedCosts'];
+    //TODO Check & Comments
+    public function actionShowRenovation(){
 
-        $companyName = $_GET['companyName'];
-        $craftservCategory = $_GET['craftservCategory'];
-        $phone = $_GET['phone'];
-        $craftservStreet = $_GET['craftservStreet'];
+        $rentalID               = $_GET['rentalID'];
+        $startDate              = $_GET['startDate'];
+        $plannedEndDate         = $_GET['plannedEndDate'];
+        $description            = $_GET['description'];
+        $plannedCosts           = $_GET['plannedCosts'];
+
+        $companyName            = $_GET['companyName'];
+        $craftservCategory      = $_GET['craftservCategory'];
+        $phone                  = $_GET['phone'];
+        $craftservStreet        = $_GET['craftservStreet'];
+        $craftservHouseNumber   = $_GET['craftservHouseNumber'];
+        $craftservZipCode       = $_GET['craftservZipCode'];
+        $craftservCity          = $_GET['craftservCity'];
+        $craftservState         = $_GET['craftservState'];
 
 
 
+        $newRenovation = Rental::newRenovation(  $rentalID
+                                                ,$startDate
+                                                ,$plannedEndDate
+                                                ,$description
+                                                ,$plannedCosts
+                                                ,$companyName
+                                                ,$craftservCategory
+                                                ,$phone
+                                                ,$craftservStreet
+                                                ,$craftservHouseNumber
+                                                ,$craftservZipCode
+                                                ,$craftservCity
+                                                ,$craftservState      );
+
+        $this->_params['newRenovation'] = $newRenovation; // achtung bool
 
 
     }
