@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="../assets/css/authentication.css">
+
 <div class="LoginBox">
 
     <div class="header">
@@ -18,9 +21,4 @@
             <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Gast">
         </div>
     </div>
-
-    <div class="footer">
-
-    </div>
-
 </div>

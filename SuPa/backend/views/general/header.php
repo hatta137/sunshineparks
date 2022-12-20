@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../assets/css/allObjects.css">
     <link rel="stylesheet" href="../assets/css/imprint.css">
     <link rel="stylesheet" href="../assets/css/privacy.css">
-    <link rel="stylesheet" href="../assets/css/authentication.css">
     <link rel="stylesheet" href="../assets/css/documentation.css">
 
 

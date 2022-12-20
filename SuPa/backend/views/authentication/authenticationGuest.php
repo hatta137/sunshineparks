@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="../assets/css/authentication.css">
+
 <div class="LoginBox">
 
     <div class="header">
@@ -16,12 +19,6 @@
             <p>Noch kein Konto?</p>
             <input type="submit" onclick="window.location.href='index.php?page=registration&view=registration'" value="Zur Registrierung">
             <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationIntern'" value="Intern">
-
         </div>
     </div>
-
-    <div class="footer">
-
-    </div>
-
 </div>
