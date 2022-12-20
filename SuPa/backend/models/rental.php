@@ -255,6 +255,17 @@ class Rental extends Model{
 
     }
 
+    //TODO Implement the function
+    public function getAllRenovation() : array{
+
+
+        // Achtung, es muss ein Join zwischen Rental Strucchange und Craftserv geben
+        // In dem Array müssen alle Informationen zum Strucchange und dem dazugehörigem Craftserv sowie der RentalID und der Adressen des Craftserv und der Adresse des Rentals sein
+
+
+        return array();
+    }
+
 
 
 

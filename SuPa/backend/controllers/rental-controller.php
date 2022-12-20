@@ -114,4 +114,33 @@ class RentalController extends Controller{
         $this->_params['newRental'] = $newRental; // achtung boolean
     }
 
+    public function actionShowRenovation(){
+
+        $allRenovations = Rental::getAllRenovation();
+
+        $this->_params['allRenovations'] = $allRenovations;
+
+
+
+    }
+
+    public function actionNewRenovation(){
+
+        $rentalID  = $_GET['rentalID'];
+        $startDate = $_GET['startDate'];
+        $plannedEndDate = $_GET['plannedEndDate'];
+        $description = $_GET['description'];
+        $plannedCosts = $_GET['plannedCosts'];
+
+        $companyName = $_GET['companyName'];
+        $craftservCategory = $_GET['craftservCategory'];
+        $phone = $_GET['phone'];
+        $craftservStreet = $_GET['craftservStreet'];
+
+
+
+
+
+    }
+
 }
