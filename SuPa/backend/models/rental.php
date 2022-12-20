@@ -60,9 +60,7 @@ class Rental extends Model{
             return "No Rental found";
         }
 
-        /***
-         * The correct location is requested here
-         */
+        /** The correct location is requested here */
 
         if ($this->AreaID === 10){
             $typeOfLocation = 'am Meer';
@@ -95,18 +93,19 @@ class Rental extends Model{
          * The name of a rental is transferred to this function and returns the appropriate RentalID
          */
 
-        $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
-        $stmtGetResortID->execute([$resort]);
-        $resortID = $stmtGetResortID->fetch()['ID'];
+        try {
+            $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
+            $stmtGetResortID->execute([$resort]);
+            $resortID = $stmtGetResortID->fetch()['ID'];
 
-        /***
-         * This query provides us with all rentals which:
-         *      1. have no bookings or
-         *      2. have no booking in the desired period and
-         *      3. are in the desired resort
-         */
+            /***
+             * This query provides us with all rentals which:
+             *      1. have no bookings or
+             *      2. have no booking in the desired period and
+             *      3. are in the desired resort
+             */
 
-        $stmtRentals = $db->prepare('SELECT RENTAL.RentalID   FROM RENTAL
+            $stmtRentals = $db->prepare('SELECT RENTAL.RentalID   FROM RENTAL
                                                                     LEFT JOIN BOOKINGDETAIL ON RENTAL.RentalID = BOOKINGDETAIL.RentalID 
                                                                     LEFT JOIN BOOKING ON BOOKING.BookingID = BOOKINGDETAIL.BookingID 
                                                                     AND     (BOOKING.EndDateRent < ? OR BOOKING.StartDateRent > ?)
@@ -115,13 +114,17 @@ class Rental extends Model{
                                                                     WHERE   RENTAL.MaxVisitor >= ?
                                                                     AND     RENTAL.ResortID = ?
                                                                     AND		BOOKING.BookingID IS null;');
-        $stmtRentals->execute([$startDate, $endDate, $numberOfGuests, $resortID]);
-        $rentalIDs = $stmtRentals->fetchAll();
+            $stmtRentals->execute([$startDate, $endDate, $numberOfGuests, $resortID]);
+            $rentalIDs = $stmtRentals->fetchAll();
 
-        $rentals = array();
-        foreach ($rentalIDs as $rentalID){
-            $rentals [] = new Rental($rentalID['RentalID']);
+            $rentals = array();
+            foreach ($rentalIDs as $rentalID){
+                $rentals [] = new Rental($rentalID['RentalID']);
+            }
+        }catch (PDOException $e){
+            $e;
         }
+
         return $rentals;
     }
 
@@ -165,41 +168,90 @@ class Rental extends Model{
         $typeOfRental = substr($this->getRentalType(), 0, 4);
         $db = self::getDB();
 
-        $typeOfFreeSeat = "";
+        try {
+            $typeOfFreeSeat = "";
 
-        if ($typeOfRental === "Haus"){
+            if ($typeOfRental === "Haus"){
 
-            $stmtTerrace = $db->prepare('SELECT Terrace FROM HOUSE WHERE RentalID = ?');
-            $stmtTerrace->execute([$this->RentalID]);
-            $boolTerrace = $stmtTerrace->fetch();
+                $stmtTerrace = $db->prepare('SELECT Terrace FROM HOUSE WHERE RentalID = ?');
+                $stmtTerrace->execute([$this->RentalID]);
+                $boolTerrace = $stmtTerrace->fetch();
 
 
 
-            if ($boolTerrace['Terrace'] === 'Y'){
-                $typeOfFreeSeat = "Inklusive Terrasse";
+                if ($boolTerrace['Terrace'] === 'Y'){
+                    $typeOfFreeSeat = "Inklusive Terrasse";
+                }else{
+                    $typeOfFreeSeat = "Ohne Terrasse";
+                }
+
+            }elseif ($typeOfRental === "Apar"){
+
+                $stmtBalcony = $db->prepare('SELECT Balcony FROM APPARTMENT WHERE RentalID = ?');
+                $stmtBalcony->execute([$this->RentalID]);
+                $boolBalcony = $stmtBalcony->fetch();
+
+                if ($boolBalcony['Balcony'] === 'Y'){
+                    $typeOfFreeSeat = "Inklusive Balkon";
+                }else{
+                    $typeOfFreeSeat = "Ohne Balkon";
+                }
+
             }else{
-                $typeOfFreeSeat = "Ohne Terrasse";
+                $typeOfFreeSeat = "No Rental Found";
             }
-
-        }elseif ($typeOfRental === "Apar"){
-
-            $stmtBalcony = $db->prepare('SELECT Balcony FROM APPARTMENT WHERE RentalID = ?');
-            $stmtBalcony->execute([$this->RentalID]);
-            $boolBalcony = $stmtBalcony->fetch();
-
-            if ($boolBalcony['Balcony'] === 'Y'){
-                $typeOfFreeSeat = "Inklusive Balkon";
-            }else{
-                $typeOfFreeSeat = "Ohne Balkon";
-            }
-
-        }else{
-            $typeOfFreeSeat = "No Rental Found";
+        }catch (PDOException $e){
+            echo $e;
         }
+
 
         return $typeOfFreeSeat;
     }
 
+
+    /**
+     * Author: Hendrik Lendeckel
+     * This function creates a new rental using the database procedure p_NewRental.
+     * This database procedure uses other sub-procedures.
+     *
+     * @param $maxVisitors
+     * @param $bedroom
+     * @param $bathroom
+     * @param $sqrMeter
+     * @param $status
+     * @param $isApartment
+     * @param $resortName
+     * @param $balcony
+     * @param $roomnumber
+     * @param $floor
+     * @param $terrace
+     * @param $kitchen
+     * @param $street
+     * @param $houseNumber
+     * @param $zipCode
+     * @param $city
+     * @param $state
+     * @return void
+     */
+    public static function newRental($maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
+                                     $resortName, $balcony, $roomnumber, $floor, $terrace, $kitchen,
+                                     $street, $houseNumber, $zipCode, $city, $state) :bool{
+
+        try {
+            $db = self::getDB();
+            $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+            $stmtNewRental->execute([$maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
+                $resortName, $balcony, $roomnumber, $floor, $terrace, $kitchen,
+                $street, $houseNumber, $zipCode, $city, $state]);
+            return true;
+        }catch (PDOException $e){
+            echo $e;
+            return false;
+        }
+
+
+
+    }
 
 
 
