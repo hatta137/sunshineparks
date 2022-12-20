@@ -256,7 +256,7 @@ class Rental extends Model{
     }
 
     //TODO Implement the function
-    public function getAllRenovation() : array{
+    public static function getAllRenovation() : array{
 
 
         // Achtung, es muss ein Join zwischen Rental Strucchange und Craftserv geben
@@ -266,6 +266,24 @@ class Rental extends Model{
         return array();
     }
 
+
+    //TODO Implement the function
+
+    public static function newRenovation(    $rentalID
+                                            ,$startDate
+                                            ,$plannedEndDate
+                                            ,$description
+                                            ,$plannedCosts
+                                            ,$companyName
+                                            ,$craftservCategory
+                                            ,$phone
+                                            ,$craftservStreet
+                                            ,$craftservHouseNumber
+                                            ,$craftservZipCode
+                                            ,$craftservCity
+                                            ,$craftservState          ) :bool{
+
+    }
 
 
 
