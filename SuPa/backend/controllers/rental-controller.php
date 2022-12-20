@@ -2,49 +2,47 @@
 require_once __DIR__.'/../models/rental.php';
 class RentalController extends Controller{
 
-    public function actionAllRental(){
+    public function actionShowRental(){
+
+        $show = $_GET['show'];
+        $rentals = array();
+        if ($show === 'all'){
+            $rentals = Rental::getAllRental();
+
+        } elseif ($show = 'filter'){
+            $rentals = Rental::findRentalsByFilter($_GET['resort'], $_GET['startDate'], $_GET['endDate'], $_GET['numberOfGuests']);
+        }
+
+        /** Array that Provides the TypeOf and Location String for each Rental */
+        $rentalTypes = [];
+
+        foreach ($rentals as $rental){
+            $rentalTypes[] = $rental->getRentalType();
+        }
+
+        /** Array that Provides the Number of Kitchens in a Rental */
+
+        $rentalKitchen = [];
+
+        foreach ($rentals as $rental){
+            $rentalKitchen[] = $rental->getNumberOfKitchen();
+        }
+
+        $rentalFreeSeat = [];
+
+        foreach ($rentals as $rental){
+            $rentalFreeSeat[] = $rental->getTypeOfFreeSeat();
+        }
 
 
 
-        $allRentals[] = Rental::getAllRental();
-
-        /***
-         * Needed Model functions:
-         * - getRentalArea
-         * - getRentalType(RentalID) : String ("House" oder "Appartment")
-         *
-         */
-        //$allRentalAreas = array();
-        //foreach ($allRentals as $rental){
-        //    $allRentalAreas[] = Rental::getRentalArea($rental->RentalID);
-        //}
-
-
-
-        $this->_params['allRentals'] = $allRentals;
-
+        $this->_params['allRentals'] = $rentals;
+        $this->_params['rentalTypes'] = $rentalTypes;
+        $this->_params['rentalKitchen'] = $rentalKitchen;
+        $this->_params['rentalFreeSeat'] = $rentalFreeSeat;
 
     }
 
-
-    //TODO singleRental mit filter Eingaben suchen
-
-    //public function actionSingleRental(){
-    //    $requestId = $_GET['id'] ?? 0;
-//
-    //    if ($requestId != 0) {
-    //        $rental = Rental::findById($requestId);
-//
-    //        if (is_null($rental)) {
-    //            //header('Location: index.php?page=pages&view=error&error=404');
-    //        }
-//
-    //        $this->_params['rental'] = $rental;
-    //    } else {
-    //        //header('Location: index.php?page=pages&view=error&error=404');
-    //    }
-//
-    //}
 
 
     //TODO add new Object function -> siehe SQL procedure letztes Semester

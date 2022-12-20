@@ -4,123 +4,192 @@ class Rental extends Model{
 
     public function __construct($rentalId)
     {
-
         parent::__construct('RENTAL', $rentalId);
     }
 
 
-
-    public static function getAllRental() : array
-    {
-
+    /***
+     * Author: Hendrik Lendeckel
+     * This method returns all rentals from the database
+     * @return array of instances of the Objects Rental
+     */
+    public static function getAllRental() : array{
         $db = self::getDB();
 
         $stmt = $db->prepare('SELECT * FROM RENTAL');
         $stmt->execute();
-
         $result = $stmt->fetchAll();
+
         $rentals = array();
+
         foreach ($result as $rental){
-
             $rentals [] = new Rental($rental['RentalID']);
-
-
         }
         return $rentals;
     }
 
-    public static function getRentalType($renatlID) : string{
 
+    /***
+     * Author: Hendrik Lendeckel
+     *
+     * @return string with the right type of Rental (Apartment or House) and the right Location (Mountain/Ocean/City)
+     */
+    public function getRentalType() : string{
         $db = self::getDB();
-        $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT');
-        $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE');
-        $stmt1->execute();
-        $stmt2->execute();
-        $appartments = $stmt1->fetchAll();
-        $houses = $stmt2->fetchAll();
 
+        /**
+         * This method accesses the instance variable RentalID and uses it to find out in the queries whether
+         * the RentalID occurs in the APPARTMENT table or in the HOUSE table or in neither of the two.
+         */
 
+        $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
+        $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
+        $stmt1->execute([$this->RentalID]);
+        $stmt2->execute([$this->RentalID]);
+        $apartments = $stmt1->fetch();
+        $houses = $stmt2->fetch();
 
-        foreach ($appartments as $appartment){
+        $typeOfRental = "";
+        $typeOfLocation = "";
 
-
-            if ($appartment['RentalID'] === $renatlID)
-                return "Apartment ";
+        if ($apartments){
+            $typeOfRental = "Apartment ";
+        } elseif ($houses){
+            $typeOfRental = "Haus ";
+        } else{
+            return "No Rental found";
         }
 
-        foreach ($houses as $house){
-            if ($house['RentalID'] === $renatlID)
-                return "Haus ";
+        /***
+         * The correct location is requested here
+         */
+
+        if ($this->AreaID === 10){
+            $typeOfLocation = 'am Meer';
+        }elseif ($this->AreaID === 20){
+            $typeOfLocation = 'in den Bergen';
+        }elseif ($this->AreaID === 30){
+            $typeOfLocation = 'in der Stadt';
         }
-        return "No Rental Found ";
 
-
+        return $typeOfRental.$typeOfLocation;
     }
 
 
-    public static function getRentalArea($rentalID) :string{
 
-        $db = self::getDB();
+    /***
+     * Author: Hendrik Lendeckel
+     * @param $resort
+     * @param $startDate
+     * @param $endDate
+     * @param $numberOfGuests
+     * @return array of instances of the Objects Rental
+     */
 
-        $stmt = $db->prepare('SELECT Name FROM AREA JOIN RENTAL ON AREA.AreaID = RENTAL.AreaID');
-        $stmt->execute();
-        $result = $stmt->fetch();
-        return $result;
-
-    }
-
-
-
-
-    //TODO singleRental mit filter Eingaben suchen
 
     public static function findRentalsByFilter($resort, $startDate, $endDate, $numberOfGuests) :array{
-
-
         $db = self::getDB();
 
-        // Setzt Funktion fn_GetResortID("ResortName") voraus
+        /***
+         * Uses the function fn_GetResortID(), which is stored in the database.
+         * The name of a rental is transferred to this function and returns the appropriate RentalID
+         */
 
-        $stmtGetResortID = $db->prepare('call fn_GetResortID("?")');
-        $stmtGetResortID->execute($resort);
-        $resortID = $stmtGetResortID->fetch();
+        $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
+        $stmtGetResortID->execute([$resort]);
+        $resortID = $stmtGetResortID->fetch()['ID'];
 
-        $stmtRentalsInResort = $db->prepare('SELECT * FROM RENTAL JOIN RESORT ON RENTAL.ResortID = RESORT.ResortID WHERE ResortID = $resortID');
-        $stmtRentalsInResort->execute();
-        $rentalsInResort = $stmtRentalsInResort->fetchAll();
+        /***
+         * This query provides us with all rentals which:
+         *      1. have no bookings or
+         *      2. have no booking in the desired period and
+         *      3. are in the desired resort
+         */
 
-        $stmtRentalsInBooking = $db->prepare('SELECT * FROM RENTAL 
-                                                    JOIN BOOKINGDETAIL ON RENTAL.RentalID = BOOKINGDETAIL.RentalID 
-                                                    JOIN BOOKING ON BOOKING.BookingID = BOOKINGDETAIL.BookingID 
-                                                    JOIN RESORT ON RENTAL.ResortID = ?
-                                                    WHERE RENTAL.MaxVisitor >= ?');
+        $stmtRentals = $db->prepare('SELECT RENTAL.RentalID   FROM RENTAL
+                                                                    LEFT JOIN BOOKINGDETAIL ON RENTAL.RentalID = BOOKINGDETAIL.RentalID 
+                                                                    LEFT JOIN BOOKING ON BOOKING.BookingID = BOOKINGDETAIL.BookingID 
+                                                                    AND     (BOOKING.EndDateRent < ? OR BOOKING.StartDateRent > ?)
+                                                            
+                                                                    JOIN RESORT ON RESORT.ResortID = RENTAL.ResortID
+                                                                    WHERE   RENTAL.MaxVisitor >= ?
+                                                                    AND     RENTAL.ResortID = ?
+                                                                    AND		BOOKING.BookingID IS null;');
+        $stmtRentals->execute([$startDate, $endDate, $numberOfGuests, $resortID]);
+        $rentalIDs = $stmtRentals->fetchAll();
 
-        foreach ($rentalsInResort as $rental){
-            if ($rental['MaxVisitor'] >= $numberOfGuests){
+        $rentals = array();
+        foreach ($rentalIDs as $rentalID){
+            $rentals [] = new Rental($rentalID['RentalID']);
+        }
+        return $rentals;
+    }
 
-            }
+
+
+
+
+    public function getNumberOfKitchen() :int{
+
+        $typeOfRental = substr($this->getRentalType(), 0, 4);
+
+        if ($typeOfRental === "Apar"){
+            return  0;
         }
 
+        $db = self::getDB();
+        $stmtNumberOFKitchens = $db->prepare('SELECT Kitchen FROM HOUSE WHERE RentalID = ?');
+        $stmtNumberOFKitchens->execute([$this->RentalID]);
+
+        $numberOfKitchens = $stmtNumberOFKitchens->fetch();
+
+        return  $numberOfKitchens['Kitchen'];
+    }
 
 
-        $resultRentals = array();
 
-       // foreach ($rentals as $rental){
 
-        //}
-        return $resultRentals;
+
+    public function getTypeOfFreeSeat() :String{
+        $typeOfRental = substr($this->getRentalType(), 0, 4);
+        $db = self::getDB();
+
+        $typeOfFreeSeat = "";
+
+        if ($typeOfRental === "Haus"){
+
+            $stmtTerrace = $db->prepare('SELECT Terrace FROM HOUSE WHERE RentalID = ?');
+            $stmtTerrace->execute([$this->RentalID]);
+            $boolTerrace = $stmtTerrace->fetch();
+
+
+
+            if ($boolTerrace['Terrace'] === 'Y'){
+                $typeOfFreeSeat = "Inklusive Terrasse";
+            }else{
+                $typeOfFreeSeat = "Ohne Terrasse";
+            }
+        }elseif ($typeOfRental === "Apar"){
+            $stmtBalcony = $db->prepare('SELECT Balcony FROM APPARTMENT WHERE RentalID = ?');
+            $stmtBalcony->execute([$this->RentalID]);
+            $boolBalcony = $stmtBalcony->fetch();
+
+            if ($boolBalcony['Balcony'] === 'Y'){
+                $typeOfFreeSeat = "Inklusive Balkon";
+            }else{
+                $typeOfFreeSeat = "Ohne Balkon";
+            }
+
+        }else{
+            $typeOfFreeSeat = "No Rental Found";
+        }
+
+        return $typeOfFreeSeat;
+
 
     }
 
-    //public static function findByFilter(....): ?Rental {
-    //    $db = self::getDB();
-    //    $stmt = $db->prepare('SELECT * FROM RENTAL WHERE');
-    //    $stmt->execute();
 
-    //    $result[] = $stmt->fetchAll();
-    //    $newRental = new Rental($result['RentalID']);
-    //    return $newRental;
-    //}
 
 
 

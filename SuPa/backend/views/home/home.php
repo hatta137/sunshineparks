@@ -2,22 +2,25 @@
     <div class="header-content">
         <h1>Erlebe einen traumhaften Urlaub in unseren Resorts!</h1>
         <p>Wohin soll es gehen?</p>
-        <form>
-            <select name="Resort">
+        <form action="index.php" method="get">
+            <input type="hidden" name="page" value="rental">
+            <input type="hidden" name="view" value="showRental">
+            <input type="hidden" name="show" value="filter">
+            <select name="resort">
                 <option value="Usedom">Usedom</option>
                 <option value="Erfurt">Erfurt</option>
                 <option value="Oberhof">Oberhof</option>
                 <option value="Berchtesgaden">Berchtesgaden</option>
             </select>
-            <input type="text" name="StartDate" placeholder="von"
+            <input type="text" name="startDate" placeholder="von"
                    onfocus="(this.type='date')"
                    onblur="(this.type='text')">
-            <input type="text" name="EndDate" placeholder="bis"
+            <input type="text" name="endDate" placeholder="bis"
                    onfocus="(this.type='date')"
                    onblur="(this.type='text')">
-            <input type="number" min="0" max="16" placeholder="Anzahl der Reisenden">
+            <input type="number" name="numberOfGuests" min="0" max="16" placeholder="Anzahl der Reisenden">
             <input type="submit" value="Suche">
-            <a href="index.php?page=rental&view=allRental"><input type="button" value="Zeig Alle"></a>
+            <a href="index.php?page=rental&view=showRental&show=all"><input type="button" value="Zeig Alle"></a>
 
         </form>
     </div>

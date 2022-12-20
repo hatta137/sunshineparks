@@ -3,56 +3,42 @@
 <!--   AllObjects -->
 <section class="allObjects">
     <div class="row">
-        allRentals
-        <?php foreach  ($allRentals as $rental):
-                foreach ($rental as $items) :
+        <?php for  ($i = 0; $i < count($allRentals); $i++):
+            $rental = $allRentals[$i];
             ?>
         <div class="objectBox">
             <img src="../assets/graphics/Objekte/Usedom/Usedom1.jpg" alt="Haus Usedom 1">
             <div class="objectBoxText">
-                <h2><?php
-
-                    echo Rental::getRentalType($items->RentalID);
-
-                    if ($items->AreaID === 10){
-                        echo 'am Meer';
-                    }elseif ($items->AreaID === 20){
-                        echo 'in den Bergen';
-                    }elseif ($items->AreaID === 30){
-                        echo 'in der Stadt';
-                    }
-
-
-
-                    ?></h2>
+                <h2><?= $rentalTypes[$i] ?></h2>
                 <table>
                     <tr>
                         <td>Schlafzimmer:</td>
-                        <td><?= $items->Bedroom?></td>
+                        <td><?= $rental->Bedroom?></td>
                     </tr>
                     <tr>
                         <td>Bäder:</td>
-                        <td><?= $items->Bathroom?></td>
+                        <td><?= $rental->Bathroom?></td>
                     </tr>
                     <tr>
                         <td>Küchen:</td>
-                        <td>Küchen</td>
+                        <td><?=$rentalKitchen[$i]?></td>
                     </tr>
                     <tr>
                         <td>Max. Gäste:</td>
-                        <td><?= $items->MaxVisitor?></td>
+                        <td><?= $rental->MaxVisitor?></td>
                     </tr>
                     <tr>
                         <td>Quadratmeter:</td>
-                        <td><?= $items->SqrMeter?></td>
+                        <td><?= $rental->SqrMeter?></td>
+                    </tr>
+                    <tr>
+                        <td><?= $rentalFreeSeat[$i]?></td>
                     </tr>
                 </table>
                 <a href="" class="btn">Buchen</a>
                 <a href="" class="btn">Mehr</a>
             </div>
         </div>
-        <?php
-                endforeach;
-                endforeach; ?>
+        <?php endfor; ?>
     </div>
 </section>
