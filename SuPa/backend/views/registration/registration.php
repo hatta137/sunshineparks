@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../assets/css/authentication.css">
+
 <div class="LoginBox">
 
     <div class="header">
@@ -33,7 +35,6 @@
             <input type="password" placeholder="Passwort" required>
             <input type="password" placeholder="Passwort wiederholen" required>
         </div>
-
     </div>
 
     <div class="footer">
