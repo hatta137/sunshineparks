@@ -68,6 +68,9 @@ input[type=submit]:hover {
     transition: 0.5s
 }
 
+
+/* TODO Warum wird hier nochmal der footer adressiert?*/
+
 .footer{
     display: flex;
     flex-direction: column;

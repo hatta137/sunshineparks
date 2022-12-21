@@ -22,12 +22,14 @@
     }
     .showmenu{
         display: block;
+
         width: 250px;   /*Nachträglich eingefügt*/
         margin: 50px;   /*Nachträglich eingefügt*/
     }
     nav ul li{
         display: block;
         padding: 2% 0;
+
     }
     nav ul li a{
         color: #222;

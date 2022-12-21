@@ -1,0 +1,26 @@
+
+/* Footer */
+footer{
+    display: flex;
+    height: 80px;
+    background-color: #222;
+    color: #fff;
+    line-height: 80px;
+    text-align: center;
+}
+
+footer .row{
+    justify-content: center;
+}
+footer ul{
+    list-style-type: none;
+}
+footer ul li{
+    display: inline-block;
+    margin-left: 2.5rem;
+    color: #fff;
+}
+footer ul li a:hover{
+    color: #48AC98;
+    transition: .5s ease-in-out;
+}

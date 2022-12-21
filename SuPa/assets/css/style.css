@@ -61,15 +61,7 @@ header{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
 }
 
-.topbox{
-    height: 92vh;
 
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url("../graphics/usedom.jpg");
-    background-repeat:  no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: whitesmoke;
-}
 
 
 
@@ -106,80 +98,6 @@ nav ul li a:hover{
     transition: .5s ease-in-out;
 }
 
-.header-content{
-    width: 50%;
-    position: relative;
-    top: 9%;
-    left: 8%;
-}
-form{
-    margin: 2.4rem;
-}
-input{
-    font-size: 1.8rem;
-}
-select,
-input[type=date],
-input[type=number],
-input[type=text],
-input[type=email],
-input[type=button],
-input[type=submit]{
-    width: 50%;
-    padding: 12px 20px;
-    margin: 1.2rem 0;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-select{
-    font-size: 1.3rem;
-    color: #ccc;
-}
-select option{
-    font-size: 1.3rem;
-    color: #ccc;
-}
-input[type=submit],
-input[type=button]{
-    width: 50%;
-    background-color: #48AC98;
-    color: #fff;
-    padding: 14px 20px;
-    margin: 1.2rem 0;
-    border:none;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-input::placeholder{
-    font-size: 1.3rem;
-    color: #ccc;
-}
 
 
 
-/* Footer */
-footer{
-    display: flex;
-    height: 80px;
-    background-color: #222;
-    color: #fff;
-    line-height: 80px;
-    text-align: center;
-}
-
-footer .row{
-    justify-content: center;
-}
-footer ul{
-    list-style-type: none;
-}
-footer ul li{
-    display: inline-block;
-    margin-left: 2.5rem;
-    color: #fff;
-}
-footer ul li a:hover{
-    color: #48AC98;
-    transition: .5s ease-in-out;
-}
