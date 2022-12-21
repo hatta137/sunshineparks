@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <title>SunshineParks</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/mediaQuerrys.css">
     <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/contactBox.css">
     <link rel="stylesheet" href="../assets/css/allObjects.css">
     <link rel="stylesheet" href="../assets/css/imprint.css">
     <link rel="stylesheet" href="../assets/css/privacy.css">
     <link rel="stylesheet" href="../assets/css/documentation.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/mediaQuerrys.css">
 
 
 

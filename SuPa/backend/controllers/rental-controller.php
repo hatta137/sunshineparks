@@ -128,7 +128,7 @@ class RentalController extends Controller{
 
 
     //TODO Check & Comments
-    public function actionShowRenovation(){
+    public function actionNewRenovation(){
 
         $rentalID               = $_GET['rentalID'];
         $startDate              = $_GET['startDate'];
