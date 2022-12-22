@@ -1346,7 +1346,7 @@ CREATE TABLE `v_getReinigungsplan` (
 --
 DROP TABLE IF EXISTS `s_ShowRenovation`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `s_ShowRenovation`  AS SELECT `STRUCCHANGE`.`ChangeID` AS `ChangeID`, `STRUCCHANGE`.`RentalID` AS `RentalID`, `STRUCCHANGE`.`StartDate` AS `StartDate`, `STRUCCHANGE`.`PlannedEndDate` AS `PlannedEndDate`, `STRUCCHANGE`.`EndDate` AS `EndDate`, `STRUCCHANGE`.`Description` AS `Description`, `STRUCCHANGE`.`PlannedCosts` AS `PlannedCosts`, `STRUCCHANGE`.`EndCosts` AS `EndCosts`, `STRUCCHANGE`.`CraftServID` AS `CraftServID` FROM `STRUCCHANGE` WHERE `STRUCCHANGE`.`EndDate` is nullnull  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `s_ShowRenovation`  AS SELECT `STRUCCHANGE`.`ChangeID` AS `ChangeID`, `STRUCCHANGE`.`RentalID` AS `RentalID`, `STRUCCHANGE`.`StartDate` AS `StartDate`, `STRUCCHANGE`.`PlannedEndDate` AS `PlannedEndDate`, `STRUCCHANGE`.`EndDate` AS `EndDate`, `STRUCCHANGE`.`Description` AS `Description`, `STRUCCHANGE`.`PlannedCosts` AS `PlannedCosts`, `STRUCCHANGE`.`EndCosts` AS `EndCosts`, `STRUCCHANGE`.`CraftServID` AS `CraftServID` FROM `STRUCCHANGE` WHERE `STRUCCHANGE`.`EndDate` is null  ;
 
 -- --------------------------------------------------------
 
