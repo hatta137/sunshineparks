@@ -1,39 +1,23 @@
 
 
-<!--   AllObjects -->
+
 <section class="allObjects">
     <div class="row">
         <?php for  ($i = 0; $i < count($allRentals); $i++):
             $rental = $allRentals[$i];
             ?>
         <div class="objectBox">
+<!--            TODO Anpassen der Bilder -->
             <img src="../assets/graphics/Objekte/Usedom/Usedom1.jpg" alt="Haus Usedom 1">
             <div class="objectBoxText">
                 <h2><?= $rentalTypes[$i] ?></h2>
                 <table>
-                    <tr>
-                        <td>Schlafzimmer:</td>
-                        <td><?= $rental->Bedroom?></td>
-                    </tr>
-                    <tr>
-                        <td>Bäder:</td>
-                        <td><?= $rental->Bathroom?></td>
-                    </tr>
-                    <tr>
-                        <td>Küchen:</td>
-                        <td><?=$rentalKitchen[$i]?></td>
-                    </tr>
-                    <tr>
-                        <td>Max. Gäste:</td>
-                        <td><?= $rental->MaxVisitor?></td>
-                    </tr>
-                    <tr>
-                        <td>Quadratmeter:</td>
-                        <td><?= $rental->SqrMeter?></td>
-                    </tr>
-                    <tr>
-                        <td><?= $rentalFreeSeat[$i]?></td>
-                    </tr>
+                    <tr><td>Schlafzimmer:</td><td><?= $rental->Bedroom?></td></tr>
+                    <tr><td>Bäder:</td><td><?= $rental->Bathroom?></td></tr>
+                    <tr><td>Küchen:</td><td><?=$rentalKitchen[$i]?></td></tr>
+                    <tr><td>Max. Gäste:</td><td><?= $rental->MaxVisitor?></td></tr>
+                    <tr><td>Quadratmeter:</td><td><?= $rental->SqrMeter?></td></tr>
+                    <tr><td><?= $rentalFreeSeat[$i]?></td></tr>
                 </table>
                 <a href="" class="btn">Buchen</a>
                 <a href="" class="btn">Mehr</a>

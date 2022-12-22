@@ -11,6 +11,8 @@ class RentalController extends Controller{
      */
     public function actionShowRental(){
 
+        //TODO der ganze Bilder quatsch fehlt auch noch
+
         $show = $_GET['show'];
         $rentals = array();
         if ($show === 'all'){
@@ -20,15 +22,11 @@ class RentalController extends Controller{
             $rentals = Rental::findRentalsByFilter($_GET['resort'], $_GET['startDate'], $_GET['endDate'], $_GET['numberOfGuests']);
         }
 
-
-
         /** Array that Provides the TypeOf and Location String for each Rental */
         $rentalTypes = [];
         foreach ($rentals as $rental){
             $rentalTypes[] = $rental->getRentalType();
         }
-
-
 
         /** Array that Provides the Number of Kitchens in a Rental */
         $rentalKitchen = [];
@@ -36,21 +34,16 @@ class RentalController extends Controller{
             $rentalKitchen[] = $rental->getNumberOfKitchen();
         }
 
-
-
         /** Array that Provides the Type of FreeSeat (Apartment -> Balcony Y/N or House -> Terrace Y/N in a Rental */
         $rentalFreeSeat = [];
         foreach ($rentals as $rental){
             $rentalFreeSeat[] = $rental->getTypeOfFreeSeat();
         }
 
-
-
         $this->_params['allRentals'] = $rentals;
         $this->_params['rentalTypes'] = $rentalTypes;
         $this->_params['rentalKitchen'] = $rentalKitchen;
         $this->_params['rentalFreeSeat'] = $rentalFreeSeat;
-
     }
 
 
@@ -138,9 +131,20 @@ class RentalController extends Controller{
 
     public function actionShowRenovation(){
 
-        $allRenovations = Rental::getAllRenovation();
+        $show = $_GET['show'];
+        $resortName = $_GET['resort'];
 
-        $this->_params['allRenovations'] = $allRenovations;
+        $renovations = array();
+
+        if ($show === 'all'){
+            $renovations = Rental::getAllRenovation();
+        }elseif ($show == 'byResort'){
+            $renovations = Rental::getRenovationByResort($resortName);
+        }
+
+
+
+        $this->_params['renovations'] = $renovations;
 
 
 

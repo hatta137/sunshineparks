@@ -1,3 +1,6 @@
+<!-- Dieser View wird aufgerufen, sobald ein neues Rental erfolgreich angelegt wurde-->
+
+
 <section class="newRental">
     <div class="row">
         <h1>Folgendes Objekt wurde erfolgreich angelegt:</h1>

@@ -85,8 +85,10 @@ class Rental extends Model{
      */
 
 
-    public static function findRentalsByFilter($resort, $startDate, $endDate, $numberOfGuests) :array{
+    public static function findRentalsByFilter($resortName, $startDate, $endDate, $numberOfGuests) :array{
         $db = self::getDB();
+
+        $resortID = self::getResortIdByResortName($resortName);
 
         /***
          * Uses the function fn_GetResortID(), which is stored in the database.
@@ -94,9 +96,8 @@ class Rental extends Model{
          */
 
         try {
-            $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
-            $stmtGetResortID->execute([$resort]);
-            $resortID = $stmtGetResortID->fetch()['ID'];
+
+
 
             /***
              * This query provides us with all rentals which:
@@ -127,6 +128,20 @@ class Rental extends Model{
 
         return $rentals;
     }
+
+
+    public static function getResortIdByResortName($resortName) :int{
+        $db = self::getDB();
+
+
+        $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
+        $stmtGetResortID->execute([$resortName]);
+        $resortID = $stmtGetResortID->fetch()['ID'];
+
+        return $resortID;
+    }
+
+
 
 
     /***
@@ -265,6 +280,26 @@ class Rental extends Model{
 
         return array();
     }
+
+
+
+    //TODO Implement the function
+    public static function getRenovationByResort($resortName) : array{
+
+        $resortID = self::getResortIdByResortName($resortName);
+
+        // Achtung, es muss ein Join zwischen Rental Strucchange und Craftserv geben
+        // In dem Array müssen alle Informationen zum Strucchange und dem dazugehörigem Craftserv sowie der RentalID und der Adressen des Craftserv und der Adresse des Rentals sein
+
+
+        return array();
+    }
+
+
+
+
+
+
 
 
     //TODO Implement the function
