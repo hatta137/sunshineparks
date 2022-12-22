@@ -54,21 +54,26 @@ class RentalController extends Controller{
     }
 
 
+    public function actionNewRental(){
+
+    }
+
+
     /**
      * Author: Hendrik Lendeckel
      * This function creates a new Rental
      * @return void
      */
 
-    public function actionNewRental(){
+    public function actionAddNewRental(){
 
         $maxVisitors  = $_GET['maxVisitors'];       // int
         $bedroom      = $_GET['bedroom'];           // int
         $bathroom     = $_GET['bathroom'];          // int
         $sqrMeter     = $_GET['sqrMeter'];          // int
-        $status       = $_GET['status'];            // enum ('R','N','C','D','M','B')
-        $isApartment  = $_GET['isApartment'];       // bool
-        $resortName   = $_GET['resortName'];        // string
+        $status       = "C";
+        $isApartment  = $_GET['isApartment'];       // bool // wird als auswahl übergeben -> checken was es ist
+        $resortName   = $_GET['resort'];
         $balcony      = $_GET['balcony'];           // enum ('Y','N')
         $roomnumber   = $_GET['roomnumber'];        // int
         $floor        = $_GET['floor'];             // int
@@ -78,7 +83,7 @@ class RentalController extends Controller{
         $houseNumber  = $_GET['houseNumber'];       // int
         $zipCode      = $_GET['zipCode'];           // string (max 5 zeichen)
         $city         = $_GET['city'];              // string
-        $state        = $_GET['state'];             // string
+        $state        = "GER";
 
 
         /** check if Apartment and correct any incorrect entries */

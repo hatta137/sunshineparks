@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../assets/css/imprint.css">
     <link rel="stylesheet" href="../assets/css/privacy.css">
     <link rel="stylesheet" href="../assets/css/documentation.css">
+    <link rel="stylesheet" href="../assets/css/rental.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/mediaQuerrys.css">
 
