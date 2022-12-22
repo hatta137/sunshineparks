@@ -32,3 +32,11 @@
     font-weight: 400;
     font-size: 2.4rem;
 }
+
+.newRental ul{
+    list-style-type: none;
+}
+
+.newRental ul li{
+    font-size: 1.8rem;
+}
