@@ -67,37 +67,46 @@ class RentalController extends Controller{
 
     public function actionAddNewRental(){
 
-        $maxVisitors  = $_GET['maxVisitors'];       // int
-        $bedroom      = $_GET['bedroom'];           // int
-        $bathroom     = $_GET['bathroom'];          // int
-        $sqrMeter     = $_GET['sqrMeter'];          // int
+        $maxVisitors  = $_POST['maxVisitors'];       // int
+        $bedroom      = $_POST['bedroom'];           // int
+        $bathroom     = $_POST['bathroom'];          // int
+        $sqrMeter     = $_POST['sqrMeter'];          // int
         $status       = "C";
-        $isApartment  = $_GET['isApartment'];       // bool // wird als auswahl übergeben -> checken was es ist
-        $resortName   = $_GET['resort'];
-        $balcony      = $_GET['balcony'];           // enum ('Y','N')
-        $roomnumber   = $_GET['roomnumber'];        // int
-        $floor        = $_GET['floor'];             // int
-        $terrace      = $_GET['terrace'];           // enum ('Y','N')
-        $kitchen      = $_GET['kitchen'];           // int
-        $street       = $_GET['street'];            // string
-        $houseNumber  = $_GET['houseNumber'];       // int
-        $zipCode      = $_GET['zipCode'];           // string (max 5 zeichen)
-        $city         = $_GET['city'];              // string
+        $resortName   = $_POST['resort'];
+
+
+
+        $kitchen      = $_POST['kitchen'];           // int
+        $street       = $_POST['street'];            // string
+        $houseNumber  = $_POST['houseNumber'];       // int
+        $zipCode      = $_POST['zipCode'];           // string (max 5 zeichen)
+        $city         = $_POST['city'];              // string
         $state        = "GER";
 
+        $terrace      = $_POST['terrace'];           // enum ('Y','N')
+        $roomnumber   = $_POST['roomnumber'];        // int
+        $floor        = $_POST['floor'];             // int
+        $balcony      = $_POST['balcony'];           // enum ('Y','N')
 
-        /** check if Apartment and correct any incorrect entries */
-        if ($isApartment){
-            $kitchen = 0;
-            $terrace = 'N';
-        }else{
-            $balcony = 'N';
-            $roomnumber = 0;
-            $floor = 0;
+        $isApartment  = $_POST['isApartment'];       // bool // wird als auswahl übergeben -> checken was es ist
+
+        if (isset($_POST['type'])){
+            if ($_POST['type'] === "Apartment"){
+                $terrace = 'N';
+                $kitchen = 0;
+                $isApartment = true;
+            }
+            if($_POST['type'] === "House"){
+                $balcony = 'N';
+                $roomnumber = 0;
+                $floor = 0;
+            }
         }
 
 
-        $newRental = Rental::newRental(
+
+
+        $newRentalBool = Rental::newRental(
                                         $maxVisitors,
                                         $bedroom,
                                         $bathroom,
@@ -115,6 +124,12 @@ class RentalController extends Controller{
                                         $zipCode,
                                         $city,
                                         $state);
+
+        if (!$newRentalBool){
+            echo "Error";
+        }
+
+        $newRental = Rental::getLastRentalInResort($resortName);
 
         $this->_params['newRental'] = $newRental; // achtung boolean
     }

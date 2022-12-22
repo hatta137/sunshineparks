@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/contactBox.css">
-    <link rel="stylesheet" href="../assets/css/allObjects.css">
     <link rel="stylesheet" href="../assets/css/imprint.css">
     <link rel="stylesheet" href="../assets/css/privacy.css">
     <link rel="stylesheet" href="../assets/css/documentation.css">

@@ -286,5 +286,12 @@ class Rental extends Model{
     }
 
 
+    // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
+    // aus den Tabellen Appartment und house
+
+    // TODO Implement the function $resort = String
+    public static function getLastRentalInResort($resort) : array{
+
+    }
 
 }

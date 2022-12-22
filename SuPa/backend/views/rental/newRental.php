@@ -1,6 +1,6 @@
 <section class="newRental">
 
-    <form>
+    <form action="index.php?page=rental&view=AddNewRental" method="post">
         <div class="row">
             <h1>Ein neues Objekt anlegen</h1>
         </div>
@@ -41,11 +41,11 @@
                 </select>
 
 
-                <!--                TODO entweder oder einbauen bei checkboxen -->
+
                 <fieldset>
-                    <input type="radio" id="balcony" name="balcony" placeholder="Balkon">
+                    <input type="radio" id="balcony" name="freeseat" placeholder="Balkon" value="balcony">
                     <label for="balcony">Balkon</label>
-                    <input type="radio" id="terrace" name="balcony" placeholder="Balkon">
+                    <input type="radio" id="terrace" name="freeseat" placeholder="Terrasse" value="terrace">
                     <label for="terrace">Terasse</label>
                 </fieldset>
 
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="row">
-            <a href=""><input type="button" value="Neues Objekte anlegen"></a>
+            <a href=""><input type="button" value="Neues Objekte anlegen" name="send"></a>
         </div>
     </form>
 </section>
