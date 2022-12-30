@@ -62,3 +62,11 @@ class Model
     }
 
 }
+
+//Prinzipieller Ablauf für Models und Funktionen
+
+/*
+Jedes Model zweigt einen Bereich aus der Datenbank, im besten Fall hat man für jede Tabelle ein Model.
+
+Das Model greift auf die Daten zu die der Controller benötigt. Man kann entweder gleich im Model mit der Selektierung der Daten beginnen oder dann im View.
+*/

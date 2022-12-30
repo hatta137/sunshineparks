@@ -271,95 +271,13 @@ class Rental extends Model{
     }
 
 
-
-    /**
-     * Author: Max Schelenz
-     * This function gets all actual renovations and returns them in an array.
-     * no params
-     * @return array
-     */
-    //TODO Implement the function
-    public static function getAllRenovation() : array{
-        //Schritt 1 Datenbankvebrindung herstellen
-        $db = self::getDB();
-
-        //Schritt 2 Die verwendeten Daten auswählen und vorbereiten
-        $stmtRenovations = $db->prepare('SELECT * FROM STRUCCHANGE
-                                                        JOIN RENTAL ON STRRUCHANGE.RentalID = RENTAL.RentalID;
-                                                        JOIN CRAFTSERVICE ON STRUCCHANGE.CraftServID = CRAFTSERVICE.CaftServID;
-                                                        WHERE STRUCCHANGE.ChangeID IS NOT NULL;');
-
-        //Schritt 3 Array erstellen, in dem die Daten gespeichert werden und ausgelesen werden können
-
-
-        //Schritt 4 Daten in das Array übertragen
-        $stmtRenovations->execute(array());
-
-        //Schritt 5 die im Array gespeicherten Daten zurückgeben
-        return array();
-
-
-        // Achtung, es muss ein Join zwischen Rental Strucchange und Craftserv geben
-        // In dem Array müssen alle Informationen zum Strucchange und dem dazugehörigem Craftserv sowie der RentalID und der Adressen des Craftserv und der Adresse des Rentals sein
-
-    }
-
-
-    /**
-     * Author: Max Schelenz
-     * @param $resortName
-     * @return array
-     */
-    //TODO Implement the function
-    public static function getRenovationByResort($resortName) : array{
-        $db = self::getDB();
-
-        $stmtRenovations = $db->prepare('SELECT * FROM STRUCCHANGE
-                                                        JOIN RENTAL ON STRRUCHANGE.RentalID = RENTAL.RentalID;
-                                                        JOIN CRAFTSERVICE ON STRUCCHANGE.CraftServID = CRAFTSERVICE.CaftServID;
-                                                        WHERE STRUCCHANGE.ChangeID IS NOT NULL;');
-        $resortID = self::getResortIdByResortName($resortName);
-
-
-        // Achtung, es muss ein Join zwischen Rental Strucchange und Craftserv geben
-        // In dem Array müssen alle Informationen zum Strucchange und dem dazugehörigem Craftserv sowie der RentalID und der Adressen des Craftserv und der Adresse des Rentals sein
-
-
-        return array();
-    }
-
-
-
-
-
-
-
-
-    //TODO Implement the function
-
-    public static function newRenovation(    $rentalID
-                                            ,$startDate
-                                            ,$plannedEndDate
-                                            ,$description
-                                            ,$plannedCosts
-                                            ,$companyName
-                                            ,$craftservCategory
-                                            ,$phone
-                                            ,$craftservStreet
-                                            ,$craftservHouseNumber
-                                            ,$craftservZipCode
-                                            ,$craftservCity
-                                            ,$craftservState          ) :bool{
-
-    }
-
-
     // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
     // aus den Tabellen Appartment und house
 
     // TODO Implement the function $resort = String
     public static function getLastRentalInResort($resort) : array{
 
+        return array();
     }
 
 }
