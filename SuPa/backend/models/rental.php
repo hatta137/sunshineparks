@@ -4,7 +4,7 @@ class Rental extends Model{
 
     public function __construct($rentalId)
     {
-        parent::__construct('RENTAL', $rentalId);
+        parent::__construct('RENTAL', 'RentalID', $rentalId);
     }
 
 
