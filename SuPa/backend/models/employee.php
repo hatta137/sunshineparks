@@ -5,7 +5,7 @@ class Employee extends Model
 
     public function __construct($employeeId)
     {
-        parent::__construct("EMP", "EmpID", $empID);
+        parent::__construct("EMP", "EmpID", $employeeId);
     }
 
     public static function findByPersonId($personId) : ?Employee {
