@@ -10,7 +10,6 @@
     </div>
 </section>
 
-
 <!--   About/ Contentlist-->
 <section class="contentlist-privacy">
     <div>
@@ -102,11 +101,11 @@
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
         <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.</p>
         <p>Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-design überzeugt.</p>
-        <img src="../assets/graphics/docu/airbnb.png" alt="Airbnb-Website">
+        <img src="graphics/docu/airbnb.png" alt="Airbnb-Website">
         <h3>2. CenterParcs</h3>
         <p><a href="https://www.centerparcs.de/" target=”_blank”>Link zur Website centerparcs</a></p>
         <p>Auf der CenterParcs Website haben wir uns auch einige Inspirationen geholt, welche den Seitenaufbau betreffen.</p>
-        <img src="../assets/graphics/docu/centerparcs.png" alt="CenterParcs-Website">
+        <img src="graphics/docu/centerparcs.png" alt="CenterParcs-Website">
     </div>
 </section>
 
@@ -132,10 +131,32 @@
     <div>
         <h1>Design</h1>
         <h2>Layout</h2>
+        <p>
+            Beim Layout haben wir uns dafür entschieden eine moderne Anordnung zu verwenden. Beginnend mit einem Header,
+            welcher das Firmenlogo, den zentrierten Firmenname sowie die Navbar enthält.
+            Der Content-Bereich schließt sich bündig ab und unterteilt sich in verschiedene Sektionen.
+            Der Footer beginnt direkt nach dem Ende des Conent-Bereichs und stellt das Ende der aufgeurfenen Webseite dar.
+        </p>
         <h2>Farben</h2>
+        <p>
+            Unsere Hauptfarben sind Hellblau (Oceans Green und Keppel), sowie die Kontrastfarben Schwarz (Mine Shaft) und Weiß (White Sands).
+            Im Content-Bereich unterteilen wir unsere inhaltlichen Sections mit heller und dunkler Farbgebung.
+        </p>
         <h2>Formen</h2>
+        <p>
+            Buttons versuchen wir möglichst einheitlich aus einer Bibliothek zu verwenden und im grafischen Design orientieren wir uns
+            an unseren Haupt und Nebenfarben, um ein einheitliches, modernes Gesamtbild der Webseite zu präsentieren.
+        </p>
         <h2>Schrift</h2>
+        <p>
+            Als Schriftart verwenden wir beau.tff - diese hat uns besonders durch ihre geschwungenen Bögen und gute Lesbarkeit überzeugt.
+        </p>
         <h2>Positionierung</h2>
+        <p>
+            Das Firmenlogo soll stets oben links auf der Webseite positioniert werden, Grafiken und Icon sollen verhältnismäßig mit den
+            anderen Inhalten zusammen mittig abgebildet sein und ein zentriertes Gesamtbild ergeben.
+        </p>
+
 
     </div>
 </section>
@@ -144,11 +165,29 @@
     <div>
         <h1>Funktionalitäten/Architektur der Seiten</h1>
         <h2>index</h2>
+        <p>
+            @Hendrik bitte hier dein Part ergänzen
+        </p>
         <h2>booking</h2>
+        <p>
+            @Hendrik
+        </p>
         <h2>Anmeldung</h2>
+        <p>
+            @robin bitte hier dein Part ergänzen
+        </p>
         <h2>allObjects</h2>
+        <p>
+            @Hendrik
+        </p>
         <h2>imprint</h2>
+        <p>
+            @Hendrik
+        </p>
         <h2>privacy</h2>
+        <p>
+            @Hendrik
+        </p>
     </div>
 </section>
 
@@ -184,13 +223,15 @@
 <section id="mvcPattern" class ="even">
     <div>
         <h1>MVC Pattern</h1>
-        <img src="../assets/graphics/MVC-Pattern.jpg" alt="MVC-Pattern Umsetzung">
+        <img src="graphics\MVC-Pattern.jpg" alt="MVC-Pattern Umsetzung">
         <h2>Aufteilung</h2>
         <p>
             Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
             die Aufgaben unter uns zu verteilen.
             Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
             Max befasst sich mit den Models und den Anpassungen der Datenbank.
+
+            --Hier noch ein Ausschnitt aus der Ordnerstruktur unseres MVC Patterns ergänzen.
         </p>
 
         <h2>Architektur</h2>
@@ -199,3 +240,4 @@
         </p>
     </div>
 </section>
+
