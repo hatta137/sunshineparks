@@ -255,7 +255,6 @@ class Rental extends Model{
         try {
             $db = self::getDB();
 
-            // TODO check ob das so mit den vielen Fragezeichen richtig ist?!
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRental->execute([   $maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
                                         $resortName, $balcony, $roomnumber, $floor, $terrace, $kitchen,

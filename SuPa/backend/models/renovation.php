@@ -111,7 +111,7 @@ class Renovation extends Model {
                                             $craftservCity,$craftservState) : bool{
         try {
             $db = self::getDB();
-            //TODO check ob das so hinhaut, p_NewRenovation ist bereits in Datenbank integriert
+
             $stmtNewRenovation = $db->prepare('call p_NewRenovation(?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRenovation->execute([$rentalID, $startDate,$plannedEndDate,$description,$plannedCosts,$companyName
                 ,$craftservCategory,$phone,$craftservStreet,$craftservHouseNumber,$craftservZipCode,
