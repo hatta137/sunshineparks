@@ -14,6 +14,9 @@ class AuthenticationController extends Controller {
 
 //logiiiiiiiiic
 
+    public function logicAuthentication(){
+        //$mail = $_POST['mail'];
+    }
 
 
 }
