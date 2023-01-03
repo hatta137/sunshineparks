@@ -362,13 +362,15 @@ CREATE TABLE IF NOT EXISTS MODE
     ,EditRepair                 enum('Y','N')                           not null
     ,AddRental                  enum('Y','N')                           not null
     ,EditRental                 enum('Y','N')                           not null
-    ,ShowRental                 enum('Y','N')                           not null
     ,DeactivateRental           enum('Y','N')                           not null
+    ,ShowRental                 enum('Y','N')                           not null
     ,AddRenovation              enum('Y','N')                           not null
+    ,EditRenovation             enum('Y','N')                           not null
     ,ShowRenovation             enum('Y','N')                           not null
-    ,NewBuilding                enum('Y','N')                           not null
-    ,CloseBuilding              enum('Y','N')                           not null
-    ,ShowNewRental              enum('Y','N')                           not null
+    ,AddNewBuilding             enum('Y','N')                           not null
+    ,EditNewBuilding            enum('Y','N')                           not null
+    ,CloseNewBuildingProcess    enum('Y','N')                           not null
+    ,ShowNewBuildingRental      enum('Y','N')                           not null
     ,CONSTRAINT mode_pk PRIMARY KEY (ModeID)
     );
 
