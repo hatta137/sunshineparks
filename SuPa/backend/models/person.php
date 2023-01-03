@@ -39,4 +39,8 @@ class Person extends Model
         return new Person($row['PersonID']);
     }
 
+    //ToDo public function findPersonByMail -> returns PersonID
+
+    //
+
 }
