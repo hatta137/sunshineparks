@@ -22,4 +22,17 @@ class Person extends Model
         }
     }
 
+    public static function findByMail(string $mail) : ?Person{
+        $db = self::getDB();
+        $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE Mail = ?');
+        $stmt->execute([$mail]);
+        $row = $stmt->fetch();
+
+        if (!$row) {
+            return null;
+        }
+
+        return new Person($row['PersonID']);
+    }
+
 }

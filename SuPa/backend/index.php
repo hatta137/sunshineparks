@@ -7,6 +7,7 @@ require_once 'core/model.php';
 
 $controllerName = $_GET['page'] ?? 'home';
 $actionName     = $_GET['view'] ?? 'home';
+$logicname = $_GET['logic'] ?? 'penis';
 
 $controllerPath = __DIR__ . '/controllers/' . $controllerName . '-controller.php';
 
