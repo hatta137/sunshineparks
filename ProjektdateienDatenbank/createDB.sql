@@ -215,7 +215,6 @@ CREATE TABLE IF NOT EXISTS GUEST
 (
      GuestID	    integer	        not null    AUTO_INCREMENT
     ,PersonID       integer         not null
-    ,PasswordHash   varchar(200)    not null
     ,CONSTRAINT guest_pk PRIMARY KEY (GuestID)
 );
 
@@ -230,7 +229,6 @@ CREATE TABLE IF NOT EXISTS ADMIN
 (
      AdminID	    integer	    not null    AUTO_INCREMENT
     ,PersonID       integer     not null
-    ,PasswordHash   varchar(200)     not null
     ,CONSTRAINT admin_pk PRIMARY KEY (AdminID)
 );
 
@@ -243,9 +241,10 @@ CREATE TABLE IF NOT EXISTS ADMIN
 DROP TABLE IF EXISTS PERSONMODE;
 CREATE TABLE IF NOT EXISTS PERSONMODE
 (
-     PersonID       integer                                 not null    AUTO_INCREMENT
-    ,Mode           enum('A','C','M','MGT','R','B','G')     not null
-    ,CONSTRAINT personmode_pk PRIMARY KEY (PersonID)
+     PersonModeID   integer                                 not null    AUTO_INCREMENT
+     PersonID       integer                                 not null
+    ,ModeID         integer                                 not null
+    ,CONSTRAINT personmode_pk PRIMARY KEY (PersonModeID)
 );
 
 /*------------------------------------------------------------
@@ -338,12 +337,57 @@ CREATE TABLE IF NOT EXISTS CRAFTSERV
     ,CONSTRAINT craftserv_pk PRIMARY KEY (CraftServID)
 );
 
+
+
+
+
+
+
+/*
+------------------------------------------------------------
+--
+-- Tabellenstruktur für Tabelle MODE
+--
+*/
+DROP TABLE IF EXISTS MODE;
+CREATE TABLE IF NOT EXISTS MODE
+(
+    ModeID	                    integer	                                not null
+    ,Role	                    enum('A','C','M','Mgr','R','B','G')	    not null
+    ,AddNewEmp	                enum('Y','N')                           not null
+    ,AddNewGuest	            enum('Y','N')                           not null
+    ,CreateCleaningPlan	        enum('Y','N')	                        not null
+    ,ReportDamageRepair	        enum('Y','N')	                        not null
+    ,ShowRepair                 enum('Y','N')                           not null
+    ,EditRepair                 enum('Y','N')                           not null
+    ,AddRental                  enum('Y','N')                           not null
+    ,EditRental                 enum('Y','N')                           not null
+    ,ShowRental                 enum('Y','N')                           not null
+    ,DeactivateRental           enum('Y','N')                           not null
+    ,AddRenovation              enum('Y','N')                           not null
+    ,ShowRenovation             enum('Y','N')                           not null
+    ,NewBuilding                enum('Y','N')                           not null
+    ,CloseBuilding              enum('Y','N')                           not null
+    ,ShowNewRental              enum('Y','N')                           not null
+    ,CONSTRAINT mode_pk PRIMARY KEY (ModeID)
+    );
+
+
+
 /*
 ----------------------------------------------------------------------------------------------
 -- Ab hier folgen die Fremdschlüssel. Diese wurden in Step 2 der Implementierung hinterlegt --
 ----------------------------------------------------------------------------------------------
 */
 
+/*
+ FOREIGN KEY für RESORT auf AddrID
+*/
+
+ALTER TABLE RESORT
+    ADD CONSTRAINT resort_addrid_fk FOREIGN KEY (AddrID)
+        REFERENCES ADDR(AddrID)
+;
 
 
 /*
@@ -433,7 +477,8 @@ REFERENCES PERSON(PersonID)
  REFERENCES RESORT(ResortID)
 ,ADD CONSTRAINT emp_empid_fk FOREIGN KEY (Manager)
  REFERENCES EMP(EmpID)
-
+,ADD CONSTRAINT emp_addrid_fk FOREIGN KEY (AddrID)
+ REFERENCES ADDR(AddrID)
 ;
 
 /*
@@ -443,8 +488,6 @@ REFERENCES PERSON(PersonID)
 ALTER TABLE GUEST
 ADD CONSTRAINT guest_personid_fk FOREIGN KEY (PersonID)
 REFERENCES PERSON(PersonID)
-
-
 ;
 
 /*
@@ -453,7 +496,8 @@ REFERENCES PERSON(PersonID)
 
 ALTER TABLE ADMIN
 ADD CONSTRAINT admin_personid_fk FOREIGN KEY (PersonID)
-REFERENCES PERSON(PersonID);
+REFERENCES PERSON(PersonID)
+;
 
 
 /*
@@ -462,7 +506,10 @@ REFERENCES PERSON(PersonID);
 
 ALTER TABLE PERSONMODE
 ADD CONSTRAINT personmode_personid_fk FOREIGN KEY (PersonID)
-REFERENCES PERSON(PersonID);
+REFERENCES PERSON(PersonID)
+ADD CONSTRAINT personmode_modeid_fk FOREIGN KEY (ModeID)
+REFERENCES MODE(ModeID)
+;
 
 
 /*
@@ -500,16 +547,6 @@ ALTER TABLE SURCHARGE
  REFERENCES AREA(AreaID)
 
 ;
-
-/*
- FOREIGN KEY für RESORT auf AddrID
-*/ 
-
-ALTER TABLE RESORT
- ADD CONSTRAINT resort_addrid_fk FOREIGN KEY (AddrID)
- REFERENCES ADDR(AddrID)
-;
-
 
 /*
  FOREIGN KEY für CRAFTSERV auf AddrID
