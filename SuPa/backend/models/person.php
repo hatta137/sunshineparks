@@ -1,5 +1,9 @@
 <?php
 
+require_once "admin.php";
+require_once "employee.php";
+require_once "guest.php";
+
 class Person extends Model
 {
 
@@ -22,7 +26,7 @@ class Person extends Model
         }
     }
 
-    public static function findByMail(string $mail) : ?Person{
+    public static function findByMail(string $mail) : ?Person {
         $db = self::getDB();
         $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE Mail = ?');
         $stmt->execute([$mail]);
