@@ -28,10 +28,10 @@ class AuthenticationController extends Controller {
         }
         $personType = $person->AccountType;
         $loginType = $_POST['authType'];
-        if($personType == "guest" && $loginType != "guest"){
+        if($personType == "G" && $loginType != "G"){
             header('Location: index.php?page=error&view=noAccess');
             return;
-        }else if(($personType == "employee" || $personType == "admin") && $loginType != "intern"){
+        }else if(($personType == "E" || $personType == "A") && $loginType != "intern"){
             header('Location: index.php?page=error&view=noAccess');
             return;
         }
@@ -39,10 +39,10 @@ class AuthenticationController extends Controller {
         $this->_params['special'] = $person->getChildClass();
         if($personType === "guest"){
             header('Location: index.php?page=account&view=guest');
-        }else if($personType === "employee"){
+        }else if($personType === "E"){
             header('Location: index.php?page=account&view=employee');
 
-        }else if($personType === "admin"){
+        }else if($personType === "A"){
             header('Location: index.php?page=account&view=admin');
 
         }
