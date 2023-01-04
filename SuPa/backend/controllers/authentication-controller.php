@@ -37,7 +37,7 @@ class AuthenticationController extends Controller {
         }
         $this->_params['person'] = $person;
         $this->_params['special'] = $person->getChildClass();
-        if($personType === "guest"){
+        if($personType === "G"){
             header('Location: index.php?page=account&view=guest');
         }else if($personType === "E"){
             header('Location: index.php?page=account&view=employee');
