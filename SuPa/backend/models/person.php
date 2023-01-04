@@ -15,11 +15,11 @@ class Person extends Model
     // TODO: Add AccountType to database
 
     public function getChildClass() : mixed {
-        if ($this->AccountType == "guest") {
+        if ($this->AccountType == "G") {
             return Guest::findByPersonId($this->PersonID);
-        } else if ($this->AccountType == "employee") {
+        } else if ($this->AccountType == "E") {
             return Employee::findByPersonId($this->PersonID);
-        } else if ($this->AccountType == "admin") {
+        } else if ($this->AccountType == "A") {
             return Admin::findByPersonId($this->PersonID);
         } else {//noAccountType settet
             return null;
