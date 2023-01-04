@@ -6,7 +6,7 @@
 -- Datenbank Version
 -- PHP-Version 8.1.6
 
-
+Dario st
 ------------------------------------------------------------
 */
 DROP DATABASE IF EXISTS SunshineParksWeb;
@@ -244,7 +244,7 @@ DROP TABLE IF EXISTS PERSONMODE;
 CREATE TABLE IF NOT EXISTS PERSONMODE
 (
      PersonModeID   integer                                 not null    AUTO_INCREMENT
-    ,PersonID       integer                                 not null
+     PersonID       integer                                 not null
     ,ModeID         integer                                 not null
     ,CONSTRAINT personmode_pk PRIMARY KEY (PersonModeID)
 );
