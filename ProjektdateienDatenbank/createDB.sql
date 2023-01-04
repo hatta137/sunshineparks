@@ -6,6 +6,7 @@
 -- Datenbank Version
 -- PHP-Version 8.1.6
 
+
 ------------------------------------------------------------
 */
 DROP DATABASE IF EXISTS SunshineParksWeb;
@@ -176,13 +177,15 @@ CREATE TABLE IF NOT EXISTS STRUCCHANGE
 DROP TABLE IF EXISTS PERSON;
 CREATE TABLE IF NOT EXISTS PERSON
 (
-     PersonID       integer	        not null    AUTO_INCREMENT
-    ,FirstName	    varchar(30)	    not null
-    ,LastName	    varchar(50)	    not null
-    ,DateOfBirth	date	        not null
-    ,Tel	        varchar(50)	    not null
-    ,Mail	        varchar(200)	not null
-    ,AddrID         INTEGER         NOT NULL
+     PersonID       integer	        	not null    AUTO_INCREMENT
+    ,FirstName	    varchar(30)	    	not null
+    ,LastName	    varchar(50)	    	not null
+    ,DateOfBirth	date	        	not null
+    ,Tel	        varchar(50)	    	not null
+    ,Mail	        varchar(200)		not null
+    ,AddrID         INTEGER         	NOT NULL
+	,AccountType	enum('A','G','E')	not null
+	,PasswordHash	varchar(200)		not null	
     ,CONSTRAINT person_pk PRIMARY KEY (PersonID)
 );
 
@@ -199,7 +202,6 @@ CREATE TABLE IF NOT EXISTS EMP
     ,Job	        varchar(50)	    not null
     ,ResortID       INTEGER 	    not null
     ,Manager	    integer	        null
-    ,PasswordHash   varchar(200)    not null
     ,CONSTRAINT emp_pk PRIMARY KEY (EmpID)
 );
 
@@ -336,10 +338,6 @@ CREATE TABLE IF NOT EXISTS CRAFTSERV
     ,Mail	        varchar(200)	not null
     ,CONSTRAINT craftserv_pk PRIMARY KEY (CraftServID)
 );
-
-
-
-
 
 
 
