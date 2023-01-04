@@ -38,4 +38,8 @@ class Person extends Model
 
         return new Person($row['PersonID']);
     }
+
+    public static function newPerson(/*die ganzen Person daten aus der registierung view halt*/) :bool{
+        return true; //true oder false je nachdem obs geklappt hat
+    }
 }
