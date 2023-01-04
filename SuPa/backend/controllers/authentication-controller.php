@@ -28,7 +28,7 @@ class AuthenticationController extends Controller {
         }
         $personType = $person->AccountType;
         $loginType = $_POST['authType'];
-        if($personType == "G" && $loginType != "G"){
+        if($personType == "G" && $loginType != "guest"){
             header('Location: index.php?page=error&view=noAccess');
             return;
         }else if(($personType == "E" || $personType == "A") && $loginType != "intern"){
