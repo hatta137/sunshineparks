@@ -475,7 +475,7 @@ ADD CONSTRAINT emp_personid_fk FOREIGN KEY (PersonID)
 REFERENCES PERSON(PersonID)
 ,ADD CONSTRAINT emp_resortid_fk FOREIGN KEY (ResortID)
  REFERENCES RESORT(ResortID)
-,ADD CONSTRAINT emp_empid_fk FOREIGN KEY (Manager)
+,ADD CONSTRAINT emp_manager_fk FOREIGN KEY (Manager)
  REFERENCES EMP(EmpID)
 ;
 

@@ -9,7 +9,6 @@
 LOAD DATA INFILE 'C:/Users/Max/Desktop/CSV/SuPa_ADDR.csv'
     INTO TABLE ADDR
     FIELDS TERMINATED BY ','
-    ENCLOSED BY '"'
     LINES TERMINATED BY '\n';
 
 /* Import AREA Daten */
@@ -17,7 +16,6 @@ LOAD DATA INFILE 'C:/Users/Max/Desktop/CSV/SuPa_ADDR.csv'
 LOAD DATA INFILE 'C:/Users/Max/Desktop/CSV/SuPa_AREA.csv'
 INTO TABLE AREA
 FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
 LINES TERMINATED BY '\n';
 
 /* Import RESORT Daten */
@@ -68,16 +66,16 @@ LOAD DATA INFILE 'C:/Users/Max/Desktop/CSV/SuPa_GUEST.csv'
     INTO TABLE GUEST
     FIELDS TERMINATED BY ';';
 
-/* Import EMP Daten */
-
-LOAD DATA INFILE 'C:/Users/Max/Desktop/CSV/SuPa_EMP.csv'
-    INTO TABLE EMP
-    FIELDS TERMINATED BY ';';
-
 /* Import ADMIN Daten */
 
 LOAD DATA INFILE 'C:/Users/Max/Desktop/CSV/SuPa_ADMIN.csv'
     INTO TABLE ADMIN
+    FIELDS TERMINATED BY ';';
+
+/* Import EMP Daten */
+
+LOAD DATA INFILE 'C:/Users/Max/Desktop/CSV/SuPa_EMP.csv'
+    INTO TABLE EMP
     FIELDS TERMINATED BY ';';
 
 /* Import CLEANING Daten */
