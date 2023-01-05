@@ -10,12 +10,13 @@
     <div class="InputZone">
         <form class="InputBox" action="index.php?page=authentication&logic=login" method="POST">
             <label>Email</label>
-            <input type="text" placeholder="Email Adresse" name="mail" required>
+            <input type="email" placeholder="Email Adresse" name="mail" required>
 
             <label>Passwort</label>
             <input type="password" placeholder="Passwort" name="pwd" required>
 
-            <input type="submit" value="Login">
+            <input type="submit" onclick="window.location.href='index.php?page=account&view=guest'" value="Login">
+
             <p>Noch kein Konto?</p>
             <input type="submit" onclick="window.location.href='index.php?page=registration&view=registration'" value="Zur Registrierung">
             <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationIntern'" value="Intern">

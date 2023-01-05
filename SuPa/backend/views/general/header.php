@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../assets/css/rental.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/mediaQuerrys.css">
-
+    <link rel="stylesheet" href="../assets/css/authentication.css">
 
 
 

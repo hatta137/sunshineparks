@@ -24,7 +24,7 @@
 
         <div class="InputBox">
             <label>Telefon</label>
-            <input type="tel" placeholder="Telefon" required>
+            <input type="text" placeholder="Telefon" required>
         </div>
 
         <div class="InputBox">
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="footer">
+    <div class="foot">
         <input type="submit" value="Registrieren">
         Bereits ein Konto erstellt?
         <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
