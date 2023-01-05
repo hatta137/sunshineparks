@@ -6,14 +6,13 @@
 -- Datenbank Version
 -- PHP-Version 8.1.6
 
-
 ------------------------------------------------------------
 */
-DROP DATABASE IF EXISTS SunshineParksWeb;
-CREATE DATABASE IF NOT EXISTS SunshineParksWeb 
+DROP DATABASE IF EXISTS SUPA;
+CREATE DATABASE IF NOT EXISTS SUPA 
 DEFAULT CHARACTER SET utf8mb4 
 COLLATE utf8mb4_general_ci;
-USE SunshineParksWeb;
+USE SUPA;
 
 /*------------------------------------------------------------
 --
@@ -142,9 +141,8 @@ CREATE TABLE IF NOT EXISTS MAINTENANCE
     ,RentalID	        integer	        not null
     ,Description	    varchar(200)	not null
     ,MaintenanceDate    date            not null
-    ,RepairProtocol     varchar(200)    null
+    ,RepairProtocol     varchar(200)    not null
     ,EmpID	            integer	        not null
-    ,Active             enum('F','O')   not null
     ,CONSTRAINT maintenance_pk PRIMARY KEY (MaintenanceID)
 );
 
@@ -169,25 +167,6 @@ CREATE TABLE IF NOT EXISTS STRUCCHANGE
     ,CONSTRAINT strucchange_pk PRIMARY KEY (ChangeID)
 );
 
-/*------------------------------------------------------------
---
--- Tabellenstruktur für Tabelle PERSON
---*/
-
-DROP TABLE IF EXISTS PERSON;
-CREATE TABLE IF NOT EXISTS PERSON
-(
-     PersonID       integer	        	not null    AUTO_INCREMENT
-    ,FirstName	    varchar(30)	    	not null
-    ,LastName	    varchar(50)	    	not null
-    ,DateOfBirth	date	        	not null
-    ,Tel	        varchar(50)	    	not null
-    ,Mail	        varchar(200)		not null
-    ,AddrID         INTEGER         	NOT NULL
-	,AccountType	enum('A','G','E')	not null
-	,PasswordHash	varchar(200)		not null	
-    ,CONSTRAINT person_pk PRIMARY KEY (PersonID)
-);
 
 /*------------------------------------------------------------
 --
@@ -198,10 +177,15 @@ DROP TABLE IF EXISTS EMP;
 CREATE TABLE IF NOT EXISTS EMP
 (
      EmpID	        integer	        not null    AUTO_INCREMENT
-    ,PersonID       integer         not null
+    ,FirstName	    varchar(30)	    not null
+    ,LastName	    varchar(50)	    not null
+    ,DateOfBirth	date	        not null
     ,Job	        varchar(50)	    not null
     ,ResortID       INTEGER 	    not null
+    ,Tel	        varchar(50)	    not null
+    ,Mail	        varchar(200)	not null
     ,Manager	    integer	        null
+    ,AddrID         INTEGER         NOT NULL
     ,CONSTRAINT emp_pk PRIMARY KEY (EmpID)
 );
 
@@ -215,39 +199,15 @@ CREATE TABLE IF NOT EXISTS EMP
 DROP TABLE IF EXISTS GUEST;
 CREATE TABLE IF NOT EXISTS GUEST
 (
-     GuestID	    integer	        not null    AUTO_INCREMENT
-    ,PersonID       integer         not null
+     GuestID	    integer	    not null    AUTO_INCREMENT
+    ,AddrID	        integer	    not null
+    ,FirstName	    varchar(30)	not null
+    ,LastName	    varchar(50)	not null
+    ,DateOfBirth	date	    not null
+    ,Mail	        varchar(200)	not null
     ,CONSTRAINT guest_pk PRIMARY KEY (GuestID)
 );
 
-/*------------------------------------------------------------
---
--- Tabellenstruktur für Tabelle ADMIN
---*/
-
-
-DROP TABLE IF EXISTS ADMIN;
-CREATE TABLE IF NOT EXISTS ADMIN
-(
-     AdminID	    integer	    not null    AUTO_INCREMENT
-    ,PersonID       integer     not null
-    ,CONSTRAINT admin_pk PRIMARY KEY (AdminID)
-);
-
-/*------------------------------------------------------------
---
--- Tabellenstruktur für Tabelle PERSONMODE
---*/
-
-
-DROP TABLE IF EXISTS PERSONMODE;
-CREATE TABLE IF NOT EXISTS PERSONMODE
-(
-     PersonModeID   integer                                 not null    AUTO_INCREMENT
-    ,PersonID       integer                                 not null
-    ,ModeID         integer                                 not null
-    ,CONSTRAINT personmode_pk PRIMARY KEY (PersonModeID)
-);
 
 /*------------------------------------------------------------
 --
@@ -339,55 +299,12 @@ CREATE TABLE IF NOT EXISTS CRAFTSERV
     ,CONSTRAINT craftserv_pk PRIMARY KEY (CraftServID)
 );
 
-
-
-/*
-------------------------------------------------------------
---
--- Tabellenstruktur für Tabelle MODE
---
-*/
-DROP TABLE IF EXISTS MODE;
-CREATE TABLE IF NOT EXISTS MODE
-(
-    ModeID	                    integer	                                not null
-    ,Role	                    enum('A','C','M','Mgr','R','B','G')	    not null
-    ,AddNewEmp	                enum('Y','N')                           not null
-    ,AddNewGuest	            enum('Y','N')                           not null
-    ,CreateCleaningPlan	        enum('Y','N')	                        not null
-    ,ReportDamageRepair	        enum('Y','N')	                        not null
-    ,ShowRepair                 enum('Y','N')                           not null
-    ,EditRepair                 enum('Y','N')                           not null
-    ,AddRental                  enum('Y','N')                           not null
-    ,EditRental                 enum('Y','N')                           not null
-    ,DeactivateRental           enum('Y','N')                           not null
-    ,ShowRental                 enum('Y','N')                           not null
-    ,AddRenovation              enum('Y','N')                           not null
-    ,EditRenovation             enum('Y','N')                           not null
-    ,ShowRenovation             enum('Y','N')                           not null
-    ,AddNewBuilding             enum('Y','N')                           not null
-    ,EditNewBuilding            enum('Y','N')                           not null
-    ,CloseNewBuildingProcess    enum('Y','N')                           not null
-    ,ShowNewBuildingRental      enum('Y','N')                           not null
-    ,CONSTRAINT mode_pk PRIMARY KEY (ModeID)
-    );
-
-
-
 /*
 ----------------------------------------------------------------------------------------------
 -- Ab hier folgen die Fremdschlüssel. Diese wurden in Step 2 der Implementierung hinterlegt --
 ----------------------------------------------------------------------------------------------
 */
 
-/*
- FOREIGN KEY für RESORT auf AddrID
-*/
-
-ALTER TABLE RESORT
-    ADD CONSTRAINT resort_addrid_fk FOREIGN KEY (AddrID)
-        REFERENCES ADDR(AddrID)
-;
 
 
 /*
@@ -456,59 +373,28 @@ ALTER TABLE STRUCCHANGE
 ;
 
 /*
-    FOREIGN KEY für PERSON auf ADDR (AddrID)
-*/
-
-ALTER TABLE PERSON
-
-ADD CONSTRAINT person_addrid_fk FOREIGN KEY (AddrID)
- REFERENCES ADDR(AddrID);
-
-
-/*
- FOREIGN KEY für EMP auf EmpID (Manager), PERSON (PersonID)
+ FOREIGN KEY für EMP auf EmpID (Manager), AddrID
 */ 
 
 ALTER TABLE EMP
 
-ADD CONSTRAINT emp_personid_fk FOREIGN KEY (PersonID)
-REFERENCES PERSON(PersonID)
-,ADD CONSTRAINT emp_resortid_fk FOREIGN KEY (ResortID)
+ADD CONSTRAINT emp_resortid_fk FOREIGN KEY (ResortID)
  REFERENCES RESORT(ResortID)
-/*,ADD CONSTRAINT emp_manager_fk FOREIGN KEY (Manager)
- REFERENCES EMP(EmpID)*/
+,ADD CONSTRAINT emp_empid_fk FOREIGN KEY (Manager)
+ REFERENCES EMP(EmpID)
+,ADD CONSTRAINT emp_addrid_fk FOREIGN KEY (AddrID)
+ REFERENCES ADDR(AddrID)
 ;
 
 /*
- FOREIGN KEY für GUEST auf PersonID
+ FOREIGN KEY für GUEST auf AddrID
 */ 
 
 ALTER TABLE GUEST
-ADD CONSTRAINT guest_personid_fk FOREIGN KEY (PersonID)
-REFERENCES PERSON(PersonID)
+ ADD CONSTRAINT guest_addrid_fk FOREIGN KEY (AddrID)
+ REFERENCES ADDR(AddrID)
+
 ;
-
-/*
-    FOREIGN KEY für ADMIN auf PersonID
-*/
-
-ALTER TABLE ADMIN
-ADD CONSTRAINT admin_personid_fk FOREIGN KEY (PersonID)
-REFERENCES PERSON(PersonID)
-;
-
-
-/*
-    FOREIGN KEY für PERSONMODE
-*/
-
-ALTER TABLE PERSONMODE
-ADD CONSTRAINT personmode_personid_fk FOREIGN KEY (PersonID)
-REFERENCES PERSON(PersonID)
-,ADD CONSTRAINT personmode_modeid_fk FOREIGN KEY (ModeID)
-REFERENCES MODE(ModeID)
-;
-
 
 /*
  FOREIGN KEY für BOOKING auf VisitorID, GuestID
@@ -543,7 +429,18 @@ ALTER TABLE SURCHARGE
  REFERENCES SEASON(SeasonID)
 ,ADD CONSTRAINT surcharge_areaid_fk FOREIGN KEY (AreaID)
  REFERENCES AREA(AreaID)
+
 ;
+
+/*
+ FOREIGN KEY für RESORT auf AddrID
+*/ 
+
+ALTER TABLE RESORT
+ ADD CONSTRAINT resort_addrid_fk FOREIGN KEY (AddrID)
+ REFERENCES ADDR(AddrID)
+;
+
 
 /*
  FOREIGN KEY für CRAFTSERV auf AddrID
