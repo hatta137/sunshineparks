@@ -1,4 +1,5 @@
 <?php
+start_session();
 
 require_once 'core/controller.php';
 require_once 'core/view.php';
