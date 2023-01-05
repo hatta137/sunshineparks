@@ -295,7 +295,7 @@ create or replace procedure p_NewRental(
 		END IF;
 
 
-		
+		SELECT inRentalID;
 	end $$
 DELIMITER ;
 
