@@ -7,7 +7,7 @@
             <a href=""><input type="button" value="Reinigungsverwaltung"></a>
             <a href=""><input type="button" value="Instandhaltung"></a>
             <a href=""><input type="button" value="Objekte anzeigen"></a>
-            <a href=""><input type="button" value="Neues Objekte anlegen"></a>
+            <a href="index.php?page=rental&view=newRental"><input type="button" value="Neues Objekte anlegen"></a>
             <a href=""><input type="button" value="Renovierungen anzeigen"></a>
             <a href=""><input type="button" value="Neue Renovierung anlegen"></a>
             <a href=""><input type="button" value="laufende Neubauten"></a>

@@ -1,6 +1,6 @@
 <section class="topbox">
     <div class="header-content">
-        <h1>Objektverwaltung</h1>
+        <h1>Manager</h1>
 
         <form>
 

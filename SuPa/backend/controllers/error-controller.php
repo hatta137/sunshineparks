@@ -14,4 +14,8 @@ class ErrorController extends Controller {
 
     }
 
+    public function actionNoMode(){
+
+    }
+
 }
