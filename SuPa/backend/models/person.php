@@ -40,10 +40,18 @@ class Person extends Model
     }
 
 
-        public static function getPersonModeByID(int $personID) :?string{
-          $personMode = 'MGT';
-          return $personMode;
+    public function getPersonModeID() :?int{
+        $db = self::getDB();
+        $stmt = $db->prepare('SELECT ModeID FROM PERSONMODE WHERE PersonID = ?');
+        $stmt->execute([$this->PersonID]);
+        $row = $stmt->fetch();
+
+        if (!$row) {
+            return null;
         }
+
+        return $row['ModeID'];
+    }
 
         /*
         public static function newPerson("die ganzen Person daten aus der registierung view halt") :bool{

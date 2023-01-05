@@ -36,14 +36,39 @@ class AuthenticationController extends Controller {
             header('Location: index.php?page=error&view=noAccess');
             return;
         }
-        $this->_params['person'] = $person;
-        $this->_params['special'] = $person->getChildClass();
-        $this->_params['personMode'] = Person::getPersonModeByID($person->PersonID);
+        $_SESSION['person'] = $person;
+        $_SESSION['special'] = $person->getChildClass();
+        $personMode = $person->getPersonModeID();
         //personmode in _params
         if ($personType === "G") {
             header('Location: index.php?page=account&view=guest');
         } else if ($personType === "E") {
-            header('Location: index.php?page=account&view=manager');
+            switch ($personMode){
+                case 1:
+                    header('Location: index.php?page=account&view=admin');
+                    break;
+                case 2:
+                    header('Location: index.php?page=account&view=cleaning');
+                    break;
+                case 3:
+                    header('Location: index.php?page=account&view=maintanance');
+                    break;
+                case 4:
+                    header('Location: index.php?page=account&view=manager');
+                    break;
+                case 5:
+                    header('Location: index.php?page=account&view=rental');
+                    break;
+                case 6:
+                    header('Location: index.php?page=account&view=booking');
+                    break;
+                case 7:
+                    header('Location: index.php?page=account&view=guest');
+                    break;
+                default:
+                    header('Location: index.php?page=error&view=noMode');
+                    break;
+            }
 
         } else if ($personType === "A") {
             header('Location: index.php?page=account&view=admin');
@@ -51,35 +76,8 @@ class AuthenticationController extends Controller {
         }
     }
 
-        public function logicAccountSite(){
-            //'A', 'C', 'M', 'MGT', 'R', 'B', 'G'
-            switch ($personMode){
-                case 'A':
-                    header('Location: index.php?page=account&view=admin');
-                    break;
-                case 'C':
-                    header('Location: index.php?page=account&view=cleaning');
-                    break;
-                case 'M':
-                    header('Location: index.php?page=account&view=maintanance');
-                    break;
-                case 'MGT':
-                    header('Location: index.php?page=account&view=manager');
-                    break;
-                case 'R':
-                    header('Location: index.php?page=account&view=rental');
-                    break;
-                case 'B':
-                    header('Location: index.php?page=account&view=booking');
-                    break;
-                case 'G':
-                    header('Location: index.php?page=account&view=guest');
-                    break;
-                default:
-                    header('Location: index.php?page=error&view=noMode');
-                    break;
-            }
-        }
+
+
 
 
 
