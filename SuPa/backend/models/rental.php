@@ -237,7 +237,7 @@ class Rental extends Model{
      * @param $isApartment
      * @param $resortName
      * @param $balcony
-     * @param $roomnumber
+     * @param $rnumber
      * @param $floor
      * @param $terrace
      * @param $kitchen
@@ -249,34 +249,55 @@ class Rental extends Model{
      * @return void
      */
     public static function newRental($maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
-                                     $resortName, $balcony, $roomnumber, $floor, $terrace, $kitchen,
-                                     $street, $houseNumber, $zipCode, $city, $state) :bool{
+                                     $resortName, $balcony, $rnumber, $floor, $terrace, $kitchen,
+                                     $street, $houseNumber, $zipCode, $city, $state) :Rental{
+
+
 
         try {
             $db = self::getDB();
 
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRental->execute([   $maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
-                                        $resortName, $balcony, $roomnumber, $floor, $terrace, $kitchen,
+                                        $resortName, $balcony, $rnumber, $floor, $terrace, $kitchen,
                                         $street, $houseNumber, $zipCode, $city, $state]);
-            return true;
+            $rentalID = $stmtNewRental->fetch()['inRentalID'];
+            $stmtNewRental->closeCursor();
+            return new Rental($rentalID);
+
+
         }catch (PDOException $e){
             echo $e;
-            return false;
+
         }
 
-
-
     }
+
+    // getAddressFromRental
 
 
     // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
     // aus den Tabellen Appartment und house
 
     // TODO Implement the function $resort = String
-    public static function getLastRentalInResort($resort) : array{
+    public static function getLastRentalInResort($resort) : Rental{
+        $db = self::getDB();
 
-        return array();
+        $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Erfurt')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
+        $stmtLastRental->execute([$resort]);
+        $rental = $stmtLastRental->fetch();
+
+
+
+
+        return $rental;
+    }
+
+
+    //TODO Implement:
+    public static function getLastRenovation() : Rental{
+
+        return $rental;
     }
 
 }

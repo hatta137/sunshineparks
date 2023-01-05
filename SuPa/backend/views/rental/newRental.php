@@ -1,6 +1,6 @@
 <section class="newRental">
 
-    <form action="index.php?page=rental&view=AddNewRental" method="post">
+    <form action="index.php?page=rental&view=addNewRental" method="post">
         <div class="row">
             <h1>Ein neues Objekt anlegen</h1>
         </div>
@@ -27,7 +27,7 @@
                 </select>
                 <input type="number" name="maxVisitors" placeholder="Maximale Besucherzahl">
                 <input type="number" name="bedroom" placeholder="Anzahl Schlafzimmer">
-                <input type="number" name="bathrooms" placeholder="Anzahl Badezimmer">
+                <input type="number" name="bathroom" placeholder="Anzahl Badezimmer">
                 <input type="number" name="sqrMeter" placeholder="Anzahl Quadratmeter">
 
 
@@ -50,20 +50,17 @@
                 </fieldset>
 
                 <h3>Bei Apartments</h3>
-                <input type="number" name="roomnumber" placeholder="Zimmernummer">
+                <input type="number" name="rnumber" placeholder="Zimmernummer">
                 <input type="number" name="floor" placeholder="Etage">
 
                 <h3>Bei Häusern</h3>
                 <input type="number" name="kitchen" placeholder="Anzahl Küchen">
 
 
-
-
-
             </div>
         </div>
         <div class="row">
-            <a href=""><input type="button" value="Neues Objekte anlegen" name="send"></a>
+            <input type="submit" value="Neues Objekt anlegen" name="send">
         </div>
     </form>
 </section>

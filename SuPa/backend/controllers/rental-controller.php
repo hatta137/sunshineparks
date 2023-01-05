@@ -76,30 +76,42 @@ class RentalController extends Controller{
         $city         = $_POST['city'];              // string
         $state        = "GER";
 
-        $terrace      = $_POST['terrace'];           // enum ('Y','N')
-        $roomnumber   = $_POST['roomnumber'];        // int
-        $floor        = $_POST['floor'];             // int
-        $balcony      = $_POST['balcony'];           // enum ('Y','N')
 
-        $isApartment  = $_POST['isApartment'];       // bool // wird als auswahl übergeben -> checken was es ist
+        $rnumber   = $_POST['rnumber'];        // int
+        $floor        = $_POST['floor'];             // int
+
+
+        $freeseat = $_POST['freeseat'];
+
+        if ($freeseat === "balcony")
+        {
+            $balcony = 'Y';
+            $terrace = 'N';
+        }
+        else if($freeseat === "terrace")
+        {
+            $terrace = 'Y';
+            $balcony = 'N';
+        }
 
         if (isset($_POST['type'])){
             if ($_POST['type'] === "Apartment"){
                 $terrace = 'N';
                 $kitchen = 0;
-                $isApartment = true;
+                $isApartment = 1;
             }
             if($_POST['type'] === "House"){
                 $balcony = 'N';
-                $roomnumber = 0;
+                $rnumber = 0;
                 $floor = 0;
+                $isApartment = 0;
             }
         }
 
 
 
 
-        $newRentalBool = Rental::newRental(
+        $newRental = Rental::newRental(
                                         $maxVisitors,
                                         $bedroom,
                                         $bathroom,
@@ -108,7 +120,7 @@ class RentalController extends Controller{
                                         $isApartment,
                                         $resortName,
                                         $balcony,
-                                        $roomnumber,
+                                        $rnumber,
                                         $floor,
                                         $terrace,
                                         $kitchen,
@@ -118,16 +130,11 @@ class RentalController extends Controller{
                                         $city,
                                         $state);
 
-        if (!$newRentalBool){
-            echo "Error";
-        }
-
-        $newRental = Rental::getLastRentalInResort($resortName);
 
         $this->_params['newRental'] = $newRental;
 
         //TODO neue seite aufrufen bei erfolgreichem Anlegen eines Rentals bitte Checken!!
-        header('Location: index.php?page=rental&view=addNewRental');
+
 
 
     }
@@ -190,7 +197,14 @@ class RentalController extends Controller{
                                                 ,$craftservCity
                                                 ,$craftservState      );
 
-        $this->_params['newRenovation'] = $newRenovation; // achtung bool
+
+        if ($newRenovation){
+
+            $renovation = Rental::getLastRenovation();
+            $this->_params['newRenovation'] = $renovation;
+
+        }
+
 
 
     }
