@@ -21,7 +21,7 @@
             <tr><td>Zimmernummer:</td>  <td><?= $newRental->roomnumber?></td></tr>
             <tr><td>Etage:</td>         <td><?= $newRental->floor?></td></tr>
             <tr><td>Balkon:</td>        <td><?= $newRental->balcony?></td></tr>
-            <tr><td>Terrasse:</td>       <td><?= $newRental->terrace?></td></tr>
+            <tr><td>Terrasse:</td>      <td><?= $newRental->terrace?></td></tr>
 
         </table>
     </div>

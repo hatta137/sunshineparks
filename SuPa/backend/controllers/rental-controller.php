@@ -124,7 +124,12 @@ class RentalController extends Controller{
 
         $newRental = Rental::getLastRentalInResort($resortName);
 
-        $this->_params['newRental'] = $newRental; // achtung boolean
+        $this->_params['newRental'] = $newRental;
+
+        //TODO neue seite aufrufen bei erfolgreichem Anlegen eines Rentals bitte Checken!!
+        header('Location: index.php?page=rental&view=addNewRental');
+
+
     }
 
     //TODO Check & Comments
