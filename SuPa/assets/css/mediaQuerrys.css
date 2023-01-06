@@ -20,17 +20,21 @@
         background-color: whitesmoke;
         display: none;
     }
-    .showmenu{
-        display: block;
 
-        width: 250px;   /*Nachträglich eingefügt*/
-        margin: 50px;   /*Nachträglich eingefügt*/
+    .showmenu{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;   /*Nachträglich eingefügt*/
+        hight: 100px;
+      /*  margin: 50px;   /*Nachträglich eingefügt*/
     }
+
     nav ul li{
         display: block;
-        padding: 2% 0;
-
+        padding: 1rem 0;
     }
+
+
     nav ul li a{
         color: #222;
     }
@@ -38,7 +42,7 @@
         display: none;
     }
     #Logo{
-        width: 25%;
+        width: 15rem;
     }
     /* header-content */
     .header-content{
