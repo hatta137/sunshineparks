@@ -98,7 +98,8 @@ class RentalController extends Controller{
             if ($_POST['type'] === "Apartment"){
                 $terrace = 'N';
                 $kitchen = 0;
-                $isApartment = 1;
+                $isApartment = true;
+
             }
             if($_POST['type'] === "House"){
                 $balcony = 'N';
@@ -131,7 +132,12 @@ class RentalController extends Controller{
                                         $state);
 
 
+
+
+
         $this->_params['newRental'] = $newRental;
+        $this->_params['special']   = $newRental->getChildClass();
+        $this->_params['address']   = Rental::getAddressFromRental($newRental->RentalID);
 
         //TODO neue seite aufrufen bei erfolgreichem Anlegen eines Rentals bitte Checken!!
 

@@ -1,5 +1,6 @@
 <?php
-
+require_once "appartment.php";
+require_once "house.php";
 class Rental extends Model{
 
     public function __construct($rentalId)
@@ -248,19 +249,49 @@ class Rental extends Model{
      * @param $state
      * @return void
      */
-    public static function newRental($maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
-                                     $resortName, $balcony, $rnumber, $floor, $terrace, $kitchen,
-                                     $street, $houseNumber, $zipCode, $city, $state) :Rental{
+    public static function newRental($maxVisitors,
+                                     $bedroom,
+                                     $bathroom,
+                                     $sqrMeter,
+                                     $status,
+                                     $isApartment,
+                                     $resortName,
+                                     $balcony,
+                                     $rnumber,
+                                     $floor,
+                                     $terrace,
+                                     $kitchen,
+                                     $street,
+                                     $houseNumber,
+                                     $zipCode,
+                                     $city,
+                                     $state) :Rental{
 
-
+    echo $isApartment;
 
         try {
             $db = self::getDB();
 
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-            $stmtNewRental->execute([   $maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
-                                        $resortName, $balcony, $rnumber, $floor, $terrace, $kitchen,
-                                        $street, $houseNumber, $zipCode, $city, $state]);
+            $stmtNewRental->execute([   $maxVisitors,
+                                        $bedroom,
+                                        $bathroom,
+                                        $sqrMeter,
+                                        $status,
+                                        $isApartment,
+
+                                        $resortName,
+                                        $balcony,
+                                        $rnumber,
+                                        $floor,
+                                        $terrace,
+                                        $kitchen,
+
+                                        $street,
+                                        $houseNumber,
+                                        $zipCode,
+                                        $city,
+                                        $state]);
             $rentalID = $stmtNewRental->fetch()['inRentalID'];
             $stmtNewRental->closeCursor();
             return new Rental($rentalID);
@@ -273,11 +304,30 @@ class Rental extends Model{
 
     }
 
+    public function getChildClass() : mixed {
+        $db = self::getDB();
+
+        $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
+        $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
+        $stmt1->execute([$this->RentalID]);
+        $stmt2->execute([$this->RentalID]);
+        $apartments = $stmt1->fetch();
+        $houses = $stmt2->fetch();
+
+        echo $this->RentalID;
+        if ($apartments) {
+            return Appartment::findByRentalId($this->RentalID);
+        } else if ($houses) {
+            return House::findByRentalId($this->RentalID);
+        } else {//noAccountType settet
+            return null;
+        }
+    }
+
 
     // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
     // aus den Tabellen Appartment und house
 
-    // TODO Implement the function $resort = String
     public static function getLastRentalInResort($resort) : Rental{
         $db = self::getDB();
 
@@ -290,6 +340,8 @@ class Rental extends Model{
     }
 
 
+    //TODO Check correct Implementation:
+
     /**
      * Author: Max Schelenz
      * This function returns the last Renovation from STRUCCHANGE.
@@ -299,8 +351,8 @@ class Rental extends Model{
         $db = self::getDB();
 
         $stmtLastRenovation = $db->prepare("SELECT * FROM STRUCCHANGE 
-                                                            WHERE ChangeID = (SELECT MAX(ChangeID) FROM STRUCCHANGE
-                                                            WHERE CraftServID IS NOT NULL)");
+                                                            WHERE StrucchangeID = (SELECT MAX(StrucchangeID))
+                                                            AND CraftServID IS NOT NULL");
         $stmtLastRenovation->execute();
         $renovation = $stmtLastRenovation->fetch();
 
@@ -308,24 +360,27 @@ class Rental extends Model{
     }
 
 
+    // TODO stimmt noch nicht, mache ich -> Hendrik
     // getAddressFromRental
     //TODO check implementation from function getRentalID from Rental in database
     /**
      * Author: Max Schelenz
      * This function returns the address from a given Rental with the help of the database function fn_GetRentalID.
-     * @param $rentalid
+     * @param $rental
      * @return Address
      */
-    public static function getAddressFromRentalID($rentalid) : Address {
+    public static function getAddressFromRental($rentalID) : Address {
         $db = self::getDB();
 
         $stmtAddress = $db->prepare("SELECT * FROM ADDR
-                                            JOIN RENTAL ON ADDR.RentalID = RENTAL.RentalID
-                                            WHERE AddrID = (SELECT(fn_GetRentalAddrID('?')))");
-        $stmtAddress->execute();
+                                            JOIN RENTAL ON ADDR.AddrID = RENTAL.AddrID
+                                            WHERE RentalID = ?");
+        $stmtAddress->execute([$rentalID]);
         $address = $stmtAddress->fetch();
 
-        return $address;
+        $newAddress = new Address($address['AddrID']);
+
+        return $newAddress;
     }
 
 }
