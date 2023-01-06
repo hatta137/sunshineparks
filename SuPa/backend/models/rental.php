@@ -273,8 +273,6 @@ class Rental extends Model{
 
     }
 
-    // getAddressFromRental
-
 
     // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
     // aus den Tabellen Appartment und house
@@ -283,21 +281,69 @@ class Rental extends Model{
     public static function getLastRentalInResort($resort) : Rental{
         $db = self::getDB();
 
-        $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Erfurt')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
-        $stmtLastRental->execute([$resort]);
-        $rental = $stmtLastRental->fetch();
-
-
-
+        if($resort === 'Erfurt'){
+            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Erfurt')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
+            $stmtLastRental->execute([$resort]);
+            $rental = $stmtLastRental->fetch();
+        }
+        elseif ($resort === 'Oberhof'){
+            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Oberhof')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
+            $stmtLastRental->execute([$resort]);
+            $rental = $stmtLastRental->fetch();
+        }
+        elseif ($resort === 'Usedom') {
+            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Usedom')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
+            $stmtLastRental->execute([$resort]);
+            $rental = $stmtLastRental->fetch();
+        }
+        elseif ($resort === 'Berchtesgaden') {
+            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Berchtesgaden')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
+            $stmtLastRental->execute([$resort]);
+            $rental = $stmtLastRental->fetch();
+        }
 
         return $rental;
     }
 
 
-    //TODO Implement:
-    public static function getLastRenovation() : Rental{
+    //TODO Check correct Implementation:
 
-        return $rental;
+    /**
+     * Author: Max Schelenz
+     * This function returns the last Renovation from STRUCCHANGE.
+     * @return Renovation
+     */
+    public static function getLastRenovation() : Renovation{
+        $db = self::getDB();
+
+        $stmtLastRenovation = $db->prepare("SELECT * FROM STRUCCHANGE 
+                                                            WHERE StrucchangeID = (SELECT MAX(StrucchangeID))
+                                                            AND CraftServID IS NOT NULL");
+        $stmtLastRenovation->execute();
+        $renovation = $stmtLastRenovation->fetch();
+
+        return $renovation;
+    }
+
+
+    // getAddressFromRental
+    //TODO check implementation from function getRentalID from Rental in database
+    /**
+     * Author: Max Schelenz
+     * This function returns the address from a given Rental with the help of the database function fn_GetRentalID.
+     * @param $rental
+     * @return Address
+     */
+    public static function getAddressFromRental($rental) : Address {
+        $db = self::getDB();
+
+        $stmtAddress = $db->prepare("SELECT * FROM ADDR
+                                            JOIN RENTAL ON ADDR.RentalID = RENTAL.RentalID
+                                            WHERE RentalID = (SELECT fn_GetRentalID ('?'))");
+        $stmtAddress->execute();
+        $address = $stmtAddress->fetch();
+
+        return $address;
     }
 
 }
