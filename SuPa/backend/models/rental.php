@@ -290,8 +290,6 @@ class Rental extends Model{
     }
 
 
-    //TODO Check correct Implementation:
-
     /**
      * Author: Max Schelenz
      * This function returns the last Renovation from STRUCCHANGE.
@@ -301,8 +299,8 @@ class Rental extends Model{
         $db = self::getDB();
 
         $stmtLastRenovation = $db->prepare("SELECT * FROM STRUCCHANGE 
-                                                            WHERE StrucchangeID = (SELECT MAX(StrucchangeID))
-                                                            AND CraftServID IS NOT NULL");
+                                                            WHERE ChangeID = (SELECT MAX(ChangeID) FROM STRUCCHANGE
+                                                            WHERE CraftServID IS NOT NULL)");
         $stmtLastRenovation->execute();
         $renovation = $stmtLastRenovation->fetch();
 
@@ -315,15 +313,15 @@ class Rental extends Model{
     /**
      * Author: Max Schelenz
      * This function returns the address from a given Rental with the help of the database function fn_GetRentalID.
-     * @param $rental
+     * @param $rentalid
      * @return Address
      */
-    public static function getAddressFromRental($rental) : Address {
+    public static function getAddressFromRentalID($rentalid) : Address {
         $db = self::getDB();
 
         $stmtAddress = $db->prepare("SELECT * FROM ADDR
                                             JOIN RENTAL ON ADDR.RentalID = RENTAL.RentalID
-                                            WHERE RentalID = (SELECT fn_GetRentalID ('?'))");
+                                            WHERE AddrID = (SELECT(fn_GetRentalAddrID('?')))");
         $stmtAddress->execute();
         $address = $stmtAddress->fetch();
 
