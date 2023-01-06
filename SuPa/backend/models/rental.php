@@ -1,5 +1,6 @@
 <?php
-
+require_once "appartment.php";
+require_once "house.php";
 class Rental extends Model{
 
     public function __construct($rentalId)
@@ -248,19 +249,49 @@ class Rental extends Model{
      * @param $state
      * @return void
      */
-    public static function newRental($maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
-                                     $resortName, $balcony, $rnumber, $floor, $terrace, $kitchen,
-                                     $street, $houseNumber, $zipCode, $city, $state) :Rental{
+    public static function newRental($maxVisitors,
+                                     $bedroom,
+                                     $bathroom,
+                                     $sqrMeter,
+                                     $status,
+                                     $isApartment,
+                                     $resortName,
+                                     $balcony,
+                                     $rnumber,
+                                     $floor,
+                                     $terrace,
+                                     $kitchen,
+                                     $street,
+                                     $houseNumber,
+                                     $zipCode,
+                                     $city,
+                                     $state) :Rental{
 
-
+    echo $isApartment;
 
         try {
             $db = self::getDB();
 
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-            $stmtNewRental->execute([   $maxVisitors, $bedroom, $bathroom, $sqrMeter, $status, $isApartment,
-                                        $resortName, $balcony, $rnumber, $floor, $terrace, $kitchen,
-                                        $street, $houseNumber, $zipCode, $city, $state]);
+            $stmtNewRental->execute([   $maxVisitors,
+                                        $bedroom,
+                                        $bathroom,
+                                        $sqrMeter,
+                                        $status,
+                                        $isApartment,
+
+                                        $resortName,
+                                        $balcony,
+                                        $rnumber,
+                                        $floor,
+                                        $terrace,
+                                        $kitchen,
+
+                                        $street,
+                                        $houseNumber,
+                                        $zipCode,
+                                        $city,
+                                        $state]);
             $rentalID = $stmtNewRental->fetch()['inRentalID'];
             $stmtNewRental->closeCursor();
             return new Rental($rentalID);
@@ -273,11 +304,30 @@ class Rental extends Model{
 
     }
 
+    public function getChildClass() : mixed {
+        $db = self::getDB();
+
+        $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
+        $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
+        $stmt1->execute([$this->RentalID]);
+        $stmt2->execute([$this->RentalID]);
+        $apartments = $stmt1->fetch();
+        $houses = $stmt2->fetch();
+
+        echo $this->RentalID;
+        if ($apartments) {
+            return Appartment::findByRentalId($this->RentalID);
+        } else if ($houses) {
+            return House::findByRentalId($this->RentalID);
+        } else {//noAccountType settet
+            return null;
+        }
+    }
+
 
     // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
     // aus den Tabellen Appartment und house
 
-    // TODO Implement the function $resort = String
     public static function getLastRentalInResort($resort) : Rental{
         $db = self::getDB();
 
@@ -310,6 +360,7 @@ class Rental extends Model{
     }
 
 
+    // TODO stimmt noch nicht, mache ich -> Hendrik
     // getAddressFromRental
     //TODO check implementation from function getRentalID from Rental in database
     /**
@@ -318,16 +369,18 @@ class Rental extends Model{
      * @param $rental
      * @return Address
      */
-    public static function getAddressFromRental($rental) : Address {
+    public static function getAddressFromRental($rentalID) : Address {
         $db = self::getDB();
 
         $stmtAddress = $db->prepare("SELECT * FROM ADDR
-                                            JOIN RENTAL ON ADDR.RentalID = RENTAL.RentalID
-                                            WHERE RentalID = (SELECT fn_GetRentalID ('?'))");
-        $stmtAddress->execute();
+                                            JOIN RENTAL ON ADDR.AddrID = RENTAL.AddrID
+                                            WHERE RentalID = ?");
+        $stmtAddress->execute([$rentalID]);
         $address = $stmtAddress->fetch();
 
-        return $address;
+        $newAddress = new Address($address['AddrID']);
+
+        return $newAddress;
     }
 
 }
