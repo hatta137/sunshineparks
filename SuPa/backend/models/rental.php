@@ -281,26 +281,10 @@ class Rental extends Model{
     public static function getLastRentalInResort($resort) : Rental{
         $db = self::getDB();
 
-        if($resort === 'Erfurt'){
-            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Erfurt')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
-            $stmtLastRental->execute([$resort]);
-            $rental = $stmtLastRental->fetch();
-        }
-        elseif ($resort === 'Oberhof'){
-            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Oberhof')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
-            $stmtLastRental->execute([$resort]);
-            $rental = $stmtLastRental->fetch();
-        }
-        elseif ($resort === 'Usedom') {
-            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Usedom')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
-            $stmtLastRental->execute([$resort]);
-            $rental = $stmtLastRental->fetch();
-        }
-        elseif ($resort === 'Berchtesgaden') {
-            $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('Berchtesgaden')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
-            $stmtLastRental->execute([$resort]);
-            $rental = $stmtLastRental->fetch();
-        }
+
+        $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
+        $stmtLastRental->execute([$resort]);
+        $rental = $stmtLastRental->fetch();
 
         return $rental;
     }
