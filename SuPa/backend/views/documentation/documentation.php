@@ -174,7 +174,20 @@
         </p>
         <h2>Anmeldung</h2>
         <p>
-            @robin bitte hier dein Part ergänzen
+            Die Anmeldeformulare sollten möglichst minimalistisch und übersichtlich sein.
+            Damit ist dem Nutzer sofort klar wo er was eingeben muss und wie er sich anmelden kann bzw. zur Registrierung kommt, falls er noch kein Benutzerkonto besitzt.
+            Zusätzlich gibt es noch eine Schaltfläche, welche vom Login für die Gäste zum Login für den internen Bereich (und umgekehrt) führt.
+            Gäste melden sich über "Login" ein. Die anderen Rollen können sich über das Interne Formular anmelden - siehe Rollen
+            Das Design soll zum rest der Seite passen und somit wurden die gleichen Schaltflächen und Eingabefelder benutzt.
+            Eingabefelder besitzen einen einen Focus-Effekt welcher die angeklickten Inputs farbig umrandet. Schaltflächen werden mit dem Hover-Effekt Dunkler wenn man über diese geht.
+            Für einen flüssigen Übergang der Effekte wurde eine kurze Transition definiert
+        </p>
+        <h2>Registrierung</h2>
+        <p>
+            Das Registrierungsformular ist analog zum Login aufgebaut. Aufgrund des größeren Umfangs wurde in vier Boxen eingeteilt - Name, Adresse, Telefon, Email/Passwort.
+            Jede Box besitzt die jeweiligen Eingabefelder und ist bei verkleinerung der Fensterbreite mit dem flex-wrap Effekt nach unten Stauchbar.
+            Somit sind die Boxen im Desktop Vollbild idR. nebeneinander und in der mobilen Ansicht untereinander.
+            Unten gibt es die möglichkeit über eine Schaltfläche zum Login zu wechseln.
         </p>
         <h2>allObjects</h2>
         <p>
