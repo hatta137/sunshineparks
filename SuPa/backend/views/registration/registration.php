@@ -20,6 +20,7 @@
             <input type="text" placeholder="Hausnummer" required>
             <input type="text" placeholder="PLZ" required>
             <input type="text" placeholder="Ort" required>
+            <input type="text" placeholder="Bundesland*">
         </div>
 
         <div class="InputBox">
