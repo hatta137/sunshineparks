@@ -239,11 +239,6 @@ RETURNS int
 DELIMITER ;
 
 
-/*------------------------------fn_GetGuestID---------------------------*/
-/*
-Fuktionalität:  Diese Funktion erhält als Eingabewerte d und die persönlichen Kundendaten und gibt die zugehörige GuestID zurück.
-Verfasser:      Max Schelenz
-*/
 
 
 

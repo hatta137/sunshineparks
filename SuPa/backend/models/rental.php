@@ -299,7 +299,6 @@ class Rental extends Model{
 
         }catch (PDOException $e){
             echo $e;
-
         }
 
     }
@@ -362,9 +361,8 @@ class Rental extends Model{
 
     // TODO stimmt noch nicht, mache ich -> Hendrik
     // getAddressFromRental
-    //TODO check implementation from function getRentalID from Rental in database
     /**
-     * Author: Max Schelenz
+     * Author: Max Schelenz und Hendrik Lendeckel
      * This function returns the address from a given Rental with the help of the database function fn_GetRentalID.
      * @param $rental
      * @return Address
