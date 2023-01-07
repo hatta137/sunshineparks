@@ -12,8 +12,11 @@ class Person extends Model
         parent::__construct('PERSON', 'PersonID', $personId);
     }
 
-    // TODO: Add AccountType to database
-
+    /**
+     * Author: Max Schelenz
+     * This function returns the correct type of person by using the PersonID.
+     * @return mixed
+     */
     public function getChildClass() : mixed {
         if ($this->AccountType == "G") {
             return Guest::findByPersonId($this->PersonID);
@@ -21,11 +24,16 @@ class Person extends Model
             return Employee::findByPersonId($this->PersonID);
         } else if ($this->AccountType == "A") {
             return Admin::findByPersonId($this->PersonID);
-        } else {//noAccountType settet
+        } else {
             return null;
         }
     }
 
+    /**
+     * This function returns the person which is matching to the given mail address.
+     * @param string $mail
+     * @return Person|null
+     */
     public static function findByMail(string $mail) : ?Person {
         $db = self::getDB();
         $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE Mail = ?');
@@ -39,6 +47,11 @@ class Person extends Model
         return new Person($row['PersonID']);
     }
 
+    /**
+     * This function needs a PersonID to return the
+     * ModeID.
+     * @return int|null
+     */
 
     public function getPersonModeID() :?int{
         $db = self::getDB();
@@ -59,4 +72,28 @@ class Person extends Model
         }
 
         */
+
+    public static function newPerson(   $FirstName,
+                                        $LastName,
+                                        $Street,
+                                        $HNumber,
+                                        $ZipCode,
+                                        $City,
+                                        $State,
+                                        $Tel,
+                                        $Mail,
+                                        $PasswordHash,
+                                        $AccountType) : Person{
+        try {
+            $db = self::getDB();
+
+            $stmtNewPerson = $db->prepare( //TODO Sql Function schreiben die NewPerson anlegt call p_NewPerson)
+
+
+        }catch (PDOException $e){
+            echo $e;
+        }
+
+    }
+
 }

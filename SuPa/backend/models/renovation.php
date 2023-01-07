@@ -77,7 +77,7 @@ class Renovation extends Model {
             $result[] = new Renovation($row["ChangeID"]);
         }
 
-        // TODO ?
+        // TODO @Hendrik bitte mal schauen ob das Model alles erfüllt was du brauchst, dann TODO löschen
         // In dem Array müssen alle Informationen zum Strucchange und dem dazugehörigem Craftserv sowie der RentalID
         // und der Adressen des Craftserv und der Adresse des Rentals sein
 

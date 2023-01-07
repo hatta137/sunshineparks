@@ -241,6 +241,7 @@ DELIMITER ;
 
 
 
+
 /*------------------------------p_ShowBooking---------------------------*/
 /*
 Fuktionalität:  Diese Prozedur erhält als Eingabewert die BookingID und gibt die zugehörigen Buchungsdaten zurück.
