@@ -100,7 +100,7 @@
         <h3>1. airbnb</h3>
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
         <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.</p>
-        <p>Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-design überzeugt.</p>
+        <p>Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
         <img src="graphics/docu/airbnb.png" alt="Airbnb-Website">
         <h3>2. CenterParcs</h3>
         <p><a href="https://www.centerparcs.de/" target=”_blank”>Link zur Website centerparcs</a></p>
@@ -112,17 +112,20 @@
 <section id="sitelay" class="odd">
     <div>
         <h1>Seitenlayout</h1>
+        <p>
+            Entweder allgemein beschreiben oder für jede Seite individuell das Seitenlayout beschreiben? TODO
+        </p>
         <h2>Grundlayout</h2>
         <p>
-            Hinter dem Layout steht eine Kombination aus Flex-Boxen. Jede Seite ist in drei Bereiche aufgeteil.
-            Header (inkl. Navbar), Main-Section (Je variert je nach Seite about, testimony, contact, ...) und footer.
-            In der Navbar befinden sich Logo (inkl. Link auf Index-Seite), Firmenname und den eigentlichen Navigationselementen
+            Hinter dem Layout steht eine Kombination aus Flex-Boxen. Jede Seite ist in drei Bereiche aufgeteilt.
+            Header (inkl. Navbar), Main-Section (variiert je nach Seite About, Testimony, Contact, ...) und Footer.
+            In der Navbar befinden sich Logo (inkl. Link auf Index-Seite), Firmenname und die eigentlichen Navigationselemente
             in Form einer verlinkenden Liste. Durch ein gleichbleibendes Hintergrundbild in der Headersection, bekommt jede Seite
             einen einheitlichen Start. Der Footer ist auf jeder Seite gleich und enthält Navigationselemente zu den Seiten Impressum,
             Kontakt, Datenschutz und den Nutzungsbedingungen.
         </p>
         <h2>Verlinkung/Navigationsstruktur</h2>
-        <p>Bild einfügen</p>
+        <p>Bild noch einfügen!!!!</p>
 
     </div>
 </section>
@@ -132,19 +135,19 @@
         <h1>Design</h1>
         <h2>Layout</h2>
         <p>
-            Beim Layout haben wir uns dafür entschieden eine moderne Anordnung zu verwenden. Beginnend mit einem Header,
-            welcher das Firmenlogo, den zentrierten Firmenname sowie die Navbar enthält.
-            Der Content-Bereich schließt sich bündig ab und unterteilt sich in verschiedene Sektionen.
-            Der Footer beginnt direkt nach dem Ende des Conent-Bereichs und stellt das Ende der aufgeurfenen Webseite dar.
+            Beim Layout haben wir uns dafür entschieden eine moderne Anordnung zu verwenden.
+            Beginnend mit einem Header, welcher in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente enthält.
+            Der Content-Bereich wird auf jeder Seite unterschiedlich eingeleitet, schließt sich jedoch immerbündig an und unterteilt sich in verschiedene Sektionen.
+            Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
         </p>
         <h2>Farben</h2>
         <p>
             Unsere Hauptfarben sind Hellblau (Oceans Green und Keppel), sowie die Kontrastfarben Schwarz (Mine Shaft) und Weiß (White Sands).
-            Im Content-Bereich unterteilen wir unsere inhaltlichen Sections mit heller und dunkler Farbgebung.
+            Im Content-Bereich unterteilen wir unsere inhaltlichen Sections mit heller und dunkler Farbgebung, um eine bessere Lesbarkeit und Unterteilung zu erreichen.
         </p>
         <h2>Formen</h2>
         <p>
-            Buttons versuchen wir möglichst einheitlich aus einer Bibliothek zu verwenden und im grafischen Design orientieren wir uns
+            Buttons sind optisch alle aus einer Bibliothek und im grafischen Design orientieren wir uns
             an unseren Haupt und Nebenfarben, um ein einheitliches, modernes Gesamtbild der Webseite zu präsentieren.
         </p>
         <h2>Schrift</h2>
@@ -153,8 +156,8 @@
         </p>
         <h2>Positionierung</h2>
         <p>
-            Das Firmenlogo soll stets oben links auf der Webseite positioniert werden, Grafiken und Icon sollen verhältnismäßig mit den
-            anderen Inhalten zusammen mittig abgebildet sein und ein zentriertes Gesamtbild ergeben.
+            Das Firmenlogo ist wenn möglich und sinnvoll stets links oben auf der Webseite positioniert. Grafiken und Icons sollen sich ins Gesamtbild der Webseite einfügen und
+            den Content-Bereich veranschaulichen.
         </p>
 
 
@@ -196,6 +199,16 @@
     <div>
         <h1>ER-Modell</h1>
         <img src="fertiges ER-Modell ergänzen!!!">
+        
+        Das hier fertig abgebildete ER-Modell war in Version 1 deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass wir unser Datenbankmodell 
+        aus DB2 nicht 1zu1 übernehmen können. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder 
+        wir haben die Tabellen optimiert, um Daten Speicher einzusparen. Hier wäre der PasswordHash oder der AccountType in Person zu nennen.
+        In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann ab v7 verbessert haben.
+        Der AccountType erspart uns Computingressourcen, weil wir uns aufwändige if-Abfragen und Schleifendurchläufe ersparen.
+
+        PERSONMODE und MODE wurden durch den Registrierungs-und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
+        ergänzt werden. Die Erstellung der Rollen-und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere zu nennende
+        Arbeitsschritte in unserem Projekt.
     </div>
 </section>
 
@@ -230,6 +243,10 @@
             die Aufgaben unter uns zu verteilen.
             Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
             Max befasst sich mit den Models und den Anpassungen der Datenbank.
+            
+            Während des Entwicklungsprozeszes sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
+            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
+            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
 
             --Hier noch ein Ausschnitt aus der Ordnerstruktur unseres MVC Patterns ergänzen.
         </p>
@@ -237,6 +254,7 @@
         <h2>Architektur</h2>
         <p>
             Hier müssen die Zusammenhänge und wichtigsten Funktionalitäten im MVC erklärt werden.
+            @Hendrik oder Dario ihr habt glaube den besten Überblick, ansonsten ergänze ich das hier im Rahmen meiner Möglichkeiten ^^.
         </p>
     </div>
 </section>

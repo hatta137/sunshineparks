@@ -89,6 +89,8 @@ class Person extends Model
 
             $stmtNewPerson = $db->prepare( //TODO Sql Function schreiben die NewPerson anlegt call p_NewPerson)
 
+                // Insert Into Person -> alle Daten in die ParentClass einfügen
+                //anschließend if Abfrage ob Guest
 
         }catch (PDOException $e){
             echo $e;
