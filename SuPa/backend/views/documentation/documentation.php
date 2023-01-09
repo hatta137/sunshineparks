@@ -180,7 +180,7 @@
             Die Anmeldeformulare sollten möglichst minimalistisch und übersichtlich sein.
             Damit ist dem Nutzer sofort klar wo er was eingeben muss und wie er sich anmelden kann bzw. zur Registrierung kommt, falls er noch kein Benutzerkonto besitzt.
             Zusätzlich gibt es noch eine Schaltfläche, welche vom Login für die Gäste zum Login für den internen Bereich (und umgekehrt) führt.
-            Gäste melden sich über "Login" ein. Die anderen Rollen können sich über das Interne Formular anmelden - siehe Rollen
+            Gäste melden sich über "Login" ein. Die anderen Rollen können sich über das Interne Formular anmelden - siehe <a href="#roleMod">Rollenmodell</a>.
             Das Design soll zum rest der Seite passen und somit wurden die gleichen Schaltflächen und Eingabefelder benutzt.
             Eingabefelder besitzen einen einen Focus-Effekt welcher die angeklickten Inputs farbig umrandet. Schaltflächen werden mit dem Hover-Effekt Dunkler wenn man über diese geht.
             Für einen flüssigen Übergang der Effekte wurde eine kurze Transition definiert
