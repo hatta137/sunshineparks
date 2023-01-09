@@ -6,6 +6,7 @@ class Employee extends Model
     public function __construct($employeeId)
     {
         parent::__construct("EMP", "EmpID", $employeeId);
+
     }
 
     public static function findByPersonId($personId) : ?Employee {
@@ -28,13 +29,13 @@ class Employee extends Model
      * @param $empID
      * @return String|null
      */
-    public static function getResortByID($empID) : ?String{
+    public function getResort() : ?String{
 
         $db = self::getDB();
         $stmt = $db->prepare('SELECT Name FROM RESORT 
                                     JOIN EMP ON RESORT.ResortID = EMP.ResortID
                                     WHERE EMP.EmpID = ?');
-        $stmt->execute([$empID]);
+        $stmt->execute([$this->EmpID]);
         $row = $stmt->fetch();
 
         if (!$row) {

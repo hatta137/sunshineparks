@@ -104,23 +104,5 @@ class Person extends Model
     }*/
 
 
-    /***
-     * Autor Hendrik Lendeckel
-     * @param $emp
-     * @return Person|null
-     */
-    public static function findByEmp($emp) : ?Person{
-        $db = self::getDB();
 
-        $personID = $emp->PersonID;
-
-        $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE PersonID = ?');
-        $stmt->execute([$personID]);
-        $row = $stmt->fetch();
-
-        if (!$row) {
-            return null;
-        }
-        return new Person($row['PersonID']);
-    }
 }

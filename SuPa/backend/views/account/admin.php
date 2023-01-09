@@ -6,7 +6,7 @@
         <form>
 
             <a href=""><input type="button" value="Neuer Mitarbeiter"></a>
-            <a href=""><input type="button" value="Mitarbeiter Anzeigen"></a>
+            <a href="index.php?page=admin&view=showEmployees"><input type="button" value="Mitarbeiter Anzeigen"></a>
             <a href=""><input type="button" value="Neuer Gast"></a>
             <a href=""><input type="button" value="Reinigungsverwaltung"></a>
             <a href=""><input type="button" value="Instandhaltung"></a>
