@@ -55,8 +55,8 @@ class AdminController extends Controller{
     public function actionUpdatedEmployee(){
 
 
+        $resortID = Resort::getResortIDByName($_POST['Resort']);
 
-        $resort = Resort::getResortNameByID($_POST['ResortID']);
 
 
         $updatedEmp = Employee::updateEmp(
@@ -74,8 +74,9 @@ class AdminController extends Controller{
             $_POST['ZipCode'],
             $_POST['State'],
             $_POST['City'],
-            $resort
+            $resortID
 
+            // TODO PasswordHash einbauen
         );
 
         $this->_params['updatedEmp'] = $updatedEmp;

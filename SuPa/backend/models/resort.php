@@ -23,4 +23,18 @@ class Resort extends Model{
 
     }
 
+    public static function getResortIDByName($name) :?int{
+
+        $db = self::getDB();
+        $stmt = $db->prepare('SELECT ResortID FROM RESORT WHERE Name = ?;');
+        $stmt->execute([$name]);
+        $row = $stmt->fetch();
+
+        if (!$row) {
+            return 'kein Resort gefunden';
+        }
+        return $row['ResortID'];
+
+    }
+
 }

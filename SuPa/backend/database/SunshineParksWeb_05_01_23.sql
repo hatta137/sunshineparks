@@ -11,7 +11,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
+DROP DATABASE IF EXISTS SunshineParksWeb;
+CREATE DATABASE SunshineParksWeb;
+USE SunshineParksWeb;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -26,7 +28,7 @@ DELIMITER $$
 -- Prozeduren
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_CompleteNewBuilding` (`inRentalID` INT, `inEndDate` DATE, `inEndCosts` DECIMAL(10,2))   begin
-        UPDATE STRUCCHANGE 
+        UPDATE STRUCCHANGE
         SET EndDate = inEndDate, EndCosts = inEndCosts
         WHERE (RentalID = inRentalID);
 
@@ -41,11 +43,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewBuilding` (IN `inMaxVisitor` I
 
         declare inStatus enum('R','N','C','D','M','B');
         declare inRentalID integer;
-        
+
 
         SET inStatus = 'N'; /*Status eines angelegten Neubaus ist immer N */
 
-        call p_NewRental(   inMaxVisitor,   inBedroom,      inBathroom,       inSqrMeter, 
+        call p_NewRental(   inMaxVisitor,   inBedroom,      inBathroom,       inSqrMeter,
                             inStatus,       isAppartment,   inResortName,
                             inBalcony,      inRoomnumber,   inFloor,          inTerrace,        inKitchen,
                             inStreet,       inHnumber,      inZipCode,        inCity,           inState);
@@ -56,13 +58,13 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewBuilding` (IN `inMaxVisitor` I
         INSERT INTO STRUCCHANGE (RentalID,      StartDate,      PlannedEndDate,     Description,    PlannedCosts)
         VALUES                  (inRentalID,    inStartDate,    inPlannedEndDate,   inDescription,  inPlannedCosts);
 
-        
+
 
     end$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewRental` (IN `inMaxVisitor` INT, IN `inBedroom` INT, IN `inBathroom` INT, IN `inSqrMeter` INT, IN `inStatus` ENUM('R','N','C','D','M','B'), IN `isAppartment` BOOLEAN, IN `inResortName` VARCHAR(20), IN `inBalcony` ENUM('Y','N'), IN `inRoomnumber` INT, IN `inFloor` INT, IN `inTerrace` ENUM('Y','N'), IN `inKitchen` INT, IN `inStreet` VARCHAR(50), IN `inHnumber` INT, IN `inZipCode` CHAR(5), IN `inCity` VARCHAR(50), IN `inState` VARCHAR(50))   begin
 
-        
+
         /* Variablendeklaration */
         declare inRentalID      integer;
         declare inResortID      integer;
@@ -73,32 +75,32 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewRental` (IN `inMaxVisitor` INT
         /* Fehlerbehandlung bei Falscheingaben:*/
         declare invalidValues CONDITION FOR SQLSTATE '45000';
 
-        IF inSqrMeter <= 10 THEN      
+        IF inSqrMeter <= 10 THEN
             SIGNAL invalidValues
             SET MESSAGE_TEXT = 'Fehler E.2 Bitte eine realistische Quadratmeterzahl waehlen!';
-        END IF; 
+        END IF;
 
-        IF isAppartment = false AND inBedroom < 4 THEN      
+        IF isAppartment = false AND inBedroom < 4 THEN
             SIGNAL invalidValues
             SET MESSAGE_TEXT = 'Fehler E.3 Anzahl der Schlafzimmer bei Ferienhausern muss groeßer 4 sein!';
-        END IF; 
-        
-        IF isAppartment = false AND inMaxVisitor < 5 OR inMaxVisitor > 16 THEN      
+        END IF;
+
+        IF isAppartment = false AND inMaxVisitor < 5 OR inMaxVisitor > 16 THEN
             SIGNAL invalidValues
             SET MESSAGE_TEXT = 'Fehler E.4 Ein Ferienhaus hat eine maximale Gaesteanzahl von 5 - 16!';
-        END IF; 
+        END IF;
 
-        IF (inMaxVisitor / inBedroom) > 2 THEN      
+        IF (inMaxVisitor / inBedroom) > 2 THEN
             SIGNAL invalidValues
             SET MESSAGE_TEXT = 'Fehler E.5 Maximale Anzahl der Gaeste passt nicht zu Bettenzahl!';
-        END IF; 
+        END IF;
 
-        IF isAppartment = true AND inMaxVisitor > 6 THEN      
+        IF isAppartment = true AND inMaxVisitor > 6 THEN
             SIGNAL invalidValues
             SET MESSAGE_TEXT = 'Fehler E.6 Maximale Gaeste bei Ferienwohnung sind 6!';
-        END IF; 
+        END IF;
 
-        IF isAppartment = true AND inBedroom > 6 THEN      
+        IF isAppartment = true AND inBedroom > 6 THEN
             SIGNAL invalidValues
             SET MESSAGE_TEXT = 'Fehler E.7 Maximale Anzahl der Schlafzimmer in Ferienwohnungen sind 6!';
         END IF;
@@ -126,25 +128,25 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewRental` (IN `inMaxVisitor` INT
         /*Eintragen der Informationen in die Tabelle RENTAL*/
 		INSERT INTO RENTAL  (MaxVisitor,    Bedroom,    Bathroom,   SqrMeter,   BasicPrice,   Status,     AreaID,     ResortID,   AddrID)
 		VALUES		        (inMaxVisitor,  inBedroom,  inBathroom, inSqrMeter, inBasicPrice, inStatus,   inAreaID,   inResortID, inAddrID);
-        
-		
+
+
 
         SET inRentalID = (SELECT RentalID FROM RENTAL WHERE AddrID = inAddrID);
         /* SET inRentalID = (SELECT MAX(RentalID) FROM RENTAL); *//*Gibt die höchste ID zurück*/
-		
+
 
         /* Eintragen der Informationen in die Tabelle APPARTMENT (sofern das Objekt eine Ferienwohnung ist)*/
 		IF isAppartment = true
-		THEN 	
+		THEN
                 SET inTerrace = 'N';
 				SET inKitchen = 1;
-				INSERT INTO APPARTMENT  (RentalID,      Balcony,    Roomnumber,     Floor) 
+				INSERT INTO APPARTMENT  (RentalID,      Balcony,    Roomnumber,     Floor)
 				VALUES		            (inRentalID,    inBalcony,  inRoomnumber,   inFloor);
 		END IF;
 
         /* Eintragen der Informationen in die Tabelle HOUSE (sofern das Objekt ein Ferienhaus bzw. keine Ferienwohnung ist)*/
 		IF isAppartment = false
-		THEN 	
+		THEN
                 SET inBalcony = 'N';
 				SET inRoomnumber = 0;
 				SET inFloor = 0;
@@ -153,7 +155,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewRental` (IN `inMaxVisitor` INT
 		END IF;
 
 
-		
+
 	end$$
 
 --
@@ -161,77 +163,77 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewRental` (IN `inMaxVisitor` INT
 --
 CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetAreaID` (`inResortName` VARCHAR(20)) RETURNS INT(11)  begin
 	declare outAreaID integer;
-    
+
     IF inResortName LIKE "%erfurt%"         THEN SET outAreaID = (SELECT AreaID FROM AREA WHERE Name = 'C'); END IF;
     IF inResortName LIKE "%oberhof%"        THEN SET outAreaID = (SELECT AreaID FROM AREA WHERE Name = 'M'); END IF;
     IF inResortName LIKE "%usedom%"         THEN SET outAreaID = (SELECT AreaID FROM AREA WHERE Name = 'O'); END IF;
     IF inResortName LIKE "%berchtesgaden%"  THEN SET outAreaID = (SELECT AreaID FROM AREA WHERE Name = 'M'); END IF;
 
-    
-	return outAreaID;   
+
+	return outAreaID;
 END$$
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetRentalAddrID` (`inValue` INTEGER) RETURNS INT(11)  begin
 	declare outAddrID integer;
 
 
-    
-    set outAddrID = (   select ADDR.AddrID 
-                        from ADDR 
+
+    set outAddrID = (   select ADDR.AddrID
+                        from ADDR
                         join RENTAL on ADDR.AddrID = RENTAL.AddrID
                         where RENTAL.RentalID = inValue);
 
-    
-	return outAddrID;   
+
+	return outAddrID;
 END$$
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetRentalStatus` (`inRentalID` INTEGER) RETURNS ENUM('R','N','C','D','M','B') CHARSET utf8mb4  begin
 	declare outRentalStatus enum('R','N','C','D','M', 'B');
-  
+
     SET outRentalStatus = (SELECT Status FROM RENTAL WHERE RentalID = inRentalID);
-    
-	return outRentalStatus;   
+
+	return outRentalStatus;
 END$$
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetResortAddrID` (`inValue` CHAR(30)) RETURNS INT(11)  begin
 	declare outAddrID integer;
 
 
-    
-    set outAddrID = (   select ADDR.AddrID 
-                        from ADDR 
+
+    set outAddrID = (   select ADDR.AddrID
+                        from ADDR
                         join RESORT on ADDR.AddrID = RESORT.AddrID
                         where RESORT.Name = inValue);
 
-    
-	return outAddrID;   
+
+	return outAddrID;
 END$$
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetResortID` (`inResortName` VARCHAR(20)) RETURNS INT(11)  begin
 	declare outResortID integer;
-    
+
     IF inResortName LIKE "%usedom%"             THEN SET outResortID = (SELECT ResortID FROM RESORT WHERE Name = "Usedom");         END IF;
     IF inResortName LIKE "%erfurt%"             THEN SET outResortID = (SELECT ResortID FROM RESORT WHERE Name = "Erfurt");         END IF;
     IF inResortName LIKE "%berchtesgaden%"      THEN SET outResortID = (SELECT ResortID FROM RESORT WHERE Name = "Berchtesgaden");  END IF;
     IF inResortName LIKE "%oberhof%"            THEN SET outResortID = (SELECT ResortID FROM RESORT WHERE Name = "Oberhof");        END IF;
 
-    
-	return outResortID;   
+
+	return outResortID;
 END$$
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `fn_IsExistingAddress` (`inStreet` VARCHAR(50), `inHnumber` INTEGER, `inZipCode` CHAR(5), `inCity` VARCHAR(50), `inState` VARCHAR(20)) RETURNS INT(11)  begin
 	declare outE integer;
 
     SET outE = 0;
-    
-        
+
+
 
         IF              (SELECT AddrID FROM ADDR WHERE Street = inStreet AND Hnumber = inHnumber AND ZipCode = inZipCode AND City = inCity AND State = inState) IS NOT NULL
         THEN SET outE = (SELECT AddrID FROM ADDR WHERE Street = inStreet AND Hnumber = inHnumber AND ZipCode = inZipCode AND City = inCity AND State = inState);
         END IF;
 
-    
-	return outE;   
+
+	return outE;
 END$$
 
 DELIMITER ;
@@ -569,7 +571,7 @@ CREATE TABLE `EMP` (
 --
 
 INSERT INTO `EMP` (`EmpID`, `PersonID`, `Job`, `ResortID`, `Manager`) VALUES
-(1, 1, 'CEO', 10, NULL),
+(1, 1, 'CEO', 10, 1),
 (2, 2, 'Resort-Manager ', 40, 1),
 (3, 3, 'Resort-Manager ', 30, 1),
 (4, 4, 'Resort-Manager ', 20, 1),

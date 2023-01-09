@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__.'/../models/person.php';
+
 
 class Employee extends Model
 {
@@ -77,36 +79,37 @@ class Employee extends Model
                                         $ZipCode,
                                         $State,
                                         $City,
-                                        $Resort) : ?Employee{
+                                        $ResortID) : ?Employee{
 
         $emp = new Employee($EmpID);
         $personID = $emp->PersonID;
+        $person = new Person($personID);
 
         $db = self::getDB();
 
-        $stmtPerson = $db->prepare('UPDATE Person SET 
+        $stmtPerson = $db->prepare('UPDATE PERSON SET 
                                         FirstName   = ?,
                                         LastName    = ?,
                                         DateOfBirth = ?,
                                         Tel         = ?,
-                                        Mail        = ?,
-                                        Manager     = ?
+                                        Mail        = ?
                                         WHERE PersonID = ?');
         $stmtPerson->execute([  $FirstName,
                                 $LastName,
                                 $DateOfBirth,
                                 $Tel,
                                 $Mail,
-                                $Manager,
                                 $personID]);
 
         $stmtEmployee = $db->prepare('UPDATE EMP SET
                                             Job = ?,
-                                            Resort = ?,
-                                            Manager = ?');
+                                            ResortID = ?,
+                                            Manager = ?
+                                            WHERE EmpID = ?');
         $stmtEmployee->execute([    $Job,
-                                    $Resort,
-                                    $Manager]);
+                                    $ResortID,
+                                    $Manager,
+                                    $EmpID]);
 
 
         $stmtAddress = $db->prepare('UPDATE ADDR SET
@@ -114,15 +117,17 @@ class Employee extends Model
                                             HNumber = ?,
                                             ZipCode = ?,
                                             State = ?,
-                                            City = ?');
+                                            City = ?
+                                            WHERE AddrID = ?');
 
         $stmtAddress->execute([ $Street,
                                 $HNumber,
                                 $ZipCode,
                                 $State,
-                                $City]);
+                                $City,
+                                $person->AddrID]);
 
-        return $emp;
+        return new Employee($EmpID);
     }
     
 }
