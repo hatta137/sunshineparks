@@ -163,7 +163,33 @@
     </div>
 </section>
 
-<section id="siteFunc" class="odd">
+<section id="mvcPattern" class ="odd">
+    <div>
+        <h1>MVC Pattern</h1>
+        <img src="graphics\MVC-Pattern.jpg" alt="MVC-Pattern Umsetzung">
+        <h2>Aufteilung</h2>
+        <p>
+            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
+            die Aufgaben unter uns zu verteilen.
+            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
+            Max befasst sich mit den Models und den Anpassungen der Datenbank.
+
+            Während des Entwicklungsprozeszes sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
+            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
+            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
+
+            --Hier noch ein Ausschnitt aus der Ordnerstruktur unseres MVC Patterns ergänzen.
+        </p>
+
+        <h2>Architektur</h2>
+        <p>
+            Hier müssen die Zusammenhänge und wichtigsten Funktionalitäten im MVC erklärt werden.
+            @Hendrik oder Dario ihr habt glaube den besten Überblick, ansonsten ergänze ich das hier im Rahmen meiner Möglichkeiten ^^.
+        </p>
+    </div>
+</section>
+
+<section id="siteFunc" class="even">
     <div>
         <h1>Funktionalitäten/Architektur der Seiten</h1>
         <h2>index</h2>
@@ -207,7 +233,7 @@
 </section>
 
 
-<section id="erMod" class="even">
+<section id="erMod" class="odd">
     <div>
         <h1>ER-Modell</h1>
         <img src="fertiges ER-Modell ergänzen!!!">
@@ -224,50 +250,26 @@
     </div>
 </section>
 
-<section id="reMod" class="odd">
+<section id="reMod" class="even">
     <div>
         <h1>Relationales Modell</h1>
         <img src="fertiges relationales Modell ergänzen!!!">
     </div>
 </section>
 
-<section id="roleMod" class="even">
+<section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
         <img src="fertgies Rollenmodell ergänzen!!!">
     </div>
 </section>
 
-<section id="dataInput" class="odd">
+<section id="dataInput" class="even">
     <div>
         <h1>Flussbild Dateneingabe</h1>
         <img src="fertiges Flussbild ergänzen!!!">
     </div>
 </section>
 
-<section id="mvcPattern" class ="even">
-    <div>
-        <h1>MVC Pattern</h1>
-        <img src="graphics\MVC-Pattern.jpg" alt="MVC-Pattern Umsetzung">
-        <h2>Aufteilung</h2>
-        <p>
-            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
-            die Aufgaben unter uns zu verteilen.
-            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
-            Max befasst sich mit den Models und den Anpassungen der Datenbank.
-            
-            Während des Entwicklungsprozeszes sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
-            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
-            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
 
-            --Hier noch ein Ausschnitt aus der Ordnerstruktur unseres MVC Patterns ergänzen.
-        </p>
-
-        <h2>Architektur</h2>
-        <p>
-            Hier müssen die Zusammenhänge und wichtigsten Funktionalitäten im MVC erklärt werden.
-            @Hendrik oder Dario ihr habt glaube den besten Überblick, ansonsten ergänze ich das hier im Rahmen meiner Möglichkeiten ^^.
-        </p>
-    </div>
-</section>
 
