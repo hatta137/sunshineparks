@@ -42,5 +42,20 @@ class Employee extends Model
         }
         return $row['Name'];
     }
+
+    public static function getAllEmployees() : ?array{
+        $db = self::getDB();
+
+        $stmt = $db->prepare('SELECT * FROM EMP');
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+
+        $employees = array();
+
+        foreach ($result as $rental){
+            $employees [] = new Employee($rental['EmpID']);
+        }
+        return $employees;
+    }
     
 }
