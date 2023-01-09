@@ -2,6 +2,7 @@
 require_once __DIR__.'/../models/person.php';
 require_once __DIR__.'/../models/address.php';
 require_once __DIR__.'/../models/employee.php';
+require_once __DIR__.'/../models/resort.php';
 class AdminController extends Controller{
 
 
@@ -48,6 +49,36 @@ class AdminController extends Controller{
         $this->_params['currentResort'] = $currentEmp->getResort();
 
 
+
+    }
+
+    public function actionUpdatedEmployee(){
+
+
+
+        $resort = Resort::getResortNameByID($_POST['ResortID']);
+
+
+        $updatedEmp = Employee::updateEmp(
+
+            $_POST['EmpID'],
+            $_POST['FirstName'],
+            $_POST['LastName'],
+            $_POST['DateOfBirth'],
+            $_POST['Tel'],
+            $_POST['Mail'],
+            $_POST['Manager'],
+            $_POST['Job'],
+            $_POST['Street'],
+            $_POST['HNumber'],
+            $_POST['ZipCode'],
+            $_POST['State'],
+            $_POST['City'],
+            $resort
+
+        );
+
+        $this->_params['updatedEmp'] = $updatedEmp;
 
     }
 

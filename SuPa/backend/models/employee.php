@@ -44,6 +44,11 @@ class Employee extends Model
         return $row['Name'];
     }
 
+
+    /***
+     * Autor Hendrik Lendeckel
+     * @return array|null
+     */
     public static function getAllEmployees() : ?array{
         $db = self::getDB();
 
@@ -57,6 +62,67 @@ class Employee extends Model
             $employees [] = new Employee($rental['EmpID']);
         }
         return $employees;
+    }
+
+    public static function updateEmp(   $EmpID,
+                                        $FirstName,
+                                        $LastName,
+                                        $DateOfBirth,
+                                        $Tel,
+                                        $Mail,
+                                        $Manager,
+                                        $Job,
+                                        $Street,
+                                        $HNumber,
+                                        $ZipCode,
+                                        $State,
+                                        $City,
+                                        $Resort) : ?Employee{
+
+        $emp = new Employee($EmpID);
+        $personID = $emp->PersonID;
+
+        $db = self::getDB();
+
+        $stmtPerson = $db->prepare('UPDATE Person SET 
+                                        FirstName   = ?,
+                                        LastName    = ?,
+                                        DateOfBirth = ?,
+                                        Tel         = ?,
+                                        Mail        = ?,
+                                        Manager     = ?
+                                        WHERE PersonID = ?');
+        $stmtPerson->execute([  $FirstName,
+                                $LastName,
+                                $DateOfBirth,
+                                $Tel,
+                                $Mail,
+                                $Manager,
+                                $personID]);
+
+        $stmtEmployee = $db->prepare('UPDATE EMP SET
+                                            Job = ?,
+                                            Resort = ?,
+                                            Manager = ?');
+        $stmtEmployee->execute([    $Job,
+                                    $Resort,
+                                    $Manager]);
+
+
+        $stmtAddress = $db->prepare('UPDATE ADDR SET
+                                            Street = ?,
+                                            HNumber = ?,
+                                            ZipCode = ?,
+                                            State = ?,
+                                            City = ?');
+
+        $stmtAddress->execute([ $Street,
+                                $HNumber,
+                                $ZipCode,
+                                $State,
+                                $City]);
+
+        return $emp;
     }
     
 }
