@@ -24,12 +24,13 @@
             <li><a class="index-link" href="#reMod">Relationales Datenbankmodell</a></li>
             <li><a class="index-link" href="#roleMod">Rollenmodell</a></li>
             <li><a class="index-link" href="#dataInput">Flussbild Dateneingabe</a></li>
+            <li><a class="index-link" href="#mvcPattern">MVC Pattern</a></li>
         </ul>
         <h2>Reflektion</h2>
         <ul>
-            <li><a class="index-link" href=""></a>Herausforderungen und deren Lösung</li>
-            <li><a class="index-link" href=""></a>Besonderheiten</li>
-            <li><a class="index-link" href=""></a>Projektmanagement</li>
+            <li><a class="index-link" href="">Herausforderungen und deren Lösung</a></li>
+            <li><a class="index-link" href="">Besonderheiten</a></li>
+            <li><a class="index-link" href="">Projektmanagement</a></li>
         </ul>
     </div>
 </section>
@@ -112,9 +113,7 @@
 <section id="sitelay" class="odd">
     <div>
         <h1>Seitenlayout</h1>
-        <p>
-            Entweder allgemein beschreiben oder für jede Seite individuell das Seitenlayout beschreiben? TODO
-        </p>
+
         <h2>Grundlayout</h2>
         <p>
             Hinter dem Layout steht eine Kombination aus Flex-Boxen. Jede Seite ist in drei Bereiche aufgeteilt.

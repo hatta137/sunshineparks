@@ -91,6 +91,8 @@ class Person extends Model
 
                 // Insert Into Person -> alle Daten in die ParentClass einfügen
                 //anschließend if Abfrage ob Guest
+                //Datenbankfunktion Adress überprüfen ob es die schon gibt
+
 
         }catch (PDOException $e){
             echo $e;
