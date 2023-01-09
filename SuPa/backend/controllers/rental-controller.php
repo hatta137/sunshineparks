@@ -77,7 +77,7 @@ class RentalController extends Controller{
         $state        = "GER";
 
 
-        $rnumber   = $_POST['rnumber'];        // int
+        $rnumber   = $_POST['rnumber'];              // int
         $floor        = $_POST['floor'];             // int
 
 
