@@ -1,6 +1,7 @@
 <?php
 require_once "appartment.php";
 require_once "house.php";
+require_once "address.php";
 class Rental extends Model{
 
     public function __construct($rentalId)
