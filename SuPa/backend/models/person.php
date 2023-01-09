@@ -73,7 +73,7 @@ class Person extends Model
 
         */
 
-    public static function newPerson(   $FirstName,
+    /*public static function newPerson(   $FirstName,
                                         $LastName,
                                         $Street,
                                         $HNumber,
@@ -83,7 +83,10 @@ class Person extends Model
                                         $Tel,
                                         $Mail,
                                         $PasswordHash,
-                                        $AccountType) : Person{
+                                        $AccountType) : Person
+    {
+
+
         try {
             $db = self::getDB();
 
@@ -98,6 +101,26 @@ class Person extends Model
             echo $e;
         }
 
-    }
+    }*/
 
+
+    /***
+     * Autor Hendrik Lendeckel
+     * @param $emp
+     * @return Person|null
+     */
+    public static function findByEmp($emp) : ?Person{
+        $db = self::getDB();
+
+        $personID = $emp->PersonID;
+
+        $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE PersonID = ?');
+        $stmt->execute([$personID]);
+        $row = $stmt->fetch();
+
+        if (!$row) {
+            return null;
+        }
+        return new Person($row['PersonID']);
+    }
 }

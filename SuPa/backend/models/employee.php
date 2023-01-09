@@ -21,5 +21,26 @@ class Employee extends Model
 
         return new Employee($row['EmpID']);
     }
+
+
+    /***
+     * Autor Hendrik Lendeckel
+     * @param $empID
+     * @return String|null
+     */
+    public static function getResortByID($empID) : ?String{
+
+        $db = self::getDB();
+        $stmt = $db->prepare('SELECT Name FROM RESORT 
+                                    JOIN EMP ON RESORT.ResortID = EMP.ResortID
+                                    WHERE EMP.EmpID = ?');
+        $stmt->execute([$empID]);
+        $row = $stmt->fetch();
+
+        if (!$row) {
+            return 'kein Resort gefunden';
+        }
+        return $row['Name'];
+    }
     
 }

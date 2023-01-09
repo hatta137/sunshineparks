@@ -136,10 +136,34 @@ class RentalController extends Controller{
 
 
         $this->_params['newRental'] = $newRental;
-        $this->_params['special']   = $newRental->getChildClass();
+        var_dump($newRental->getChildClass());
+        if ($newRental->getChildClass() instanceof Appartment){
+            $type = 'Apartment';
+
+            $this->_params['balcony'] = $newRental->getChildClass()->Balcony;
+            $this->_params['roomnumber'] = $newRental->getChildClass()->Roomnumber;
+            $this->_params['floor'] = $newRental->getChildClass()->Floor;
+            $this->_params['terrace'] = 0;
+            $this->_params['kitchen'] = 0;
+
+        }else if ($newRental->getChildClass() instanceof House){
+            $type = 'House';
+            $this->_params['terrace'] = $newRental->getChildClass()->Terrace;
+            $this->_params['kitchen'] = $newRental->getChildClass()->Kitchen;
+            $this->_params['balcony'] = 0;
+            $this->_params['roomnumber'] = 0;
+            $this->_params['floor'] = 0;
+        }else
+        {
+            $type = 'undefined';
+        }
+
+
+        $this->_params['type'] = $type;
+
         $this->_params['address']   = Rental::getAddressFromRental($newRental->RentalID);
 
-        //TODO neue seite aufrufen bei erfolgreichem Anlegen eines Rentals bitte Checken!!
+
 
 
 

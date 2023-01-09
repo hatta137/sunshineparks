@@ -4,6 +4,8 @@ require_once "house.php";
 require_once "address.php";
 class Rental extends Model{
 
+
+
     public function __construct($rentalId)
     {
         parent::__construct('RENTAL', 'RentalID', $rentalId);
@@ -368,7 +370,8 @@ class Rental extends Model{
      * @param $rental
      * @return Address
      */
-    public static function getAddressFromRental($rentalID) : Address {
+    public static function getAddressFromRental($rentalID) : Address
+    {
         $db = self::getDB();
 
         $stmtAddress = $db->prepare("SELECT * FROM ADDR
@@ -376,10 +379,11 @@ class Rental extends Model{
                                             WHERE RentalID = ?");
         $stmtAddress->execute([$rentalID]);
         $address = $stmtAddress->fetch();
+        $addressID = $address['AddrID'];
+        echo $addressID;
+        return new Address($addressID);
 
-        $newAddress = new Address($address['AddrID']);
 
-        return $newAddress;
     }
 
 }

@@ -80,10 +80,10 @@ END $$
 DELIMITER ;
 
 /*--TESTFALL-----/T10.1.1.2/ fn_IsExistingAddress-----------------------------*/
-SELECT fn_IsExistingAddress("Dünenstraße", 11, "17419", "Aalbeck", "MVP");  --> 1 (AddrID)
+/*SELECT fn_IsExistingAddress("Dünenstraße", 11, "17419", "Aalbeck", "MVP");  --> 1 (AddrID)
 SELECT fn_IsExistingAddress('Am Wasser', 3, '37308', 'Lutter', 'TH');       --> 0
 
-
+*/
 
 
 
@@ -113,8 +113,8 @@ END $$
 DELIMITER ;
 
 /*--TESTFALL---/T10.1.1.2/ fn_GetAreaID--------------------------------*/
-SELECT fn_GetAreaID("Erfurt"); --> 30
-
+/*SELECT fn_GetAreaID("Erfurt"); --> 30
+*/
 
 /*------------------------------fn_GetResortID-------------------------*/
 /*
@@ -142,8 +142,8 @@ END $$
 DELIMITER ;
 
 /*--TESTFALL----/T10.1.1.1/ fn_GetResortID------------------------------*/
-SELECT fn_GetResortID("Erfurt"); --> 10
-
+/*SELECT fn_GetResortID("Erfurt"); --> 10
+*/
 
 
 /*----------------------F10.2.1--fn_GetRentalStatus()--------------------*/
@@ -166,8 +166,8 @@ END $$
 DELIMITER ;
 
 /*--TESTFALL----/T10.2.1/ fn_GetRentalStatus------------------------------*/
-SELECT fn_GetRentalStatus(2); --> C
-SELECT fn_GetRentalStatus(2); --> NULL
+/*SELECT fn_GetRentalStatus(2); --> C
+SELECT fn_GetRentalStatus(2); --> NULL*/
 
 
 
@@ -311,11 +311,11 @@ DELIMITER ;
 - Adresse des Objektes: Siegerstraße 9, 17413 Usedom
 
 */
-call p_NewRental
+/*call p_NewRental
 (
     12, 6, 3, 260, 'C', false, "Usedom", 'N', 0, 0, 'Y', 3,
     "Siegerstraße", 10, 17413, "Usedom",  "MVP"           
-);
+);*/
 
 /* Test der Fehlerbehandlungen */
 --> call p_NewRental(4, 3, 1, 9,  'C', true,  "Erfurt", 'Y', 12, 1, 'N', 0, "Am wasser", 6, 37308, "Erfurt", "TH"); --> Fehler E2
@@ -409,7 +409,7 @@ Informationen zum Neubau:
 - Geplante Kosten laut Kostenvoranschlag: 500000,00€ 
 
 */
-call p_NewBuilding
+/*call p_NewBuilding
 (
     12, 8, 4, 330,
     false, "Oberhof",
@@ -419,7 +419,7 @@ call p_NewBuilding
     "2022-09-01", "2023-06-01", "Neubau Prestige Objekt Oberhof", 500000.00
 );
 
-
+*/
 
 /*
 -------------------------------------------------------------------------------
@@ -445,7 +445,7 @@ DELIMITER ;
 
 /*-----TESTFALL T20.2.4  p_CompleteNewBuilding--------------------------------*/
 
-call p_CompleteNewBuilding
+/*call p_CompleteNewBuilding
 (
     34, '2022-07-12', 456789.99
-);
+);*/
