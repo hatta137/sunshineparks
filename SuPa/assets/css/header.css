@@ -38,6 +38,9 @@ input[type=password]
     border-radius: 4px;
     transition: 0.5s;
     outline: none;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
 }
 
 select:focus,
@@ -53,12 +56,12 @@ input[type=password]:focus
 }
 
 select{
-    font-size: 1.3rem;
-    color: #ccc;
+    font-size: 1.8rem;
+    color: #000000;
 }
 select option{
     font-size: 1.3rem;
-    color: #ccc;
+    color: black;
 }
 input[type=submit],
 input[type=button]{
@@ -80,5 +83,5 @@ input[type=button]:hover {
 
 input::placeholder{
     font-size: 1.3rem;
-    color: #ccc;
+    color: #b7b7b7;
 }
