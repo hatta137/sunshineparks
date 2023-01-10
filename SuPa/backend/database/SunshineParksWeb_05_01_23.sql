@@ -154,7 +154,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `p_NewRental` (IN `inMaxVisitor` INT
 				VALUES		        (inRentalID,    inTerrace,  inKitchen);
 		END IF;
 
-
+        SELECT inRentalID;
 
 	end$$
 

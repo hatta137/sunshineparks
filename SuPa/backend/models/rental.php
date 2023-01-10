@@ -6,6 +6,7 @@ class Rental extends Model{
 
 
 
+
     public function __construct($rentalId)
     {
         parent::__construct('RENTAL', 'RentalID', $rentalId);
@@ -295,6 +296,7 @@ class Rental extends Model{
                                         $zipCode,
                                         $city,
                                         $state]);
+
             $rentalID = $stmtNewRental->fetch()['inRentalID'];
             $stmtNewRental->closeCursor();
             return new Rental($rentalID);
