@@ -18,8 +18,8 @@
             <input type="submit" onclick="window.location.href='index.php?page=account&view=guest'" value="Login">
 
             <p>Noch kein Konto?</p>
-            <input type="submit" onclick="window.location.href='index.php?page=registration&view=registration'" value="Zur Registrierung">
-            <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationIntern'" value="Intern">
+            <input type="button" onclick="window.location.href='index.php?page=registration&view=registration'" value="Zur Registrierung">
+            <input type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationIntern'" value="Intern">
             <input type="hidden" name="authType" value="guest">
         </form>
     </div>
