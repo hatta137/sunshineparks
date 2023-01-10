@@ -102,7 +102,7 @@ class Person extends Model
         try {
             $db = self::getDB();
 
-            $stmtNewPerson = $db->prepare()
+            $stmtNewPerson = $db->prepare();
 
                 // Insert Into Person -> alle Daten in die ParentClass einfügen
                 //Datenbankfunktion Adress überprüfen ob es die schon gibt

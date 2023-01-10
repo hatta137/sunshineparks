@@ -8,20 +8,20 @@
 
     <div class="InputZone">
 
-        <div class="InputBox">
+        <form class="InputBox">
             <label>Name</label>
             <input type="text" placeholder="Vorname" required>
             <input type="text" placeholder="Nachname" required>
-        </div>
+        </form>
 
-        <div class="InputBox">
+        <form class="InputBox">
             <label>Adresse</label>
             <input type="text" placeholder="Straße" required>
             <input type="text" placeholder="Hausnummer" required>
             <input type="text" placeholder="PLZ" required>
             <input type="text" placeholder="Ort" required>
             <input type="text" placeholder="Bundesland*">
-        </div>
+        </form>
 
         <div class="InputBox">
             <label>Telefon</label>
