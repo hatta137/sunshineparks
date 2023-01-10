@@ -73,27 +73,38 @@ class Person extends Model
 
         */
 
-    /*public static function newPerson(   $FirstName,
+    /**
+     * Author: Dario Daßler
+     * This function ...
+     * @param $FirstName
+     * @param $LastName
+     * @param $DateOfBirth
+     * @param $Tel
+     * @param $Mail
+     * @param $PasswordHash
+     * @param $AccountType
+     * @return Person
+     */
+
+    public static function newPerson(
+                                        $FirstName,
                                         $LastName,
-                                        $Street,
-                                        $HNumber,
-                                        $ZipCode,
-                                        $City,
-                                        $State,
+                                        $DateOfBirth,
                                         $Tel,
                                         $Mail,
                                         $PasswordHash,
-                                        $AccountType) : Person
+                                        $AccountType,
+
+                                        ) : Person
     {
 
 
         try {
             $db = self::getDB();
 
-            $stmtNewPerson = $db->prepare( //TODO Sql Function schreiben die NewPerson anlegt call p_NewPerson)
+            $stmtNewPerson = $db->prepare()
 
                 // Insert Into Person -> alle Daten in die ParentClass einfügen
-                //anschließend if Abfrage ob Guest
                 //Datenbankfunktion Adress überprüfen ob es die schon gibt
 
 
@@ -101,7 +112,7 @@ class Person extends Model
             echo $e;
         }
 
-    }*/
+    }
 
 
 
