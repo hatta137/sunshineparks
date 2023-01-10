@@ -13,6 +13,7 @@
             <a href=""><input type="button" value="laufende Neubauten"></a>
             <a href=""><input type="button" value="Neubau anlegen"></a>
             <a href=""><input type="button" value="Account"></a>
+            <a href="index.php?page=account&view=logout"><input type="button" value="Logout"></a>
 
         </form>
     </div>

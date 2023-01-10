@@ -13,6 +13,7 @@
             <a href="index.php?page=rental&view=newRental"><input type="button" value="Objektverwaltung"></a>
             <a href=""><input type="button" value="Buchungsverwaltung"></a>
             <a href=""><input type="button" value="Account"></a>
+            <a href="index.php?page=account&view=logout"><input type="button" value="Logout"></a>
 
         </form>
     </div>
