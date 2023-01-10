@@ -31,11 +31,9 @@
 .LoginBox input[type=text],
 .LoginBox input[type=password],
 .LoginBox input[type=tel],
-.LoginBox input[type=email] {
-    width: 100%;
-}
-
-.LoginBox input[type=submit] {
+.LoginBox input[type=email],
+.LoginBox input[type=submit],
+.LoginBox input[type=button]{
     width: 100%;
 }
 
