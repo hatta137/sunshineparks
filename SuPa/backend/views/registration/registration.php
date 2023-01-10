@@ -23,19 +23,19 @@
             <input type="text" placeholder="Bundesland*">
         </form>
 
-        <div class="InputBox">
+        <form class="InputBox">
             <label>Telefon</label>
             <input type="text" placeholder="Telefon" required>
-        </div>
+        </form>
 
-        <div class="InputBox">
+        <form class="InputBox">
             <label>Email Adresse</label>
             <input type="email" placeholder="Email" required>
 
             <label>Passwort</label>
             <input type="password" placeholder="Passwort" required>
             <input type="password" placeholder="Passwort wiederholen" required>
-        </div>
+        </form>
     </div>
 
     <div class="foot">
