@@ -1,3 +1,33 @@
-tbody{
-    font-size: 1.6rem
+
+.showEmployees{
+    margin: 5vw;
+    width: 80%;
+}
+
+#empTable {
+    border-collapse: collapse;
+
+    font-size: 5rem;
+
+}
+
+#empTable td, #empTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#empTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#empTable tr:hover {background-color: rgba(0, 0, 0, 0.19);}
+
+#empTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.showEmployees input {
+    width: 100%
 }
