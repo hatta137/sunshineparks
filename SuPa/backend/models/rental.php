@@ -303,7 +303,7 @@ class Rental extends Model{
 
 
         }catch (PDOException $e){
-            echo $e;
+            echo $e->getMessage();
         }
 
     }

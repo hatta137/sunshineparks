@@ -90,9 +90,10 @@ class Person extends Model
                                      $Street, $HNumber, $ZipCode, $City, $State, $ModeID) : ?Person
     {
 
-
         try {
-            $db = self::getDB();
+
+            $db = getDB();
+            $db->beginTransaction();
 
             $existingAddr = Address::findByValues($Street, $HNumber, $ZipCode, $City, $State);
             if ($existingAddr) {
@@ -121,8 +122,10 @@ class Person extends Model
             return new Person($PersonID);
 
         }catch (PDOException $e){
-            echo $e;
+            echo $e->getMessage();
         }
+
+        return null;
 
     }
 

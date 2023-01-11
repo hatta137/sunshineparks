@@ -9,30 +9,9 @@ class Model
 {
     protected array $attributes = array();
 
-    protected static function getDB(): PDO{
-
-
-        static $db = null;
-
-        if ($db == null) {
-            $dsn = 'mysql:host=localhost;dbname=SunshineParksWeb;charset=utf8';
-            $db = new PDO($dsn, "root", "");
-
-            // Throw an Exception when an error occurs
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        }
-
-        return $db;
-
-    }
-
-
-
     function __construct($tableName, $primaryKeyName, $rowId)
     {
-        $db = self::getDB();
+        $db = getDB();
         $stmt = $db->prepare("SELECT * FROM $tableName WHERE $primaryKeyName = ?");
         $stmt->execute([$rowId]);
         $result = $stmt->fetch();
