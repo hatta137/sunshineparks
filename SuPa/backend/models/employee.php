@@ -79,6 +79,7 @@ class Employee extends Model
                                         $ZipCode,
                                         $State,
                                         $City,
+                                        $PasswordHash,
                                         $ResortID) : ?Employee{
 
         $emp = new Employee($EmpID);
@@ -92,13 +93,15 @@ class Employee extends Model
                                         LastName    = ?,
                                         DateOfBirth = ?,
                                         Tel         = ?,
-                                        Mail        = ?
+                                        Mail        = ?,
+                                        PasswordHash = ?
                                         WHERE PersonID = ?');
         $stmtPerson->execute([  $FirstName,
                                 $LastName,
                                 $DateOfBirth,
                                 $Tel,
                                 $Mail,
+                                $PasswordHash,
                                 $personID]);
 
         $stmtEmployee = $db->prepare('UPDATE EMP SET
