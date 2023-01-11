@@ -15,7 +15,7 @@
             <label>Passwort</label>
             <input type="password" placeholder="Passwort" name="pwd" required>
 
-            <input type="submit" onclick="window.location.href='index.php?page=account&view=manager'" value="Login">
+            <input type="submit" value="Login">
 
             <p>Noch kein Konto?</p>
             <input type="button" onclick="window.location.href='index.php?page=registration&view=registration'" value="Zur Registrierung">
