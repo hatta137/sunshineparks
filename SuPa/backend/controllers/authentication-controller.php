@@ -46,6 +46,7 @@ class AuthenticationController extends Controller {
     {
         $mail = $_POST['mail'];
         $person = Person::findByMail($mail);
+        echo $person->FirstName;
 
         if (is_null($person)) {
             header('Location: index.php?page=error&view=unknownUser');
@@ -64,53 +65,44 @@ class AuthenticationController extends Controller {
             header('Location: index.php?page=error&view=noAccess');
             return;
         }
-        $_SESSION['person'] = $person;
-        $_SESSION['special'] = $person->getChildClass();
+        $_SESSION['person'] = $person->PersonID;
+        //$_SESSION['special'] = $person->getChildClass(); per personId in View gönnen
         $personMode = $person->getPersonModeID();
-        //personmode in _params
-        if ($personType === "G") {
-            header('Location: index.php?page=account&view=guest');
-            setcookie("loginType","guest");
-        } else if ($personType === "E") {
-            switch ($personMode){
-                case 1:
-                    setcookie("loginType","admin");
-                    header('Location: index.php?page=account&view=admin');
-                    break;
-                case 2:
-                    setcookie("loginType","cleaning");
-                    header('Location: index.php?page=account&view=cleaning');
-                    break;
-                case 3:
-                    setcookie("loginType","maintanance");
-                    header('Location: index.php?page=account&view=maintanance');
-                    break;
-                case 4:
-                    setcookie("loginType","manager");
-                    header('Location: index.php?page=account&view=manager');
-                    break;
-                case 5:
-                    setcookie("loginType","rental");
-                    header('Location: index.php?page=account&view=rental');
-                    break;
-                case 6:
-                    setcookie("loginType","booking");
-                    header('Location: index.php?page=account&view=booking');
-                    break;
-                case 7:
-                    setcookie("loginType","guest");
-                    header('Location: index.php?page=account&view=guest');
-                    break;
-                default:
-                    header('Location: index.php?page=error&view=noMode');
-                    break;
-            }
 
-        } else if ($personType === "A") {
-            setcookie("loginType","admin");
-            header('Location: index.php?page=account&view=admin');
-
+        switch ($personMode){
+            case 1:
+                setcookie("loginType","admin");
+                header('Location: index.php?page=account&view=admin');
+                break;
+            case 2:
+                setcookie("loginType","cleaning");
+                header('Location: index.php?page=account&view=cleaning');
+                break;
+            case 3:
+                setcookie("loginType","maintanance");
+                header('Location: index.php?page=account&view=maintanance');
+                break;
+            case 4:
+                setcookie("loginType","manager");
+                header('Location: index.php?page=account&view=manager');
+                break;
+            case 5:
+                setcookie("loginType","rental");
+                header('Location: index.php?page=account&view=rental');
+                break;
+            case 6:
+                setcookie("loginType","booking");
+                header('Location: index.php?page=account&view=booking');
+                break;
+            case 7:
+                setcookie("loginType","guest");
+                header('Location: index.php?page=account&view=guest');
+                break;
+            default:
+                header('Location: index.php?page=error&view=noMode');
+                break;
         }
+
     }
 
 

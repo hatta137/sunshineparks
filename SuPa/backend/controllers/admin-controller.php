@@ -57,23 +57,56 @@ class AdminController extends Controller{
 
         $resortID = Resort::getResortIDByName($_POST['Resort']);
 
+        $currentEmp = new Employee($_POST['EmpID']);
+        $currentPerson = new Person($currentEmp->PersonID);
+        $currentAddress = Address::findByPersonID($currentEmp->PersonID);
+
+        // list of fiels in html form
+        $fieldsPerson   = array("FirstName", "LastName", "DateOfBirth", "Tel", "Mail", "PasswordHash");
+        $fieldsEmp      = array("Manager", "Job");
+        $fieldsAddr     = array("Street", "HNumber", "ZipCode", "State", "City");
+        foreach ($fieldsPerson as $field){
+            if (isset($_POST[$field]) && !empty($_POST[$field])){
+                ${$field} = $_POST[$field];
+            }else{
+                ${$field} = $currentPerson->{$field};
+            }
+        }
+
+        foreach ($fieldsEmp as $field){
+            if (isset($_POST[$field]) && !empty($_POST[$field])){
+                ${$field} = $_POST[$field];
+            }else{
+                ${$field} = $currentEmp->{$field};
+            }
+        }
+
+        foreach ($fieldsAddr as $field){
+            if (isset($_POST[$field]) && !empty($_POST[$field])){
+                ${$field} = $_POST[$field];
+            }else{
+                ${$field} = $currentAddress->{$field};
+            }
+        }
+
 
 
         $updatedEmp = Employee::updateEmp(
 
             $_POST['EmpID'],
-            $_POST['FirstName'],
-            $_POST['LastName'],
-            $_POST['DateOfBirth'],
-            $_POST['Tel'],
-            $_POST['Mail'],
-            $_POST['Manager'],
-            $_POST['Job'],
-            $_POST['Street'],
-            $_POST['HNumber'],
-            $_POST['ZipCode'],
-            $_POST['State'],
-            $_POST['City'],
+            $FirstName,
+            $LastName,
+            $DateOfBirth,
+            $Tel,
+            $Mail,
+            $Manager,
+            $Job,
+            $Street,
+            $HNumber,
+            $ZipCode,
+            $State,
+            $City,
+            $PasswordHash,
             $resortID
 
             // TODO PasswordHash einbauen

@@ -10,9 +10,7 @@ $actionName = $_GET['view'] ?? 'home';
 $logicName = $_GET['logic'] ?? null;
 
 if(isset($_COOKIE)){
-
-    if ($_COOKIE['loginType'] === null)
-        setcookie("loginType","logout");
+    setcookie("loginType","logout");
 }
 
 $controllerPath = __DIR__ . '/controllers/' . $controllerName . '-controller.php';
