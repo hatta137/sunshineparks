@@ -6,9 +6,8 @@
 
 #empTable {
     border-collapse: collapse;
-
+    width: 100%;
     font-size: 5rem;
-
 }
 
 #empTable td, #empTable th {
@@ -24,10 +23,10 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: #46A998;
     color: white;
 }
 
-.showEmployees input {
-    width: 100%
+#empTable input{
+    width: 100%;
 }
