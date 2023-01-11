@@ -15,7 +15,7 @@ class Renovation extends Model {
      */
     //TODO Implement the function
     public static function getAllRenovation() : array{
-        $db = self::getDB();
+        $db = getDB();
 
         $stmtRenovations = $db->prepare('SELECT * FROM STRUCCHANGE
                                                         JOIN RENTAL ON STRUCCHANGE.RentalID = RENTAL.RentalID
@@ -41,7 +41,7 @@ class Renovation extends Model {
     //TODO Implement the function
     public static function getRenovationByResort($resortName) : array{
 
-        $db = self::getDB();
+        $db = getDB();
 
         $stmtRenovations = $db->prepare('SELECT ChangeID FROM STRUCCHANGE
                                                               JOIN RENTAL ON STRUCCHANGE.RentalID = RENTAL.RentalID
@@ -110,7 +110,7 @@ class Renovation extends Model {
                                             ,$craftservCategory,$phone,$craftservStreet,$craftservHouseNumber,$craftservZipCode,
                                             $craftservCity,$craftservState) : bool{
         try {
-            $db = self::getDB();
+            $db = getDB();
 
             $stmtNewRenovation = $db->prepare('call p_NewRenovation(?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRenovation->execute([$rentalID, $startDate,$plannedEndDate,$description,$plannedCosts,$companyName
@@ -118,7 +118,7 @@ class Renovation extends Model {
                 $craftservCity,$craftservState]);
             return true;
         }catch (PDOException $e){
-            echo $e;
+            echo $e->getMessage();
             return false;
         }
 

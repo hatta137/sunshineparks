@@ -8,7 +8,7 @@ class Guest extends Model {
     }
 
     public static function findByPersonId($personId) : ?Guest {
-        $db = self::getDB();
+        $db = getDB();
 
         $stmt = $db->prepare('SELECT GuestID FROM GUEST WHERE PersonID = ?');
         $stmt->execute([$personId]);

@@ -10,7 +10,7 @@ class Resort extends Model{
 
     public static function getResortNameByID($resortID) :?String{
 
-        $db = self::getDB();
+        $db = getDB();
         $stmt = $db->prepare('SELECT Name FROM RESORT 
                                     WHERE ResortID = ?');
         $stmt->execute([$resortID]);
@@ -25,7 +25,7 @@ class Resort extends Model{
 
     public static function getResortIDByName($name) :?int{
 
-        $db = self::getDB();
+        $db = getDB();
         $stmt = $db->prepare('SELECT ResortID FROM RESORT WHERE Name = ?;');
         $stmt->execute([$name]);
         $row = $stmt->fetch();

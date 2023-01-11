@@ -8,7 +8,7 @@ class Admin extends Model {
     }
 
     public static function findByPersonID($personId) : ?Admin {
-        $db = self::getDB();
+        $db = getDB();
         $stmt = $db->prepare('SELECT AdminID FROM ADMIN WHERE PersonID = ?');
         $stmt->execute([$personId]);
         $row = $stmt->fetch();

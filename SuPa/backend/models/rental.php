@@ -19,7 +19,7 @@ class Rental extends Model{
      * @return array of instances of the Objects Rental
      */
     public static function getAllRental() : array{
-        $db = self::getDB();
+        $db = getDB();
 
         $stmt = $db->prepare('SELECT * FROM RENTAL');
         $stmt->execute();
@@ -40,7 +40,7 @@ class Rental extends Model{
      * @return string with the right type of Rental (Apartment or House) and the right Location (Mountain/Ocean/City)
      */
     public function getRentalType() : string{
-        $db = self::getDB();
+        $db = getDB();
 
         /**
          * This method accesses the instance variable RentalID and uses it to find out in the queries whether
@@ -91,7 +91,7 @@ class Rental extends Model{
 
 
     public static function findRentalsByFilter($resortName, $startDate, $endDate, $numberOfGuests) :array{
-        $db = self::getDB();
+        $db = getDB();
 
         $resortID = self::getResortIdByResortName($resortName);
 
@@ -128,7 +128,7 @@ class Rental extends Model{
                 $rentals [] = new Rental($rentalID['RentalID']);
             }
         }catch (PDOException $e){
-            $e;
+            echo $e->getMessage();
         }
 
         return $rentals;
@@ -136,7 +136,7 @@ class Rental extends Model{
 
 
     public static function getResortIdByResortName($resortName) :int{
-        $db = self::getDB();
+        $db = getDB();
 
 
         $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
@@ -166,7 +166,7 @@ class Rental extends Model{
 
             /** if it is a house, the database is checked to see how many kitchens it has */
 
-            $db = self::getDB();
+            $db = getDB();
             $stmtNumberOFKitchens = $db->prepare('SELECT Kitchen FROM HOUSE WHERE RentalID = ?');
             $stmtNumberOFKitchens->execute([$this->RentalID]);
 
@@ -186,7 +186,7 @@ class Rental extends Model{
 
         /** getting the Type of the rental from the function way above*/
         $typeOfRental = substr($this->getRentalType(), 0, 4);
-        $db = self::getDB();
+        $db = getDB();
 
         try {
             $typeOfFreeSeat = "";
@@ -221,7 +221,7 @@ class Rental extends Model{
                 $typeOfFreeSeat = "No Rental Found";
             }
         }catch (PDOException $e){
-            echo $e;
+            echo $e->getMessage();
         }
 
 
@@ -274,7 +274,7 @@ class Rental extends Model{
     echo $isApartment;
 
         try {
-            $db = self::getDB();
+            $db = getDB();
 
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRental->execute([   $maxVisitors,
@@ -309,7 +309,7 @@ class Rental extends Model{
     }
 
     public function getChildClass() : mixed {
-        $db = self::getDB();
+        $db = getDB();
 
         $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
         $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
@@ -333,7 +333,7 @@ class Rental extends Model{
     // aus den Tabellen Appartment und house
 
     public static function getLastRentalInResort($resort) : Rental{
-        $db = self::getDB();
+        $db = getDB();
 
 
         $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
@@ -352,7 +352,7 @@ class Rental extends Model{
      * @return Renovation
      */
     public static function getLastRenovation() : Renovation{
-        $db = self::getDB();
+        $db = getDB();
 
         $stmtLastRenovation = $db->prepare("SELECT * FROM STRUCCHANGE 
                                                             WHERE StrucchangeID = (SELECT MAX(StrucchangeID))
@@ -369,12 +369,12 @@ class Rental extends Model{
     /**
      * Author: Max Schelenz und Hendrik Lendeckel
      * This function returns the address from a given Rental with the help of the database function fn_GetRentalID.
-     * @param $rental
+     * @param $rentalID
      * @return Address
      */
     public static function getAddressFromRental($rentalID) : Address
     {
-        $db = self::getDB();
+        $db = getDB();
 
         $stmtAddress = $db->prepare("SELECT * FROM ADDR
                                             JOIN RENTAL ON ADDR.AddrID = RENTAL.AddrID
@@ -384,8 +384,6 @@ class Rental extends Model{
         $addressID = $address['AddrID'];
         echo $addressID;
         return new Address($addressID);
-
-
     }
 
 }

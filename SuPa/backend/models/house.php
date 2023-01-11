@@ -7,7 +7,7 @@ class House extends Model{
     }
 
     public static function findByRentalId($rentalId) : ?House {
-        $db = self::getDB();
+        $db = getDB();
 
         $stmt = $db->prepare('SELECT HouseID FROM HOUSE WHERE RentalID = ?');
         $stmt->execute([$rentalId]);

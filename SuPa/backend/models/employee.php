@@ -12,7 +12,7 @@ class Employee extends Model
     }
 
     public static function findByPersonId($personId) : ?Employee {
-        $db = self::getDB();
+        $db = getDB();
 
         $stmt = $db->prepare('SELECT EmpID FROM EMP WHERE PersonID = ?');
         $stmt->execute([$personId]);
@@ -33,7 +33,7 @@ class Employee extends Model
      */
     public function getResort() : ?String{
 
-        $db = self::getDB();
+        $db = getDB();
         $stmt = $db->prepare('SELECT Name FROM RESORT 
                                     JOIN EMP ON RESORT.ResortID = EMP.ResortID
                                     WHERE EMP.EmpID = ?');
@@ -52,7 +52,7 @@ class Employee extends Model
      * @return array|null
      */
     public static function getAllEmployees() : ?array{
-        $db = self::getDB();
+        $db = getDB();
 
         $stmt = $db->prepare('SELECT * FROM EMP');
         $stmt->execute();
@@ -86,7 +86,7 @@ class Employee extends Model
         $personID = $emp->PersonID;
         $person = new Person($personID);
 
-        $db = self::getDB();
+        $db = getDB();
 
         $stmtPerson = $db->prepare('UPDATE PERSON SET 
                                         FirstName   = ?,
