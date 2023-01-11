@@ -13,8 +13,8 @@ class Address extends Model {
      * @param $personID
      * @return Address|null
      */
-    public static function findByPersonID($personID) : ?Address{
-        $db = self::getDB();
+    public static function findByPersonID($personID): ?Address {
+        $db = getDB();
 
         $stmt = $db->prepare('SELECT AddrID FROM PERSON WHERE PersonID = ?');
         $stmt->execute([$personID]);

@@ -35,7 +35,7 @@ class Person extends Model
      * @return Person|null
      */
     public static function findByMail(string $mail) : ?Person {
-        $db = self::getDB();
+        $db = getDB();
         $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE Mail = ?');
         $stmt->execute([$mail]);
         $row = $stmt->fetch();
@@ -54,7 +54,7 @@ class Person extends Model
      */
 
     public function getPersonModeID() :?int{
-        $db = self::getDB();
+        $db = getDB();
         $stmt = $db->prepare('SELECT ModeID FROM PERSONMODE WHERE PersonID = ?');
         $stmt->execute([$this->PersonID]);
         $row = $stmt->fetch();
@@ -67,14 +67,14 @@ class Person extends Model
     }
 
         /*
-        public static function newPerson("die ganzen Person daten aus der registierung view halt") :bool{
+        public static function newPerson("die ganzen Guest daten aus der registierung view halt") :bool{
             return true; //true oder false je nachdem obs geklappt hat
         }
 
         */
 
     /**
-     * Author: Dario Daßler
+     * Author:
      * This function ...
      * @param $FirstName
      * @param $LastName
@@ -83,30 +83,42 @@ class Person extends Model
      * @param $Mail
      * @param $PasswordHash
      * @param $AccountType
-     * @return Person
+     * @return bool
      */
 
-    public static function newPerson(
-                                        $FirstName,
-                                        $LastName,
-                                        $DateOfBirth,
-                                        $Tel,
-                                        $Mail,
-                                        $PasswordHash,
-                                        $AccountType,
-
-                                        ) : Person
+    public static function newPerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AccountType, $PasswordHash,
+                                     $Street, $HNumber, $ZipCode, $City, $State, $ModeID) : ?Person
     {
 
 
         try {
             $db = self::getDB();
 
-            $stmtNewPerson = $db->prepare();
+            $existingAddr = Address::findByValues($Street, $HNumber, $ZipCode, $City, $State);
+            if ($existingAddr) {
+                $AddrID = $existingAddr->AddrID;
+            } else {
+                $stmt = $db->prepare('INSERT INTO ADDR VALUES (NULL, ?, ?, ?, ?, ?)');
+                $stmt->execute([$Street, $HNumber, $ZipCode, $City, $State]);
+                $AddrID = $db->lastInsertId();
+            }
 
-                // Insert Into Person -> alle Daten in die ParentClass einfügen
-                //Datenbankfunktion Adress überprüfen ob es die schon gibt
+            $stmt = $db->prepare('INSERT INTO PERSON VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)');
+            $stmt->execute([$FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AddrID, $AccountType, $PasswordHash]);
 
+            $PersonID = $db->lastInsertId();
+
+            $stmt = $db->prepare('INSERT INTO GUEST VALUES (NULL, ?)');
+            $stmt->execute([$PersonID]);
+
+            $stmt = $db->prepare('INSERT INTO PERSONMODE VALUES (NULL, ?, ?)');
+            $stmt->execute([$PersonID, $ModeID]);
+
+            //Datenbankfunktion Adress überprüfen ob es die schon gibt
+
+            $db->commit();
+
+            return new Person($PersonID);
 
         }catch (PDOException $e){
             echo $e;
