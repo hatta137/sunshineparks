@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>SunshineParks</title>
-    <link rel="stylesheet" href="/SuPa/assets/css/style.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/index.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/header.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/contactBox.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/imprint.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/privacy.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/documentation.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/rental.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/footer.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/mediaQuerrys.css">
-    <link rel="stylesheet" href="/SuPa/assets/css/authentication.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/contactBox.css">
+    <link rel="stylesheet" href="../assets/css/imprint.css">
+    <link rel="stylesheet" href="../assets/css/privacy.css">
+    <link rel="stylesheet" href="../assets/css/documentation.css">
+    <link rel="stylesheet" href="../assets/css/rental.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/mediaQuerrys.css">
+    <link rel="stylesheet" href="../assets/css/authentication.css">
 
 
 
-    <link rel="icon" type="image/png" href="/SuPa/assets/graphics/LogoIconNB.png" sizes="lg">
+    <link rel="icon" type="image/png" href="../assets/graphics/LogoIconNB.png" sizes="lg">
 </head>
 <body>
 
 
 <header>
+    <?php
+    require_once __DIR__.'/../../models/person.php';
+    if(isset($_SESSION['person'])){
+        $person = new Person($_SESSION['person']);
+        $username = $person->FirstName;
+    }else{
+        $username = "Account";
+    }
+    ?>
     <nav>
         <div>
-            <a href="index.php"><img id="Logo" src="/SuPa/assets/graphics/LogoNB_S.png" alt="LogoSP"></a>
+            <a href="index.php"><img id="Logo" src="../assets/graphics/LogoNB_S.png" alt="LogoSP"></a>
         </div>
         <div class="logo">
             <h1>SunshineParks</h1>
@@ -33,7 +42,7 @@
         <ul>
             <li><a href="#aboutAnchor">About</a></li>
             <li><a href="">Help</a></li>
-            <li><a href="index.php?page=authentication&view=authenticationGuest">Account</a></li>
+            <li><a href="index.php?page=authentication&view=authenticationGuest"><?=$username?></a></li>
         </ul>
         <box-icon name='menu' color="whitesmoke" size="lg" id="menu"></box-icon>
     </nav>
