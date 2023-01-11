@@ -78,7 +78,7 @@ class AuthenticationController extends Controller {
                 header('Location: index.php?page=account&view=cleaning');
                 break;
             case 3:
-                setcookie("loginType","maintanance");
+                setcookie("loginType","maintenance");
                 header('Location: index.php?page=account&view=maintanance');
                 break;
             case 4:
