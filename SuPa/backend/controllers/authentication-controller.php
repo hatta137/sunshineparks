@@ -18,7 +18,7 @@ class AuthenticationController extends Controller {
         }else if($_COOKIE["loginType"]=="maintanance"){
             header('Location: index.php?page=account&view=maintanance');
         }else if($_COOKIE["loginType"]=="booking"){
-            header('Location: index.php?page=account&view=guest');
+            header('Location: index.php?page=account&view=booking');
         }
     }
 
