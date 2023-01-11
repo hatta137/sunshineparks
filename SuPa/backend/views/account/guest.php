@@ -1,6 +1,15 @@
 <section class="topbox">
     <div class="header-content">
-        <h1>Hallo "Gast"</h1>
+        <?php
+        require_once __DIR__.'/../../models/person.php';
+            if(isset($_SESSION['person'])){
+                $person = new Person($_SESSION['person']);
+                $username = $person->FirstName;
+            }else{
+                $username = "UnknownUser";
+            }
+        ?>
+        <h1>Hallo "<?=$username?>"</h1>
 
         <form>
 
