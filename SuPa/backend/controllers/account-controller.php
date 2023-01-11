@@ -65,6 +65,7 @@ class AccountController extends Controller {
 
     public function actionLogout(){
         setcookie("loginType","logout");
+        unset($_SESSION['person']);
     }
 
 
