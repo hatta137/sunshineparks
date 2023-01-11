@@ -46,7 +46,6 @@ class AuthenticationController extends Controller {
     {
         $mail = $_POST['mail'];
         $person = Person::findByMail($mail);
-        echo $person->FirstName;
 
         if (is_null($person)) {
             header('Location: index.php?page=error&view=unknownUser');

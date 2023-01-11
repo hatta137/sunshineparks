@@ -9,7 +9,7 @@ $controllerName = $_GET['page'] ?? 'home';
 $actionName = $_GET['view'] ?? 'home';
 $logicName = $_GET['logic'] ?? null;
 
-if(!isset($_COOKIE)){
+if(!isset($_COOKIE['loginType'])){
     setcookie("loginType","logout");
 }
 
