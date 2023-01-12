@@ -195,7 +195,7 @@ class Rental extends Model{
      * @return String with the information whether the house or apartment has a balcony or a terrace
      */
 
-    public function getTypeOfFreeSeat() :String{
+    public function getTypeOfRentalOutdoorSeating() :String{
 
         /** getting the Type of the rental from the function way above*/
         $typeOfRental = substr($this->getRentalType(), 0, 4);

@@ -22,36 +22,26 @@ class RentalController extends Controller{
             $rentals = Rental::findRentalsByFilter($_GET['resort'], $_GET['startDate'], $_GET['endDate'], $_GET['numberOfGuests']);
         }
 
-        /** Array that Provides the TypeOf and Location String for each Rental */
+        /** Arrays that Provides the different information  for each Rental */
         $rentalTypes = [];
+        $rentalKitchen = [];
+        $rentalOutdoorSeating = [];
+        $rentalPicturePaths = [];
 
         foreach ($rentals as $rental){
             $rentalTypes[] = $rental->getRentalType();
-        }
-
-        /** Array that Provides the Number of Kitchens in a Rental */
-        $rentalKitchen = [];
-        foreach ($rentals as $rental){
             $rentalKitchen[] = $rental->getNumberOfKitchen();
-        }
-
-        /** Array that Provides the Type of FreeSeat (Apartment -> Balcony Y/N or House -> Terrace Y/N in a Rental */
-        $rentalFreeSeat = [];
-        foreach ($rentals as $rental){
-            $rentalFreeSeat[] = $rental->getTypeOfFreeSeat();
-        }
-
-        $rentalPicturePaths = [];
-        foreach ($rentals as $rental){
+            $rentalOutdoorSeating[] = $rental->getTypeOfRentalOutdoorSeating();
             $rentalPicturePaths[] = $rental->getRentalPicturePath();
-
         }
+
+
 
 
         $this->_params['allRentals'] = $rentals;
         $this->_params['rentalTypes'] = $rentalTypes;
         $this->_params['rentalKitchen'] = $rentalKitchen;
-        $this->_params['rentalFreeSeat'] = $rentalFreeSeat;
+        $this->_params['rentalOutdoorSeating'] = $rentalOutdoorSeating;
         $this->_params['rentalPicturePaths'] = $rentalPicturePaths;
     }
 
