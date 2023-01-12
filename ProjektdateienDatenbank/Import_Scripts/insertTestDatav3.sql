@@ -14,6 +14,7 @@ LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_ADDR.csv'
 INTO TABLE ADDR 
 FIELDS TERMINATED BY ';';
 
+
 /* Import AREA Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_AREA.csv' 
@@ -32,11 +33,13 @@ LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_RENTAL.csv'
 INTO TABLE RENTAL 
 FIELDS TERMINATED BY ';';
 
+
 /* Import APPARTMENT Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_APPARTMENT.csv' 
 INTO TABLE APPARTMENT 
 FIELDS TERMINATED BY ';';
+
 
 /* Import HOUSE Daten */
 
@@ -48,17 +51,23 @@ LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_PERSON.csv'
 INTO TABLE PERSON 
 FIELDS TERMINATED BY ';';
 
+
+
+
 /* Import GUEST Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_GUEST.csv' 
 INTO TABLE GUEST 
 FIELDS TERMINATED BY ';';
 
+
 /* Import EMP Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_EMP.csv' 
 INTO TABLE EMP 
 FIELDS TERMINATED BY ';';
+
+
 
 /* Import ADMIN Daten */
 
@@ -83,11 +92,13 @@ LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_CLEANING.csv'
 INTO TABLE CLEANING 
 FIELDS TERMINATED BY ';';
 
+
 /* Import MAINTENANCE Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_MAINTENANCE.csv' 
 INTO TABLE MAINTENANCE 
 FIELDS TERMINATED BY ';';
+
 
 /* Import CRAFTSERV Daten */
 
@@ -95,17 +106,25 @@ LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_CRAFTSERV.csv'
 INTO TABLE CRAFTSERV 
 FIELDS TERMINATED BY ';';
 
+
 /* Import STRUCCHANGE Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_STRUCCHANGE.csv' 
 INTO TABLE STRUCCHANGE 
 FIELDS TERMINATED BY ';';
 
+
+
+
+
+
 /* Import SEASON Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_SEASON.csv' 
 INTO TABLE SEASON 
 FIELDS TERMINATED BY ';';
+
+/*------------ Bis hierhin 01.07.2022--------*/
 
 /* Import SURCHARGE Daten */
 
@@ -119,21 +138,21 @@ LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_BOOKING.csv'
 INTO TABLE BOOKING 
 FIELDS TERMINATED BY ';';
 
+
+
 /* Import BOOKINGDETAIL Daten */
 
 LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_BOOKINGDETAIL.csv' 
 INTO TABLE BOOKINGDETAIL 
 FIELDS TERMINATED BY ';';
 
-/*--------------Bis hierhin 10.01.23-----------------*/
 
-LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_RENTALPICTURES.csv'
-INTO TABLE RENTALPICTURES
+
+/* Import RENTALPICTURES Daten */
+
+LOAD DATA INFILE '/home/hendrik/Schreibtisch/csv_import/SuPa_RENTALPICTURES.csv' 
+INTO TABLE RENTALPICTURES 
 FIELDS TERMINATED BY ';';
-
-
-
-
 
 
 

@@ -366,21 +366,16 @@ CREATE TABLE IF NOT EXISTS MODE
 
 );
 
-
-/*------------------------------------------------------------
---
--- Tabellenstruktur für Tabelle RENTALPICTURES
---*/
-
 DROP TABLE IF EXISTS RENTALPICTURES;
 CREATE TABLE IF NOT EXISTS RENTALPICTURES
 (
-    RentalPicturesID	integer	        not null    AUTO_INCREMENT
-    ,RentalID           integer         not null
-    ,PictureLink        varchar(600)    not null
-    ,Description        varchar(200)    not null
-    ,CONSTRAINT rentalpictures_pk PRIMARY KEY (RentalPicturesID)
-    );
+     RentalPicturesID	integer	        not null        AUTO_INCREMENT
+    ,RentalID	        integer	        not null
+    ,Path	            Varchar(300)	not null
+    ,Description	    Varchar(200)	null
+
+    ,CONSTRAINT rentalpicture_pk PRIMARY KEY (RentalPicturesID)
+);
 
 
 
@@ -569,13 +564,11 @@ ALTER TABLE CRAFTSERV
  REFERENCES ADDR(AddrID)
 ;
 
-
 /*
  FOREIGN KEY für RENTALPICTURES auf RentalID
-*/
+*/ 
 
 ALTER TABLE RENTALPICTURES
-    ADD CONSTRAINT rentalpictures_rentalid_fk FOREIGN KEY (RentalID)
-        REFERENCES RENTAL(RentalID)
+ ADD CONSTRAINT rentalpictures_rentalid_fk FOREIGN KEY (RentalID)
+ REFERENCES RENTAL(RentalID)
 ;
-
