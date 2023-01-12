@@ -24,6 +24,7 @@ class RentalController extends Controller{
 
         /** Array that Provides the TypeOf and Location String for each Rental */
         $rentalTypes = [];
+
         foreach ($rentals as $rental){
             $rentalTypes[] = $rental->getRentalType();
         }
@@ -40,10 +41,18 @@ class RentalController extends Controller{
             $rentalFreeSeat[] = $rental->getTypeOfFreeSeat();
         }
 
+        $rentalPicturePaths = [];
+        foreach ($rentals as $rental){
+            $rentalPicturePaths[] = $rental->getRentalPicturePath();
+
+        }
+
+
         $this->_params['allRentals'] = $rentals;
         $this->_params['rentalTypes'] = $rentalTypes;
         $this->_params['rentalKitchen'] = $rentalKitchen;
         $this->_params['rentalFreeSeat'] = $rentalFreeSeat;
+        $this->_params['rentalPicturePaths'] = $rentalPicturePaths;
     }
 
 

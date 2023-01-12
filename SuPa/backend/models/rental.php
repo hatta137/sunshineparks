@@ -13,6 +13,19 @@ class Rental extends Model{
     }
 
 
+    public function getRentalPicturePath() : string{
+
+        $db = getDB();
+        $stmt = $db->prepare('SELECT Path FROM RENTALPICTURES WHERE RentalID = ?');
+        $stmt->execute([$this->RentalID]);
+        $picturePath = $stmt->fetch();
+
+        return $picturePath['Path'];
+
+
+    }
+
+
     /***
      * Author: Hendrik Lendeckel
      * This method returns all rentals from the database

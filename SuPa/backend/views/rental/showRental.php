@@ -3,12 +3,16 @@
 
 <section class="allObjects">
     <div class="row">
+
         <?php for  ($i = 0; $i < count($allRentals); $i++):
             $rental = $allRentals[$i];
+
+
             ?>
         <div class="objectBox">
 <!--            TODO Anpassen der Bilder -->
-            <img src="../assets/graphics/Objekte/Usedom/Usedom1.jpg" alt="Haus Usedom 1">
+            <img src="<?php echo $rentalPicturePaths[$i]?>" alt="<?=$rentalPicturePaths[$i]?>" >
+
             <div class="objectBoxText">
                 <h2><?= $rentalTypes[$i] ?></h2>
                 <table>
