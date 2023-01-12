@@ -21,6 +21,7 @@ USE SunshineParksWeb;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+
 -- Datenbank: `SunshineParksWeb`
 --
 
