@@ -28,7 +28,7 @@
     require_once __DIR__.'/../../models/person.php';
     if(isset($_SESSION['person'])){
         $person = new Person($_SESSION['person']);
-        $username = $person->FirstName;
+        $username = "Hallo, ".$person->FirstName."!";
     }else{
         $username = "Account";
     }
