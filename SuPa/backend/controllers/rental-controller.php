@@ -11,7 +11,7 @@ class RentalController extends Controller{
      */
     public function actionShowRental(){
 
-        //TODO der ganze Bilder quatsch fehlt auch noch
+
 
         $show = $_GET['show'];
         $rentals = array();
@@ -29,20 +29,20 @@ class RentalController extends Controller{
         $rentalPicturePaths = [];
 
         foreach ($rentals as $rental){
-            $rentalTypes[] = $rental->getRentalType();
-            $rentalKitchen[] = $rental->getNumberOfKitchen();
+            $rentalTypes[]          = $rental->getRentalType();
+            $rentalKitchen[]        = $rental->getNumberOfKitchen();
             $rentalOutdoorSeating[] = $rental->getTypeOfRentalOutdoorSeating();
-            $rentalPicturePaths[] = $rental->getRentalPicturePath();
+            $rentalPicturePaths[]   = $rental->getRentalPicturePath();
         }
 
 
 
 
-        $this->_params['allRentals'] = $rentals;
-        $this->_params['rentalTypes'] = $rentalTypes;
-        $this->_params['rentalKitchen'] = $rentalKitchen;
-        $this->_params['rentalOutdoorSeating'] = $rentalOutdoorSeating;
-        $this->_params['rentalPicturePaths'] = $rentalPicturePaths;
+        $this->_params['allRentals']            = $rentals;
+        $this->_params['rentalTypes']           = $rentalTypes;
+        $this->_params['rentalKitchen']         = $rentalKitchen;
+        $this->_params['rentalOutdoorSeating']  = $rentalOutdoorSeating;
+        $this->_params['rentalPicturePaths']    = $rentalPicturePaths;
     }
 
 
@@ -56,6 +56,8 @@ class RentalController extends Controller{
      * This function creates a new Rental
      * @return void
      */
+
+
 
     public function actionAddNewRental(){
 

@@ -15,8 +15,8 @@ class AuthenticationController extends Controller {
             header('Location: index.php?page=account&view=rental');
         }else if($_COOKIE["loginType"]=="cleaning"){
             header('Location: index.php?page=account&view=cleaning');
-        }else if($_COOKIE["loginType"]=="maintanance"){
-            header('Location: index.php?page=account&view=maintanance');
+        }else if($_COOKIE["loginType"]=="maintenance"){
+            header('Location: index.php?page=account&view=maintenance');
         }else if($_COOKIE["loginType"]=="booking"){
             header('Location: index.php?page=account&view=booking');
         }
@@ -33,8 +33,8 @@ class AuthenticationController extends Controller {
             header('Location: index.php?page=account&view=rental');
         }else if($_COOKIE["loginType"]=="cleaning"){
             header('Location: index.php?page=account&view=cleaning');
-        }else if($_COOKIE["loginType"]=="maintanance"){
-            header('Location: index.php?page=account&view=maintanance');
+        }else if($_COOKIE["loginType"]=="maintenance"){
+            header('Location: index.php?page=account&view=maintenance');
         }else if($_COOKIE["loginType"]=="booking"){
             header('Location: index.php?page=account&view=guest');
         }
@@ -79,14 +79,14 @@ class AuthenticationController extends Controller {
                 break;
             case 3:
                 setcookie("loginType","maintenance");
-                header('Location: index.php?page=account&view=maintanance');
+                header('Location: index.php?page=account&view=maintenance');
                 break;
             case 4:
                 setcookie("loginType","manager");
                 header('Location: index.php?page=account&view=manager');
                 break;
             case 5:
-                setcookie("loginType","rental");
+                setcookie("loginType", "rental");
                 header('Location: index.php?page=account&view=rental');
                 break;
             case 6:
