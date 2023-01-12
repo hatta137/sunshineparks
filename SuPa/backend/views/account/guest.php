@@ -9,7 +9,7 @@
                 $username = "UnknownUser";
             }
         ?>
-        <h1>Hallo "<?=$username?>"</h1>
+        <h1>Hallo, <?=$username?>!</h1>
 
         <form>
 
