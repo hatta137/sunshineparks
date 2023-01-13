@@ -10,8 +10,8 @@ $controllerName = $_GET['page'] ?? 'home';
 $actionName = $_GET['view'] ?? 'home';
 $logicName = $_GET['logic'] ?? null;
 
-if(!isset($_SESSION['loginType'])){
-    $_SESSION['loginType']="logout";
+if(!isset($_COOKIE['loginType'])){
+    setcookie("loginType","logout");
 }
 
 $controllerPath = __DIR__ . '/controllers/' . $controllerName . '-controller.php';

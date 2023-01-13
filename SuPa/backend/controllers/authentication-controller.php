@@ -2,30 +2,42 @@
 require_once __DIR__.'/../models/person.php';
 class AuthenticationController extends Controller {
 
-    private function alreadyLoggedIn(){
-        if($_SESSION["loginType"]=="admin"){
+
+
+    public function actionAuthenticationGuest(){
+        if($_COOKIE["loginType"]=="admin"){
             header('Location: index.php?page=account&view=admin');
-        }else if($_SESSION["loginType"]=="guest"){
+        }else if($_COOKIE["loginType"]=="guest"){
             header('Location: index.php?page=account&view=guest');
-        }else if($_SESSION["loginType"]=="manager"){
+        }else if($_COOKIE["loginType"]=="manager"){
             header('Location: index.php?page=account&view=manager');
-        }else if($_SESSION["loginType"]=="rental"){
+        }else if($_COOKIE["loginType"]=="rental"){
             header('Location: index.php?page=account&view=rental');
-        }else if($_SESSION["loginType"]=="cleaning"){
+        }else if($_COOKIE["loginType"]=="cleaning"){
             header('Location: index.php?page=account&view=cleaning');
-        }else if($_SESSION["loginType"]=="maintenance"){
+        }else if($_COOKIE["loginType"]=="maintenance"){
             header('Location: index.php?page=account&view=maintenance');
-        }else if($_SESSION["loginType"]=="booking"){
+        }else if($_COOKIE["loginType"]=="booking"){
             header('Location: index.php?page=account&view=booking');
         }
     }
 
-    public function actionAuthenticationGuest(){
-        $this->alreadyLoggedIn();
-    }
-
     public function actionAuthenticationIntern(){
-        $this->alreadyLoggedIn();
+        if($_COOKIE["loginType"]=="admin"){
+            header('Location: index.php?page=account&view=admin');
+        }else if($_COOKIE["loginType"]=="guest"){
+            header('Location: index.php?page=account&view=guest');
+        }else if($_COOKIE["loginType"]=="manager"){
+            header('Location: index.php?page=account&view=manager');
+        }else if($_COOKIE["loginType"]=="rental"){
+            header('Location: index.php?page=account&view=rental');
+        }else if($_COOKIE["loginType"]=="cleaning"){
+            header('Location: index.php?page=account&view=cleaning');
+        }else if($_COOKIE["loginType"]=="maintenance"){
+            header('Location: index.php?page=account&view=maintenance');
+        }else if($_COOKIE["loginType"]=="booking"){
+            header('Location: index.php?page=account&view=guest');
+        }
     }
 
 //logiiiiiiiiic
@@ -58,31 +70,31 @@ class AuthenticationController extends Controller {
 
         switch ($personMode){
             case 1:
-                $_SESSION['loginType']="admin";
+                setcookie("loginType","admin");
                 header('Location: index.php?page=account&view=admin');
                 break;
             case 2:
-                $_SESSION['loginType']="cleaning";
+                setcookie("loginType","cleaning");
                 header('Location: index.php?page=account&view=cleaning');
                 break;
             case 3:
-                $_SESSION['loginType']="maintenance";
+                setcookie("loginType","maintenance");
                 header('Location: index.php?page=account&view=maintenance');
                 break;
             case 4:
-                $_SESSION['loginType']="manager";
+                setcookie("loginType","manager");
                 header('Location: index.php?page=account&view=manager');
                 break;
             case 5:
-                $_SESSION['loginType']= "rental";
+                setcookie("loginType", "rental");
                 header('Location: index.php?page=account&view=rental');
                 break;
             case 6:
-                $_SESSION['loginType']="booking";
+                setcookie("loginType","booking");
                 header('Location: index.php?page=account&view=booking');
                 break;
             case 7:
-                $_SESSION['loginType']="guest";
+                setcookie("loginType","guest");
                 header('Location: index.php?page=account&view=guest');
                 break;
             default:
