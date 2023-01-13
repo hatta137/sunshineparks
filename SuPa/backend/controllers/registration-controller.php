@@ -7,6 +7,6 @@ class RegistrationController extends Controller{
     }
 
     public function logicRegistration(){
-        Person::newPerson("Dario","Daßler","15.10.2001","1234","dario-dassler@gmx.de","A",password_hash("test", PASSWORD_DEFAULT),"street","25",07545,"Leipzig","TH","1");
+        //Person::newPerson("Max","Schelenz","27-09-2001","1234","max.schelenz@fh-erfurt.de","G",password_hash("test", PASSWORD_DEFAULT),"street","25",07545,"Leipzig","TH","7");
     }
 }
