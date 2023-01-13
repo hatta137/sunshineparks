@@ -10,7 +10,7 @@
 
 
 .header-content{
-    width: 50%;
+    width: 25%;
     position: relative;
     top: 9%;
     left: 8%;
@@ -30,7 +30,7 @@ input[type=button],
 input[type=submit],
 input[type=password]
 {
-    width: 50%;
+    width: 100%;
     padding: 12px 20px;
     margin: 1.2rem 0;
     display: block;
@@ -41,6 +41,15 @@ input[type=password]
     color: black;
     font-family: "Poppins", sans-serif;
     font-size: 1.8rem;
+}
+input[type=submit],
+input[type=button]{
+    background-color: #48AC98;
+    color: #fff;
+    border:none;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 14px
 }
 
 select:focus,
@@ -62,17 +71,6 @@ select{
 select option{
     font-size: 1.3rem;
     color: black;
-}
-input[type=submit],
-input[type=button]{
-    width: 50%;
-    background-color: #48AC98;
-    color: #fff;
-    padding: 14px 20px;
-    margin: 1.2rem 0;
-    border:none;
-    cursor: pointer;
-    text-transform: uppercase;
 }
 
 input[type=submit]:hover,
