@@ -2,11 +2,14 @@
 /* Footer */
 footer{
     display: flex;
-    height: 80px;
+    position:absolute;
     background-color: #222;
     color: #fff;
-    line-height: 80px;
+
     text-align: center;
+    height:60px;
+    bottom:0;
+    width:100%;
 }
 
 footer .row{
