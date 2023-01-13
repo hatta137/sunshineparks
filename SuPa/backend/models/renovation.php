@@ -9,11 +9,11 @@ class Renovation extends Model {
 
     /**
      * Author: Max Schelenz
-     * This function gets all actual renovations from STRUCCHANGE and returns them in an array.
+     * Finds all actual renovations from STRUCCHANGE.
      * no params
      * @return array
      */
-    //TODO Implement the function
+
     public static function getAllRenovation() : array{
         $db = getDB();
 
@@ -87,7 +87,7 @@ class Renovation extends Model {
 
     /**
      * Author: Max Schelenz
-     * This function creates a new Renovation using the database procedure p_NewRenovation.
+     * Creates a new Renovation using the database procedure p_NewRenovation.
      * This database procedure uses other sub-functions.
      * @param $rentalID
      * @param $startDate

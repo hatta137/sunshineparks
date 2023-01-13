@@ -7,6 +7,13 @@ class Guest extends Model {
         parent::__construct("GUEST", "GuestID", $guestID);
     }
 
+
+    /**
+     * Author: Max Schelenz
+     * Finds an guest object by its personid.
+     * @param $personId
+     * @return Guest|null The guest object if it is found, or null if it is not found.
+     */
     public static function findByPersonId($personId) : ?Guest {
         $db = getDB();
 

@@ -48,8 +48,7 @@ class Person extends Model
     }
 
     /**
-     * This function needs a PersonID to return the
-     * ModeID.
+     *
      * @return int|null
      */
 
@@ -66,24 +65,24 @@ class Person extends Model
         return $row['ModeID'];
     }
 
-        /*
-        public static function newPerson("die ganzen Guest daten aus der registierung view halt") :bool{
-            return true; //true oder false je nachdem obs geklappt hat
-        }
-
-        */
 
     /**
-     * Author:
-     * This function ...
+     * Author: Max Schelenz
+     * Adds a new person from type guest with all its values to ADDR, GUEST, PERSON and PERSONMODE.
      * @param $FirstName
      * @param $LastName
      * @param $DateOfBirth
      * @param $Tel
      * @param $Mail
-     * @param $PasswordHash
      * @param $AccountType
-     * @return bool
+     * @param $PasswordHash
+     * @param $Street
+     * @param $HNumber
+     * @param $ZipCode
+     * @param $City
+     * @param $State
+     * @param $ModeID
+     * @return Person|null The person object if it is successfully added, or null if not.
      */
 
     public static function newPerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AccountType, $PasswordHash,
@@ -95,7 +94,7 @@ class Person extends Model
             $db = getDB();
             $db->beginTransaction();
 
-            $existingAddr = Address::findByValues($Street, $HNumber, $ZipCode, $City, $State);
+            $existingAddr = Address::findByValues($Street, $HNumber, $ZipCode, $City, $State);  //check if address is already existing, yes =>just existing AddrID for this newPerson
             if ($existingAddr) {
                 $AddrID = $existingAddr->AddrID;
             } else {
@@ -114,8 +113,6 @@ class Person extends Model
 
             $stmt = $db->prepare('INSERT INTO PERSONMODE VALUES (NULL, ?, ?)');
             $stmt->execute([$PersonID, $ModeID]);
-
-            //Datenbankfunktion Adress überprüfen ob es die schon gibt
 
             $db->commit();
 

@@ -1,6 +1,6 @@
 <section class="topbox">
     <div class="header-content">
-        <h1>Maintanance</h1>
+        <h1>Maintenance</h1>
 
         <form>
 

@@ -35,10 +35,10 @@ class AccountController extends Controller {
         }
     }
 
-    public function actionMaintanance(){
+    public function actionMaintenance(){
         if($_COOKIE["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "maintanance"){
+        }else if ($_COOKIE["loginType"] != "maintenance"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }

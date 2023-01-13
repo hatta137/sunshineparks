@@ -11,6 +11,12 @@ class Employee extends Model
 
     }
 
+    /**
+     * Author: Max Schelenz
+     * Finds an employee obejct by its personid.
+     * @param $personId
+     * @return Employee|null The employee object if it is found, or null if it is not found.
+     */
     public static function findByPersonId($personId) : ?Employee {
         $db = getDB();
 
