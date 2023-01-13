@@ -8,40 +8,40 @@
 
     <div class="InputZone">
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Name</label>
-            <input type="text" placeholder="Vorname" name="fname" required>
-            <input type="text" placeholder="Nachname" name="lname" required>
+            <input type="text" placeholder="Vorname" required>
+            <input type="text" placeholder="Nachname" required>
         </form>
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Adresse</label>
-            <input type="text" placeholder="Straße" name="street" required>
-            <input type="text" placeholder="Hausnummer" name="housenumber" required>
-            <input type="text" placeholder="PLZ" name="zipcode" required>
-            <input type="text" placeholder="Ort" name="city" required>
-            <input type="text" placeholder="Bundesland*" name="country">
+            <input type="text" placeholder="Straße" required>
+            <input type="text" placeholder="Hausnummer" required>
+            <input type="text" placeholder="PLZ" required>
+            <input type="text" placeholder="Ort" required>
+            <input type="text" placeholder="Bundesland*">
         </form>
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Telefon</label>
-            <input type="text" placeholder="Telefon" name="phone" required>
+            <input type="text" placeholder="Telefon" required>
         </form>
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Email Adresse</label>
-            <input type="email" placeholder="Email" name="mail" required>
+            <input type="email" placeholder="Email" required>
 
             <label>Passwort</label>
-            <input type="password" placeholder="Passwort" name="pwd" required>
-            <input type="password" placeholder="Passwort wiederholen" name="pwdrepeat" required>
+            <input type="password" placeholder="Passwort" required>
+            <input type="password" placeholder="Passwort wiederholen" required>
         </form>
     </div>
 
     <div class="foot">
         <input type="submit" value="Registrieren">
         Bereits ein Konto erstellt?
-        <input type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
+        <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
     </div>
 
 </div>
