@@ -10,7 +10,7 @@
     <div class="InputZone">
         <form class="InputBox" action="index.php?page=authentication&logic=login" method="POST">
             <label>Email</label>
-            <input type="email" placeholder="Email Adresse" name="mail" required>
+            <input type="text" placeholder="Email Adresse" name="mail" required>
 
             <label>Passwort</label>
             <input type="password" placeholder="Passwort" name="pwd" required>
