@@ -3,58 +3,58 @@ require_once __DIR__.'/../models/person.php';
 class AccountController extends Controller {
 
     public function actionGuest(){
-    if($_COOKIE["loginType"] == "logout"){
+    if($_SESSION["loginType"] == "logout"){
         header('Location: index.php?page=authentication&view=authenticationGuest');
-    }else if ($_COOKIE["loginType"] != "guest"){
+    }else if ($_SESSION["loginType"] != "guest"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }
 
     public function actionManager(){
-        if($_COOKIE["loginType"] == "logout"){
+        if($_SESSION["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "manager"){
+        }else if ($_SESSION["loginType"] != "manager"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }
 
     public function actionAdmin(){
-        if($_COOKIE["loginType"] == "logout"){
+        if($_SESSION["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "admin"){
+        }else if ($_SESSION["loginType"] != "admin"){
             header('Location: index.php?page=error&view=noAccess');
         }
 
     }
 
     public function actionCleaning(){
-        if($_COOKIE["loginType"] == "logout"){
+        if($_SESSION["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "cleaning"){
+        }else if ($_SESSION["loginType"] != "cleaning"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }
 
     public function actionMaintenance(){
-        if($_COOKIE["loginType"] == "logout"){
+        if($_SESSION["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "maintenance"){
+        }else if ($_SESSION["loginType"] != "maintenance"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }
 
     public function actionRental(){
-        if($_COOKIE["loginType"] == "logout"){
+        if($_SESSION["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "rental" & $_COOKIE["loginType"] != "admin"){
+        }else if ($_SESSION["loginType"] != "rental" & $_SESSION["loginType"] != "admin"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }
 
     public function actionBooking(){
-        if($_COOKIE["loginType"] == "logout"){
+        if($_SESSION["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "booking"){
+        }else if ($_SESSION["loginType"] != "booking"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }
@@ -64,7 +64,7 @@ class AccountController extends Controller {
     }
 
     public function actionLogout(){
-        setcookie("loginType","logout");
+        $_SESSION['loginType']="logout";
         unset($_SESSION['person']);
     }
 
