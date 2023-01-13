@@ -3,6 +3,7 @@
 require_once "admin.php";
 require_once "employee.php";
 require_once "guest.php";
+require_once "address.php";
 
 class Person extends Model
 {
@@ -104,12 +105,13 @@ class Person extends Model
             }
 
             $stmt = $db->prepare('INSERT INTO PERSON VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)');
-            $stmt->execute([$FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AddrID, $AccountType, $PasswordHash]);
+            $stmt->execute([$FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AddrID, $PasswordHash, $AccountType]);
 
             $PersonID = $db->lastInsertId();
-
-            $stmt = $db->prepare('INSERT INTO GUEST VALUES (NULL, ?)');
-            $stmt->execute([$PersonID]);
+            if($AccountType == "G") {
+                $stmt = $db->prepare('INSERT INTO GUEST VALUES (NULL, ?)');
+                $stmt->execute([$PersonID]);
+            }
 
             $stmt = $db->prepare('INSERT INTO PERSONMODE VALUES (NULL, ?, ?)');
             $stmt->execute([$PersonID, $ModeID]);
