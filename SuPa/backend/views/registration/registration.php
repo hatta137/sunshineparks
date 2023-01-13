@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="../assets/css/authentication.css">
 
 <div class="LoginBox">
+<form action="index.php?page=registration&logic=registration" method="POST">
 
     <div class="header">
         <h1>Registrierung</h1>
@@ -8,13 +9,13 @@
 
     <div class="InputZone">
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Name</label>
             <input type="text" placeholder="Vorname" name="fname" required>
             <input type="text" placeholder="Nachname" name="lname" required>
         </form>
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Adresse</label>
             <input type="text" placeholder="Straße" name="street" required>
             <input type="text" placeholder="Hausnummer" name="housenumber" required>
@@ -23,12 +24,12 @@
             <input type="text" placeholder="Bundesland*" name="country">
         </form>
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Telefon</label>
             <input type="text" placeholder="Telefon" name="phone" required>
         </form>
 
-        <form class="InputBox" action="index.php?page=registration&logic=registration" method="POST">
+        <form class="InputBox">
             <label>Email Adresse</label>
             <input type="email" placeholder="Email" name="mail" required>
 
@@ -39,13 +40,13 @@
     </div>
 
     <div class="foot">
-        <form>
         <input type="submit" value="Registrieren">
         Bereits ein Konto erstellt?
         <input type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
-        </form>
     </div>
 
+
+</form>
 </div>
 
-</div>
+
