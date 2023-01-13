@@ -46,7 +46,7 @@ class AccountController extends Controller {
     public function actionRental(){
         if($_COOKIE["loginType"] == "logout"){
             header('Location: index.php?page=authentication&view=authenticationGuest');
-        }else if ($_COOKIE["loginType"] != "rental"){
+        }else if ($_COOKIE["loginType"] != "rental" & $_COOKIE["loginType"] != "admin"){
             header('Location: index.php?page=error&view=noAccess');
         }
     }
