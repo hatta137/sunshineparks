@@ -253,7 +253,7 @@
 <section id="reMod" class="even">
     <div>
         <h1>Relationales Modell</h1>
-        <img src="fertiges relationales Modell ergänzen!!!">
+        <img src="/SuPa/assets/graphics/docu/Sunshine%20Parks%20ERM%20v10.drawio.png">
     </div>
 </section>
 
