@@ -4,5 +4,17 @@
     width: 50%;
     position: relative;
     left: 8%;
+}
 
+.header-imprint a {
+    color: black;
+}
+
+.header-imprint a:link {
+    color: blue;
+}
+
+/* visited link */
+.header-imprint a:visited {
+    color: purple;
 }
