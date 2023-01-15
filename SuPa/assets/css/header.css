@@ -29,8 +29,7 @@ input[type=email],
 input[type=button],
 input[type=submit],
 input[type=password],
-input[type=textarea]
-
+textarea
 {
     width: 100%;
     padding: 12px 20px;
@@ -62,7 +61,7 @@ input[type=email]:focus,
 input[type=button]:focus,
 input[type=submit]:focus,
 input[type=password]:focus,
-input[type=textarea]:focus
+textarea:focus
 {
     border: 3px solid #46A998;
 }

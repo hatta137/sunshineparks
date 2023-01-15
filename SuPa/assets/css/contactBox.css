@@ -12,14 +12,12 @@
 .contact form input{
     width: 50%;
 }
+
 .contact textarea{
     width: 50%;
     height: 150px;
-    padding: 12px 20px;
-    border: 1px solid #ccc;
     font-size: 1.3rem;
     resize: none;
-    color: #ccc;
-    margin: 1.2rem 0;
-    font-family: Poppins, sans-serif;
+    color: #b4b4b4;
 }
+
