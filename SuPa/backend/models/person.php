@@ -85,6 +85,9 @@ class Person extends Model
      * @param $ModeID
      * @return Person|null The person object if it is successfully added, or null if not.
      */
+    //@Todo mach mal n switch case für die child class
+
+    //@Todo mach mal ne deleteGuest fumction
 
     public static function newPerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AccountType, $PasswordHash,
                                      $Street, $HNumber, $ZipCode, $City, $State, $ModeID) : ?Person
@@ -108,6 +111,7 @@ class Person extends Model
             $stmt->execute([$FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AddrID, $PasswordHash, $AccountType]);
 
             $PersonID = $db->lastInsertId();
+
             if($AccountType == "G") {
                 $stmt = $db->prepare('INSERT INTO GUEST VALUES (NULL, ?)');
                 $stmt->execute([$PersonID]);
