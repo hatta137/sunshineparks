@@ -61,8 +61,8 @@ section{
 }
 
 /* Hero Section */
-header{
-    height: 9rem;
+.header{
+    height: 10rem;
     background-color: #222;
     color: #fff;
     background-repeat:  no-repeat;
@@ -76,22 +76,21 @@ header{
 
 
 
-
-
 .logo{
     font-size: 3.2rem;
     color: #48AC98;
-    font-family: Beau;
     cursor: pointer;
 }
 #Logo{
     width: 150px;
 }
 nav{
-    margin: 0 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 100%
 }
 
 nav box-icon{

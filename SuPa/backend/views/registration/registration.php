@@ -3,7 +3,7 @@
 <div class="LoginBox">
 <form action="index.php?page=registration&logic=registration" method="POST">
 
-    <div class="header">
+    <div>
         <h1>Registrierung</h1>
     </div>
 

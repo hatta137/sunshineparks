@@ -35,7 +35,8 @@
 .LoginBox input[type=tel],
 .LoginBox input[type=email],
 .LoginBox input[type=submit],
-.LoginBox input[type=button]{
+.LoginBox input[type=button],
+.LoginBox input[type=date]{
     width: 100%;
 }
 
@@ -46,7 +47,9 @@
     font-size: 5rem;
 }
 
-
+.LoginBox h1{
+    text-align:  center
+}
 
 
 

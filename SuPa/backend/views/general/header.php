@@ -23,7 +23,7 @@
 <body>
 
 
-<header>
+<section class="header">
     <?php
     require_once __DIR__.'/../../models/person.php';
     if(isset($_SESSION['person'])){
@@ -47,4 +47,4 @@
         </ul>
         <box-icon name='menu' color="whitesmoke" size="lg" id="menu"></box-icon>
     </nav>
-</header>
+</section>
