@@ -1,9 +1,8 @@
-.topbox > .message{
-    padding-bottom:60px;
-
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url("../graphics/usedom.jpg");
-    background-repeat:  no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: whitesmoke;
+.message{
+    display: flex;
+    flex-direction: column;
+    padding:5%;
+    color: #1F1F1F;
+    width: 50%
 }
+
