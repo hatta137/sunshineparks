@@ -3,7 +3,7 @@
 
 <div class="LoginBox">
 
-    <div>
+    <div class="header">
         <h1>Login</h1>
     </div>
 
