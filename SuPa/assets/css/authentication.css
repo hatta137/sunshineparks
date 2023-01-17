@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 10rem 0 10rem 0;
     width: 100%;
 }
@@ -34,19 +35,21 @@
 .LoginBox input[type=tel],
 .LoginBox input[type=email],
 .LoginBox input[type=submit],
-.LoginBox input[type=button]{
+.LoginBox input[type=button],
+.LoginBox input[type=date]{
     width: 100%;
 }
 
 .foot{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    font-size: 1.6rem ;
-    width: 50%
+    justify-content: center;
+    font-size: 5rem;
 }
 
-
+.LoginBox h1{
+    text-align:  center
+}
 
 
 
