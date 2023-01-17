@@ -25,8 +25,8 @@
                         <tr><td>Quadratmeter:</td><td><?= $rental->SqrMeter?></td></tr>
                         <tr><td><?= $rentalOutdoorSeating[$i]?></td></tr>
                     </table>
-                    <a href="" class="btn">Buchen</a>
-                    <a href="" class="btn">Mehr</a>
+                    <input type="button"  value="BUCHEN">
+                    <input type="button"  value="MEHR">
                 </div>
             </div>
         <?php endfor; ?>

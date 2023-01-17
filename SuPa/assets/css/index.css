@@ -8,18 +8,7 @@
     flex-basis: 30%;
     padding: 1.6rem;
 }
-.btn{
 
-    background-color: #48AC98;
-    color: #fff;
-    padding: 8px 16px;
-    display: inline-block;
-    margin: 2rem 0;
-    border:none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-}
 .about2{
     background-color: #222;
     color: whitesmoke;
