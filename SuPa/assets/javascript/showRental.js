@@ -1,16 +1,20 @@
+/***
+ * deleting all Rentals except the first 6 (in case JS is aktiv)
+ */
 document.addEventListener('DOMContentLoaded', function () {
 
-    let objectBoxes = document.getElementsByClassName("objectBox");
     let row = document.getElementsByClassName("row")[0];
 
     while (row.children.length > 6){
         row.lastElementChild.remove();
     }
 
-
+    // adding Button
     let input = document.createElement("input");
     input.type = "button";
     input.value = "Mehr";
+
+    // calling the function loadmore to print the next 6 Rentals
     input.onclick = loadMore;
 
     let section = document.getElementsByClassName("allObjects")[0];
@@ -21,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
+/***
+ * prints a new Rental
+ * @param data
+ */
 function addObjectBox(data){
 
     let row = document.getElementsByClassName("row")[0];
@@ -84,6 +93,10 @@ function addObjectBox(data){
 
 }
 
+
+/***
+ * loading the next 6 Rentals
+ */
 function loadMore(){
 
     let formData = new FormData();
@@ -94,11 +107,9 @@ function loadMore(){
     fetch("index.php?page=rental&logic=showMoreRentals", {method:"POST", body:formData})
         .then((response) => response.json())
         .then((data) => {
-
             for (const json of data){
                 addObjectBox(json);
             }
-
         } );
 
 }

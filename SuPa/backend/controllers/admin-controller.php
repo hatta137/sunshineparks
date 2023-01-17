@@ -55,6 +55,9 @@ class AdminController extends Controller{
 
     }
 
+    /**
+     * @throws Exception
+     */
     public function actionUpdatedEmployee(){
 
 
@@ -90,7 +93,7 @@ class AdminController extends Controller{
                 $modeID = $job_to_mode[$job];
             }
             else{
-                //TODO exception
+                throw new Exception('Job not found');
             }
         }
 
