@@ -86,6 +86,7 @@ class Employee extends Model
                                         $State,
                                         $City,
                                         $PasswordHash,
+                                        $modeID,
                                         $ResortID) : ?Employee{
 
         $emp = new Employee($EmpID);
@@ -135,6 +136,12 @@ class Employee extends Model
                                 $State,
                                 $City,
                                 $person->AddrID]);
+
+        $stmtPersonMode = $db->prepare('UPDATE PERSONMODE SET
+                                               ModeID = ?
+                                               WHERE PersonID = ?');
+        $stmtPersonMode->execute([  $modeID,
+                                    $personID]) ;
 
         return new Employee($EmpID);
     }

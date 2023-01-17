@@ -10,6 +10,12 @@ class Rental extends Model{
     public function __construct($rentalId)
     {
         parent::__construct('RENTAL', 'RentalID', $rentalId);
+
+        $this->attributes["Type"] = $this->getRentalType();
+        $this->attributes["Kitchen"] = $this->getNumberOfKitchen();
+        $this->attributes["OutdoorSeating"] = $this->getTypeOfRentalOutdoorSeating();
+        $this->attributes["Path"] = $this->getRentalPicturePath();
+
     }
 
 
@@ -397,6 +403,23 @@ class Rental extends Model{
         $addressID = $address['AddrID'];
         echo $addressID;
         return new Address($addressID);
+    }
+
+    public static function getMoreRentalsThen($count) : ?array{
+
+        $db = getDB();
+
+        $stmt = $db->prepare('SELECT * FROM RENTAL WHERE RentalID > ? LIMIT 6');
+        $stmt->execute([$count]);
+        $result = $stmt->fetchAll();
+
+        $rentals = array();
+
+        foreach ($result as $rental){
+            $rentals [] = new Rental($rental['RentalID']);
+        }
+        return $rentals;
+
     }
 
 }

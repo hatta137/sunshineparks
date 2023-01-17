@@ -37,6 +37,13 @@ class Model
         throw new Exception('Access invalid!');
     }
 
+    /**
+     * @return array All atributes in array force
+     */
+    public function getAttributes(): array
+    {
+        return $this->attributes;
+    }
 }
 
 //Prinzipieller Ablauf für Models und Funktionen

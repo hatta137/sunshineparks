@@ -8,13 +8,16 @@ class AdminController extends Controller{
 
     public function actionShowEmployees(){
 
+        // get all Employees as Array
         $allEmployees = Employee::getAllEmployees();
 
+
+        // create Arrays for Dates
         $persondata = [];
         $allAddresses = [];
         $allResorts = [];
 
-
+        // fill the Array with Dates for each employee
         foreach ($allEmployees as $employee){
 
             $newPerson = new Person($employee->PersonID);
@@ -65,9 +68,43 @@ class AdminController extends Controller{
         $fieldsPerson   = array("FirstName", "LastName", "DateOfBirth", "Tel", "Mail", "PasswordHash");
         $fieldsEmp      = array("Manager", "Job");
         $fieldsAddr     = array("Street", "HNumber", "ZipCode", "State", "City");
+
+        $currentJob = $currentEmp->Job; //string
+        $modeID     = 0;
+
+        $job_to_mode = array(
+            'CEO' => 4,
+            'Resort-Manager' => 4,
+            'Instandhaltungsverwalter' => 4,
+            'Buchungsverwalter' => 6,
+            'Objektverwalter' => 5,
+            'Instandhaltungskraft' => 3,
+            'Reinigungsverwalter' => 4,
+            'Reinigungskraft' => 2,
+            'admin' => 1
+        );
+
+        if (isset($_POST['Job'])){
+            $job = $_POST['Job'];
+            if(isset($job_to_mode[$job])){
+                $modeID = $job_to_mode[$job];
+            }
+            else{
+                //TODO exception
+            }
+        }
+
+
         foreach ($fieldsPerson as $field){
             if (isset($_POST[$field]) && !empty($_POST[$field])){
-                ${$field} = $_POST[$field];
+
+                if ($field === "PasswordHash")
+                    ${$field} = password_hash($_POST[$field], PASSWORD_DEFAULT);
+                else {
+                    ${$field} = $_POST[$field];
+                }
+
+
             }else{
                 ${$field} = $currentPerson->{$field};
             }
@@ -107,9 +144,8 @@ class AdminController extends Controller{
             $State,
             $City,
             $PasswordHash,
+            $modeID,
             $resortID
-
-            // TODO PasswordHash einbauen
         );
 
         $this->_params['updatedEmp'] = $updatedEmp;

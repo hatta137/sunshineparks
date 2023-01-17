@@ -48,5 +48,6 @@ class RegistrationController extends Controller{
         }else{
             echo "Bruder gib mal zwei gleiche Passwörter ein"; //@Todo error page machen
         }
+
     }
 }
