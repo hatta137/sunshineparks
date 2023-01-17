@@ -1,0 +1,23 @@
+/* ------------------------------------------- Contact ---------------------------------------------*/
+
+.contact .row{
+    justify-content: center;
+}
+.contact form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact form input{
+    width: 50%;
+}
+
+.contact textarea{
+    width: 50%;
+    height: 150px;
+    font-size: 1.3rem;
+    resize: none;
+    color: #b4b4b4;
+}
+
