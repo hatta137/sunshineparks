@@ -8,10 +8,12 @@
 
     nav{
         flex-direction: column;
+        position: relative;
     }
     nav box-icon{
         display: block;
         position: absolute;
+        top: 32px;
         right:  32px;
     }
     nav ul{
@@ -20,10 +22,11 @@
     }
 
     .showmenu{
-        display: block;
+        display: flex;
+        flex-direction: column;
         width: 100vw;   /*Nachträglich eingefügt*/
-        height: 100px;
-      /* margin: 50px;   /*Nachträglich eingefügt*/
+        hight: 100px;
+      /*  margin: 50px;   /*Nachträglich eingefügt*/
     }
 
     nav ul li{
@@ -83,6 +86,4 @@
     }
 }
 
-.header {
-    height: 14rem;
-}
+
