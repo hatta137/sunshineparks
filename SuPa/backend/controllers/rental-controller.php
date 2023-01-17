@@ -2,6 +2,11 @@
 require_once __DIR__.'/../models/rental.php';
 class RentalController extends Controller{
 
+    /**
+     *  Author: Dario Daßler
+     *
+     */
+    //rightsCheck
 
     /**
      * Author: Hendrik Lendeckel
@@ -9,6 +14,8 @@ class RentalController extends Controller{
      * or only certain rentals depending on the filter options set
      *
      */
+
+
     public function actionShowRental(){
 
 
