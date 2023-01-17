@@ -39,7 +39,7 @@ textarea
     border-radius: 4px;
     transition: 0.5s;
     outline: none;
-    color: black;
+    color: 1F1F1F;
     font-family: "Poppins", sans-serif;
     font-size: 1.8rem;
 }
@@ -68,11 +68,11 @@ textarea:focus
 
 select{
     font-size: 1.8rem;
-    color: #000000;
+    color: #1F1F1F;
 }
 select option{
     font-size: 1.3rem;
-    color: black;
+    color: #1F1F1F;
 }
 
 input[type=submit]:hover,
