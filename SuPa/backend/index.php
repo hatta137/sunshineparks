@@ -14,6 +14,7 @@ if(!isset($_SESSION['loginType'])){
     $_SESSION['loginType']="logout";
 }
 
+
 $controllerPath = __DIR__ . '/controllers/' . $controllerName . '-controller.php';
 
 if (!file_exists($controllerPath)) {
@@ -35,6 +36,12 @@ if (!class_exists($controllerClassName)) {
 // Create instance of controller
 $controllerInstance = new $controllerClassName($actionName, $controllerName);
 
+//checks if user have rights to open the page
+if(!$controllerInstance->rightsCheck()){
+    echo "Max hat n Anusriss"; //auf noAccess Error Seite verweisen
+    return;
+}
+
 if (!is_null($logicName)) {
     // If a logic function was requested
 
@@ -52,6 +59,9 @@ if (!is_null($logicName)) {
     // If a view was requested
 
     $actionMethodName = 'action' . ucfirst($actionName);
+
+
+
 
     if (!method_exists($controllerInstance, $actionMethodName)) {
         // If method doesn't exist
