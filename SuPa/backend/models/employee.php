@@ -72,6 +72,7 @@ class Employee extends Model
         return $employees;
     }
 
+
     public static function updateEmp(   $EmpID,
                                         $FirstName,
                                         $LastName,
@@ -86,7 +87,6 @@ class Employee extends Model
                                         $State,
                                         $City,
                                         $PasswordHash,
-                                        $modeID,
                                         $ResortID) : ?Employee{
 
         $emp = new Employee($EmpID);
@@ -94,8 +94,10 @@ class Employee extends Model
         $person = new Person($personID);
 
         $db = getDB();
+        try {
 
-        $stmtPerson = $db->prepare('UPDATE PERSON SET 
+            /* Update Person-Data */
+            $stmtPerson = $db->prepare('UPDATE PERSON SET 
                                         FirstName   = ?,
                                         LastName    = ?,
                                         DateOfBirth = ?,
@@ -103,26 +105,29 @@ class Employee extends Model
                                         Mail        = ?,
                                         PasswordHash = ?
                                         WHERE PersonID = ?');
-        $stmtPerson->execute([  $FirstName,
-                                $LastName,
-                                $DateOfBirth,
-                                $Tel,
-                                $Mail,
-                                $PasswordHash,
-                                $personID]);
+            $stmtPerson->execute([  $FirstName,
+                $LastName,
+                $DateOfBirth,
+                $Tel,
+                $Mail,
+                $PasswordHash,
+                $personID]);
 
-        $stmtEmployee = $db->prepare('UPDATE EMP SET
+
+            /* Update Employee-Data */
+            $stmtEmployee = $db->prepare('UPDATE EMP SET
                                             Job = ?,
                                             ResortID = ?,
                                             Manager = ?
                                             WHERE EmpID = ?');
-        $stmtEmployee->execute([    $Job,
-                                    $ResortID,
-                                    $Manager,
-                                    $EmpID]);
+            $stmtEmployee->execute([    $Job,
+                $ResortID,
+                $Manager,
+                $EmpID]);
 
 
-        $stmtAddress = $db->prepare('UPDATE ADDR SET
+            /* Update Address-Data */
+            $stmtAddress = $db->prepare('UPDATE ADDR SET
                                             Street = ?,
                                             HNumber = ?,
                                             ZipCode = ?,
@@ -130,20 +135,55 @@ class Employee extends Model
                                             City = ?
                                             WHERE AddrID = ?');
 
-        $stmtAddress->execute([ $Street,
-                                $HNumber,
-                                $ZipCode,
-                                $State,
-                                $City,
-                                $person->AddrID]);
+            $stmtAddress->execute([ $Street,
+                $HNumber,
+                $ZipCode,
+                $State,
+                $City,
+                $person->AddrID]);
 
-        $stmtPersonMode = $db->prepare('UPDATE PERSONMODE SET
-                                               ModeID = ?
-                                               WHERE PersonID = ?');
-        $stmtPersonMode->execute([  $modeID,
-                                    $personID]) ;
 
-        return new Employee($EmpID);
+
+
+
+            /* Update PersonMode-Data */
+
+            $job_to_role = array(
+                'CEO' => "Mgr",
+                'Resort-Manager' => "Mgr",
+                'Instandhaltungsverwalter' => "Mgr",
+                'Buchungsverwalter' => "B",
+                'Objektverwalter' => "R",
+                'Instandhaltungskraft' => "M",
+                'Reinigungsverwalter' => "R",
+                'Reinigungskraft' => "C",
+                'admin' => "A"
+            );
+
+            $role = $job_to_role[$Job];
+
+            $stmtGetModeFromJob = $db->prepare('SELECT ModeID FROM MODE
+                                                       WHERE Role = ?');
+            $stmtGetModeFromJob->execute([$role]);
+            $modeIDRow = $stmtGetModeFromJob->fetch();
+            $modeID = $modeIDRow['ModeID'];
+
+
+            $stmtPersonMode = $db->prepare('UPDATE PERSONMODE SET
+                                            ModeID = ?
+                                            WHERE PersonID = ?');
+
+            $stmtPersonMode->execute([$modeID,
+                $personID]);
+
+
+            return new Employee($EmpID);
+        }
+        catch (exception $e) {
+            echo $e->getMessage();
+            return new Employee($EmpID);
+        }
+
     }
-    
+
 }

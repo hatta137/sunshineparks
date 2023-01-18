@@ -72,30 +72,8 @@ class AdminController extends Controller{
         $fieldsEmp      = array("Manager", "Job");
         $fieldsAddr     = array("Street", "HNumber", "ZipCode", "State", "City");
 
-        $currentJob = $currentEmp->Job; //string
-        $modeID     = 0;
 
-        $job_to_mode = array(
-            'CEO' => 4,
-            'Resort-Manager' => 4,
-            'Instandhaltungsverwalter' => 4,
-            'Buchungsverwalter' => 6,
-            'Objektverwalter' => 5,
-            'Instandhaltungskraft' => 3,
-            'Reinigungsverwalter' => 4,
-            'Reinigungskraft' => 2,
-            'admin' => 1
-        );
 
-        if (isset($_POST['Job'])){
-            $job = $_POST['Job'];
-            if(isset($job_to_mode[$job])){
-                $modeID = $job_to_mode[$job];
-            }
-            else{
-                throw new Exception('Job not found');
-            }
-        }
 
 
         foreach ($fieldsPerson as $field){
@@ -147,11 +125,11 @@ class AdminController extends Controller{
             $State,
             $City,
             $PasswordHash,
-            $modeID,
             $resortID
         );
 
-        $this->_params['updatedEmp'] = $updatedEmp;
+
+            $this->_params['updatedEmp'] = $updatedEmp;
 
     }
 
