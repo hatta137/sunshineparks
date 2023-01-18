@@ -13,9 +13,9 @@
 
         <form action="index.php?page=admin&view=updatedEmployee" method="post" id="editEmployeeForm">
             <table id="empTable">
-                <tr><td>ID</td><td>         <?= $currentEmp->EmpID?>           </td><td> <input type="hidden"      name="EmpID" value=<?= $currentEmp->EmpID?>>                            </td></tr>
-                <tr><td>Vorname</td><td>    <?= $currentPerson->FirstName?>    </td><td> <input type="text"        name="FirstName"    placeholder="Vorname">                              </td></tr>
-                <tr><td>Nachname</td><td>   <?= $currentPerson->LastName?>     </td><td> <input type="text"        name="LastName"     placeholder="Nachname">                             </td></tr>
+                <tr><td>ID</td><td>             <?= $currentEmp->EmpID?>           </td><td> <input type="hidden"      name="EmpID" value=<?= $currentEmp->EmpID?>>                            </td></tr>
+                <tr><td>Vorname</td><td>        <?= $currentPerson->FirstName?>    </td><td> <input type="text"        name="FirstName"    placeholder="Vorname">                              </td></tr>
+                <tr><td>Nachname</td><td>       <?= $currentPerson->LastName?>     </td><td> <input type="text"        name="LastName"     placeholder="Nachname">                             </td></tr>
                 <tr><td>Geburtsdatum</td><td>   <?= $currentPerson->DateOfBirth?>  </td><td> <input type="date"        name="DateOfBirth"  placeholder="Geburtstag">                           </td></tr>
                 <tr><td>Telefon</td><td>        <?= $currentPerson->Tel?>          </td><td> <input type="number"      name="Tel"          placeholder="Telefonnummer">                        </td></tr>
                 <tr><td>Email</td><td>          <?= $currentPerson->Mail?>         </td><td> <input type="email"       name="Mail"         placeholder="vorname.nachname@sunshineparks.de">    </td></tr>

@@ -301,24 +301,24 @@ class Rental extends Model{
 
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRental->execute([   $maxVisitors,
-                                        $bedroom,
-                                        $bathroom,
-                                        $sqrMeter,
-                                        $status,
-                                        $isApartment,
+                $bedroom,
+                $bathroom,
+                $sqrMeter,
+                $status,
+                $isApartment,
 
-                                        $resortName,
-                                        $balcony,
-                                        $rnumber,
-                                        $floor,
-                                        $terrace,
-                                        $kitchen,
+                $resortName,
+                $balcony,
+                $rnumber,
+                $floor,
+                $terrace,
+                $kitchen,
 
-                                        $street,
-                                        $houseNumber,
-                                        $zipCode,
-                                        $city,
-                                        $state]);
+                $street,
+                $houseNumber,
+                $zipCode,
+                $city,
+                $state]);
 
             $rentalID = $stmtNewRental->fetch()['inRentalID'];
             $stmtNewRental->closeCursor();
@@ -397,3 +397,4 @@ class Rental extends Model{
     }
 
 }
+

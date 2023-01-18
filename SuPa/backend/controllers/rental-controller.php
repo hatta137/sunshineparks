@@ -23,32 +23,21 @@ class RentalController extends Controller{
             $rentals = Rental::findRentalsByFilter($_GET['resort'], $_GET['startDate'], $_GET['endDate'], $_GET['numberOfGuests']);
         }
 
-        /** Arrays that Provides the different information  for each Rental */
-        $rentalTypes = [];
-        $rentalKitchen = [];
-        $rentalOutdoorSeating = [];
-        $rentalPicturePaths = [];
+
+        $rentalAttributes = array();
+
 
         foreach ($rentals as $rental){
-            $rentalTypes[]          = $rental->getRentalType();
-            $rentalKitchen[]        = $rental->getNumberOfKitchen();
-            $rentalOutdoorSeating[] = $rental->getTypeOfRentalOutdoorSeating();
-            $rentalPicturePaths[]   = $rental->getRentalPicturePath();
+            $rentalAttributes[] = $rental->getAttributes();
         }
 
-
-
-
-        $this->_params['allRentals']            = $rentals;
-        $this->_params['rentalTypes']           = $rentalTypes;
-        $this->_params['rentalKitchen']         = $rentalKitchen;
-        $this->_params['rentalOutdoorSeating']  = $rentalOutdoorSeating;
-        $this->_params['rentalPicturePaths']    = $rentalPicturePaths;
-
-
+        $this->_params['allRentals'] = $rentals;
+        $this->_params['allRentalAttributes'] = $rentalAttributes;
 
 
     }
+
+
 
 
     /***
