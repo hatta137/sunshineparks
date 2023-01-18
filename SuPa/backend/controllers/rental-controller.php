@@ -6,7 +6,16 @@ class RentalController extends Controller{
      *  Author: Dario Daßler
      *
      */
-    //rightsCheck
+    public function rightsCheck(): bool
+    {
+        if(isset($_SESSION['person'])) {
+            $person = new Person($_SESSION['person']);
+            $personMode = $person->getPersonModeID();
+            switch ($this->_actionName) {
+
+            }
+        }
+    }
 
     /**
      * Author: Hendrik Lendeckel
