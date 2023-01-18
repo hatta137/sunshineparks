@@ -134,10 +134,6 @@ class AdminController extends Controller{
         $updatedAddress = $currentAddress->updateAddress($Street, $HNumber, $ZipCode, $City, $State);
 
 
-
-
-
-
         $this->_params['updatedEmp'] = $updatedEmp;
         $this->_params['updatedPerson'] = $updatedPerson;
         $this->_params['updatedAddress'] = $updatedAddress;
