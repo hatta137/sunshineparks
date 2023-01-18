@@ -14,7 +14,7 @@
 
             ?>
             <div class="objectBox">
-                <!--            TODO Anpassen der Bilder -->
+
                 <img src="<?php echo $allRentalAttributes[$i]['Path']?>" alt="<?=$allRentalAttributes[$i]['Path']?>" >
 
                 <div class="objectBoxText">
