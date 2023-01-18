@@ -3,6 +3,8 @@ require_once __DIR__.'/../models/person.php';
 require_once __DIR__.'/../models/address.php';
 require_once __DIR__.'/../models/employee.php';
 require_once __DIR__.'/../models/resort.php';
+require_once __DIR__.'/../models/mode.php';
+require_once __DIR__.'/../models/personmode.php';
 class AdminController extends Controller{
 
 
@@ -109,27 +111,36 @@ class AdminController extends Controller{
 
 
 
-        $updatedEmp = Employee::updateEmp(
+        // Update Personmode
+        $modeID = Mode::getModeIDFromJob($Job);
+        // ModeID = null when Job not in RoleMatrix
 
-            $_POST['EmpID'],
-            $FirstName,
-            $LastName,
-            $DateOfBirth,
-            $Tel,
-            $Mail,
-            $Manager,
-            $Job,
-            $Street,
-            $HNumber,
-            $ZipCode,
-            $State,
-            $City,
-            $PasswordHash,
-            $resortID
-        );
+        if ($modeID == null){
+            $Job = $currentEmp->Job;
+            $modeID = Mode::getModeIDFromJob($Job);
+        }
 
 
-            $this->_params['updatedEmp'] = $updatedEmp;
+        $personMode = new Personmode($currentEmp->PersonID);
+        $personMode->updateModeID($modeID);
+
+        // Update Employee Data
+        $updatedEmp = $currentEmp->updateEmp($_POST['EmpID'], $Manager, $Job, $resortID);
+
+        // Update Person Data
+        $updatedPerson = $currentPerson->updatePerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $PasswordHash);
+
+        // Update Address Data
+        $updatedAddress = $currentAddress->updateAddress($Street, $HNumber, $ZipCode, $City, $State);
+
+
+
+
+
+
+        $this->_params['updatedEmp'] = $updatedEmp;
+        $this->_params['updatedPerson'] = $updatedPerson;
+        $this->_params['updatedAddress'] = $updatedAddress;
 
     }
 

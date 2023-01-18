@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+require_once __DIR__.'/../models/personmode.php';
+require_once __DIR__.'/../models/mode.php';
 
 
 class Employee extends Model
@@ -73,46 +75,11 @@ class Employee extends Model
     }
 
 
-    public static function updateEmp(   $EmpID,
-                                        $FirstName,
-                                        $LastName,
-                                        $DateOfBirth,
-                                        $Tel,
-                                        $Mail,
-                                        $Manager,
-                                        $Job,
-                                        $Street,
-                                        $HNumber,
-                                        $ZipCode,
-                                        $State,
-                                        $City,
-                                        $PasswordHash,
-                                        $ResortID) : ?Employee{
-
-        $emp = new Employee($EmpID);
-        $personID = $emp->PersonID;
-        $person = new Person($personID);
+    public static function updateEmp(   $EmpID, $Manager, $Job, $ResortID) : ?Employee{
 
         $db = getDB();
+
         try {
-
-            /* Update Person-Data */
-            $stmtPerson = $db->prepare('UPDATE PERSON SET 
-                                        FirstName   = ?,
-                                        LastName    = ?,
-                                        DateOfBirth = ?,
-                                        Tel         = ?,
-                                        Mail        = ?,
-                                        PasswordHash = ?
-                                        WHERE PersonID = ?');
-            $stmtPerson->execute([  $FirstName,
-                $LastName,
-                $DateOfBirth,
-                $Tel,
-                $Mail,
-                $PasswordHash,
-                $personID]);
-
 
             /* Update Employee-Data */
             $stmtEmployee = $db->prepare('UPDATE EMP SET
@@ -120,62 +87,7 @@ class Employee extends Model
                                             ResortID = ?,
                                             Manager = ?
                                             WHERE EmpID = ?');
-            $stmtEmployee->execute([    $Job,
-                $ResortID,
-                $Manager,
-                $EmpID]);
-
-
-            /* Update Address-Data */
-            $stmtAddress = $db->prepare('UPDATE ADDR SET
-                                            Street = ?,
-                                            HNumber = ?,
-                                            ZipCode = ?,
-                                            State = ?,
-                                            City = ?
-                                            WHERE AddrID = ?');
-
-            $stmtAddress->execute([ $Street,
-                $HNumber,
-                $ZipCode,
-                $State,
-                $City,
-                $person->AddrID]);
-
-
-
-
-
-            /* Update PersonMode-Data */
-
-            $job_to_role = array(
-                'CEO' => "Mgr",
-                'Resort-Manager' => "Mgr",
-                'Instandhaltungsverwalter' => "Mgr",
-                'Buchungsverwalter' => "B",
-                'Objektverwalter' => "R",
-                'Instandhaltungskraft' => "M",
-                'Reinigungsverwalter' => "R",
-                'Reinigungskraft' => "C",
-                'admin' => "A"
-            );
-
-            $role = $job_to_role[$Job];
-
-            $stmtGetModeFromJob = $db->prepare('SELECT ModeID FROM MODE
-                                                       WHERE Role = ?');
-            $stmtGetModeFromJob->execute([$role]);
-            $modeIDRow = $stmtGetModeFromJob->fetch();
-            $modeID = $modeIDRow['ModeID'];
-
-
-            $stmtPersonMode = $db->prepare('UPDATE PERSONMODE SET
-                                            ModeID = ?
-                                            WHERE PersonID = ?');
-
-            $stmtPersonMode->execute([$modeID,
-                $personID]);
-
+            $stmtEmployee->execute([$Job, $ResortID, $Manager, $EmpID]);
 
             return new Employee($EmpID);
         }
