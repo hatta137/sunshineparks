@@ -18,4 +18,8 @@ class ErrorController extends Controller {
 
     }
 
+    public function action404(){
+
+    }
+
 }
