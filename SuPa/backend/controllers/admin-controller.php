@@ -5,7 +5,17 @@ require_once __DIR__.'/../models/employee.php';
 require_once __DIR__.'/../models/resort.php';
 class AdminController extends Controller{
 
-
+    public function rightsCheck(): bool
+    {
+        if (isset($_SESSION['person'])) {
+            $person = new Person($_SESSION['person']);
+            if($person->getPermission(ucfirst($this->_actionName)) == 'Y') return true;
+            else return false;
+        }else{
+            header('location: index.php?page=error&view=noMode');
+            return false;
+        }
+    }
     public function actionShowEmployees(){
 
         $allEmployees = Employee::getAllEmployees();

@@ -14,6 +14,10 @@ if(!isset($_SESSION['loginType'])){
     $_SESSION['loginType']="logout";
 }
 
+if(!isset($_SESSION['person'])){
+    $_SESSION['person'] = 88;
+}
+
 
 $controllerPath = __DIR__ . '/controllers/' . $controllerName . '-controller.php';
 
@@ -38,7 +42,7 @@ $controllerInstance = new $controllerClassName($actionName, $controllerName);
 
 //checks if user have rights to open the page
 if(!$controllerInstance->rightsCheck()){
-    echo "Max hat n Anusriss"; //auf noAccess Error Seite verweisen
+    echo "Max hat n Anusriss"; //auf noAccess Error Seite verweisen oder login
     return;
 }
 
@@ -63,14 +67,15 @@ if (!is_null($logicName)) {
 
 
 
-    if (!method_exists($controllerInstance, $actionMethodName)) {
+    if (method_exists($controllerInstance, $actionMethodName)) {
         // If method doesn't exist
         //header('Location: index.php?page=pages&view=error&error=404');
-        return;
-    }
 
-    // If method exists, execute function matching the name
-    $controllerInstance->$actionMethodName();
+
+        // If method exists, execute function matching the name
+        $controllerInstance->$actionMethodName();
+
+    }
 
     // Render corresponding view
     $controllerInstance->renderHTML();

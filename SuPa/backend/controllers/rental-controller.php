@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/../models/rental.php';
+require_once __DIR__.'/../models/person.php';
 class RentalController extends Controller{
 
     /**
@@ -10,10 +11,21 @@ class RentalController extends Controller{
     {
         if(isset($_SESSION['person'])) {
             $person = new Person($_SESSION['person']);
-            $personMode = $person->getPersonModeID();
             switch ($this->_actionName) {
-
+                case "addNewRental":
+                case "newRental":
+                    if($person->getPermission("AddRental") == "Y") return true;
+                    else return false;
+                case "showRental":
+                    if($person->getPermission("ShowRental") == "Y") return true;
+                    else return false;
+                default:
+                    header('location: index.php?page=error&view=404');
+                    return false;
             }
+        }else{
+            header('location: index.php?page=error&view=noMode');
+            return false;
         }
     }
 
