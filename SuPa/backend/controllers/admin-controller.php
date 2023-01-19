@@ -8,6 +8,12 @@ require_once __DIR__.'/../models/personmode.php';
 class AdminController extends Controller{
 
 
+    /**
+     * Author Hendrik Lendeckel
+     * This function passes to the showEmployees view an array filled with all the data about the person,
+     * an array with information about the address, and an array with information about the resort, from all employees.
+     * @return void
+     */
     public function actionShowEmployees(){
 
         // get all Employees as Array
@@ -40,6 +46,13 @@ class AdminController extends Controller{
 
     }
 
+    /**
+     * Author Hendrik Lendeckel
+     * This function gets the Employee ID of an employee via $_POST[ ] and
+     * passes all information about this employee to the edit Employee view.
+     * The information comes from the showEmployee view.
+     * @return void
+     */
     public function actionEditEmployee(){
 
 
@@ -58,6 +71,10 @@ class AdminController extends Controller{
     }
 
     /**
+     * Author Hendrik Lendeckel
+     * This function receives the information that is to be changed for the employee via $_POST[ ].
+     * These come from the view editEmployee. It passes all information about this employee after this
+     * update to the view updatedEmployee. If no changes have been made, the current value is retained.
      * @throws Exception
      */
     public function actionUpdatedEmployee(){
@@ -76,7 +93,9 @@ class AdminController extends Controller{
 
 
 
-
+        /* The following foreach loops iterate through the respective fields
+        (separated according to the table in which this information is found).
+        If a POST value is set, this is taken, if not, the current value of the employee is entered.*/
 
         foreach ($fieldsPerson as $field){
             if (isset($_POST[$field]) && !empty($_POST[$field])){
@@ -119,7 +138,6 @@ class AdminController extends Controller{
             $Job = $currentEmp->Job;
             $modeID = Mode::getModeIDFromJob($Job);
         }
-
 
         $personMode = new Personmode($currentEmp->PersonID);
         $personMode->updateModeID($modeID);
