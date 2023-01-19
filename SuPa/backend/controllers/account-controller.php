@@ -8,6 +8,7 @@ class AccountController extends Controller {
     }else if ($_SESSION["loginType"] != "guest"){
             header('Location: index.php?page=error&view=noAccess');
         }
+
     }
 
     public function actionManager(){
@@ -16,6 +17,7 @@ class AccountController extends Controller {
         }else if ($_SESSION["loginType"] != "manager"){
             header('Location: index.php?page=error&view=noAccess');
         }
+
     }
 
     public function actionAdmin(){
@@ -25,6 +27,7 @@ class AccountController extends Controller {
             header('Location: index.php?page=error&view=noAccess');
         }
 
+
     }
 
     public function actionCleaning(){
@@ -33,6 +36,7 @@ class AccountController extends Controller {
         }else if ($_SESSION["loginType"] != "cleaning"){
             header('Location: index.php?page=error&view=noAccess');
         }
+
     }
 
     public function actionMaintenance(){
@@ -41,6 +45,7 @@ class AccountController extends Controller {
         }else if ($_SESSION["loginType"] != "maintenance"){
             header('Location: index.php?page=error&view=noAccess');
         }
+
     }
 
     public function actionRental(){
@@ -49,6 +54,7 @@ class AccountController extends Controller {
         }else if ($_SESSION["loginType"] != "rental" & $_SESSION["loginType"] != "admin"){
             header('Location: index.php?page=error&view=noAccess');
         }
+
     }
 
     public function actionBooking(){
@@ -57,6 +63,7 @@ class AccountController extends Controller {
         }else if ($_SESSION["loginType"] != "booking"){
             header('Location: index.php?page=error&view=noAccess');
         }
+
     }
 
     public function actionDelete(){
@@ -66,6 +73,7 @@ class AccountController extends Controller {
     public function actionLogout(){
         $_SESSION['loginType']="logout";
         unset($_SESSION['person']);
+
     }
 
 

@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+require_once __DIR__.'/../models/personmode.php';
+require_once __DIR__.'/../models/mode.php';
 
 
 class Employee extends Model
@@ -72,71 +74,28 @@ class Employee extends Model
         return $employees;
     }
 
-    public static function updateEmp(   $EmpID,
-                                        $FirstName,
-                                        $LastName,
-                                        $DateOfBirth,
-                                        $Tel,
-                                        $Mail,
-                                        $Manager,
-                                        $Job,
-                                        $Street,
-                                        $HNumber,
-                                        $ZipCode,
-                                        $State,
-                                        $City,
-                                        $PasswordHash,
-                                        $ResortID) : ?Employee{
 
-        $emp = new Employee($EmpID);
-        $personID = $emp->PersonID;
-        $person = new Person($personID);
+    public static function updateEmp(   $EmpID, $Manager, $Job, $ResortID) : ?Employee{
 
         $db = getDB();
 
-        $stmtPerson = $db->prepare('UPDATE PERSON SET 
-                                        FirstName   = ?,
-                                        LastName    = ?,
-                                        DateOfBirth = ?,
-                                        Tel         = ?,
-                                        Mail        = ?,
-                                        PasswordHash = ?
-                                        WHERE PersonID = ?');
-        $stmtPerson->execute([  $FirstName,
-                                $LastName,
-                                $DateOfBirth,
-                                $Tel,
-                                $Mail,
-                                $PasswordHash,
-                                $personID]);
+        try {
 
-        $stmtEmployee = $db->prepare('UPDATE EMP SET
+            /* Update Employee-Data */
+            $stmtEmployee = $db->prepare('UPDATE EMP SET
                                             Job = ?,
                                             ResortID = ?,
                                             Manager = ?
                                             WHERE EmpID = ?');
-        $stmtEmployee->execute([    $Job,
-                                    $ResortID,
-                                    $Manager,
-                                    $EmpID]);
+            $stmtEmployee->execute([$Job, $ResortID, $Manager, $EmpID]);
 
+            return new Employee($EmpID);
+        }
+        catch (exception $e) {
+            echo $e->getMessage();
+            return new Employee($EmpID);
+        }
 
-        $stmtAddress = $db->prepare('UPDATE ADDR SET
-                                            Street = ?,
-                                            HNumber = ?,
-                                            ZipCode = ?,
-                                            State = ?,
-                                            City = ?
-                                            WHERE AddrID = ?');
-
-        $stmtAddress->execute([ $Street,
-                                $HNumber,
-                                $ZipCode,
-                                $State,
-                                $City,
-                                $person->AddrID]);
-
-        return new Employee($EmpID);
     }
-    
+
 }

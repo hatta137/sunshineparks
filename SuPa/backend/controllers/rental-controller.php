@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/../models/rental.php';
+
 class RentalController extends Controller{
 
 
@@ -22,28 +23,50 @@ class RentalController extends Controller{
             $rentals = Rental::findRentalsByFilter($_GET['resort'], $_GET['startDate'], $_GET['endDate'], $_GET['numberOfGuests']);
         }
 
-        /** Arrays that Provides the different information  for each Rental */
-        $rentalTypes = [];
-        $rentalKitchen = [];
-        $rentalOutdoorSeating = [];
-        $rentalPicturePaths = [];
+
+        $rentalAttributes = array();
+
 
         foreach ($rentals as $rental){
-            $rentalTypes[]          = $rental->getRentalType();
-            $rentalKitchen[]        = $rental->getNumberOfKitchen();
-            $rentalOutdoorSeating[] = $rental->getTypeOfRentalOutdoorSeating();
-            $rentalPicturePaths[]   = $rental->getRentalPicturePath();
+            $rentalAttributes[] = $rental->getAttributes();
+        }
+
+        $this->_params['allRentals'] = $rentals;
+        $this->_params['allRentalAttributes'] = $rentalAttributes;
+
+
+    }
+
+
+
+
+    /***
+     *This function provides the json_encode stream for the attributes of the rentals
+     * @return void
+     */
+    public function logicShowMoreRentals(){
+
+        // get the actual printed Rentals
+        $rentalCount = $_POST["rentalCount"];
+
+        // get all Rentals with id > actual printed rentals
+        $rentals = Rental::getMoreRentalsThen($rentalCount);
+
+        $rentalAttributes = array();
+
+
+        foreach ($rentals as $rental){
+            $rentalAttributes[] = $rental->getAttributes();
         }
 
 
+        echo json_encode($rentalAttributes);
 
 
-        $this->_params['allRentals']            = $rentals;
-        $this->_params['rentalTypes']           = $rentalTypes;
-        $this->_params['rentalKitchen']         = $rentalKitchen;
-        $this->_params['rentalOutdoorSeating']  = $rentalOutdoorSeating;
-        $this->_params['rentalPicturePaths']    = $rentalPicturePaths;
+
     }
+
+
 
 
     public function actionNewRental(){
@@ -73,7 +96,7 @@ class RentalController extends Controller{
         $kitchen      = $_POST['kitchen'];           // int
         $street       = $_POST['street'];            // string
         $houseNumber  = $_POST['houseNumber'];       // int
-        $zipCode      = $_POST['zipCode'];           // string (max 5 zeichen)
+        $zipCode      = $_POST['zipCode'];           // string (max. 5 zeichen)
         $city         = $_POST['city'];              // string
         $state        = "GER";
 
@@ -137,7 +160,7 @@ class RentalController extends Controller{
 
 
         $this->_params['newRental'] = $newRental;
-        var_dump($newRental->getChildClass());
+
         if ($newRental->getChildClass() instanceof Appartment){
             $type = 'Apartment';
 
@@ -170,74 +193,9 @@ class RentalController extends Controller{
 
     }
 
-    //TODO Check & Comments
-
-    public function actionShowRenovation(){
-
-        $show = $_GET['show'];
-        $resortName = $_GET['resort'];
-
-        $renovations = array();
-
-        if ($show === 'all'){
-            $renovations = Rental::getAllRenovation();
-        }elseif ($show == 'byResort'){
-            $renovations = Rental::getRenovationByResort($resortName);
-        }
 
 
 
-        $this->_params['renovations'] = $renovations;
 
-
-
-    }
-
-
-    //TODO Check & Comments
-    public function actionNewRenovation(){
-
-        $rentalID               = $_GET['rentalID'];
-        $startDate              = $_GET['startDate'];
-        $plannedEndDate         = $_GET['plannedEndDate'];
-        $description            = $_GET['description'];
-        $plannedCosts           = $_GET['plannedCosts'];
-
-        $companyName            = $_GET['companyName'];
-        $craftservCategory      = $_GET['craftservCategory'];
-        $phone                  = $_GET['phone'];
-        $craftservStreet        = $_GET['craftservStreet'];
-        $craftservHouseNumber   = $_GET['craftservHouseNumber'];
-        $craftservZipCode       = $_GET['craftservZipCode'];
-        $craftservCity          = $_GET['craftservCity'];
-        $craftservState         = $_GET['craftservState'];
-
-
-
-        $newRenovation = Rental::newRenovation(  $rentalID
-                                                ,$startDate
-                                                ,$plannedEndDate
-                                                ,$description
-                                                ,$plannedCosts
-                                                ,$companyName
-                                                ,$craftservCategory
-                                                ,$phone
-                                                ,$craftservStreet
-                                                ,$craftservHouseNumber
-                                                ,$craftservZipCode
-                                                ,$craftservCity
-                                                ,$craftservState      );
-
-
-        if ($newRenovation){
-
-            $renovation = Rental::getLastRenovation();
-            $this->_params['newRenovation'] = $renovation;
-
-        }
-
-
-
-    }
 
 }

@@ -19,4 +19,10 @@ class View
 
       echo $body;
    }
+
+    final function renderJson($callback, $params){
+        $this->$callback($params);
+    }
+
+
 }

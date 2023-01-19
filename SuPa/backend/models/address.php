@@ -24,9 +24,33 @@ class Address extends Model {
         }
 
         return new Address($row['AddrID']);
+    }
 
+
+    public function updateAddress(string $Street, string $HNumber, string $ZipCode, string $City, string $State) :?Address{
+        $db = getDB();
+
+        $stmtAddress = $db->prepare('UPDATE ADDR SET
+                                            Street = ?,
+                                            HNumber = ?,
+                                            ZipCode = ?,
+                                            State = ?,
+                                            City = ?
+                                            WHERE AddrID = ?');
+
+        $stmtAddress->execute([ $Street,
+            $HNumber,
+            $ZipCode,
+            $State,
+            $City,
+            $this->AddrID]);
+
+        return new Address($this->AddrID);
 
     }
+
+
+
 
     /**
      * Author: Max Schelenz

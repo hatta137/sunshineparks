@@ -10,6 +10,12 @@ class Rental extends Model{
     public function __construct($rentalId)
     {
         parent::__construct('RENTAL', 'RentalID', $rentalId);
+
+        $this->attributes["Type"] = $this->getRentalType();
+        $this->attributes["Kitchen"] = $this->getNumberOfKitchen();
+        $this->attributes["OutdoorSeating"] = $this->getTypeOfRentalOutdoorSeating();
+        $this->attributes["Path"] = $this->getRentalPicturePath();
+
     }
 
 
@@ -20,7 +26,11 @@ class Rental extends Model{
         $stmt->execute([$this->RentalID]);
         $picturePath = $stmt->fetch();
 
-        return $picturePath['Path'];
+        if ($picturePath['Path'] === null){
+            return "no path found";
+        }
+        else
+            return $picturePath['Path'];
 
 
     }
@@ -172,7 +182,7 @@ class Rental extends Model{
         $typeOfRental = substr($this->getRentalType(), 0, 4);
 
 
-        /** A Apartment has no kitchens */
+        /** An Apartment has no kitchens */
         if ($typeOfRental === "Apar"){
             return  0;
         }else{
@@ -284,31 +294,31 @@ class Rental extends Model{
                                      $city,
                                      $state) :Rental{
 
-    echo $isApartment;
+
 
         try {
             $db = getDB();
 
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRental->execute([   $maxVisitors,
-                                        $bedroom,
-                                        $bathroom,
-                                        $sqrMeter,
-                                        $status,
-                                        $isApartment,
+                $bedroom,
+                $bathroom,
+                $sqrMeter,
+                $status,
+                $isApartment,
 
-                                        $resortName,
-                                        $balcony,
-                                        $rnumber,
-                                        $floor,
-                                        $terrace,
-                                        $kitchen,
+                $resortName,
+                $balcony,
+                $rnumber,
+                $floor,
+                $terrace,
+                $kitchen,
 
-                                        $street,
-                                        $houseNumber,
-                                        $zipCode,
-                                        $city,
-                                        $state]);
+                $street,
+                $houseNumber,
+                $zipCode,
+                $city,
+                $state]);
 
             $rentalID = $stmtNewRental->fetch()['inRentalID'];
             $stmtNewRental->closeCursor();
@@ -331,7 +341,7 @@ class Rental extends Model{
         $apartments = $stmt1->fetch();
         $houses = $stmt2->fetch();
 
-        echo $this->RentalID;
+
         if ($apartments) {
             return Appartment::findByRentalId($this->RentalID);
         } else if ($houses) {
@@ -342,43 +352,13 @@ class Rental extends Model{
     }
 
 
-    // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
-    // aus den Tabellen Appartment und house
-
-    public static function getLastRentalInResort($resort) : Rental{
-        $db = getDB();
 
 
-        $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
-        $stmtLastRental->execute([$resort]);
-        $rental = $stmtLastRental->fetch();
-
-        return $rental;
-    }
 
 
-    //TODO Check correct Implementation:
-
-    /**
-     * Author: Max Schelenz
-     * This function returns the last Renovation from STRUCCHANGE.
-     * @return Renovation
-     */
-    public static function getLastRenovation() : Renovation{
-        $db = getDB();
-
-        $stmtLastRenovation = $db->prepare("SELECT * FROM STRUCCHANGE 
-                                                            WHERE StrucchangeID = (SELECT MAX(StrucchangeID))
-                                                            AND CraftServID IS NOT NULL");
-        $stmtLastRenovation->execute();
-        $renovation = $stmtLastRenovation->fetch();
-
-        return $renovation;
-    }
 
 
-    // TODO stimmt noch nicht, mache ich -> Hendrik
-    // getAddressFromRental
+
     /**
      * Author: Max Schelenz und Hendrik Lendeckel
      * This function returns the address from a given Rental with the help of the database function fn_GetRentalID.
@@ -395,8 +375,26 @@ class Rental extends Model{
         $stmtAddress->execute([$rentalID]);
         $address = $stmtAddress->fetch();
         $addressID = $address['AddrID'];
-        echo $addressID;
+
         return new Address($addressID);
     }
 
+    public static function getMoreRentalsThen($count) : ?array{
+
+        $db = getDB();
+
+        $stmt = $db->prepare('SELECT * FROM RENTAL WHERE RentalID > ? LIMIT 6');
+        $stmt->execute([$count]);
+        $result = $stmt->fetchAll();
+
+        $rentals = array();
+
+        foreach ($result as $rental){
+            $rentals [] = new Rental($rental['RentalID']);
+        }
+        return $rentals;
+
+    }
+
 }
+

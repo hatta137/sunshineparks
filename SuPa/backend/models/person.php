@@ -13,6 +13,37 @@ class Person extends Model
         parent::__construct('PERSON', 'PersonID', $personId);
     }
 
+
+    /**
+     * Author Hendrik Lendeckel
+     * @return void
+     */
+    public function updatePerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $PasswordHash) :?Person{
+
+        $db = getDB();
+        $stmtPerson = $db->prepare('UPDATE PERSON SET 
+                                        FirstName   = ?,
+                                        LastName    = ?,
+                                        DateOfBirth = ?,
+                                        Tel         = ?,
+                                        Mail        = ?,
+                                        PasswordHash = ?
+                                        WHERE PersonID = ?');
+        $stmtPerson->execute([  $FirstName,
+                                $LastName,
+                                $DateOfBirth,
+                                $Tel,
+                                $Mail,
+                                $PasswordHash,
+                                $this->PersonID]);
+
+        return new Person($this->PersonID);
+    }
+
+
+
+
+
     /**
      * Author: Max Schelenz
      * This function returns the correct type of person by using the PersonID.
