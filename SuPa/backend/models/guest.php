@@ -8,6 +8,7 @@ class Guest extends Model {
     }
 
 
+    // TODO Try Catch
     /**
      * Author: Max Schelenz
      * Finds an guest object by its personid.
