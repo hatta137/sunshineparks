@@ -1,18 +1,17 @@
 /* ---------------------------------------------- Media Querrys ----------------------------------------------------- */
 
 
-@media only screen and (max-width:1000px){
+@media only screen and (max-width:800px){
     .row{
         flex-direction: column;
     }
 
     nav{
-        flex-direction: column;
+        flex-direction: row;
     }
     nav box-icon{
-        display: block;
-        position: absolute;
-        right:  32px;
+        display: flex;
+
     }
     nav ul{
         background-color: whitesmoke;
@@ -20,10 +19,10 @@
     }
 
     .showmenu{
-        display: block;
-        width: 100vw;   /*Nachträglich eingefügt*/
-        height: 100px;
-      /* margin: 50px;   /*Nachträglich eingefügt*/
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: auto;
     }
 
     nav ul li{
@@ -35,12 +34,8 @@
     nav ul li a{
         color: #222;
     }
-    .logo{
-        display: none;
-    }
-    #Logo{
-        width: 15rem;
-    }
+
+
     /* header-content */
     .header-content{
         width: 100%;
@@ -81,8 +76,58 @@
     .contact textarea{
         width: 100%;
     }
+
+    .header{
+        display:block;
+    }
+
+
+    .header > .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+    .header > .nav-btn > label {
+        display: block;
+        padding: 13px;
+    }
+
+
+    .header > .nav-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 0;
+        background-color: #333;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        left: 0px;
+        z-index: 3;
+    }
+    .header > .nav-links > a {
+        display: block;
+        width: 100%;
+    }
+    .header > #nav-check:not(:checked) ~ .nav-links {
+        height: 0px;
+    }
+    .header > #nav-check:checked ~ .nav-links {
+        height: 20vh;
+    }
+
+.headline{
+    display: none;
 }
 
-.header {
-    height: 14rem;
 }
+
+
+
+
+
+
+
+
+
+

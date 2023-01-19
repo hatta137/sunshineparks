@@ -10,7 +10,7 @@
 
 
 .header-content{
-    width: 25%;
+    width: 50%;
     position: relative;
     top: 9%;
     left: 8%;
@@ -61,7 +61,7 @@ input[type=email]:focus,
 input[type=password]:focus,
 textarea:focus
 {
-    border: 3px solid #46A998;
+    border: 3px solid #48AC98;
 }
 
 select{
@@ -82,4 +82,64 @@ input[type=button]:hover {
 input::placeholder{
     font-size: 1.3rem;
     color: #b7b7b7;
+}
+
+
+
+
+.header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+    padding: 0 3rem 0 3rem
+}
+
+
+
+
+
+
+
+.header > .nav-btn {
+    display: none;
+}
+
+
+
+.header > .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    text-align: center;
+    font-size: 18px;
+}
+
+.header > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+}
+
+.header > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #48AC98;
+    transition: all 0.5s ease-in;
+}
+
+.header > #nav-check {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+    cursor: pointer;
 }

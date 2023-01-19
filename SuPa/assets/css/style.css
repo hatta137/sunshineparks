@@ -16,6 +16,7 @@ html{
 }
 
 body{
+    margin: 0;
     font-family: "Poppins", sans-serif;
 }
 
@@ -61,18 +62,7 @@ section{
 }
 
 /* Hero Section */
-.header{
-    height: 10rem;
-    background-color: #222;
-    color: #fff;
-    background-repeat:  no-repeat;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
-    align-items: center;
-    justify-content: center;
-    padding:10px
-}
+
 
 
 
@@ -82,8 +72,11 @@ section{
     cursor: pointer;
 }
 #Logo{
-    width: 150px;
+    width: 15vh;
+    padding: 1rem 1rem 1rem 1rem
 }
+
+/*
 nav{
     display: flex;
     justify-content: space-between;
@@ -109,6 +102,13 @@ nav ul li a:hover{
     color: #48AC98;
     transition: .5s ease-in-out;
 }
+
+ */
+
+
+
+
+
 
 
 

@@ -19,12 +19,13 @@
 
 
 
+
     <link rel="icon" type="image/png" href="../assets/graphics/LogoIconNB.png" sizes="lg">
 </head>
 <body>
 
 
-<section class="header">
+<header class="header">
     <?php
     require_once __DIR__.'/../../models/person.php';
     if(isset($_SESSION['person'])){
@@ -34,18 +35,24 @@
         $username = "Account";
     }
     ?>
-    <nav>
-        <div>
-            <a href="index.php"><img id="Logo" src="../assets/graphics/LogoNB_S.png" alt="LogoSP"></a>
-        </div>
-        <div class="logo">
+
+    <input type="checkbox" id="nav-check">
+
+        <a href="index.php" class="logo"><img id="Logo" src="../assets/graphics/LogoNB_S.png" alt="LogoSP"></a>
+        <div class="headline">
             <h1>SunshineParks</h1>
         </div>
-        <ul>
-            <li><a href="#aboutAnchor">About</a></li>
-            <li><a href="">Help</a></li>
-            <li><a href="index.php?page=authentication&view=authenticationGuest"><?=$username?></a></li>
-        </ul>
-        <box-icon name='menu' color="whitesmoke" size="lg" id="menu"></box-icon>
-    </nav>
-</section>
+
+
+    <div class="nav-btn">
+        <label class="hamburger" for="nav-check">&#9776;</label>
+    </div>
+    <div class="nav-links">
+        <a href="#home" class="active">About</a>
+        <a href="#news">Help</a>
+        <a href="index.php?page=authentication&view=authenticationGuest"><?=$username?></a>
+    </div>
+
+
+</header>
+
