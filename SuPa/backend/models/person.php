@@ -175,11 +175,6 @@ class Person extends Model
         return null;
     }
 
-    //@Todo mach mal ne deleteGuest fumction
-
-    //TODO DELETE guest in guest model
-
-    // todo delete PERSONmode in Perosnmode model
 
     /**
      * Author: Max Schelenz (support by KevSTechSupport
@@ -187,17 +182,11 @@ class Person extends Model
      * @return bool
      */
 
-    public static function deleteGuest($PersonID) : bool {
+    public static function deletePerson($PersonID) : bool {
 
         try {
             $db = getDB();
             $db->beginTransaction();
-
-            $stmt = $db->prepare('DELETE FROM PERSONMODE WHERE PersonID = ?');
-            $stmt->execute([$PersonID]);
-
-            $stmt = $db->prepare('DELETE FROM GUEST WHERE PersonID = ?');
-            $stmt->execute([$PersonID]);
 
             $stmt = $db->prepare('DELETE FROM PERSON WHERE PersonID = ?');
             $stmt->execute([$PersonID]);
