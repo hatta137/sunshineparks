@@ -1,9 +1,5 @@
 <?php
 
-
-/**
- * Author Hendrik Lendeckel
- */
 class Personmode extends Model{
 
 
@@ -14,6 +10,12 @@ class Personmode extends Model{
 
     }
 
+
+    /**
+     * Author: Hendrik Lendeckel
+     * @param $modeID
+     * @return void
+     */
     public function updateModeID($modeID){
         $db = getDB();
 

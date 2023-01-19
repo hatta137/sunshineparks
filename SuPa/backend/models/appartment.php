@@ -6,6 +6,11 @@ class Appartment extends Model{
         parent::__construct("APPARTMENT", "AppartmentID", $appartmentId);
     }
 
+    /**
+     * Returns an Appartment by its RentalID.
+     * @param $rentalId
+     * @return Appartment|null
+     */
 
     public static function findByRentalId($rentalId) : ?Appartment {
         $db = getDB();

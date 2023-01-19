@@ -26,6 +26,16 @@ class Address extends Model {
         return new Address($row['AddrID']);
     }
 
+    /**
+     * Author: Hendrik Lendeckel
+     *
+     * @param string $Street
+     * @param string $HNumber
+     * @param string $ZipCode
+     * @param string $City
+     * @param string $State
+     * @return Address|null
+     */
 
     public function updateAddress(string $Street, string $HNumber, string $ZipCode, string $City, string $State) :?Address{
         $db = getDB();

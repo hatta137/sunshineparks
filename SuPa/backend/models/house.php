@@ -6,6 +6,11 @@ class House extends Model{
         parent::__construct("HOUSE", "HousetID", $houseId);
     }
 
+    /**
+     * This function returns a House by its RentalID.
+     * @param $rentalId
+     * @return House|null
+     */
     public static function findByRentalId($rentalId) : ?House {
         $db = getDB();
 
