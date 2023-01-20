@@ -1,3 +1,4 @@
-<div class="topbox">
-    <h1>kein zugriff mit dem konto</h1>
+<div class="message">
+    <h1>Kein Zugriff mit diesem Konto!</h1>
+    <input type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="zurück zum Login">
 </div>

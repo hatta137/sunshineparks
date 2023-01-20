@@ -1,0 +1,8 @@
+.message{
+    display: flex;
+    flex-direction: column;
+    padding:5%;
+    color: #1F1F1F;
+    width: 50%
+}
+

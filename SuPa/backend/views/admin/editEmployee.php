@@ -8,7 +8,6 @@
     <div class="row">
         <h1>Mitarbeiter Nr. <?= $currentEmp->EmpID?> bearbeiten:</h1>
     </div>
-    <div class="row">
 
 
         <form action="index.php?page=admin&view=updatedEmployee" method="post" id="editEmployeeForm">

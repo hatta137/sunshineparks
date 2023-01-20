@@ -29,8 +29,8 @@
                         <tr><td><?= $allRentalAttributes[$i]['OutdoorSeating']?></td></tr>
                         </tbody>
                     </table>
-                    <a class="btn">Buchen</a>
-                    <a class="btn">Mehr</a>
+                    <input type="button"  value="BUCHEN">
+                    <input type="button"  value="MEHR">
                 </div>
             </div>
         <?php endfor; ?>

@@ -3,7 +3,7 @@
 <div class="LoginBox">
 <form action="index.php?page=registration&logic=registration" method="POST">
 
-    <div class="header">
+    <div>
         <h1>Registrierung</h1>
     </div>
 
@@ -13,7 +13,9 @@
             <label>Name</label>
             <input type="text" placeholder="Vorname" name="fname" required>
             <input type="text" placeholder="Nachname" name="lname" required>
+            <label>Geburtsdatum</label>
             <input type="date" placeholder="Geburtsdatum" name="birthdate" required>
+
         </div>
 
         <div class="InputBox">
@@ -41,9 +43,11 @@
     </div>
 
     <div class="foot">
-        <input type="submit" value="Registrieren">
-        Bereits ein Konto erstellt?
-        <input type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
+        <div>
+            <input type="submit" value="Registrieren">
+            <label>Bereits ein Konto erstellt?</label>
+            <input type="submit" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
+        </div>
     </div>
 
 
