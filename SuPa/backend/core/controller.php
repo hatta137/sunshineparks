@@ -29,18 +29,15 @@ class Controller
         View::render(__DIR__."/../views/general/header.php", $this->_params);
 
 
-        if (file_exists($viewPath)) {
-            View::render($viewPath, $this->_params);
+        if (!file_exists($viewPath)) {
 
-        } else {
-            //echo $viewPath;
-            //echo "file not found";
-            header('Location: index.php?page=error&view=404');
+            $viewPath = $this->viewPath("404", "error");
 
         }
-
+        View::render($viewPath, $this->_params);
         // Render Footer
         View::render(__DIR__."/../views/general/footer.php", $this->_params);
+
     }
 
     protected function viewPath(string $actionName, string $controllerName) : string
