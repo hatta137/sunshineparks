@@ -234,8 +234,8 @@
 <section id="erMod" class="odd">
     <div>
         <h1>ER-Modell</h1>
-        <img src="../assets/graphics/docu/ERMv11.png" alt="Entity-Relationship-Modell">
-        
+        <img src="../assets/graphics/docu/ERMv12.png" alt="Entity-Relationship-Modell">
+        <p>
         Das hier fertig abgebildete ER-Modell war in Version 1 deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass wir unser Datenbankmodell 
         aus DB2 nicht 1zu1 übernehmen können. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder 
         wir haben die Tabellen optimiert, um Daten Speicher einzusparen. Hier wäre der PasswordHash oder der AccountType in Person zu nennen.
@@ -245,20 +245,30 @@
         PERSONMODE und MODE wurden durch den Registrierungs-und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
         ergänzt werden. Die Erstellung der Rollen-und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere zu nennende
         Arbeitsschritte in unserem Projekt.
+        </p>
     </div>
 </section>
 
 <section id="reMod" class="even">
     <div>
         <h1>Relationales Modell</h1>
-        <img src="fertiges Tabellenmodell ergänzen" alt="Tabellenmodell">
+        <img src="" alt="Tabellenmodell">
+
     </div>
 </section>
 
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img src="fertige Rollen/Rechte Matrix ergänzen!!!" alt="Rollen- und Rechtematrix">
+        <img src="../assets/graphics/docu/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
+        <p>
+            Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser Verwaltungssystem benötigt.
+            Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer. Jeder Erstbesucher unserer Webseite hat automatisch die ModeID 8 und gilt als Viewer.
+            Existiert lokal auf dem Gerät des Nutzers ein Cookie mit der SessionID, dann wird aus dem Session_Array die PersonID gelesen und das zugehörige Nutzerkonto eingeloggt mit den jeweiligen zugewiesenen Rechten.
+            Meldet sich der Nutzer bei uns im System an, erhält er die Rechte die bei seinem Nutzerkonto hinterlegt sind.
+            Die Nutzerrechte werden vor jedem Aufruf gecheckt und je nachdem ob der Nutzer die Rechte hat oder nicht, wird der Zugriff gewährt oder verweigert.
+            Die komplette Rollen-Rechte-Matrix
+        </p>
     </div>
 </section>
 
