@@ -38,12 +38,8 @@
 .foot{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
     font-size: 2rem;
-    width: 50%;
+    padding: 0 25vh 0 25vh ;
 }
 
 .LoginBox h1{

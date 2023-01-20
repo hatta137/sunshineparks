@@ -97,10 +97,18 @@ input::placeholder{
     background-color: #222;
     color: #fff;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
-    padding: 0 3rem 0 3rem
+
 }
 
-
+.logo{
+    font-size: 3.2rem;
+    color: #48AC98;
+    cursor: pointer;
+}
+#Logo{
+    width: 15rem;
+    padding: 1rem 2rem 1rem 2rem
+}
 
 
 
@@ -113,11 +121,7 @@ input::placeholder{
 
 
 .header > .nav-links {
-    display: flex;
-    justify-content: flex-end;
-    float: right;
     text-align: center;
-    font-size: 18px;
 }
 
 .header > .nav-links > a {
@@ -142,4 +146,5 @@ input::placeholder{
     font-size: 24px;
     user-select: none;
     cursor: pointer;
+    position: relative;
 }
