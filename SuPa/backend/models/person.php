@@ -76,7 +76,7 @@ class Person extends Model
         $stmt->execute([$modeID]);
         $row = $stmt->fetch();
 
-        if (!isset($row[$action])) {
+        if (!array_key_exists($action, $row)) {
             return null;
         }else {
             return $row[$action];
