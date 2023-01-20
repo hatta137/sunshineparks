@@ -21,7 +21,6 @@
             <input type="number" name="numberOfGuests" min="0" max="16" placeholder="Anzahl der Reisenden">
             <input type="submit" value="Suche">
             <a href="index.php?page=rental&view=showRental&show=all"><input type="button" value="Zeig Alle"></a>
-
         </form>
     </div>
 </section>
@@ -107,10 +106,10 @@
                 </div>
                 <div class="box2">
                     <h2>Buchen</h2>
-                    <p>Nenn uns deine Buchungsdeteils ;-)</p>
+                    <p>Nenn uns deine Buchungsdetails ;-)</p>
                 </div>
                 <div class="box3">
-                    <h2>Anreisen und abschalten</h2>
+                    <h2>Anreisen und Abschalten</h2>
                     <p>Genieß deinen Urlaub bei uns!</p>
                 </div>
             </div>
@@ -162,11 +161,19 @@
     </div>
     <div class="row">
         <form>
-            <input type="text" placeholder="Dein Name">
-            <input type="email" placeholder="Deine E-Mailadresse">
-            <textarea>Deine Nachricht</textarea>
-            <input type="submit" value="Absenden">
+            <input type="text" placeholder="Dein Name" id="ContactformularName" required>
+            <input type="email" placeholder="Deine E-Mailadresse" id="ContactformularMail" required>
+            <textarea placeholder="Deine Nachricht" id="ContactformularText" required></textarea>
+            <input type="submit" value="Absenden" onclick="Myfunction()" disabled>
         </form>
     </div>
 </section>
+
+<script>
+    function Myfunction() {
+            alert("Vielen Dank. Ihre Anfrage wird in Kürze bearbeitet.")
+    }
+
+</script>
+
 

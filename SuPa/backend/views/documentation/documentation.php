@@ -119,8 +119,7 @@
             Hinter dem Layout steht eine Kombination aus Flex-Boxen. Jede Seite ist in drei Bereiche aufgeteilt.
             Header (inkl. Navbar), Main-Section (variiert je nach Seite About, Testimony, Contact, ...) und Footer.
             In der Navbar befinden sich Logo (inkl. Link auf Index-Seite), Firmenname und die eigentlichen Navigationselemente
-            in Form einer verlinkenden Liste. Durch ein gleichbleibendes Hintergrundbild in der Headersection, bekommt jede Seite
-            einen einheitlichen Start. Der Footer ist auf jeder Seite gleich und enthält Navigationselemente zu den Seiten Impressum,
+            in Form einer verlinkenden Liste. Der Footer enthält Navigationselemente zu den Seiten Impressum,
             Kontakt, Datenschutz und den Nutzungsbedingungen.
         </p>
         <h2>Verlinkung/Navigationsstruktur</h2>
@@ -136,18 +135,17 @@
         <p>
             Beim Layout haben wir uns dafür entschieden eine moderne Anordnung zu verwenden.
             Beginnend mit einem Header, welcher in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente enthält.
-            Der Content-Bereich wird auf jeder Seite unterschiedlich eingeleitet, schließt sich jedoch immerbündig an und unterteilt sich in verschiedene Sektionen.
+            Der Content-Bereich wird auf jeder Seite unterschiedlich eingeleitet, schließt jedoch bündig am Header an und unterteilt sich in verschiedene Sektionen.
             Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
         </p>
         <h2>Farben</h2>
         <p>
-            Unsere Hauptfarben sind Hellblau (Oceans Green und Keppel), sowie die Kontrastfarben Schwarz (Mine Shaft) und Weiß (White Sands).
-            Im Content-Bereich unterteilen wir unsere inhaltlichen Sections mit heller und dunkler Farbgebung, um eine bessere Lesbarkeit und Unterteilung zu erreichen.
+            Unsere Hauptfarben sind Hellblau (Keppel #48ac98), sowie die Kontrastfarben Schwarz (Mine Shaft #222222) und Weiß (White #ffffff.
+            Im Content-Bereich unterteilen wir unsere inhaltlichen Sections mit heller und dunkler Farbgebung, um eine bessere Lesbarkeit und Gliederung zu erreichen.
         </p>
         <h2>Formen</h2>
         <p>
-            Buttons sind optisch alle aus einer Bibliothek und im grafischen Design orientieren wir uns
-            an unseren Haupt und Nebenfarben, um ein einheitliches, modernes Gesamtbild der Webseite zu präsentieren.
+            Die Buttons sind alle einheitlich designed und die Motive aus einer Bibliothek entnommen, um ein einheitliches Gesamtbild zu gewährleisten.
         </p>
         <h2>Schrift</h2>
         <p>
@@ -155,7 +153,7 @@
         </p>
         <h2>Positionierung</h2>
         <p>
-            Das Firmenlogo ist wenn möglich und sinnvoll stets links oben auf der Webseite positioniert. Grafiken und Icons sollen sich ins Gesamtbild der Webseite einfügen und
+            Das Firmenlogo ist, wenn möglich und sinnvoll stets links oben auf der Webseite positioniert. Grafiken und Icons sollen sich ins Gesamtbild der Webseite einfügen und
             den Content-Bereich veranschaulichen.
         </p>
 
@@ -166,7 +164,7 @@
 <section id="mvcPattern" class ="odd">
     <div>
         <h1>MVC Pattern</h1>
-        <img src="graphics\MVC-Pattern.jpg" alt="MVC-Pattern Umsetzung">
+        <img src="../assets/graphics/docu/mvcpattern.png" alt="MVC-Pattern Aufteilung">
         <h2>Aufteilung</h2>
         <p>
             Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
@@ -174,7 +172,7 @@
             Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
             Max befasst sich mit den Models und den Anpassungen der Datenbank.
 
-            Während des Entwicklungsprozeszes sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
+            Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
             In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
             und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
 
@@ -184,7 +182,7 @@
         <h2>Architektur</h2>
         <p>
             Hier müssen die Zusammenhänge und wichtigsten Funktionalitäten im MVC erklärt werden.
-            @Hendrik oder Dario ihr habt glaube den besten Überblick, ansonsten ergänze ich das hier im Rahmen meiner Möglichkeiten ^^.
+            @Hendrik oder @Dario, sprecht euch da bitte ab. Ihr 2 habt die beste Übersicht über unsere Abläufe.
         </p>
     </div>
 </section>
@@ -206,9 +204,9 @@
             Damit ist dem Nutzer sofort klar wo er was eingeben muss und wie er sich anmelden kann bzw. zur Registrierung kommt, falls er noch kein Benutzerkonto besitzt.
             Zusätzlich gibt es noch eine Schaltfläche, welche vom Login für die Gäste zum Login für den internen Bereich (und umgekehrt) führt.
             Gäste melden sich über "Login" ein. Die anderen Rollen können sich über das Interne Formular anmelden - siehe <a href="#roleMod">Rollenmodell</a>.
-            Das Design soll zum rest der Seite passen und somit wurden die gleichen Schaltflächen und Eingabefelder benutzt.
-            Eingabefelder besitzen einen einen Focus-Effekt welcher die angeklickten Inputs farbig umrandet. Schaltflächen werden mit dem Hover-Effekt Dunkler wenn man über diese geht.
-            Für einen flüssigen Übergang der Effekte wurde eine kurze Transition definiert
+            Das Design soll zur restlichen Seite passen und somit wurden die gleichen Schaltflächen und Eingabefelder benutzt.
+            Eingabefelder besitzen einen Focus-Effekt welcher die angeklickten Inputs farbig umrandet. Schaltflächen werden mit dem Hover-Effekt Dunkler, wenn man über diese geht.
+            Für einen flüssigen Übergang der Effekte wurde eine kurze Transition definiert.
         </p>
         <h2>Registrierung</h2>
         <p>
@@ -236,7 +234,7 @@
 <section id="erMod" class="odd">
     <div>
         <h1>ER-Modell</h1>
-        <img src="fertiges ER-Modell ergänzen!!!">
+        <img src="../assets/graphics/docu/ERMv11.png" alt="Entity-Relationship-Modell">
         
         Das hier fertig abgebildete ER-Modell war in Version 1 deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass wir unser Datenbankmodell 
         aus DB2 nicht 1zu1 übernehmen können. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder 
@@ -253,21 +251,29 @@
 <section id="reMod" class="even">
     <div>
         <h1>Relationales Modell</h1>
-        <img src="/SuPa/assets/graphics/docu/Sunshine%20Parks%20ERM%20v10.drawio.png">
+        <img src="fertiges Tabellenmodell ergänzen" alt="Tabellenmodell">
     </div>
 </section>
 
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img src="fertgies Rollenmodell ergänzen!!!">
+        <img src="fertige Rollen/Rechte Matrix ergänzen!!!" alt="Rollen- und Rechtematrix">
     </div>
 </section>
 
 <section id="dataInput" class="even">
     <div>
         <h1>Flussbild Dateneingabe</h1>
-        <img src="fertiges Flussbild ergänzen!!!">
+        <h2>Login und Registrierung</h2>
+        <img src="../assets/graphics/docu/Login_Registration.drawio.png" alt="Flussbilddiagramm des Login und der Registrierung">
+
+        <h2>Buchungsvorgang und Objektsuche</h2>
+        <img src="../assets/graphics/docu/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
+
+        <h2>Administration und Verwaltung</h2>
+        <img src="../assets/graphics/docu/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
+
     </div>
 </section>
 

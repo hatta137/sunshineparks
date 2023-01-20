@@ -1,4 +1,6 @@
 
+<script src="../assets/javascript/showRental.js"></script>
+
 
 
 
@@ -12,23 +14,26 @@
 
             ?>
             <div class="objectBox">
-                <!--            TODO Anpassen der Bilder -->
-                <img src="<?php echo $rentalPicturePaths[$i]?>" alt="<?=$rentalPicturePaths[$i]?>" >
+
+                <img src="<?php echo $allRentalAttributes[$i]['Path']?>" alt="<?=$allRentalAttributes[$i]['Path']?>" >
 
                 <div class="objectBoxText">
-                    <h2><?= $rentalTypes[$i] ?></h2>
+                    <h2><?= $allRentalAttributes[$i]['Type'] ?></h2>
                     <table>
+                        <tbody>
                         <tr><td>Schlafzimmer:</td><td><?= $rental->Bedroom?></td></tr>
                         <tr><td>Bäder:</td><td><?= $rental->Bathroom?></td></tr>
-                        <tr><td>Küchen:</td><td><?=$rentalKitchen[$i]?></td></tr>
+                        <tr><td>Küchen:</td><td><?=$allRentalAttributes[$i]['Kitchen']?></td></tr>
                         <tr><td>Max. Gäste:</td><td><?= $rental->MaxVisitor?></td></tr>
                         <tr><td>Quadratmeter:</td><td><?= $rental->SqrMeter?></td></tr>
-                        <tr><td><?= $rentalOutdoorSeating[$i]?></td></tr>
+                        <tr><td><?= $allRentalAttributes[$i]['OutdoorSeating']?></td></tr>
+                        </tbody>
                     </table>
-                    <a href="" class="btn">Buchen</a>
-                    <a href="" class="btn">Mehr</a>
+                    <input type="button"  value="BUCHEN">
+                    <input type="button"  value="MEHR">
                 </div>
             </div>
         <?php endfor; ?>
     </div>
 </section>
+

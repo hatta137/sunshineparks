@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+
+// TODO Comments
 class RegistrationController extends Controller{
 
     public function actionRegistration(){
@@ -41,5 +43,6 @@ class RegistrationController extends Controller{
         }else{
             echo "Bruder gib mal zwei gleiche Passwörter ein"; //@Todo error page machen
         }
+
     }
 }

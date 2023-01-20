@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+
+
+// TODO Comments
 class AccountController extends Controller {
 
     public function rightsCheck(): bool
@@ -16,6 +19,7 @@ class AccountController extends Controller {
     }
 
     public function actionAdmin(){
+
 
 
     }
@@ -42,6 +46,7 @@ class AccountController extends Controller {
 
     public function actionLogout(){
         unset($_SESSION['person']);
+
     }
 
 

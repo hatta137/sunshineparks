@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+// TODO Comments
 class AuthenticationController extends Controller {
 
     private function loggedIn($personMode) {
@@ -42,6 +43,7 @@ class AuthenticationController extends Controller {
         $this->actionAuthenticationGuest();
     }
 
+    // TODO Comments
 //logiiiiiiiiic
 
     public function logicLogin()

@@ -3,7 +3,7 @@
 <div class="LoginBox">
 <form action="index.php?page=registration&logic=addPerson" method="POST">
 
-    <div class="header">
+    <div>
         <h1>Registrierung</h1>
     </div>
 
@@ -13,7 +13,9 @@
             <label>Name</label>
             <input type="text" placeholder="Vorname" name="fname" required>
             <input type="text" placeholder="Nachname" name="lname" required>
+            <label>Geburtsdatum</label>
             <input type="date" placeholder="Geburtsdatum" name="birthdate" required>
+
         </div>
 
         <div class="InputBox">

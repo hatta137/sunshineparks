@@ -8,9 +8,10 @@ class Guest extends Model {
     }
 
 
+    // TODO Try Catch
     /**
      * Author: Max Schelenz
-     * Finds an guest object by its personid.
+     * Finds a guest object by its personid.
      * @param $personId
      * @return Guest|null The guest object if it is found, or null if it is not found.
      */
@@ -26,6 +27,31 @@ class Guest extends Model {
         }
 
         return new Guest($row['GuestID']);
+    }
+
+    /**
+     * Author: Max Schelenz
+     * @param $PersonID
+     * @return bool
+     */
+
+    public static function deleteGuest($PersonID) : bool {
+
+        try {
+            $db = getDB();
+            $db->beginTransaction();
+
+            $stmt = $db->prepare('DELETE FROM GUEST WHERE PersonID = ?');
+            $stmt->execute([$PersonID]);
+
+            $db->commit();
+
+            return true;
+
+        }catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return false;
     }
 
 }

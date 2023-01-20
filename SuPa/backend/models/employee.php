@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+require_once __DIR__.'/../models/personmode.php';
+require_once __DIR__.'/../models/mode.php';
 
 
 class Employee extends Model
@@ -11,6 +13,8 @@ class Employee extends Model
 
     }
 
+
+    // TODO Try Catch
     /**
      * Author: Max Schelenz
      * Finds an employee obejct by its personid.
@@ -33,110 +37,89 @@ class Employee extends Model
 
 
     /***
-     * Autor Hendrik Lendeckel
-     * @param $empID
-     * @return String|null
+     * Author Hendrik Lendeckel
+     * This function returns resort in which the employee works.
+     * @return string
      */
-    public function getResort() : ?String{
+    public function getResort() : String{
 
         $db = getDB();
-        $stmt = $db->prepare('SELECT Name FROM RESORT 
+
+        try {
+            $stmt = $db->prepare('SELECT Name FROM RESORT 
                                     JOIN EMP ON RESORT.ResortID = EMP.ResortID
                                     WHERE EMP.EmpID = ?');
-        $stmt->execute([$this->EmpID]);
-        $row = $stmt->fetch();
+            $stmt->execute([$this->EmpID]);
+            $row = $stmt->fetch();
 
-        if (!$row) {
-            return 'kein Resort gefunden';
+            return $row['Name'];
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-        return $row['Name'];
+
+        return 'kein Resort gefunden';
+
     }
 
 
     /***
-     * Autor Hendrik Lendeckel
+     * Author Hendrik Lendeckel
+     * This function returns all employees.
      * @return array|null
      */
     public static function getAllEmployees() : ?array{
         $db = getDB();
 
-        $stmt = $db->prepare('SELECT * FROM EMP');
-        $stmt->execute();
-        $result = $stmt->fetchAll();
+        try {
+            $stmt = $db->prepare('SELECT * FROM EMP');
+            $stmt->execute();
+            $result = $stmt->fetchAll();
 
-        $employees = array();
+            $employees = array();
 
-        foreach ($result as $rental){
-            $employees [] = new Employee($rental['EmpID']);
+            foreach ($result as $rental){
+                $employees [] = new Employee($rental['EmpID']);
+            }
+            return $employees;
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-        return $employees;
+
+        return null;
+
     }
 
-    public static function updateEmp(   $EmpID,
-                                        $FirstName,
-                                        $LastName,
-                                        $DateOfBirth,
-                                        $Tel,
-                                        $Mail,
-                                        $Manager,
-                                        $Job,
-                                        $Street,
-                                        $HNumber,
-                                        $ZipCode,
-                                        $State,
-                                        $City,
-                                        $PasswordHash,
-                                        $ResortID) : ?Employee{
-
-        $emp = new Employee($EmpID);
-        $personID = $emp->PersonID;
-        $person = new Person($personID);
+    /**
+     * Author Hendrik Lendeckel
+     * This function updates all employee information.
+     * @param $EmpID
+     * @param $Manager
+     * @param $Job
+     * @param $ResortID
+     * @return Employee|null
+     */
+    public static function updateEmp(   $EmpID, $Manager, $Job, $ResortID) : ?Employee{
 
         $db = getDB();
 
-        $stmtPerson = $db->prepare('UPDATE PERSON SET 
-                                        FirstName   = ?,
-                                        LastName    = ?,
-                                        DateOfBirth = ?,
-                                        Tel         = ?,
-                                        Mail        = ?,
-                                        PasswordHash = ?
-                                        WHERE PersonID = ?');
-        $stmtPerson->execute([  $FirstName,
-                                $LastName,
-                                $DateOfBirth,
-                                $Tel,
-                                $Mail,
-                                $PasswordHash,
-                                $personID]);
+        try {
 
-        $stmtEmployee = $db->prepare('UPDATE EMP SET
+            /* Update Employee-Data */
+            $stmtEmployee = $db->prepare('UPDATE EMP SET
                                             Job = ?,
                                             ResortID = ?,
                                             Manager = ?
                                             WHERE EmpID = ?');
-        $stmtEmployee->execute([    $Job,
-                                    $ResortID,
-                                    $Manager,
-                                    $EmpID]);
+            $stmtEmployee->execute([$Job, $ResortID, $Manager, $EmpID]);
 
+            return new Employee($EmpID);
+        }
+        catch (exception $e) {
+            echo $e->getMessage();
+            return new Employee($EmpID);
+        }
 
-        $stmtAddress = $db->prepare('UPDATE ADDR SET
-                                            Street = ?,
-                                            HNumber = ?,
-                                            ZipCode = ?,
-                                            State = ?,
-                                            City = ?
-                                            WHERE AddrID = ?');
-
-        $stmtAddress->execute([ $Street,
-                                $HNumber,
-                                $ZipCode,
-                                $State,
-                                $City,
-                                $person->AddrID]);
-
-        return new Employee($EmpID);
     }
-    
+
 }
