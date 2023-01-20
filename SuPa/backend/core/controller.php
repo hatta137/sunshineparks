@@ -17,7 +17,7 @@ class Controller
 
 
     public function rightsCheck() :bool{
-        return true;
+        return Permission::checkForAction($this->_actionLogicName);
     }
 
 
