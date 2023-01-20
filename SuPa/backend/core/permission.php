@@ -42,8 +42,6 @@ class Permission
                 case "guest":
                     if($personMode == 7) return true;
                     else return false;
-                case "logout":
-                    return true;
                 default:
                     $permission = Person::getPermission($personMode,ucfirst($actionName));
                     if($permission == 'Y') return true;
