@@ -7,6 +7,7 @@ class Admin extends Model {
         parent::__construct("ADMIN", "AdminID", $adminID);
     }
 
+    // TODO Try Catch
     /**
      * Author: Max Schelenz
      * Finds a admin object by its personid.

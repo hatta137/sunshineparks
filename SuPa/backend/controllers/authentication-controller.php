@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+// TODO Comments
 class AuthenticationController extends Controller {
 
     private function alreadyLoggedIn(){
@@ -28,6 +29,7 @@ class AuthenticationController extends Controller {
         $this->alreadyLoggedIn();
     }
 
+    // TODO Comments
 //logiiiiiiiiic
 
     public function logicLogin()

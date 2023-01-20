@@ -10,49 +10,80 @@ class Rental extends Model{
     public function __construct($rentalId)
     {
         parent::__construct('RENTAL', 'RentalID', $rentalId);
+
+
+        // The following special attributes come from other tables and are combined in Rental
+        $this->attributes["Type"] = $this->getRentalType();
+        $this->attributes["Kitchen"] = $this->getNumberOfKitchen();
+        $this->attributes["OutdoorSeating"] = $this->getTypeOfRentalOutdoorSeating();
+        $this->attributes["Path"] = $this->getRentalPicturePath();
+
     }
 
+    /**
+     * Author Hendrik Lendeckel
+     * This function determines the path of the image that matches the rental.
+     * @return string
+     */
 
     public function getRentalPicturePath() : string{
 
         $db = getDB();
-        $stmt = $db->prepare('SELECT Path FROM RENTALPICTURES WHERE RentalID = ?');
-        $stmt->execute([$this->RentalID]);
-        $picturePath = $stmt->fetch();
 
-        return $picturePath['Path'];
+        try {
+            $stmt = $db->prepare('SELECT Path FROM RENTALPICTURES WHERE RentalID = ?');
+            $stmt->execute([$this->RentalID]);
+            $picturePath = $stmt->fetch();
 
-
+            //TODO why Bool warning?
+            // TODO Warning: Trying to access array offset on value of type bool in /opt/lampp/htdocs/SunshineParks/SuPa/backend/models/rental.php on line 38
+            if ($picturePath['Path'] === null){
+                return "no path found in Database";
+            }
+            else
+                return $picturePath['Path'];
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return "error in SQL-State getRentalPicturePath";
     }
 
 
     /***
      * Author: Hendrik Lendeckel
      * This method returns all rentals from the database
-     * @return array of instances of the Objects Rental
+     * @return null|array of instances of the Objects Rental
      */
-    public static function getAllRental() : array{
+    public static function getAllRental() : ?array{
+
         $db = getDB();
 
-        $stmt = $db->prepare('SELECT * FROM RENTAL');
-        $stmt->execute();
-        $result = $stmt->fetchAll();
+        try {
+            $stmt = $db->prepare('SELECT * FROM RENTAL');
+            $stmt->execute();
+            $result = $stmt->fetchAll();
 
-        $rentals = array();
+            $rentals = array();
 
-        foreach ($result as $rental){
-            $rentals [] = new Rental($rental['RentalID']);
+            foreach ($result as $rental){
+                $rentals [] = new Rental($rental['RentalID']);
+            }
+            return $rentals;
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-        return $rentals;
+
+        return null;
+
     }
 
 
     /***
-     * Author: Hendrik Lendeckel
-     *
+     * Author Hendrik Lendeckel
      * @return string with the right type of Rental (Apartment or House) and the right Location (Mountain/Ocean/City)
      */
     public function getRentalType() : string{
+
         $db = getDB();
 
         /**
@@ -60,50 +91,58 @@ class Rental extends Model{
          * the RentalID occurs in the APPARTMENT table or in the HOUSE table or in neither of the two.
          */
 
-        $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
-        $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
-        $stmt1->execute([$this->RentalID]);
-        $stmt2->execute([$this->RentalID]);
-        $apartments = $stmt1->fetch();
-        $houses = $stmt2->fetch();
+        try {
+            $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
+            $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
+            $stmt1->execute([$this->RentalID]);
+            $stmt2->execute([$this->RentalID]);
+            $apartments = $stmt1->fetch();
+            $houses = $stmt2->fetch();
 
-        $typeOfRental = "";
-        $typeOfLocation = "";
+            $typeOfRental = "";
+            $typeOfLocation = "";
 
-        if ($apartments){
-            $typeOfRental = "Apartment ";
-        } elseif ($houses){
-            $typeOfRental = "Haus ";
-        } else{
-            return "No Rental found";
+            if ($apartments){
+                $typeOfRental = "Apartment ";
+            } elseif ($houses){
+                $typeOfRental = "Haus ";
+            } else{
+                return "No Rental found";
+            }
+
+            /** The correct location is requested here */
+
+            if ($this->AreaID === 10){
+                $typeOfLocation = 'am Meer';
+            }elseif ($this->AreaID === 20){
+                $typeOfLocation = 'in den Bergen';
+            }elseif ($this->AreaID === 30){
+                $typeOfLocation = 'in der Stadt';
+            }
+
+            return $typeOfRental.$typeOfLocation;
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
 
-        /** The correct location is requested here */
+        return "No Rental Type an Location found!";
 
-        if ($this->AreaID === 10){
-            $typeOfLocation = 'am Meer';
-        }elseif ($this->AreaID === 20){
-            $typeOfLocation = 'in den Bergen';
-        }elseif ($this->AreaID === 30){
-            $typeOfLocation = 'in der Stadt';
-        }
-
-        return $typeOfRental.$typeOfLocation;
     }
 
 
 
     /***
-     * Author: Hendrik Lendeckel
+     * Author Hendrik Lendeckel
      * @param $resort
      * @param $startDate
      * @param $endDate
      * @param $numberOfGuests
-     * @return array of instances of the Objects Rental
+     * @return null|array of instances of the Objects Rental
      */
 
 
-    public static function findRentalsByFilter($resortName, $startDate, $endDate, $numberOfGuests) :array{
+    public static function findRentalsByFilter($resortName, $startDate, $endDate, $numberOfGuests) :?array{
+
         $db = getDB();
 
         $resortID = self::getResortIdByResortName($resortName);
@@ -114,8 +153,6 @@ class Rental extends Model{
          */
 
         try {
-
-
 
             /***
              * This query provides us with all rentals which:
@@ -139,60 +176,85 @@ class Rental extends Model{
             $rentals = array();
             foreach ($rentalIDs as $rentalID){
                 $rentals [] = new Rental($rentalID['RentalID']);
+                return $rentals;
             }
         }catch (PDOException $e){
             echo $e->getMessage();
         }
 
-        return $rentals;
+        return null;
+
     }
 
+    /**
+     * Author Hendrik Lendeckel
+     * This function determines the appropriate ResortID for the resort name.
+     * It uses the database function fn_GetResortID(ResortName)
+     * @param $resortName
+     * @return null|int
+     */
+    public static function getResortIdByResortName($resortName) :?int{
 
-    public static function getResortIdByResortName($resortName) :int{
         $db = getDB();
 
+        try {
+            $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
+            $stmtGetResortID->execute([$resortName]);
+            $resortID = $stmtGetResortID->fetch()['ID'];
 
-        $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
-        $stmtGetResortID->execute([$resortName]);
-        $resortID = $stmtGetResortID->fetch()['ID'];
+            return $resortID;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
 
-        return $resortID;
+        return null;
+
     }
 
 
 
 
     /***
-     * Author: Hendrik Lendeckel
-     * @return int the Number of Kitchens in the Rental
+     * Author Hendrik Lendeckel
+     * This function determines the number of kitchens in the rental if this rental is a house.
+     * An apartment always has 0 kitchens
+     * @return null|int
      */
 
-    public function getNumberOfKitchen() :int{
+    public function getNumberOfKitchen() :?int{
 
-        $typeOfRental = substr($this->getRentalType(), 0, 4);
+        try {
+            $typeOfRental = substr($this->getRentalType(), 0, 4);
 
+            /** An Apartment has no kitchens */
+            if ($typeOfRental === "Apar"){
+                return  0;
+            }else{
 
-        /** A Apartment has no kitchens */
-        if ($typeOfRental === "Apar"){
-            return  0;
-        }else{
+                /** if it is a house, the database is checked to see how many kitchens it has */
 
-            /** if it is a house, the database is checked to see how many kitchens it has */
+                $db = getDB();
+                $stmtNumberOFKitchens = $db->prepare('SELECT Kitchen FROM HOUSE WHERE RentalID = ?');
+                $stmtNumberOFKitchens->execute([$this->RentalID]);
 
-            $db = getDB();
-            $stmtNumberOFKitchens = $db->prepare('SELECT Kitchen FROM HOUSE WHERE RentalID = ?');
-            $stmtNumberOFKitchens->execute([$this->RentalID]);
+                $numberOfKitchens = $stmtNumberOFKitchens->fetch();
 
-            $numberOfKitchens = $stmtNumberOFKitchens->fetch();
-
-            return  $numberOfKitchens['Kitchen'];
+                return  $numberOfKitchens['Kitchen'];
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
+
+        return null;
+
     }
 
 
     /**
-     * Author: Hendrik Lendeckel
-     * @return String with the information whether the house or apartment has a balcony or a terrace
+     * Author Hendrik Lendeckel
+     * This function determines the seating in the outdoor area.
+     * A house may or may not have a terrace and an apartment may or may not have a balcony.
+     * @return String
      */
 
     public function getTypeOfRentalOutdoorSeating() :String{
@@ -284,31 +346,31 @@ class Rental extends Model{
                                      $city,
                                      $state) :Rental{
 
-    echo $isApartment;
+
 
         try {
             $db = getDB();
 
             $stmtNewRental = $db->prepare('call p_NewRental(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
             $stmtNewRental->execute([   $maxVisitors,
-                                        $bedroom,
-                                        $bathroom,
-                                        $sqrMeter,
-                                        $status,
-                                        $isApartment,
+                $bedroom,
+                $bathroom,
+                $sqrMeter,
+                $status,
+                $isApartment,
 
-                                        $resortName,
-                                        $balcony,
-                                        $rnumber,
-                                        $floor,
-                                        $terrace,
-                                        $kitchen,
+                $resortName,
+                $balcony,
+                $rnumber,
+                $floor,
+                $terrace,
+                $kitchen,
 
-                                        $street,
-                                        $houseNumber,
-                                        $zipCode,
-                                        $city,
-                                        $state]);
+                $street,
+                $houseNumber,
+                $zipCode,
+                $city,
+                $state]);
 
             $rentalID = $stmtNewRental->fetch()['inRentalID'];
             $stmtNewRental->closeCursor();
@@ -321,82 +383,104 @@ class Rental extends Model{
 
     }
 
-    public function getChildClass() : mixed {
-        $db = getDB();
-
-        $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
-        $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
-        $stmt1->execute([$this->RentalID]);
-        $stmt2->execute([$this->RentalID]);
-        $apartments = $stmt1->fetch();
-        $houses = $stmt2->fetch();
-
-        echo $this->RentalID;
-        if ($apartments) {
-            return Appartment::findByRentalId($this->RentalID);
-        } else if ($houses) {
-            return House::findByRentalId($this->RentalID);
-        } else {//noAccountType settet
-            return null;
-        }
-    }
-
-
-    // Gibt das neueste Objekt in dem Resort zurück. In dem Array müssen alle verfügbaren werte drin stehen. auch
-    // aus den Tabellen Appartment und house
-
-    public static function getLastRentalInResort($resort) : Rental{
-        $db = getDB();
-
-
-        $stmtLastRental = $db->prepare("SELECT * FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')) AND RentalID = (SELECT MAX(RentalID) FROM RENTAL WHERE ResortID = (SELECT fn_getResortID('?')))");
-        $stmtLastRental->execute([$resort]);
-        $rental = $stmtLastRental->fetch();
-
-        return $rental;
-    }
-
-
-    //TODO Check correct Implementation:
 
     /**
-     * Author: Max Schelenz
-     * This function returns the last Renovation from STRUCCHANGE.
-     * @return Renovation
+     * Author Hendrik Lendeckel
+     * This function determines whether a rental is a house or an apartment and returns the object found.
+     * @return mixed
      */
-    public static function getLastRenovation() : Renovation{
+    public function getChildClass() : mixed {
+
         $db = getDB();
 
-        $stmtLastRenovation = $db->prepare("SELECT * FROM STRUCCHANGE 
-                                                            WHERE StrucchangeID = (SELECT MAX(StrucchangeID))
-                                                            AND CraftServID IS NOT NULL");
-        $stmtLastRenovation->execute();
-        $renovation = $stmtLastRenovation->fetch();
+        try {
+            $stmt1 = $db->prepare('SELECT RentalID FROM APPARTMENT WHERE RentalID = ?');
+            $stmt2 = $db->prepare('SELECT RentalID FROM HOUSE WHERE RentalID = ?');
+            $stmt1->execute([$this->RentalID]);
+            $stmt2->execute([$this->RentalID]);
+            $apartments = $stmt1->fetch();
+            $houses = $stmt2->fetch();
 
-        return $renovation;
+
+            if ($apartments) {
+                return Appartment::findByRentalId($this->RentalID);
+            } else if ($houses) {
+                return House::findByRentalId($this->RentalID);
+            } else {//noAccountType settet
+
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        return null;
+
     }
 
 
-    // TODO stimmt noch nicht, mache ich -> Hendrik
-    // getAddressFromRental
+
+
+
+
+
+
+
     /**
      * Author: Max Schelenz und Hendrik Lendeckel
      * This function returns the address from a given Rental with the help of the database function fn_GetRentalID.
      * @param $rentalID
-     * @return Address
+     * @return null|Address
      */
-    public static function getAddressFromRental($rentalID) : Address
+    public static function getAddressFromRental($rentalID) : ?Address
     {
         $db = getDB();
 
-        $stmtAddress = $db->prepare("SELECT * FROM ADDR
+        try {
+            $stmtAddress = $db->prepare("SELECT * FROM ADDR
                                             JOIN RENTAL ON ADDR.AddrID = RENTAL.AddrID
                                             WHERE RentalID = ?");
-        $stmtAddress->execute([$rentalID]);
-        $address = $stmtAddress->fetch();
-        $addressID = $address['AddrID'];
-        echo $addressID;
-        return new Address($addressID);
+            $stmtAddress->execute([$rentalID]);
+            $address = $stmtAddress->fetch();
+            $addressID = $address['AddrID'];
+
+            return new Address($addressID);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        return null;
+
+    }
+
+
+    /**
+     * Author Hendrik Lendeckel
+     * This function determines all rentals from the RENTAL table with a RentalID higher than count
+     * @param $count
+     * @return array|null
+     */
+    public static function getMoreRentalsThen($count) : ?array{
+
+        $db = getDB();
+
+        try {
+            $stmt = $db->prepare('SELECT * FROM RENTAL WHERE RentalID > ? LIMIT 6');
+            $stmt->execute([$count]);
+            $result = $stmt->fetchAll();
+
+            $rentals = array();
+
+            foreach ($result as $rental){
+                $rentals [] = new Rental($rental['RentalID']);
+            }
+            return $rentals;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        return null;
+
     }
 
 }
+
