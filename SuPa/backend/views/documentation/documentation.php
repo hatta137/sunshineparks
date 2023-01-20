@@ -236,14 +236,16 @@
         <h1>ER-Modell</h1>
         <img src="../assets/graphics/docu/ERMv12.png" alt="Entity-Relationship-Modell">
         <p>
-        Das hier fertig abgebildete ER-Modell war in Version 1 deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass wir unser Datenbankmodell 
-        aus DB2 nicht 1zu1 übernehmen können. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder 
-        wir haben die Tabellen optimiert, um Daten Speicher einzusparen. Hier wäre der PasswordHash oder der AccountType in Person zu nennen.
-        In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann ab v7 verbessert haben.
-        Der AccountType erspart uns Computingressourcen, weil wir uns aufwändige if-Abfragen und Schleifendurchläufe ersparen.
+        Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
+        Buchungs-,Objektverwaltungs- und Account/Administrationsbereich sind Teile unseres Scope.
 
-        PERSONMODE und MODE wurden durch den Registrierungs-und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
-        ergänzt werden. Die Erstellung der Rollen-und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere zu nennende
+        Das abgebildete ER-Modell war zu Beginn deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass eine genaue Übernahme unseres Datenbankmodell
+        aus Modul DB2 nicht möglich ist. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder
+        wir haben die Tabellen optimiert, um die Programmlogik realisieren zu können. Hier wäre der PasswordHash oder der AccountType in PERSON zu nennen.
+        In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann ab ERMv7 verbessert haben.
+
+        PERSONMODE und MODE wurden durch den Registrierungs- und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
+        ergänzt werden. Die Erstellung der Rollen- und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere zu nennende
         Arbeitsschritte in unserem Projekt.
         </p>
     </div>
@@ -263,11 +265,12 @@
         <img src="../assets/graphics/docu/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
         <p>
             Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser Verwaltungssystem benötigt.
-            Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer. Jeder Erstbesucher unserer Webseite hat automatisch die ModeID 8 und gilt als Viewer.
+            Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
+            Jeder Erstbesucher unserer Webseite hat automatisch die ModeID 8 und gilt als Viewer.
             Existiert lokal auf dem Gerät des Nutzers ein Cookie mit der SessionID, dann wird aus dem Session_Array die PersonID gelesen und das zugehörige Nutzerkonto eingeloggt mit den jeweiligen zugewiesenen Rechten.
             Meldet sich der Nutzer bei uns im System an, erhält er die Rechte die bei seinem Nutzerkonto hinterlegt sind.
-            Die Nutzerrechte werden vor jedem Aufruf gecheckt und je nachdem ob der Nutzer die Rechte hat oder nicht, wird der Zugriff gewährt oder verweigert.
-            Die komplette Rollen-Rechte-Matrix
+            Die Nutzerrechte werden vor jedem Aufruf nochmals gecheckt und je nachdem ob der Nutzer die Rechte hat oder nicht, wird der Zugriff gewährt oder verweigert.
+            Die komplette Rollen-Rechte-Matrix ist unter SuPa/assets/documentation/Files als "Berechtigungen.xlsm" zu finden.
         </p>
     </div>
 </section>
@@ -276,7 +279,13 @@
     <div>
         <h1>Flussbild Dateneingabe</h1>
         <h2>Login und Registrierung</h2>
-        <img src="../assets/graphics/docu/Login_Registration.drawio.png" alt="Flussbilddiagramm des Login und der Registrierung">
+        <img src="../assets/graphics/docu/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
+        <p>
+            Der Besucher der Webseite hat die Möglichkeit im Falle, dass er noch kein Nutzerkonto erstellt hat dieses über das Registrierungsformular vorzunehmen.
+            Im Anschluss eine erfolgreiche Registrierung ist der Nutzer dann direkt mit dem Konto angemeldet.
+            Sollte bereits ein Konto bestehen wird dies entweder direkt durch einen lokal gespeicherten Cookie erkannt und zugeordnet oder der Nutzer kann sich mit seinen Zugangsdaten im Login anmelden.
+            In beiden Fällen erhalten die Nutzer ein Feedback, indem im rechten oberen Bereich der Navbar "Hallo, VornameXY" angezeigt wird.
+        </p>
 
         <h2>Buchungsvorgang und Objektsuche</h2>
         <img src="../assets/graphics/docu/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
