@@ -40,7 +40,7 @@
 
         <a href="index.php" class="logo"><img id="Logo" src="../assets/graphics/LogoNB_S.png" alt="LogoSP"></a>
         <div class="headline">
-            <h1>SunshineParks</h1>
+            <a href="index.php"><h1>SunshineParks</h1></a>
         </div>
 
 
