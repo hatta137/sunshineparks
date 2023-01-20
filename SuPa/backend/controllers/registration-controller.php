@@ -41,7 +41,7 @@ class RegistrationController extends Controller{
                     break;
             }
         }else{
-            echo "Bruder gib mal zwei gleiche Passwörter ein"; //@Todo error page machen
+            header('location: index.php?page=error&view=pwdNotMatching');
         }
 
     }
