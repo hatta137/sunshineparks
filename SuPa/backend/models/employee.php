@@ -122,4 +122,23 @@ class Employee extends Model
 
     }
 
+    public function delete($PersonID) : bool {
+
+        try {
+            $db = getDB();
+            $db->beginTransaction();
+
+            $stmt = $db->prepare('DELETE FROM EMP WHERE PersonID = ?');
+            $stmt->execute([$PersonID]);
+
+            $db->commit();
+
+            return true;
+
+        }catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return false;
+    }
+
 }
