@@ -70,18 +70,17 @@ class Person extends Model
      * Author: Dario Daßler
      */
 
-    public function getPermission(string $action) :?string{
-        $modeID = $this->getPersonModeID();
+    public static function getPermission(int $modeID, string $action) :?string {
         $db = getDB();
         $stmt = $db->prepare('SELECT * FROM MODE WHERE ModeID = ?');
         $stmt->execute([$modeID]);
         $row = $stmt->fetch();
 
-        if (!$row) {
+        if (!isset($row[$action])) {
             return null;
+        }else {
+            return $row[$action];
         }
-
-        return $row[$action];
 }
 
 

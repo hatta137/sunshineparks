@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../assets/css/authentication.css">
 
 <div class="LoginBox">
-<form action="index.php?page=registration&logic=registration" method="POST">
+<form action="index.php?page=registration&logic=addPerson" method="POST">
 
     <div class="header">
         <h1>Registrierung</h1>
@@ -42,6 +42,8 @@
 
     <div class="foot">
         <input type="submit" value="Registrieren">
+        <input type="hidden" name="mode" value="7">
+        <input type="hidden" name="acctype" value="G">
         Bereits ein Konto erstellt?
         <input type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
     </div>

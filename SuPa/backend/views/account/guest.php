@@ -18,7 +18,7 @@
             <a href=""><input type="button" value="Warenkorb"></a>
             <a href=""><input type="button" value="Nachrichten"></a>
             <a href=""><input type="button" value="Hilfe"></a>
-            <a href="index.php?page=account&view=delete"><input type="button" value="Konto Löschen"></a>
+            <a href="index.php?page=account&view=deleteGuest"><input type="button" value="Konto Löschen"></a>
             <a href="index.php?page=account&view=logout"><input type="button" value="Logout"></a>
         </form>
     </div>

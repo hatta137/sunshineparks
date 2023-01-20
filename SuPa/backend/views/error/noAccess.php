@@ -1,3 +1,3 @@
 <div class="topbox">
-    <h1>kein zugriff mit dem konto</h1>
+    <h1>NO ACCESS</h1>
 </div>

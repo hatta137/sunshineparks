@@ -28,10 +28,9 @@
     require_once __DIR__.'/../../models/person.php';
     if(isset($_SESSION['person'])){
         $person = new Person($_SESSION['person']);
-        if($person->getPersonModeID() == 8) $username = "Account";
-        else $username = "Hallo, ".$person->FirstName."!";
+        $username = "Hallo, ".$person->FirstName."!";
     }else{
-        $username = "UnknownUser";
+        $username = "Account";
     }
     ?>
     <nav>

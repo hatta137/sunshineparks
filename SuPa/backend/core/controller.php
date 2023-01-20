@@ -5,14 +5,13 @@
 // mostly necessary functions and member-variables to execute a function and render a view
 class Controller
 {
-    protected string $_actionName = "";
+    protected string $_actionLogicName = "";
     private string $_controllerName = "";
-
     protected array $_params = [];
 
-    public function __construct(string $actionName, string $controllerName)
+    public function __construct(string $acLogName, string $controllerName)
     {
-        $this->_actionName = $actionName;
+        $this->_actionLogicName = $acLogName;
         $this->_controllerName = $controllerName;
     }
 
@@ -25,7 +24,7 @@ class Controller
     public function renderHTML()
     {
 
-        $viewPath = $this->viewPath($this->_actionName, $this->_controllerName);
+        $viewPath = $this->viewPath($this->_actionLogicName, $this->_controllerName);
         // Render Header
         View::render(__DIR__."/../views/general/header.php", $this->_params);
 

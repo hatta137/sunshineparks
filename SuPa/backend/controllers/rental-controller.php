@@ -9,24 +9,7 @@ class RentalController extends Controller{
      */
     public function rightsCheck(): bool
     {
-        if(isset($_SESSION['person'])) {
-            $person = new Person($_SESSION['person']);
-            switch ($this->_actionName) {
-                case "addNewRental":
-                case "newRental":
-                    if($person->getPermission("AddRental") == "Y") return true;
-                    else return false;
-                case "showRental":
-                    if($person->getPermission("ShowRental") == "Y") return true;
-                    else return false;
-                default:
-                    header('location: index.php?page=error&view=404');
-                    return false;
-            }
-        }else{
-            header('location: index.php?page=error&view=noMode');
-            return false;
-        }
+        return Permission::checkForAction($this->_actionLogicName);
     }
 
     /**
