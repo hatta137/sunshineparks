@@ -5,11 +5,11 @@ footer{
     position:absolute;
     background-color: #222;
     color: #fff;
-
     text-align: center;
-    height:60px;
     bottom:0;
     width:100%;
+    height:auto;
+    padding: 2rem
 }
 
 footer .row{
@@ -22,8 +22,4 @@ footer ul li{
     display: inline-block;
     margin-left: 2.5rem;
     color: #fff;
-}
-footer ul li a:hover{
-    color: #48AC98;
-    transition: .5s ease-in-out;
 }

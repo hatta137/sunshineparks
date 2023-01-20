@@ -7,8 +7,8 @@
             <input type="hidden" name="view" value="showRental">
             <input type="hidden" name="show" value="filter">
             <select name="resort">
-                <option value="Usedom">Usedom</option>
                 <option value="Erfurt">Erfurt</option>
+                <option value="Usedom">Usedom</option>
                 <option value="Oberhof">Oberhof</option>
                 <option value="Berchtesgaden">Berchtesgaden</option>
             </select>

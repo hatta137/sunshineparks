@@ -15,7 +15,8 @@
             <input type="text" placeholder="Nachname" name="lname" required>
             <label>Geburtsdatum</label>
             <input type="date" placeholder="Geburtsdatum" name="birthdate" required>
-
+            <label>Telefon</label>
+            <input type="text" placeholder="Telefon" name="phone" required>
         </div>
 
         <div class="InputBox">
@@ -27,10 +28,6 @@
             <input type="text" placeholder="Bundesland*" name="country">
         </div>
 
-        <div class="InputBox">
-            <label>Telefon</label>
-            <input type="text" placeholder="Telefon" name="phone" required>
-        </div>
 
         <div class="InputBox">
             <label>Email Adresse</label>
