@@ -37,9 +37,13 @@
 
 .foot{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 5rem;
+    align-content: center;
+    justify-items: center;
+    font-size: 2rem;
+    width: 50%;
 }
 
 .LoginBox h1{
