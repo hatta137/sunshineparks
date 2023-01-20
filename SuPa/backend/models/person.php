@@ -116,6 +116,23 @@ class Person extends Model
         return $row['ModeID'];
     }
 
+    /**
+     * Author: Dario Daßler
+     */
+
+    public static function getPermission(int $modeID, string $action) :?string {
+        $db = getDB();
+        $stmt = $db->prepare('SELECT * FROM MODE WHERE ModeID = ?');
+        $stmt->execute([$modeID]);
+        $row = $stmt->fetch();
+
+        if (!array_key_exists($action, $row)) {
+            return null;
+        }else {
+            return $row[$action];
+        }
+}
+
 
     /**
      * Author: Max Schelenz

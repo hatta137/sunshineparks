@@ -1,8 +1,16 @@
 <?php
 require_once __DIR__.'/../models/rental.php';
-
+require_once __DIR__.'/../models/person.php';
 class RentalController extends Controller{
 
+    /**
+     *  Author: Dario Daßler
+     *
+     */
+    public function rightsCheck(): bool
+    {
+        return Permission::checkForAction($this->_actionLogicName);
+    }
 
     /**
      * Author: Hendrik Lendeckel
@@ -10,6 +18,8 @@ class RentalController extends Controller{
      * or only certain rentals depending on the filter options set
      *
      */
+
+
     public function actionShowRental(){
 
 
