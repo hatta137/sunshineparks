@@ -164,11 +164,11 @@
 <section id="mvcPattern" class ="odd">
     <div>
         <h1>MVC Pattern</h1>
-        <img src="../assets/graphics/docu/mvcpattern.png" alt="MVC-Pattern Aufteilung">
+        <img src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
         <h2>Aufteilung</h2>
         <p>
             Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
-            die Aufgaben unter uns zu verteilen.
+            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.
             Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
             Max befasst sich mit den Models und den Anpassungen der Datenbank.
 
@@ -234,7 +234,7 @@
 <section id="erMod" class="odd">
     <div>
         <h1>ER-Modell</h1>
-        <img src="../assets/graphics/docu/ERMv12.png" alt="Entity-Relationship-Modell">
+        <img src="../assets/documentation/DB_Diagrams/ERMv12.png" alt="Entity-Relationship-Modell">
         <p>
         Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
         Buchungs-,Objektverwaltungs- und Account/Administrationsbereich sind Teile unseres Scope.
@@ -262,7 +262,7 @@
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img src="../assets/graphics/docu/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
+        <img src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
         <p>
             Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser Verwaltungssystem benötigt.
             Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
@@ -289,10 +289,17 @@
 
         <h2>Buchungsvorgang und Objektsuche</h2>
         <img src="../assets/graphics/docu/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
-
+        <p>
+            Ein Besucher der SunshineParks Webseite kann sich mit Hilfe der Filterbox auf der home.php einen Überblick über die Objekte unserer Ferienresorts verschaffen.
+            Hierzu hat er die Möglichkeit die vorgegebenen Suchkriterien zu nutzen oder sich alle buchbaren Objekte anzeigen zu lassen.
+            Daraufhin folgt eine Auflistung der gefilterten Rentals, die dann gebucht werden oder bei Interesse weitere Informationen angezeigt werden können.
+            Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
+        </p>
         <h2>Administration und Verwaltung</h2>
         <img src="../assets/graphics/docu/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
-
+        <p>
+            -Hier noch Verwaltungstext ergänzen-
+        </p>
     </div>
 </section>
 
