@@ -36,6 +36,7 @@ class Controller
             //echo $viewPath;
             //echo "file not found";
             header('Location: index.php?page=error&view=404');
+
         }
 
         // Render Footer

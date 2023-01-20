@@ -164,7 +164,7 @@
             <input type="text" placeholder="Dein Name" id="ContactformularName" required>
             <input type="email" placeholder="Deine E-Mailadresse" id="ContactformularMail" required>
             <textarea placeholder="Deine Nachricht" id="ContactformularText" required></textarea>
-            <input type="submit" value="Absenden" onclick="Myfunction()" disabled>
+            <input type="submit" value="Absenden" onclick="Myfunction()" >
         </form>
     </div>
 </section>

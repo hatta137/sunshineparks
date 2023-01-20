@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 20. Jan 2023 um 09:22
--- Server-Version: 10.4.27-MariaDB
--- PHP-Version: 8.2.0
+-- Host: localhost
+-- Erstellungszeit: 12. Jan 2023 um 18:47
+-- Server-Version: 10.4.24-MariaDB
+-- PHP-Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -21,7 +21,7 @@ USE SunshineParksWeb;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `sunshineparksweb`
+-- Datenbank: `SunshineParksWeb`
 --
 
 DELIMITER $$
@@ -188,7 +188,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetRentalAddrID` (`inValue` INTEG
 	return outAddrID;   
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetRentalStatus` (`inRentalID` INTEGER) RETURNS ENUM('R','N','C','D','M','B') CHARSET utf8mb4 COLLATE utf8mb4_general_ci  begin
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_GetRentalStatus` (`inRentalID` INTEGER) RETURNS ENUM('R','N','C','D','M','B') CHARSET utf8mb4  begin
 	declare outRentalStatus enum('R','N','C','D','M', 'B');
   
     SET outRentalStatus = (SELECT Status FROM RENTAL WHERE RentalID = inRentalID);
@@ -242,23 +242,23 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `addr`
+-- Tabellenstruktur für Tabelle `ADDR`
 --
 
-CREATE TABLE `addr` (
+CREATE TABLE `ADDR` (
   `AddrID` int(11) NOT NULL,
   `Street` varchar(50) NOT NULL,
   `HNumber` int(11) NOT NULL,
   `ZipCode` char(5) NOT NULL,
   `City` varchar(50) NOT NULL,
   `State` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `addr`
+-- Daten für Tabelle `ADDR`
 --
 
-INSERT INTO `addr` (`AddrID`, `Street`, `HNumber`, `ZipCode`, `City`, `State`) VALUES
+INSERT INTO `ADDR` (`AddrID`, `Street`, `HNumber`, `ZipCode`, `City`, `State`) VALUES
 (1, 'Dünenstraße', 11, '17419', 'Aalbeck', 'MVP'),
 (2, 'Krummer Weg', 100, '99094', 'Erfurt', 'TH'),
 (3, 'Zellaer Straße', 50, '98559', 'Oberhof', 'TH'),
@@ -357,50 +357,46 @@ INSERT INTO `addr` (`AddrID`, `Street`, `HNumber`, `ZipCode`, `City`, `State`) V
 (96, 'Ferienstraße', 5, '83471', 'Berchtesgaden', 'BY'),
 (97, 'Ferienstraße', 6, '83471', 'Berchtesgaden', 'BY'),
 (98, 'Ferienstraße', 7, '83471', 'Berchtesgaden', 'BY'),
-(99, 'Ferienstraße', 8, '83471', 'Berchtesgaden', 'BY'),
-(100, 'h', 0, 'h', 'h', 'GER'),
-(101, 'f', 0, '11213', 'gera', 'th'),
-(102, 'Leipziger Strasse', 12, '99085', 'Erfurt', 'TH'),
-(103, 'doro', 12, '99999', 'AssiTown', 'TH');
+(99, 'Ferienstraße', 8, '83471', 'Berchtesgaden', 'BY');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `admin`
+-- Tabellenstruktur für Tabelle `ADMIN`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `ADMIN` (
   `AdminID` int(11) NOT NULL,
   `PersonID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `admin`
+-- Daten für Tabelle `ADMIN`
 --
 
-INSERT INTO `admin` (`AdminID`, `PersonID`) VALUES
+INSERT INTO `ADMIN` (`AdminID`, `PersonID`) VALUES
 (2, 25),
 (1, 48);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `appartment`
+-- Tabellenstruktur für Tabelle `APPARTMENT`
 --
 
-CREATE TABLE `appartment` (
+CREATE TABLE `APPARTMENT` (
   `AppartmentID` int(11) NOT NULL,
   `RentalID` int(11) NOT NULL,
   `Balcony` enum('Y','N') NOT NULL,
   `Roomnumber` int(11) NOT NULL,
   `Floor` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `appartment`
+-- Daten für Tabelle `APPARTMENT`
 --
 
-INSERT INTO `appartment` (`AppartmentID`, `RentalID`, `Balcony`, `Roomnumber`, `Floor`) VALUES
+INSERT INTO `APPARTMENT` (`AppartmentID`, `RentalID`, `Balcony`, `Roomnumber`, `Floor`) VALUES
 (1, 1, 'Y', 1, 1),
 (2, 2, 'N', 2, 1),
 (3, 3, 'Y', 3, 2),
@@ -420,25 +416,24 @@ INSERT INTO `appartment` (`AppartmentID`, `RentalID`, `Balcony`, `Roomnumber`, `
 (17, 26, 'Y', 2, 1),
 (18, 27, 'N', 3, 2),
 (19, 28, 'Y', 4, 3),
-(20, 29, 'N', 5, 2),
-(21, 33, 'Y', 123, 1);
+(20, 29, 'N', 5, 2);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `area`
+-- Tabellenstruktur für Tabelle `AREA`
 --
 
-CREATE TABLE `area` (
+CREATE TABLE `AREA` (
   `AreaID` int(11) NOT NULL,
   `Name` enum('M','O','C') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `area`
+-- Daten für Tabelle `AREA`
 --
 
-INSERT INTO `area` (`AreaID`, `Name`) VALUES
+INSERT INTO `AREA` (`AreaID`, `Name`) VALUES
 (10, 'O'),
 (20, 'M'),
 (30, 'C');
@@ -446,23 +441,23 @@ INSERT INTO `area` (`AreaID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `booking`
+-- Tabellenstruktur für Tabelle `BOOKING`
 --
 
-CREATE TABLE `booking` (
+CREATE TABLE `BOOKING` (
   `BookingID` int(11) NOT NULL,
   `DateBooking` date NOT NULL,
   `StartDateRent` date NOT NULL,
   `EndDateRent` date NOT NULL,
   `PaymentStatus` enum('O','P','C') NOT NULL,
   `GuestID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `booking`
+-- Daten für Tabelle `BOOKING`
 --
 
-INSERT INTO `booking` (`BookingID`, `DateBooking`, `StartDateRent`, `EndDateRent`, `PaymentStatus`, `GuestID`) VALUES
+INSERT INTO `BOOKING` (`BookingID`, `DateBooking`, `StartDateRent`, `EndDateRent`, `PaymentStatus`, `GuestID`) VALUES
 (1, '2020-02-17', '2020-03-30', '2020-04-14', 'P', 1),
 (2, '2020-02-28', '2020-05-04', '2020-06-30', 'P', 2),
 (3, '2020-03-03', '2020-08-30', '2020-09-09', 'P', 3),
@@ -477,23 +472,23 @@ INSERT INTO `booking` (`BookingID`, `DateBooking`, `StartDateRent`, `EndDateRent
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `bookingdetail`
+-- Tabellenstruktur für Tabelle `BOOKINGDETAIL`
 --
 
-CREATE TABLE `bookingdetail` (
+CREATE TABLE `BOOKINGDETAIL` (
   `BookingDetailID` int(11) NOT NULL,
   `BookingID` int(11) NOT NULL,
   `RentalID` int(11) NOT NULL,
   `SurchargeID` int(11) NOT NULL,
   `EndPrice` decimal(10,2) NOT NULL,
   `Status` enum('R','B','C') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `bookingdetail`
+-- Daten für Tabelle `BOOKINGDETAIL`
 --
 
-INSERT INTO `bookingdetail` (`BookingDetailID`, `BookingID`, `RentalID`, `SurchargeID`, `EndPrice`, `Status`) VALUES
+INSERT INTO `BOOKINGDETAIL` (`BookingDetailID`, `BookingID`, `RentalID`, `SurchargeID`, `EndPrice`, `Status`) VALUES
 (1, 1, 12, 1, '1700.00', 'B'),
 (2, 2, 19, 2, '3335.00', 'B'),
 (3, 3, 1, 3, '545.00', 'B'),
@@ -508,23 +503,23 @@ INSERT INTO `bookingdetail` (`BookingDetailID`, `BookingID`, `RentalID`, `Surcha
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `cleaning`
+-- Tabellenstruktur für Tabelle `CLEANING`
 --
 
-CREATE TABLE `cleaning` (
+CREATE TABLE `CLEANING` (
   `CleaningID` int(11) NOT NULL,
   `RentalID` int(11) NOT NULL,
   `StartTime` time NOT NULL,
   `EndTime` time NOT NULL,
   `CleaningDate` date NOT NULL,
   `EmpID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `cleaning`
+-- Daten für Tabelle `CLEANING`
 --
 
-INSERT INTO `cleaning` (`CleaningID`, `RentalID`, `StartTime`, `EndTime`, `CleaningDate`, `EmpID`) VALUES
+INSERT INTO `CLEANING` (`CleaningID`, `RentalID`, `StartTime`, `EndTime`, `CleaningDate`, `EmpID`) VALUES
 (1, 5, '00:00:10', '00:00:11', '2022-12-12', 25),
 (2, 28, '00:00:12', '00:00:13', '2022-12-13', 36),
 (3, 18, '00:00:14', '00:00:15', '2022-12-14', 32),
@@ -534,23 +529,23 @@ INSERT INTO `cleaning` (`CleaningID`, `RentalID`, `StartTime`, `EndTime`, `Clean
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `craftserv`
+-- Tabellenstruktur für Tabelle `CRAFTSERV`
 --
 
-CREATE TABLE `craftserv` (
+CREATE TABLE `CRAFTSERV` (
   `CraftServID` int(11) NOT NULL,
   `CompName` varchar(50) NOT NULL,
   `Category` varchar(200) NOT NULL,
   `AddrID` int(11) NOT NULL,
   `Tel` varchar(50) NOT NULL,
   `Mail` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `craftserv`
+-- Daten für Tabelle `CRAFTSERV`
 --
 
-INSERT INTO `craftserv` (`CraftServID`, `CompName`, `Category`, `AddrID`, `Tel`, `Mail`) VALUES
+INSERT INTO `CRAFTSERV` (`CraftServID`, `CompName`, `Category`, `AddrID`, `Tel`, `Mail`) VALUES
 (1, 'Röhrich Sanitär u. Heizungsbau GmbH', 'Sanitär/Heizung', 17, '259235972', 'walter.röhrich@werner.de'),
 (2, 'Peter Immelmann Bauservice GmbH', 'Bau', 18, '572634758', 'p.immelmann@immelmannbau.de'),
 (3, 'Malermeiser Mannfred Mümmel GbR', 'Maler', 19, '385736248', 'mannfred.mümmel@maler-mümmel.de'),
@@ -561,22 +556,22 @@ INSERT INTO `craftserv` (`CraftServID`, `CompName`, `Category`, `AddrID`, `Tel`,
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `emp`
+-- Tabellenstruktur für Tabelle `EMP`
 --
 
-CREATE TABLE `emp` (
+CREATE TABLE `EMP` (
   `EmpID` int(11) NOT NULL,
   `PersonID` int(11) NOT NULL,
   `Job` varchar(50) NOT NULL,
   `ResortID` int(11) NOT NULL,
   `Manager` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `emp`
+-- Daten für Tabelle `EMP`
 --
 
-INSERT INTO `emp` (`EmpID`, `PersonID`, `Job`, `ResortID`, `Manager`) VALUES
+INSERT INTO `EMP` (`EmpID`, `PersonID`, `Job`, `ResortID`, `Manager`) VALUES
 (1, 1, 'CEO', 30, 1),
 (2, 2, 'Resort-Manager ', 40, 1),
 (3, 3, 'Resort-Manager ', 30, 1),
@@ -618,19 +613,19 @@ INSERT INTO `emp` (`EmpID`, `PersonID`, `Job`, `ResortID`, `Manager`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `guest`
+-- Tabellenstruktur für Tabelle `GUEST`
 --
 
-CREATE TABLE `guest` (
+CREATE TABLE `GUEST` (
   `GuestID` int(11) NOT NULL,
   `PersonID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `guest`
+-- Daten für Tabelle `GUEST`
 --
 
-INSERT INTO `guest` (`GuestID`, `PersonID`) VALUES
+INSERT INTO `GUEST` (`GuestID`, `PersonID`) VALUES
 (1, 38),
 (2, 39),
 (3, 40),
@@ -640,28 +635,26 @@ INSERT INTO `guest` (`GuestID`, `PersonID`) VALUES
 (7, 44),
 (8, 45),
 (9, 46),
-(10, 47),
-(12, 91),
-(13, 92);
+(10, 47);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `house`
+-- Tabellenstruktur für Tabelle `HOUSE`
 --
 
-CREATE TABLE `house` (
+CREATE TABLE `HOUSE` (
   `HouseID` int(11) NOT NULL,
   `RentalID` int(11) NOT NULL,
   `Terrace` enum('Y','N') NOT NULL,
   `Kitchen` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `house`
+-- Daten für Tabelle `HOUSE`
 --
 
-INSERT INTO `house` (`HouseID`, `RentalID`, `Terrace`, `Kitchen`) VALUES
+INSERT INTO `HOUSE` (`HouseID`, `RentalID`, `Terrace`, `Kitchen`) VALUES
 (1, 6, 'N', 1),
 (2, 7, 'Y', 2),
 (3, 8, 'N', 2),
@@ -678,10 +671,10 @@ INSERT INTO `house` (`HouseID`, `RentalID`, `Terrace`, `Kitchen`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `maintenance`
+-- Tabellenstruktur für Tabelle `MAINTENANCE`
 --
 
-CREATE TABLE `maintenance` (
+CREATE TABLE `MAINTENANCE` (
   `MaintenanceID` int(11) NOT NULL,
   `RentalID` int(11) NOT NULL,
   `Description` varchar(200) NOT NULL,
@@ -689,13 +682,13 @@ CREATE TABLE `maintenance` (
   `RepairProtocol` varchar(200) DEFAULT NULL,
   `EmpID` int(11) NOT NULL,
   `Active` enum('F','O') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `maintenance`
+-- Daten für Tabelle `MAINTENANCE`
 --
 
-INSERT INTO `maintenance` (`MaintenanceID`, `RentalID`, `Description`, `MaintenanceDate`, `RepairProtocol`, `EmpID`, `Active`) VALUES
+INSERT INTO `MAINTENANCE` (`MaintenanceID`, `RentalID`, `Description`, `MaintenanceDate`, `RepairProtocol`, `EmpID`, `Active`) VALUES
 (1, 12, 'Stuhl kaputt', '2022-04-12', 'Stuhlbein ausgetauscht', 13, 'F'),
 (2, 24, 'Toilette spült nicht', '2022-06-15', 'Spülung repariert', 15, 'F'),
 (3, 8, 'TV geht nicht mehr an', '2022-06-15', 'Neuen TV installiert', 10, 'F'),
@@ -705,43 +698,43 @@ INSERT INTO `maintenance` (`MaintenanceID`, `RentalID`, `Description`, `Maintena
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mode`
+-- Tabellenstruktur für Tabelle `MODE`
 --
 
-CREATE TABLE `mode` (
-  `ModeID` int(11) NOT NULL,
-  `Role` enum('A','C','M','Mgr','R','B','G','V') NOT NULL,
-  `AddNewEmp` enum('Y','N') NOT NULL,
-  `Registration` enum('Y','N') NOT NULL,
-  `AddPerson` enum('Y','N') NOT NULL,
-  `DeleteGuest` enum('Y','N') NOT NULL,
-  `DeletedPerson` enum('Y','N') NOT NULL,
-  `CreateCleaningPlan` enum('Y','N') NOT NULL,
-  `ReportDamageRepair` enum('Y','N') NOT NULL,
-  `ShowRepair` enum('Y','N') NOT NULL,
-  `EditRepair` enum('Y','N') NOT NULL,
-  `NewRental` enum('Y','N') NOT NULL,
-  `EditRental` enum('Y','N') NOT NULL,
-  `DeactivateRental` enum('Y','N') NOT NULL,
-  `ShowRental` enum('Y','N') NOT NULL,
-  `AddRenovation` enum('Y','N') NOT NULL,
-  `EditRenovation` enum('Y','N') NOT NULL,
-  `ShowRenovation` enum('Y','N') NOT NULL,
-  `AddNewBuilding` enum('Y','N') NOT NULL,
-  `EditNewBuilding` enum('Y','N') NOT NULL,
-  `CloseNewBuildingProcess` enum('Y','N') NOT NULL,
-  `ShowNewBuildingRental` enum('Y','N') NOT NULL,
-  `EditEmployee` enum('Y','N') NOT NULL,
-  `ShowEmployees` enum('Y','N') NOT NULL,
-  `UpdatedEmployee` enum('Y','N') NOT NULL,
-  `AddNewRental` enum('Y','N') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `MODE` (
+    `ModeID` int(11) NOT NULL,
+    `Role` enum('A','C','M','Mgr','R','B','G','V') NOT NULL,
+    `AddNewEmp` enum('Y','N') NOT NULL,
+    `Registration` enum('Y','N') NOT NULL,
+    `AddPerson` enum('Y','N') NOT NULL,
+    `DeleteGuest` enum('Y','N') NOT NULL,
+    `DeletedPerson` enum('Y','N') NOT NULL,
+    `CreateCleaningPlan` enum('Y','N') NOT NULL,
+    `ReportDamageRepair` enum('Y','N') NOT NULL,
+    `ShowRepair` enum('Y','N') NOT NULL,
+    `EditRepair` enum('Y','N') NOT NULL,
+    `NewRental` enum('Y','N') NOT NULL,
+    `EditRental` enum('Y','N') NOT NULL,
+    `DeactivateRental` enum('Y','N') NOT NULL,
+    `ShowRental` enum('Y','N') NOT NULL,
+    `AddRenovation` enum('Y','N') NOT NULL,
+    `EditRenovation` enum('Y','N') NOT NULL,
+    `ShowRenovation` enum('Y','N') NOT NULL,
+    `AddNewBuilding` enum('Y','N') NOT NULL,
+    `EditNewBuilding` enum('Y','N') NOT NULL,
+    `CloseNewBuildingProcess` enum('Y','N') NOT NULL,
+    `ShowNewBuildingRental` enum('Y','N') NOT NULL,
+    `EditEmployee` enum('Y','N') NOT NULL,
+    `ShowEmployees` enum('Y','N') NOT NULL,
+    `UpdatedEmployee` enum('Y','N') NOT NULL,
+    `AddNewRental` enum('Y','N') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `mode`
+-- Daten für Tabelle `MODE`
 --
 
-INSERT INTO `mode` (`ModeID`, `Role`, `AddNewEmp`, `Registration`, `AddPerson`, `DeleteGuest`, `DeletedPerson`, `CreateCleaningPlan`, `ReportDamageRepair`, `ShowRepair`, `EditRepair`, `NewRental`, `EditRental`, `DeactivateRental`, `ShowRental`, `AddRenovation`, `EditRenovation`, `ShowRenovation`, `AddNewBuilding`, `EditNewBuilding`, `CloseNewBuildingProcess`, `ShowNewBuildingRental`, `EditEmployee`, `ShowEmployees`, `UpdatedEmployee`, `AddNewRental`) VALUES
+INSERT INTO `MODE` (`ModeID`, `Role`, `AddNewEmp`, `Registration`, `AddPerson`, `DeleteGuest`, `DeletedPerson`, `CreateCleaningPlan`, `ReportDamageRepair`, `ShowRepair`, `EditRepair`, `NewRental`, `EditRental`, `DeactivateRental`, `ShowRental`, `AddRenovation`, `EditRenovation`, `ShowRenovation`, `AddNewBuilding`, `EditNewBuilding`, `CloseNewBuildingProcess`, `ShowNewBuildingRental`, `EditEmployee`, `ShowEmployees`, `UpdatedEmployee`, `AddNewRental`) VALUES
 (1, 'A', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y'),
 (2, 'C', 'N', 'N', 'N', 'N', 'N', 'Y', 'Y', 'Y', 'N', 'N', 'N', 'N', 'Y', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'N', 'N'),
 (3, 'M', 'N', 'N', 'N', 'N', 'N', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'N', 'N'),
@@ -754,10 +747,10 @@ INSERT INTO `mode` (`ModeID`, `Role`, `AddNewEmp`, `Registration`, `AddPerson`, 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `person`
+-- Tabellenstruktur für Tabelle `PERSON`
 --
 
-CREATE TABLE `person` (
+CREATE TABLE `PERSON` (
   `PersonID` int(11) NOT NULL,
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(50) NOT NULL,
@@ -766,14 +759,14 @@ CREATE TABLE `person` (
   `Mail` varchar(200) NOT NULL,
   `AddrID` int(11) NOT NULL,
   `PasswordHash` varchar(200) NOT NULL,
-  `AccountType` enum('A','G','E','V') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `AccountType` enum('A','G','E') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `person`
+-- Daten für Tabelle `PERSON`
 --
 
-INSERT INTO `person` (`PersonID`, `FirstName`, `LastName`, `DateOfBirth`, `Tel`, `Mail`, `AddrID`, `PasswordHash`, `AccountType`) VALUES
+INSERT INTO `PERSON` (`PersonID`, `FirstName`, `LastName`, `DateOfBirth`, `Tel`, `Mail`, `AddrID`, `PasswordHash`, `AccountType`) VALUES
 (1, 'Biggi', 'Schmidt', '1969-04-20', '6217780989', 'Birgitt.Schmidt@sunshineparks.de', 23, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'E'),
 (2, 'Rainer ', 'Zufall', '1988-08-15', '9769814023', 'Rainer.Zufall@sunshineparks.de', 47, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'E'),
 (3, 'Heinz', 'Aal', '1973-01-05', '7386451086', 'Heinz.Aal@sunshineparks.de', 40, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'E'),
@@ -821,27 +814,25 @@ INSERT INTO `person` (`PersonID`, `FirstName`, `LastName`, `DateOfBirth`, `Tel`,
 (45, 'David ', 'Heinke', '1975-06-19', '6792322685', 'David.Heinke@guest.de', 66, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'G'),
 (46, 'Dorotheen', 'Schmidt', '1983-09-17', '7514773459', 'Dorotheen.Schmidt@guest.de', 67, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'G'),
 (47, 'Sylvia', 'Heinrich', '1961-06-29', '8586253537', 'Sylvia.Heinrich@guest.de', 68, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'G'),
-(48, 'Hendrik', 'Lendeckel', '1996-10-22', '15140244595', 'hendrik.lendeckel@fh-erfurt.de', 62, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'A'),
-(91, 'Dario', 'Daßler', '2001-10-15', '01234567890', 'dario.dassler@fh-erfurt.de', 102, '$2y$10$eGWrYyuEqOq5OAjZjEpneecd6qxUCoenjH7P2QqjtTWxBXSjnIuYW', 'G'),
-(92, 'Max', 'Schlenz', '2001-09-27', '99999999999', 'max.schlenz@loewe.de', 103, '$2y$10$PZsevwqUEMcvCBYgwTQkf.ksmvoz6GhYsGqL3k50dsrSLL0..BgUu', 'G');
+(48, 'Hendrik', 'Lendeckel', '1996-10-22', '15140244595', 'hendrik.lendeckel@fh-erfurt.de', 62, '$2y$10$dsZfBjVdpw.6X5oQGALNIewFRy6/Mi9OHBCa0PvjcfnVQ6R0KnaGi', 'A');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `personmode`
+-- Tabellenstruktur für Tabelle `PERSONMODE`
 --
 
-CREATE TABLE `personmode` (
+CREATE TABLE `PERSONMODE` (
   `PersonModeID` int(11) NOT NULL,
   `PersonID` int(11) NOT NULL,
   `ModeID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `personmode`
+-- Daten für Tabelle `PERSONMODE`
 --
 
-INSERT INTO `personmode` (`PersonModeID`, `PersonID`, `ModeID`) VALUES
+INSERT INTO `PERSONMODE` (`PersonModeID`, `PersonID`, `ModeID`) VALUES
 (1, 1, 4),
 (2, 2, 4),
 (3, 3, 4),
@@ -889,17 +880,15 @@ INSERT INTO `personmode` (`PersonModeID`, `PersonID`, `ModeID`) VALUES
 (45, 45, 7),
 (46, 46, 7),
 (47, 47, 7),
-(48, 48, 1),
-(51, 91, 7),
-(52, 92, 7);
+(48, 48, 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `rental`
+-- Tabellenstruktur für Tabelle `RENTAL`
 --
 
-CREATE TABLE `rental` (
+CREATE TABLE `RENTAL` (
   `RentalID` int(11) NOT NULL,
   `MaxVisitor` int(11) NOT NULL,
   `Bedroom` int(11) NOT NULL,
@@ -910,13 +899,13 @@ CREATE TABLE `rental` (
   `AreaID` int(11) NOT NULL,
   `ResortID` int(11) NOT NULL,
   `AddrID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `rental`
+-- Daten für Tabelle `RENTAL`
 --
 
-INSERT INTO `rental` (`RentalID`, `MaxVisitor`, `Bedroom`, `Bathroom`, `SqrMeter`, `BasicPrice`, `Status`, `AreaID`, `ResortID`, `AddrID`) VALUES
+INSERT INTO `RENTAL` (`RentalID`, `MaxVisitor`, `Bedroom`, `Bathroom`, `SqrMeter`, `BasicPrice`, `Status`, `AreaID`, `ResortID`, `AddrID`) VALUES
 (1, 4, 2, 2, 60, '30.00', 'C', 30, 10, 17),
 (2, 2, 1, 1, 35, '30.00', 'C', 30, 10, 69),
 (3, 6, 3, 2, 85, '30.00', 'C', 30, 10, 70),
@@ -948,27 +937,26 @@ INSERT INTO `rental` (`RentalID`, `MaxVisitor`, `Bedroom`, `Bathroom`, `SqrMeter
 (29, 4, 2, 1, 55, '30.00', 'C', 20, 40, 96),
 (30, 8, 4, 3, 182, '60.00', 'C', 20, 40, 97),
 (31, 12, 6, 4, 225, '60.00', 'C', 20, 40, 98),
-(32, 16, 8, 8, 265, '60.00', 'C', 20, 40, 99),
-(33, 5, 5, 5, 100, '30.00', 'C', 10, 30, 100);
+(32, 16, 8, 8, 265, '60.00', 'C', 20, 40, 99);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `rentalpictures`
+-- Tabellenstruktur für Tabelle `RENTALPICTURES`
 --
 
-CREATE TABLE `rentalpictures` (
+CREATE TABLE `RENTALPICTURES` (
   `RentalPicturesID` int(11) NOT NULL,
   `RentalID` int(11) NOT NULL,
   `Path` varchar(300) NOT NULL,
   `Description` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `rentalpictures`
+-- Daten für Tabelle `RENTALPICTURES`
 --
 
-INSERT INTO `rentalpictures` (`RentalPicturesID`, `RentalID`, `Path`, `Description`) VALUES
+INSERT INTO `RENTALPICTURES` (`RentalPicturesID`, `RentalID`, `Path`, `Description`) VALUES
 (1, 1, '../assets/graphics/Objekte/Appartment/Erfurt/Erfurt1.jpg', 'Beschreibung'),
 (2, 2, '../assets/graphics/Objekte/Appartment/Erfurt/Erfurt2.jpg', 'Beschreibung'),
 (3, 3, '../assets/graphics/Objekte/Appartment/Erfurt/Erfurt3.jpg', 'Beschreibung'),
@@ -1000,26 +988,25 @@ INSERT INTO `rentalpictures` (`RentalPicturesID`, `RentalID`, `Path`, `Descripti
 (29, 29, '../assets/graphics/Objekte/Appartment/Berchtesgaden/Berchtesgaden5.jpg', 'Beschreibung'),
 (30, 30, '../assets/graphics/Objekte/Haus/Berchtesgaden/Berchtesgaden1.jpg', 'Beschreibung'),
 (31, 31, '../assets/graphics/Objekte/Haus/Berchtesgaden/Berchtesgaden2.jpg', 'Beschreibung'),
-(32, 32, '../assets/graphics/Objekte/Haus/Berchtesgaden/Berchtesgaden3.jpg', 'Beschreibung'),
-(33, 33, '../assets/graphics/Objekte/Haus/Berchtesgaden/Berchtesgaden3.jpg', 'Beschreibung');
+(32, 32, '../assets/graphics/Objekte/Haus/Berchtesgaden/Berchtesgaden3.jpg', 'Beschreibung');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `resort`
+-- Tabellenstruktur für Tabelle `RESORT`
 --
 
-CREATE TABLE `resort` (
+CREATE TABLE `RESORT` (
   `ResortID` int(11) NOT NULL,
   `AddrID` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `resort`
+-- Daten für Tabelle `RESORT`
 --
 
-INSERT INTO `resort` (`ResortID`, `AddrID`, `Name`) VALUES
+INSERT INTO `RESORT` (`ResortID`, `AddrID`, `Name`) VALUES
 (10, 17, 'Erfurt'),
 (20, 76, 'Oberhof'),
 (30, 84, 'Usedom'),
@@ -1028,19 +1015,19 @@ INSERT INTO `resort` (`ResortID`, `AddrID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `season`
+-- Tabellenstruktur für Tabelle `SEASON`
 --
 
-CREATE TABLE `season` (
+CREATE TABLE `SEASON` (
   `SeasonID` int(11) NOT NULL,
   `Name` enum('O','S','W') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `season`
+-- Daten für Tabelle `SEASON`
 --
 
-INSERT INTO `season` (`SeasonID`, `Name`) VALUES
+INSERT INTO `SEASON` (`SeasonID`, `Name`) VALUES
 (10, 'O'),
 (20, 'S'),
 (30, 'W');
@@ -1048,10 +1035,10 @@ INSERT INTO `season` (`SeasonID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `strucchange`
+-- Tabellenstruktur für Tabelle `STRUCCHANGE`
 --
 
-CREATE TABLE `strucchange` (
+CREATE TABLE `STRUCCHANGE` (
   `ChangeID` int(11) NOT NULL,
   `RentalID` int(11) NOT NULL,
   `StartDate` date NOT NULL,
@@ -1061,13 +1048,13 @@ CREATE TABLE `strucchange` (
   `PlannedCosts` decimal(10,2) NOT NULL,
   `EndCosts` decimal(10,2) DEFAULT NULL,
   `CraftServID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `strucchange`
+-- Daten für Tabelle `STRUCCHANGE`
 --
 
-INSERT INTO `strucchange` (`ChangeID`, `RentalID`, `StartDate`, `PlannedEndDate`, `EndDate`, `Description`, `PlannedCosts`, `EndCosts`, `CraftServID`) VALUES
+INSERT INTO `STRUCCHANGE` (`ChangeID`, `RentalID`, `StartDate`, `PlannedEndDate`, `EndDate`, `Description`, `PlannedCosts`, `EndCosts`, `CraftServID`) VALUES
 (1, 6, '2020-01-01', '2020-07-01', '2020-08-22', 'Neubau Ferienwohnung', '180000.00', '190000.00', NULL),
 (2, 2, '2020-03-01', '2020-04-01', '2020-04-10', 'Renovierung Fußboden', '20000.00', '22000.00', 4),
 (3, 16, '2020-03-15', '2020-04-15', '2020-02-12', 'Renovierung Bad 1 und 2', '30000.00', '32000.00', 1),
@@ -1077,22 +1064,22 @@ INSERT INTO `strucchange` (`ChangeID`, `RentalID`, `StartDate`, `PlannedEndDate`
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `surcharge`
+-- Tabellenstruktur für Tabelle `SURCHARGE`
 --
 
-CREATE TABLE `surcharge` (
+CREATE TABLE `SURCHARGE` (
   `SurchargeID` int(11) NOT NULL,
   `Percent` decimal(5,2) NOT NULL,
   `SeasonID` int(11) NOT NULL,
   `AreaID` int(11) NOT NULL,
   `NumberOfVisitors` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `surcharge`
+-- Daten für Tabelle `SURCHARGE`
 --
 
-INSERT INTO `surcharge` (`SurchargeID`, `Percent`, `SeasonID`, `AreaID`, `NumberOfVisitors`) VALUES
+INSERT INTO `SURCHARGE` (`SurchargeID`, `Percent`, `SeasonID`, `AreaID`, `NumberOfVisitors`) VALUES
 (1, '25.00', 30, 20, 12),
 (2, '15.00', 10, 10, 5),
 (3, '10.00', 20, 30, 4),
@@ -1109,155 +1096,155 @@ INSERT INTO `surcharge` (`SurchargeID`, `Percent`, `SeasonID`, `AreaID`, `Number
 --
 
 --
--- Indizes für die Tabelle `addr`
+-- Indizes für die Tabelle `ADDR`
 --
-ALTER TABLE `addr`
+ALTER TABLE `ADDR`
   ADD PRIMARY KEY (`AddrID`);
 
 --
--- Indizes für die Tabelle `admin`
+-- Indizes für die Tabelle `ADMIN`
 --
-ALTER TABLE `admin`
+ALTER TABLE `ADMIN`
   ADD PRIMARY KEY (`AdminID`),
   ADD KEY `admin_personid_fk` (`PersonID`);
 
 --
--- Indizes für die Tabelle `appartment`
+-- Indizes für die Tabelle `APPARTMENT`
 --
-ALTER TABLE `appartment`
+ALTER TABLE `APPARTMENT`
   ADD PRIMARY KEY (`AppartmentID`),
   ADD KEY `appartment_rentalid_fk` (`RentalID`);
 
 --
--- Indizes für die Tabelle `area`
+-- Indizes für die Tabelle `AREA`
 --
-ALTER TABLE `area`
+ALTER TABLE `AREA`
   ADD PRIMARY KEY (`AreaID`);
 
 --
--- Indizes für die Tabelle `booking`
+-- Indizes für die Tabelle `BOOKING`
 --
-ALTER TABLE `booking`
+ALTER TABLE `BOOKING`
   ADD PRIMARY KEY (`BookingID`),
   ADD KEY `booking_guestid_fk` (`GuestID`);
 
 --
--- Indizes für die Tabelle `bookingdetail`
+-- Indizes für die Tabelle `BOOKINGDETAIL`
 --
-ALTER TABLE `bookingdetail`
+ALTER TABLE `BOOKINGDETAIL`
   ADD PRIMARY KEY (`BookingDetailID`),
   ADD KEY `bookingdetail_bookingid_fk` (`BookingID`),
   ADD KEY `bookingdetail_rentalid_fk` (`RentalID`),
   ADD KEY `bookingdetail_surchargeid_fk` (`SurchargeID`);
 
 --
--- Indizes für die Tabelle `cleaning`
+-- Indizes für die Tabelle `CLEANING`
 --
-ALTER TABLE `cleaning`
+ALTER TABLE `CLEANING`
   ADD PRIMARY KEY (`CleaningID`),
   ADD KEY `cleaning_rentalid_fk` (`RentalID`),
   ADD KEY `cleaning_empid_fk` (`EmpID`);
 
 --
--- Indizes für die Tabelle `craftserv`
+-- Indizes für die Tabelle `CRAFTSERV`
 --
-ALTER TABLE `craftserv`
+ALTER TABLE `CRAFTSERV`
   ADD PRIMARY KEY (`CraftServID`),
   ADD KEY `craftserv_addrid_fk` (`AddrID`);
 
 --
--- Indizes für die Tabelle `emp`
+-- Indizes für die Tabelle `EMP`
 --
-ALTER TABLE `emp`
+ALTER TABLE `EMP`
   ADD PRIMARY KEY (`EmpID`),
   ADD KEY `emp_personid_fk` (`PersonID`),
   ADD KEY `emp_resortid_fk` (`ResortID`),
   ADD KEY `emp_empid_fk` (`Manager`);
 
 --
--- Indizes für die Tabelle `guest`
+-- Indizes für die Tabelle `GUEST`
 --
-ALTER TABLE `guest`
+ALTER TABLE `GUEST`
   ADD PRIMARY KEY (`GuestID`),
   ADD KEY `guest_personid_fk` (`PersonID`);
 
 --
--- Indizes für die Tabelle `house`
+-- Indizes für die Tabelle `HOUSE`
 --
-ALTER TABLE `house`
+ALTER TABLE `HOUSE`
   ADD PRIMARY KEY (`HouseID`),
   ADD KEY `house_rentalid_fk` (`RentalID`);
 
 --
--- Indizes für die Tabelle `maintenance`
+-- Indizes für die Tabelle `MAINTENANCE`
 --
-ALTER TABLE `maintenance`
+ALTER TABLE `MAINTENANCE`
   ADD PRIMARY KEY (`MaintenanceID`),
   ADD KEY `maintenance_rentalid_fk` (`RentalID`),
   ADD KEY `maintenance_empid_fk` (`EmpID`);
 
 --
--- Indizes für die Tabelle `mode`
+-- Indizes für die Tabelle `MODE`
 --
-ALTER TABLE `mode`
+ALTER TABLE `MODE`
   ADD PRIMARY KEY (`ModeID`);
 
 --
--- Indizes für die Tabelle `person`
+-- Indizes für die Tabelle `PERSON`
 --
-ALTER TABLE `person`
+ALTER TABLE `PERSON`
   ADD PRIMARY KEY (`PersonID`),
   ADD KEY `person_addrid_fk` (`AddrID`);
 
 --
--- Indizes für die Tabelle `personmode`
+-- Indizes für die Tabelle `PERSONMODE`
 --
-ALTER TABLE `personmode`
+ALTER TABLE `PERSONMODE`
   ADD PRIMARY KEY (`PersonModeID`),
   ADD KEY `personmode_personid_fk` (`PersonID`),
   ADD KEY `personmode_modeid_fk` (`ModeID`);
 
 --
--- Indizes für die Tabelle `rental`
+-- Indizes für die Tabelle `RENTAL`
 --
-ALTER TABLE `rental`
+ALTER TABLE `RENTAL`
   ADD PRIMARY KEY (`RentalID`),
   ADD KEY `rental_areaid_fk` (`AreaID`),
   ADD KEY `rental_resortid_fk` (`ResortID`),
   ADD KEY `rental_addrid_fk` (`AddrID`);
 
 --
--- Indizes für die Tabelle `rentalpictures`
+-- Indizes für die Tabelle `RENTALPICTURES`
 --
-ALTER TABLE `rentalpictures`
+ALTER TABLE `RENTALPICTURES`
   ADD PRIMARY KEY (`RentalPicturesID`),
   ADD KEY `rentalpictures_rentalid_fk` (`RentalID`);
 
 --
--- Indizes für die Tabelle `resort`
+-- Indizes für die Tabelle `RESORT`
 --
-ALTER TABLE `resort`
+ALTER TABLE `RESORT`
   ADD PRIMARY KEY (`ResortID`),
   ADD KEY `resort_addrid_fk` (`AddrID`);
 
 --
--- Indizes für die Tabelle `season`
+-- Indizes für die Tabelle `SEASON`
 --
-ALTER TABLE `season`
+ALTER TABLE `SEASON`
   ADD PRIMARY KEY (`SeasonID`);
 
 --
--- Indizes für die Tabelle `strucchange`
+-- Indizes für die Tabelle `STRUCCHANGE`
 --
-ALTER TABLE `strucchange`
+ALTER TABLE `STRUCCHANGE`
   ADD PRIMARY KEY (`ChangeID`),
   ADD KEY `strucchange_rentalid_fk` (`RentalID`),
   ADD KEY `strucchange_craftservid_fk` (`CraftServID`);
 
 --
--- Indizes für die Tabelle `surcharge`
+-- Indizes für die Tabelle `SURCHARGE`
 --
-ALTER TABLE `surcharge`
+ALTER TABLE `SURCHARGE`
   ADD PRIMARY KEY (`SurchargeID`),
   ADD KEY `surcharge_seasonid_fk` (`SeasonID`),
   ADD KEY `surcharge_areaid_fk` (`AreaID`);
@@ -1267,117 +1254,117 @@ ALTER TABLE `surcharge`
 --
 
 --
--- AUTO_INCREMENT für Tabelle `addr`
+-- AUTO_INCREMENT für Tabelle `ADDR`
 --
-ALTER TABLE `addr`
-  MODIFY `AddrID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+ALTER TABLE `ADDR`
+  MODIFY `AddrID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
--- AUTO_INCREMENT für Tabelle `admin`
+-- AUTO_INCREMENT für Tabelle `ADMIN`
 --
-ALTER TABLE `admin`
+ALTER TABLE `ADMIN`
   MODIFY `AdminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT für Tabelle `appartment`
+-- AUTO_INCREMENT für Tabelle `APPARTMENT`
 --
-ALTER TABLE `appartment`
-  MODIFY `AppartmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+ALTER TABLE `APPARTMENT`
+  MODIFY `AppartmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT für Tabelle `area`
+-- AUTO_INCREMENT für Tabelle `AREA`
 --
-ALTER TABLE `area`
+ALTER TABLE `AREA`
   MODIFY `AreaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT für Tabelle `booking`
+-- AUTO_INCREMENT für Tabelle `BOOKING`
 --
-ALTER TABLE `booking`
+ALTER TABLE `BOOKING`
   MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT für Tabelle `bookingdetail`
+-- AUTO_INCREMENT für Tabelle `BOOKINGDETAIL`
 --
-ALTER TABLE `bookingdetail`
+ALTER TABLE `BOOKINGDETAIL`
   MODIFY `BookingDetailID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT für Tabelle `cleaning`
+-- AUTO_INCREMENT für Tabelle `CLEANING`
 --
-ALTER TABLE `cleaning`
+ALTER TABLE `CLEANING`
   MODIFY `CleaningID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT für Tabelle `emp`
+-- AUTO_INCREMENT für Tabelle `EMP`
 --
-ALTER TABLE `emp`
+ALTER TABLE `EMP`
   MODIFY `EmpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT für Tabelle `guest`
+-- AUTO_INCREMENT für Tabelle `GUEST`
 --
-ALTER TABLE `guest`
-  MODIFY `GuestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `GUEST`
+  MODIFY `GuestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT für Tabelle `house`
+-- AUTO_INCREMENT für Tabelle `HOUSE`
 --
-ALTER TABLE `house`
+ALTER TABLE `HOUSE`
   MODIFY `HouseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT für Tabelle `maintenance`
+-- AUTO_INCREMENT für Tabelle `MAINTENANCE`
 --
-ALTER TABLE `maintenance`
+ALTER TABLE `MAINTENANCE`
   MODIFY `MaintenanceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT für Tabelle `mode`
+-- AUTO_INCREMENT für Tabelle `MODE`
 --
-ALTER TABLE `mode`
-  MODIFY `ModeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `MODE`
+  MODIFY `ModeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT für Tabelle `person`
+-- AUTO_INCREMENT für Tabelle `PERSON`
 --
-ALTER TABLE `person`
-  MODIFY `PersonID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+ALTER TABLE `PERSON`
+  MODIFY `PersonID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT für Tabelle `personmode`
+-- AUTO_INCREMENT für Tabelle `PERSONMODE`
 --
-ALTER TABLE `personmode`
-  MODIFY `PersonModeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+ALTER TABLE `PERSONMODE`
+  MODIFY `PersonModeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT für Tabelle `rental`
+-- AUTO_INCREMENT für Tabelle `RENTAL`
 --
-ALTER TABLE `rental`
-  MODIFY `RentalID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+ALTER TABLE `RENTAL`
+  MODIFY `RentalID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT für Tabelle `rentalpictures`
+-- AUTO_INCREMENT für Tabelle `RENTALPICTURES`
 --
-ALTER TABLE `rentalpictures`
-  MODIFY `RentalPicturesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+ALTER TABLE `RENTALPICTURES`
+  MODIFY `RentalPicturesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT für Tabelle `resort`
+-- AUTO_INCREMENT für Tabelle `RESORT`
 --
-ALTER TABLE `resort`
+ALTER TABLE `RESORT`
   MODIFY `ResortID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT für Tabelle `strucchange`
+-- AUTO_INCREMENT für Tabelle `STRUCCHANGE`
 --
-ALTER TABLE `strucchange`
+ALTER TABLE `STRUCCHANGE`
   MODIFY `ChangeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT für Tabelle `surcharge`
+-- AUTO_INCREMENT für Tabelle `SURCHARGE`
 --
-ALTER TABLE `surcharge`
+ALTER TABLE `SURCHARGE`
   MODIFY `SurchargeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
@@ -1385,117 +1372,117 @@ ALTER TABLE `surcharge`
 --
 
 --
--- Constraints der Tabelle `admin`
+-- Constraints der Tabelle `ADMIN`
 --
-ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `person` (`PersonID`);
+ALTER TABLE `ADMIN`
+  ADD CONSTRAINT `admin_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `PERSON` (`PersonID`);
 
 --
--- Constraints der Tabelle `appartment`
+-- Constraints der Tabelle `APPARTMENT`
 --
-ALTER TABLE `appartment`
-  ADD CONSTRAINT `appartment_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `rental` (`RentalID`);
+ALTER TABLE `APPARTMENT`
+  ADD CONSTRAINT `appartment_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `RENTAL` (`RentalID`);
 
 --
--- Constraints der Tabelle `booking`
+-- Constraints der Tabelle `BOOKING`
 --
-ALTER TABLE `booking`
-  ADD CONSTRAINT `booking_guestid_fk` FOREIGN KEY (`GuestID`) REFERENCES `guest` (`GuestID`);
+ALTER TABLE `BOOKING`
+  ADD CONSTRAINT `booking_guestid_fk` FOREIGN KEY (`GuestID`) REFERENCES `GUEST` (`GuestID`);
 
 --
--- Constraints der Tabelle `bookingdetail`
+-- Constraints der Tabelle `BOOKINGDETAIL`
 --
-ALTER TABLE `bookingdetail`
-  ADD CONSTRAINT `bookingdetail_bookingid_fk` FOREIGN KEY (`BookingID`) REFERENCES `booking` (`BookingID`),
-  ADD CONSTRAINT `bookingdetail_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `rental` (`RentalID`),
-  ADD CONSTRAINT `bookingdetail_surchargeid_fk` FOREIGN KEY (`SurchargeID`) REFERENCES `surcharge` (`SurchargeID`);
+ALTER TABLE `BOOKINGDETAIL`
+  ADD CONSTRAINT `bookingdetail_bookingid_fk` FOREIGN KEY (`BookingID`) REFERENCES `BOOKING` (`BookingID`),
+  ADD CONSTRAINT `bookingdetail_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `RENTAL` (`RentalID`),
+  ADD CONSTRAINT `bookingdetail_surchargeid_fk` FOREIGN KEY (`SurchargeID`) REFERENCES `SURCHARGE` (`SurchargeID`);
 
 --
--- Constraints der Tabelle `cleaning`
+-- Constraints der Tabelle `CLEANING`
 --
-ALTER TABLE `cleaning`
-  ADD CONSTRAINT `cleaning_empid_fk` FOREIGN KEY (`EmpID`) REFERENCES `emp` (`EmpID`),
-  ADD CONSTRAINT `cleaning_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `rental` (`RentalID`);
+ALTER TABLE `CLEANING`
+  ADD CONSTRAINT `cleaning_empid_fk` FOREIGN KEY (`EmpID`) REFERENCES `EMP` (`EmpID`),
+  ADD CONSTRAINT `cleaning_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `RENTAL` (`RentalID`);
 
 --
--- Constraints der Tabelle `craftserv`
+-- Constraints der Tabelle `CRAFTSERV`
 --
-ALTER TABLE `craftserv`
-  ADD CONSTRAINT `craftserv_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `addr` (`AddrID`);
+ALTER TABLE `CRAFTSERV`
+  ADD CONSTRAINT `craftserv_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `ADDR` (`AddrID`);
 
 --
--- Constraints der Tabelle `emp`
+-- Constraints der Tabelle `EMP`
 --
-ALTER TABLE `emp`
-  ADD CONSTRAINT `emp_empid_fk` FOREIGN KEY (`Manager`) REFERENCES `emp` (`EmpID`),
-  ADD CONSTRAINT `emp_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `person` (`PersonID`),
-  ADD CONSTRAINT `emp_resortid_fk` FOREIGN KEY (`ResortID`) REFERENCES `resort` (`ResortID`);
+ALTER TABLE `EMP`
+  ADD CONSTRAINT `emp_empid_fk` FOREIGN KEY (`Manager`) REFERENCES `EMP` (`EmpID`),
+  ADD CONSTRAINT `emp_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `PERSON` (`PersonID`),
+  ADD CONSTRAINT `emp_resortid_fk` FOREIGN KEY (`ResortID`) REFERENCES `RESORT` (`ResortID`);
 
 --
--- Constraints der Tabelle `guest`
+-- Constraints der Tabelle `GUEST`
 --
-ALTER TABLE `guest`
-  ADD CONSTRAINT `guest_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `person` (`PersonID`);
+ALTER TABLE `GUEST`
+  ADD CONSTRAINT `guest_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `PERSON` (`PersonID`);
 
 --
--- Constraints der Tabelle `house`
+-- Constraints der Tabelle `HOUSE`
 --
-ALTER TABLE `house`
-  ADD CONSTRAINT `house_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `rental` (`RentalID`);
+ALTER TABLE `HOUSE`
+  ADD CONSTRAINT `house_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `RENTAL` (`RentalID`);
 
 --
--- Constraints der Tabelle `maintenance`
+-- Constraints der Tabelle `MAINTENANCE`
 --
-ALTER TABLE `maintenance`
-  ADD CONSTRAINT `maintenance_empid_fk` FOREIGN KEY (`EmpID`) REFERENCES `emp` (`EmpID`),
-  ADD CONSTRAINT `maintenance_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `rental` (`RentalID`);
+ALTER TABLE `MAINTENANCE`
+  ADD CONSTRAINT `maintenance_empid_fk` FOREIGN KEY (`EmpID`) REFERENCES `EMP` (`EmpID`),
+  ADD CONSTRAINT `maintenance_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `RENTAL` (`RentalID`);
 
 --
--- Constraints der Tabelle `person`
+-- Constraints der Tabelle `PERSON`
 --
-ALTER TABLE `person`
-  ADD CONSTRAINT `person_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `addr` (`AddrID`);
+ALTER TABLE `PERSON`
+  ADD CONSTRAINT `person_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `ADDR` (`AddrID`);
 
 --
--- Constraints der Tabelle `personmode`
+-- Constraints der Tabelle `PERSONMODE`
 --
-ALTER TABLE `personmode`
-  ADD CONSTRAINT `personmode_modeid_fk` FOREIGN KEY (`ModeID`) REFERENCES `mode` (`ModeID`),
-  ADD CONSTRAINT `personmode_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `person` (`PersonID`);
+ALTER TABLE `PERSONMODE`
+  ADD CONSTRAINT `personmode_modeid_fk` FOREIGN KEY (`ModeID`) REFERENCES `MODE` (`ModeID`),
+  ADD CONSTRAINT `personmode_personid_fk` FOREIGN KEY (`PersonID`) REFERENCES `PERSON` (`PersonID`);
 
 --
--- Constraints der Tabelle `rental`
+-- Constraints der Tabelle `RENTAL`
 --
-ALTER TABLE `rental`
-  ADD CONSTRAINT `rental_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `addr` (`AddrID`),
-  ADD CONSTRAINT `rental_areaid_fk` FOREIGN KEY (`AreaID`) REFERENCES `area` (`AreaID`),
-  ADD CONSTRAINT `rental_resortid_fk` FOREIGN KEY (`ResortID`) REFERENCES `resort` (`ResortID`);
+ALTER TABLE `RENTAL`
+  ADD CONSTRAINT `rental_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `ADDR` (`AddrID`),
+  ADD CONSTRAINT `rental_areaid_fk` FOREIGN KEY (`AreaID`) REFERENCES `AREA` (`AreaID`),
+  ADD CONSTRAINT `rental_resortid_fk` FOREIGN KEY (`ResortID`) REFERENCES `RESORT` (`ResortID`);
 
 --
--- Constraints der Tabelle `rentalpictures`
+-- Constraints der Tabelle `RENTALPICTURES`
 --
-ALTER TABLE `rentalpictures`
-  ADD CONSTRAINT `rentalpictures_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `rental` (`RentalID`);
+ALTER TABLE `RENTALPICTURES`
+  ADD CONSTRAINT `rentalpictures_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `RENTAL` (`RentalID`);
 
 --
--- Constraints der Tabelle `resort`
+-- Constraints der Tabelle `RESORT`
 --
-ALTER TABLE `resort`
-  ADD CONSTRAINT `resort_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `addr` (`AddrID`);
+ALTER TABLE `RESORT`
+  ADD CONSTRAINT `resort_addrid_fk` FOREIGN KEY (`AddrID`) REFERENCES `ADDR` (`AddrID`);
 
 --
--- Constraints der Tabelle `strucchange`
+-- Constraints der Tabelle `STRUCCHANGE`
 --
-ALTER TABLE `strucchange`
-  ADD CONSTRAINT `strucchange_craftservid_fk` FOREIGN KEY (`CraftServID`) REFERENCES `craftserv` (`CraftServID`),
-  ADD CONSTRAINT `strucchange_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `rental` (`RentalID`);
+ALTER TABLE `STRUCCHANGE`
+  ADD CONSTRAINT `strucchange_craftservid_fk` FOREIGN KEY (`CraftServID`) REFERENCES `CRAFTSERV` (`CraftServID`),
+  ADD CONSTRAINT `strucchange_rentalid_fk` FOREIGN KEY (`RentalID`) REFERENCES `RENTAL` (`RentalID`);
 
 --
--- Constraints der Tabelle `surcharge`
+-- Constraints der Tabelle `SURCHARGE`
 --
-ALTER TABLE `surcharge`
-  ADD CONSTRAINT `surcharge_areaid_fk` FOREIGN KEY (`AreaID`) REFERENCES `area` (`AreaID`),
-  ADD CONSTRAINT `surcharge_seasonid_fk` FOREIGN KEY (`SeasonID`) REFERENCES `season` (`SeasonID`);
+ALTER TABLE `SURCHARGE`
+  ADD CONSTRAINT `surcharge_areaid_fk` FOREIGN KEY (`AreaID`) REFERENCES `AREA` (`AreaID`),
+  ADD CONSTRAINT `surcharge_seasonid_fk` FOREIGN KEY (`SeasonID`) REFERENCES `SEASON` (`SeasonID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
