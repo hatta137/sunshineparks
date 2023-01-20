@@ -81,14 +81,16 @@ function addObjectBox(data){
     td.textContent = data["OutdoorSeating"];
     tr.appendChild(td);
 
-    let aBuchen = document.createElement("a");
-    aBuchen.classList.add("btn");
+    let aBuchen = document.createElement("input");
+    aBuchen.type = "button";
     aBuchen.textContent = "Buchen";
+    aBuchen.value="BUCHEN"
     objectBoxText.appendChild(aBuchen);
 
-    let aMehr = document.createElement("a");
-    aMehr.classList.add("btn");
+    let aMehr = document.createElement("input");
+    aMehr.type = "button";
     aMehr.textContent = "Mehr";
+    aMehr.value ="MEHR";
     objectBoxText.appendChild(aMehr);
 
     row.appendChild(objectBox);

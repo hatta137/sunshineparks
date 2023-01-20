@@ -116,9 +116,13 @@
         height: 20vh;
     }
 
-.headline{
-    display: none;
-}
+    .headline{
+        display: none;
+    }
+
+    /*.footer{*/
+    /*    flex-direction: column;*/
+    /*}*/
 
 }
 
