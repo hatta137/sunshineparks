@@ -5,11 +5,6 @@ require_once __DIR__.'/../models/employee.php';
 require_once __DIR__.'/../models/resort.php';
 class AdminController extends Controller{
 
-    public function rightsCheck(): bool
-    {
-        return Permission::checkForAction($this->_actionLogicName);
-    }
-
     public function actionShowEmployees(){
 
         $allEmployees = Employee::getAllEmployees();

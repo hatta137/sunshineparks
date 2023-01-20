@@ -2,11 +2,6 @@
 require_once __DIR__.'/../models/person.php';
 class RegistrationController extends Controller{
 
-    public function rightsCheck(): bool
-    {
-        return Permission::checkForAction($this->_actionLogicName);
-    }
-
     public function actionRegistration(){
 
     }
