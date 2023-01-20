@@ -1,9 +1,5 @@
 <?php
 
-
-/**
- * Author Hendrik Lendeckel
- */
 class Personmode extends Model{
 
 
@@ -34,5 +30,33 @@ class Personmode extends Model{
             echo $e->getMessage();
         }
     }
+
+    /**
+     * Author: Max Schelenz
+     * @param $PersonID
+     * @return bool
+     */
+
+    public static function deletePersonMode($PersonID) : bool {
+
+        try {
+            $db = getDB();
+            $db->beginTransaction();
+
+            $stmt = $db->prepare('DELETE FROM PERSONMODE WHERE PersonID = ?');
+            $stmt->execute([$PersonID]);
+
+            $db->commit();
+
+            return true;
+
+        }catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return false;
+    }
+
+
+
 
 }

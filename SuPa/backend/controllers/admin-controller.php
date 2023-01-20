@@ -86,7 +86,7 @@ class AdminController extends Controller{
         $currentPerson = new Person($currentEmp->PersonID);
         $currentAddress = Address::findByPersonID($currentEmp->PersonID);
 
-        // list of fiels in html form
+        // list of fields in html form
         $fieldsPerson   = array("FirstName", "LastName", "DateOfBirth", "Tel", "Mail", "PasswordHash");
         $fieldsEmp      = array("Manager", "Job");
         $fieldsAddr     = array("Street", "HNumber", "ZipCode", "State", "City");

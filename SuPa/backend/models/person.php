@@ -135,12 +135,10 @@ class Person extends Model
      * @param $ModeID
      * @return Person|null The person object if it is successfully added, or null if not.
      */
-    //@Todo mach mal n switch case für die child class
 
-    //@Todo mach mal ne deleteGuest fumction
 
     public static function newPerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AccountType, $PasswordHash,
-                                     $Street, $HNumber, $ZipCode, $City, $State, $ModeID) : ?Person
+                                     $Street, $HNumber, $ZipCode, $City, $State, $ModeID, $Job = null, $ResortID = null, $Manager = null) : ?Person
     {
 
         try {
@@ -148,7 +146,7 @@ class Person extends Model
             $db = getDB();
             $db->beginTransaction();
 
-            $existingAddr = Address::findByValues($Street, $HNumber, $ZipCode, $City, $State);  //check if address is already existing, yes =>just existing AddrID for this newPerson
+            $existingAddr = Address::findByValues($Street, $HNumber, $ZipCode, $City, $State);  //check if address is already existing, yes => use existing AddrID for this newPerson
             if ($existingAddr) {
                 $AddrID = $existingAddr->AddrID;
             } else {
@@ -162,9 +160,25 @@ class Person extends Model
 
             $PersonID = $db->lastInsertId();
 
-            if($AccountType == "G") {
-                $stmt = $db->prepare('INSERT INTO GUEST VALUES (NULL, ?)');
-                $stmt->execute([$PersonID]);
+            switch ($AccountType) {
+
+                case "G":
+                    $stmt = $db->prepare('INSERT INTO GUEST VALUES (NULL, ?)');
+                    $stmt->execute([$PersonID]);
+                    break;
+
+                case "A":
+                    $stmt = $db->prepare('INSERT INTO ADMIN VALUES (NULL, ?)');
+                    $stmt->execute([$PersonID]);
+                    break;
+
+                case "E":
+                    $stmt = $db->prepare('INSERT INTO EMP VALUES (NULL, ?, ?, ?, ?)');
+                    $stmt->execute([$PersonID, $Job, $ResortID, $Manager]);
+                    break;
+
+                default:
+                    return null;
             }
 
             $stmt = $db->prepare('INSERT INTO PERSONMODE VALUES (NULL, ?, ?)');
@@ -174,14 +188,37 @@ class Person extends Model
 
             return new Person($PersonID);
 
-        }catch (PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
         return null;
-
     }
 
+
+    /**
+     * Author: Max Schelenz (support by KevSTechSupport
+     * @param $PersonID
+     * @return bool
+     */
+
+    public static function deletePerson($PersonID) : bool {
+
+        try {
+            $db = getDB();
+            $db->beginTransaction();
+
+            $stmt = $db->prepare('DELETE FROM PERSON WHERE PersonID = ?');
+            $stmt->execute([$PersonID]);
+
+            $db->commit();
+
+            return true;
+
+        }catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return false;
+    }
 
 
 }
