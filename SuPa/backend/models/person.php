@@ -15,13 +15,23 @@ class Person extends Model
 
 
     /**
-     * Author Hendrik Lendeckel
-     * @return void
+     * Author: Hendrik Lendeckel
+     * This function updates the values in the PERSON table:
+     *
+     * @param $FirstName
+     * @param $LastName
+     * @param $DateOfBirth
+     * @param $Tel
+     * @param $Mail
+     * @param $PasswordHash
+     * @return Person|null
      */
     public function updatePerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $PasswordHash) :?Person{
 
         $db = getDB();
-        $stmtPerson = $db->prepare('UPDATE PERSON SET 
+
+        try {
+            $stmtPerson = $db->prepare('UPDATE PERSON SET 
                                         FirstName   = ?,
                                         LastName    = ?,
                                         DateOfBirth = ?,
@@ -29,15 +39,20 @@ class Person extends Model
                                         Mail        = ?,
                                         PasswordHash = ?
                                         WHERE PersonID = ?');
-        $stmtPerson->execute([  $FirstName,
-                                $LastName,
-                                $DateOfBirth,
-                                $Tel,
-                                $Mail,
-                                $PasswordHash,
-                                $this->PersonID]);
+            $stmtPerson->execute([  $FirstName,
+                $LastName,
+                $DateOfBirth,
+                $Tel,
+                $Mail,
+                $PasswordHash,
+                $this->PersonID]);
 
-        return new Person($this->PersonID);
+            return new Person($this->PersonID);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        return null;
     }
 
 
@@ -61,7 +76,9 @@ class Person extends Model
         }
     }
 
+    // TODO Try Catch
     /**
+     * Author Dario Dassler
      * This function returns the person which is matching to the given mail address.
      * @param string $mail
      * @return Person|null
@@ -79,8 +96,10 @@ class Person extends Model
         return new Person($row['PersonID']);
     }
 
+    // TODO Try Catch
     /**
-     * This funtction returns the PersonModeID from a Person Object.
+     * Author Dario Dassler
+     * This function will return the Mode ID of the Person or Null
      * @return int|null
      */
 

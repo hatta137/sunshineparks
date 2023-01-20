@@ -13,6 +13,8 @@ class Employee extends Model
 
     }
 
+
+    // TODO Try Catch
     /**
      * Author: Max Schelenz
      * Finds an employee obejct by its personid.
@@ -35,46 +37,68 @@ class Employee extends Model
 
 
     /***
-     * Autor Hendrik Lendeckel
-     * @param $empID
-     * @return String|null
+     * Author Hendrik Lendeckel
+     * This function returns resort in which the employee works.
+     * @return string
      */
-    public function getResort() : ?String{
+    public function getResort() : String{
 
         $db = getDB();
-        $stmt = $db->prepare('SELECT Name FROM RESORT 
+
+        try {
+            $stmt = $db->prepare('SELECT Name FROM RESORT 
                                     JOIN EMP ON RESORT.ResortID = EMP.ResortID
                                     WHERE EMP.EmpID = ?');
-        $stmt->execute([$this->EmpID]);
-        $row = $stmt->fetch();
+            $stmt->execute([$this->EmpID]);
+            $row = $stmt->fetch();
 
-        if (!$row) {
-            return 'kein Resort gefunden';
+            return $row['Name'];
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-        return $row['Name'];
+
+        return 'kein Resort gefunden';
+
     }
 
 
     /***
-     * Autor Hendrik Lendeckel
+     * Author Hendrik Lendeckel
+     * This function returns all employees.
      * @return array|null
      */
     public static function getAllEmployees() : ?array{
         $db = getDB();
 
-        $stmt = $db->prepare('SELECT * FROM EMP');
-        $stmt->execute();
-        $result = $stmt->fetchAll();
+        try {
+            $stmt = $db->prepare('SELECT * FROM EMP');
+            $stmt->execute();
+            $result = $stmt->fetchAll();
 
-        $employees = array();
+            $employees = array();
 
-        foreach ($result as $rental){
-            $employees [] = new Employee($rental['EmpID']);
+            foreach ($result as $rental){
+                $employees [] = new Employee($rental['EmpID']);
+            }
+            return $employees;
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-        return $employees;
+
+        return null;
+
     }
 
-
+    /**
+     * Author Hendrik Lendeckel
+     * This function updates all employee information.
+     * @param $EmpID
+     * @param $Manager
+     * @param $Job
+     * @param $ResortID
+     * @return Employee|null
+     */
     public static function updateEmp(   $EmpID, $Manager, $Job, $ResortID) : ?Employee{
 
         $db = getDB();

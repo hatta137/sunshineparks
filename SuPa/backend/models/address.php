@@ -9,26 +9,31 @@ class Address extends Model {
 
     /***
      * Autor Hendrik Lendeckel
+     * This function returns the appropriate address for the person using the PersonID.
      * @param $personID
      * @return Address|null
      */
     public static function findByPersonID($personID): ?Address {
         $db = getDB();
 
-        $stmt = $db->prepare('SELECT AddrID FROM PERSON WHERE PersonID = ?');
-        $stmt->execute([$personID]);
-        $row = $stmt->fetch();
+        try {
 
-        if (!$row) {
-            return null;
+            $stmt = $db->prepare('SELECT AddrID FROM PERSON WHERE PersonID = ?');
+            $stmt->execute([$personID]);
+            $row = $stmt->fetch();
+            return new Address($row['AddrID']);
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
 
-        return new Address($row['AddrID']);
+        return null;
+
     }
 
     /**
-     * Author: Hendrik Lendeckel
-     *
+     * Author Hendrik Lendeckel
+     * This function updates the values in the ADDR table:
      * @param string $Street
      * @param string $HNumber
      * @param string $ZipCode
@@ -36,11 +41,11 @@ class Address extends Model {
      * @param string $State
      * @return Address|null
      */
-
     public function updateAddress(string $Street, string $HNumber, string $ZipCode, string $City, string $State) :?Address{
         $db = getDB();
 
-        $stmtAddress = $db->prepare('UPDATE ADDR SET
+        try {
+            $stmtAddress = $db->prepare('UPDATE ADDR SET
                                             Street = ?,
                                             HNumber = ?,
                                             ZipCode = ?,
@@ -48,20 +53,21 @@ class Address extends Model {
                                             City = ?
                                             WHERE AddrID = ?');
 
-        $stmtAddress->execute([ $Street,
-            $HNumber,
-            $ZipCode,
-            $State,
-            $City,
-            $this->AddrID]);
+            $stmtAddress->execute([ $Street, $HNumber, $ZipCode, $State, $City, $this->AddrID]);
 
-        return new Address($this->AddrID);
+            return new Address($this->AddrID);
 
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        return null;
     }
 
 
 
 
+    // TODO Try Catch
     /**
      * Author: Max Schelenz
      * Finds an address object by its street, house number, zip code, city, and state.

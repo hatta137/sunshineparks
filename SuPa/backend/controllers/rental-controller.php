@@ -41,7 +41,8 @@ class RentalController extends Controller{
 
 
     /***
-     *This function provides the json_encode stream for the attributes of the rentals
+     * Author Hendrik Lendeckel
+     * This function provides the json_encode stream for the attributes of the rentals
      * @return void
      */
     public function logicShowMoreRentals(){
@@ -54,18 +55,13 @@ class RentalController extends Controller{
 
         $rentalAttributes = array();
 
-
         foreach ($rentals as $rental){
             $rentalAttributes[] = $rental->getAttributes();
         }
 
-
         echo json_encode($rentalAttributes);
 
-
-
     }
-
 
 
 
@@ -76,33 +72,25 @@ class RentalController extends Controller{
 
     /**
      * Author: Hendrik Lendeckel
-     * This function creates a new Rental
+     * This function creates a new Rental. The information comes from the view newRental
      * @return void
      */
-
-
-
     public function actionAddNewRental(){
 
-        $maxVisitors  = $_POST['maxVisitors'];       // int
-        $bedroom      = $_POST['bedroom'];           // int
-        $bathroom     = $_POST['bathroom'];          // int
-        $sqrMeter     = $_POST['sqrMeter'];          // int
+        $maxVisitors  = $_POST['maxVisitors'];
+        $bedroom      = $_POST['bedroom'];
+        $bathroom     = $_POST['bathroom'];
+        $sqrMeter     = $_POST['sqrMeter'];
         $status       = "C";
         $resortName   = $_POST['resort'];
-
-
-
-        $kitchen      = $_POST['kitchen'];           // int
-        $street       = $_POST['street'];            // string
-        $houseNumber  = $_POST['houseNumber'];       // int
-        $zipCode      = $_POST['zipCode'];           // string (max. 5 zeichen)
-        $city         = $_POST['city'];              // string
+        $kitchen      = $_POST['kitchen'];
+        $street       = $_POST['street'];
+        $houseNumber  = $_POST['houseNumber'];
+        $zipCode      = $_POST['zipCode'];
+        $city         = $_POST['city'];
         $state        = "GER";
-
-
-        $rnumber   = $_POST['rnumber'];              // int
-        $floor        = $_POST['floor'];             // int
+        $rnumber   = $_POST['rnumber'];
+        $floor        = $_POST['floor'];
 
 
         $freeseat = $_POST['freeseat'];
@@ -133,34 +121,13 @@ class RentalController extends Controller{
             }
         }
 
+        $newRental = Rental::newRental($maxVisitors, $bedroom, $bathroom, $sqrMeter, $status,
+                                        $isApartment, $resortName, $balcony, $rnumber, $floor, $terrace,
+                                        $kitchen, $street, $houseNumber, $zipCode, $city, $state);
 
 
 
-        $newRental = Rental::newRental(
-                                        $maxVisitors,
-                                        $bedroom,
-                                        $bathroom,
-                                        $sqrMeter,
-                                        $status,
-                                        $isApartment,
-                                        $resortName,
-                                        $balcony,
-                                        $rnumber,
-                                        $floor,
-                                        $terrace,
-                                        $kitchen,
-                                        $street,
-                                        $houseNumber,
-                                        $zipCode,
-                                        $city,
-                                        $state);
-
-
-
-
-
-        $this->_params['newRental'] = $newRental;
-
+        // setting special info depending on RentalType
         if ($newRental->getChildClass() instanceof Appartment){
             $type = 'Apartment';
 
@@ -184,18 +151,9 @@ class RentalController extends Controller{
 
 
         $this->_params['type'] = $type;
-
+        $this->_params['newRental'] = $newRental;
         $this->_params['address']   = Rental::getAddressFromRental($newRental->RentalID);
 
-
-
-
-
     }
-
-
-
-
-
 
 }

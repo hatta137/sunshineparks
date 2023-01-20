@@ -8,34 +8,48 @@ class Mode extends Model{
     }
 
 
-
+    /**
+     * Author Hendrik Lendeckel
+     * This static function uses the employee's job string to determine the corresponding ModeID.
+     * In the intermediate step, the role is determined from the job string.
+     * @param $job
+     * @return int|null
+     */
     public static function getModeIDFromJob($job) :?int{
+
         $db = getDB();
-        $job_to_role = array(
-            'CEO' => "Mgr",
-            'Resort-Manager' => "Mgr",
-            'Instandhaltungsverwalter' => "Mgr",
-            'Buchungsverwalter' => "B",
-            'Objektverwalter' => "R",
-            'Instandhaltungskraft' => "M",
-            'Reinigungsverwalter' => "R",
-            'Reinigungskraft' => "C",
-            'admin' => "A"
-        );
 
+        try {
+            $job_to_role = array(
+                'CEO' => "Mgr",
+                'Resort-Manager' => "Mgr",
+                'Instandhaltungsverwalter' => "Mgr",
+                'Buchungsverwalter' => "B",
+                'Objektverwalter' => "R",
+                'Instandhaltungskraft' => "M",
+                'Reinigungsverwalter' => "R",
+                'Reinigungskraft' => "C",
+                'admin' => "A"
+            );
 
-        if (!array_key_exists($job, $job_to_role))
-            return null;
+            // If Job not an array-Key return null
+            if (!array_key_exists($job, $job_to_role))
+                return null;
 
-        $role = $job_to_role[$job];
+            $role = $job_to_role[$job];
 
-        $stmtGetModeFromJob = $db->prepare('SELECT ModeID FROM MODE
+            $stmtGetModeFromJob = $db->prepare('SELECT ModeID FROM MODE
                                                        WHERE Role = ?');
-        $stmtGetModeFromJob->execute([$role]);
-        $modeIDRow = $stmtGetModeFromJob->fetch();
-        $modeID = $modeIDRow['ModeID'];
+            $stmtGetModeFromJob->execute([$role]);
+            $modeIDRow = $stmtGetModeFromJob->fetch();
+            $modeID = $modeIDRow['ModeID'];
 
-        return $modeID;
+            return $modeID;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        return null;
 
     }
 

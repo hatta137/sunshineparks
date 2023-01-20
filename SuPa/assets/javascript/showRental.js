@@ -1,4 +1,5 @@
 /***
+ * Author Hendrik Lendeckel
  * deleting all Rentals except the first 6 (in case JS is aktiv)
  */
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 /***
+ * Author Hendrik Lendeckel
  * prints a new Rental
  * @param data
  */
@@ -95,6 +97,7 @@ function addObjectBox(data){
 
 
 /***
+ * Author Hendrik Lendeckel
  * loading the next 6 Rentals
  */
 function loadMore(){

@@ -10,21 +10,25 @@ class Personmode extends Model{
 
     }
 
-
     /**
-     * Author: Hendrik Lendeckel
+     * Author Hendrik Lendeckel
+     * This function updates the value modeID in the PERSONMODE table:
      * @param $modeID
      * @return void
      */
     public function updateModeID($modeID){
+
         $db = getDB();
 
-        $stmtPersonMode = $db->prepare('UPDATE PERSONMODE SET
+        try {
+            $stmtPersonMode = $db->prepare('UPDATE PERSONMODE SET
                                             ModeID = ?
                                             WHERE PersonID = ?');
 
-        $stmtPersonMode->execute([$modeID, $this->PersonID]);
-
+            $stmtPersonMode->execute([$modeID, $this->PersonID]);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     /**
