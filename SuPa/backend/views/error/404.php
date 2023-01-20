@@ -1,3 +1,3 @@
-<div class="topbox">
+<div class="message">
     <h1>404 Page not found</h1>
 </div>
