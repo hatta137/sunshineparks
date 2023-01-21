@@ -7,10 +7,7 @@ class RentalController extends Controller{
      *  Author: Dario Daßler
      *
      */
-    public function rightsCheck(): bool
-    {
-        return Permission::checkForAction($this->_actionLogicName);
-    }
+    
 
     /**
      * Author: Hendrik Lendeckel
