@@ -28,9 +28,9 @@
         </ul>
         <h2>Reflektion</h2>
         <ul>
-            <li><a class="index-link" href="">Herausforderungen und deren Lösung</a></li>
-            <li><a class="index-link" href="">Besonderheiten</a></li>
-            <li><a class="index-link" href="">Projektmanagement</a></li>
+            <li><a class="index-link" href="#herausforderungen">Herausforderungen und deren Lösung</a></li>
+            <li><a class="index-link" href="#besonderheiten">Besonderheiten</a></li>
+            <li><a class="index-link" href="#projektmanagement">Projektmanagement</a></li>
         </ul>
     </div>
 </section>
@@ -102,11 +102,11 @@
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
         <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.</p>
         <p>Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
-        <img src="../assets/documentation/Pictures/airbnb.png" alt="Airbnb-Website">
+        <img src="../assets/documentation/Pictures/airbnb.png" alt="Airbnb-Website" width="75%">
         <h3>2. CenterParcs</h3>
         <p><a href="https://www.centerparcs.de/" target=”_blank”>Link zur Website centerparcs</a></p>
         <p>Auf der CenterParcs Website haben wir uns auch einige Inspirationen geholt, welche den Seitenaufbau betreffen.</p>
-        <img src="../assets/documentation/Pictures/centerparcs.png" alt="CenterParcs-Website">
+        <img src="../assets/documentation/Pictures/centerparcs.png" alt="CenterParcs-Website" width="75%">
     </div>
 </section>
 
@@ -211,32 +211,9 @@
     </div>
 </section>
 
-<section id="mvcPattern" class ="odd">
-    <div>
-        <h1>MVC Pattern</h1>
-        <img src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
-        <h2>Aufteilung</h2>
-        <p>
-            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
-            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.
-            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
-            Max befasst sich mit den Models und den Anpassungen der Datenbank.
 
-            Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
-            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
-            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
-        </p>
-        <img src="../assets/documentation/MVC/ordnerstruktur.png">
 
-        <h2>Architektur</h2>
-        <p>
-            Hier müssen die Zusammenhänge und wichtigsten Funktionalitäten im MVC erklärt werden.
-            @Hendrik oder @Dario, sprecht euch da bitte ab. Ihr 2 habt die beste Übersicht über unsere Abläufe.
-        </p>
-    </div>
-</section>
-
-<section id="siteFunc" class="even">
+<section id="siteFunc" class="odd">
     <div>
         <h1>Funktionalitäten/Architektur der Seiten</h1>
         <h2>index</h2>
@@ -280,7 +257,7 @@
 </section>
 
 
-<section id="erMod" class="odd">
+<section id="erMod" class="even">
     <div>
         <h1>ER-Modell</h1>
         <img src="../assets/documentation/DB_Diagrams/ERMv12.png" alt="Entity-Relationship-Modell">
@@ -300,7 +277,7 @@
     </div>
 </section>
 
-<section id="reMod" class="even">
+<section id="reMod" class="odd">
     <div>
         <h1>Relationales Modell</h1>
         <img src="relationales Modell ergänzen" alt="Tabellenmodell">
@@ -353,4 +330,67 @@
 </section>
 
 
+<section id="mvcPattern" class ="odd">
+    <div>
+        <h1>MVC Pattern</h1>
+        <h2>Allgemein</h2>
+        <img src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
 
+
+
+
+
+        <h1>Architektur</h1>
+
+        <p>
+            Das Projekt wurde mithilfe des MVC Patterns umgesetzt. Aus der URL werden der Controller-Name(page), der Action-Name(view)
+            und der Logic-Name(logic), mithilfe der $_GET[ ] - Variable, gelesen. Diese drei Parameter entscheiden welcher View, mit
+            welchen Informationen gerendert wird. Wenn diese Werte nicht zuordenbar sind, wird eine Error Page aufgerufen.
+        </p>
+
+        <h2>Bereich Rental</h2>
+
+        <p>Bild einfügen</p>
+
+        <h2>Bereich Admin</h2>
+        <p>Bild einfügen</p>
+        <h2>Bereich Authentication</h2>
+        <p>Bild einfügen</p>
+
+
+
+    </div>
+</section>
+
+
+
+<section id="herausforderungen" class="even">
+    <div>
+        <h1>Herausforderungen und deren Lösung</h1>
+    </div>
+</section>
+
+
+<section id="besonderheiten" class="odd">
+    <div>
+        <h1>Besonderheiten</h1>
+    </div>
+</section>
+
+<section id="projektmanagement" class="even">
+    <div>
+        <h1>Projektmanagement</h1>
+        <h2>Aufteilung</h2>
+        <p>
+            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
+            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.
+            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
+            Max befasst sich mit den Models und den Anpassungen der Datenbank.
+
+            Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
+            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
+            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
+        </p>
+        <img src="../assets/documentation/MVC/ordnerstruktur.png">
+    </div>
+</section>
