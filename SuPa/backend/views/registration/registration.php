@@ -26,7 +26,7 @@
             <input type="text" placeholder="Hausnummer" name="housenumber" required>
             <input type="text" placeholder="PLZ" name="zipcode" required>
             <input type="text" placeholder="Ort" name="city" required>
-            <input type="text" placeholder="Bundesland*" name="country">
+            <input type="text" placeholder="Bundesland" name="country">
         </div>
 
 
