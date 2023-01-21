@@ -6,36 +6,6 @@
         flex-direction: column;
     }
 
-    nav{
-        flex-direction: row;
-    }
-    nav box-icon{
-        display: flex;
-
-    }
-    nav ul{
-        background-color: whitesmoke;
-        display: none;
-    }
-
-    .showmenu{
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-        height: auto;
-    }
-
-    nav ul li{
-        display: block;
-        padding: 1rem 0;
-    }
-
-
-    nav ul li a{
-        color: #222;
-    }
-
-
     /* header-content */
     .header-content{
         width: 100%;
@@ -81,7 +51,6 @@
         display:block;
     }
 
-
     .header > .nav-btn {
         display: inline-block;
         position: absolute;
@@ -93,7 +62,6 @@
         padding: 13px;
     }
 
-
     .header > .nav-links {
         position: absolute;
         display: block;
@@ -102,8 +70,7 @@
         background-color: #333;
         transition: all 0.3s ease-in;
         overflow-y: hidden;
-        left: 0px;
-        z-index: 3;
+        z-index: 1;
     }
     .header > .nav-links > a {
         display: block;
@@ -113,16 +80,20 @@
         height: 0px;
     }
     .header > #nav-check:checked ~ .nav-links {
-        height: 20vh;
+        height: 135px;
     }
 
     .headline{
         display: none;
     }
 
-    /*.footer{*/
-    /*    flex-direction: column;*/
-    /*}*/
+    .footer{
+        flex-direction: column;
+    }
+
+    .header > .nav-links > a:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 
 }
 

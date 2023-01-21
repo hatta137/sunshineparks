@@ -1,32 +1,32 @@
-<section class="editEmployee">
-    <div class="row">
+<div class="showEmployees">
+
         <h1>Aktuelle Mitarbeiterinformationen:</h1>
 
 
-        <div class="row">
-            <table>
+
+            <table id="empTable">
                 <tbody>
-                <tr><td>Mitarbeiter ID:</td>    <td><?= $updatedEmp->EmpID ?></td></tr>
-                <tr><td>Vorname:</td>           <td><?= $updatedPerson->FirstName?></td></tr>
-                <tr><td>Nachname:</td>          <td><?= $updatedPerson->LastName?></td></tr>
-                <tr><td>Geburtstag:</td>        <td><?= $updatedPerson->DateOfBirth?></td></tr>
-                <tr><td>Telefonnummer:</td>     <td><?= $updatedPerson->Tel?></td></tr>
-                <tr><td>Mailadresse:</td>       <td><?= $updatedPerson->Mail?></td></tr>
-                <tr><td>Vorgesetzter ID:</td>   <td><?= $updatedEmp->Manager?></td></tr>
-                <tr><td>Job:</td>               <td><?= $updatedEmp->Job?></td></tr>
-                <tr><td>Straße:</td>            <td><?= $updatedAddress->Street?></td></tr>
-                <tr><td>Hausnummer:</td>        <td><?= $updatedAddress->HNumber?></td></tr>
-                <tr><td>Postleitzahl:</td>      <td><?= $updatedAddress->ZipCode?></td></tr>
-                <tr><td>Bundesland:</td>        <td><?= $updatedAddress->State?></td></tr>
-                <tr><td>Stadt:</td>             <td><?= $updatedAddress->City?></td></tr>
-                <tr><td>Resort:</td>            <td><?= Resort::getResortNameByID($updatedEmp->ResortID);?></td></tr>
-
-
+                <tr><th>Mitarbeiter ID:</th>    <td><?= $updatedEmp->EmpID ?></td></tr>
+                <tr><th>Vorname:</th>           <td><?= $updatedPerson->FirstName?></td></tr>
+                <tr><th>Nachname:</th>          <td><?= $updatedPerson->LastName?></td></tr>
+                <tr><th>Geburtstag:</th>        <td><?= $updatedPerson->DateOfBirth?></td></tr>
+                <tr><th>Telefonnummer:</th>     <td><?= $updatedPerson->Tel?></td></tr>
+                <tr><th>Mailadresse:</th>       <td><?= $updatedPerson->Mail?></td></tr>
+                <tr><th>Vorgesetzter ID:</th>   <td><?= $updatedEmp->Manager?></td></tr>
+                <tr><th>Job:</th>               <td><?= $updatedEmp->Job?></td></tr>
+                <tr><th>Straße:</th>            <td><?= $updatedAddress->Street?></td></tr>
+                <tr><th>Hausnummer:</th>        <td><?= $updatedAddress->HNumber?></td></tr>
+                <tr><th>Postleitzahl:</th>      <td><?= $updatedAddress->ZipCode?></td></tr>
+                <tr><th>Bundesland:</th>        <td><?= $updatedAddress->State?></td></tr>
+                <tr><th>Stadt:</th>             <td><?= $updatedAddress->City?></td></tr>
+                <tr><th>Resort:</th>            <td><?= Resort::getResortNameByID($updatedEmp->ResortID);?></td></tr>
                 </tbody>
             </table>
-        </div>
 
 
 
-    </div>
-</section>
+        <a href="index.php?page=account&view=admin"><input type="button" value="zurück"></a>
+
+
+
+</div>

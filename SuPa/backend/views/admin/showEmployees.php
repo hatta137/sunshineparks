@@ -1,12 +1,6 @@
 <div class="showEmployees">
 
-
-
-
-
     <h1>Mitarbeiter SunshineParks:</h1>
-
-
 
     <table id="empTable">
         <tr>
@@ -55,15 +49,11 @@
                         <input type="hidden" name="EmpID" value=<?= $employee->EmpID?>>
                         <input type="submit" value="edit">
                     </form>
-
-
                 </td>
             </tr>
         <?php endfor; ?>
     </table>
 
-
     <a href="index.php?page=account&view=admin"><input type="button" value="zurück"></a>
 
 </div>
-</section>

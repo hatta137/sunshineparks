@@ -1,6 +1,4 @@
 
-
-
 .newRental-left,
 .newRental-middle,
 .newRental-right{
@@ -9,15 +7,11 @@
 }
 
 .newRental .row{
-
     justify-content: center;
     align-items: flex-start;
-
-
 }
 
 .newRental form{
-
     display: flex;
     flex-direction: column;
     align-items: center;
