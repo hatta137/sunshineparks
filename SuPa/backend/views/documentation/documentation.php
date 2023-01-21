@@ -182,7 +182,7 @@
             Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
         </p>
         <h2>Farben</h2>
-        <img src="../assets/documentation/Style/Colour/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite"
+        <img src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
         <p>
             Die Primärfarben unserer Webseite sind Keppel #48ac98 und Mine Shaft #222222.
             Keppel wird vor allem für Buttons und farbliche Hervorhebungen genutzt.
@@ -190,18 +190,18 @@
             Als Sekundärfarbe verwenden wir White #ffffff für Text und Hintergründe.
         </p>
         <h2>Formen</h2>
-        <img src="../assets/documentation/Style/Icons/icons.png" alt="Beispiel für verwendete Icons im Content-Bereich"
+        <img src="../assets/documentation/Style/Icons/icons.png" alt="Beispiel für verwendete Icons im Content-Bereich">
         <p>
             Die verwendeten Formen stammen alle aus einer Designerbibliothek von Bocicons.com, um einheitliche Motive verwenden zu können. Das Logo, sowie die verwendeten Icons
             folgen alle demselben Stil, um ein stimmiges Gesamtbid zu erzeugen.
         </p>
         <h2>Schrift</h2>
-        <img src="../assets/documentation/Style/Fonts/font.png" alt="beau.tff Fontbeispiel"
+        <img src="../assets/documentation/Style/Fonts/font.png" alt="beau.tff Fontbeispiel">
         <p>
             Als Schriftart verwenden wir beau.tff - diese hat uns besonders durch ihre geschwungenen Bögen und gute Lesbarkeit überzeugt.
         </p>
         <h2>Positionierung</h2>
-        <img src="../assets/documentation/Layout/positionierung.png" alt="Logopositionierung und Gesamteindruck der Webseite"
+        <img src="../assets/documentation/Layout/positionierung.png" alt="Logopositionierung und Gesamteindruck der Webseite">
         <p>
             Das Firmenlogo ist, wenn möglich und sinnvoll stets links oben auf der Webseite positioniert. Grafiken und Icons sollen sich ins Gesamtbild der Webseite einfügen und
             den Content-Bereich veranschaulichen.
@@ -328,7 +328,7 @@
     <div>
         <h1>Flussbild Dateneingabe</h1>
         <h2>Login und Registrierung</h2>
-        <img src="../assets/graphics/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
+        <img src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
         <p>
             Der Besucher der Webseite hat die Möglichkeit im Falle, dass er noch kein Nutzerkonto erstellt hat dieses über das Registrierungsformular vorzunehmen.
             Im Anschluss eine erfolgreiche Registrierung ist der Nutzer dann direkt mit dem Konto angemeldet.
@@ -337,7 +337,7 @@
         </p>
 
         <h2>Buchungsvorgang und Objektsuche</h2>
-        <img src="../assets/graphics/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
+        <img src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
         <p>
             Ein Besucher der SunshineParks Webseite kann sich mit Hilfe der Filterbox auf der home.php einen Überblick über die Objekte unserer Ferienresorts verschaffen.
             Hierzu hat er die Möglichkeit die vorgegebenen Suchkriterien zu nutzen oder sich alle buchbaren Objekte anzeigen zu lassen.
@@ -345,7 +345,7 @@
             Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
         </p>
         <h2>Administration und Verwaltung</h2>
-        <img src="../assets/graphics/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
+        <img src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
         <p>
             -Hier noch Verwaltungstext ergänzen-
         </p>
