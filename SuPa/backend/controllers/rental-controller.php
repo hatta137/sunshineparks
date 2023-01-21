@@ -3,26 +3,20 @@ require_once __DIR__.'/../models/rental.php';
 require_once __DIR__.'/../models/person.php';
 class RentalController extends Controller{
 
-    /**
-     *  Author: Dario Daßler
-     *
-     */
-    
+
 
     /**
-     * Author: Hendrik Lendeckel
+     * Author Hendrik Lendeckel
      * Depending on the $show, this function shows all rentals
      * or only certain rentals depending on the filter options set
      *
      */
-
-
     public function actionShowRental(){
 
-
-
         $show = $_GET['show'];
+
         $rentals = array();
+
         if ($show === 'all'){
             $rentals = Rental::getAllRental();
 
@@ -30,9 +24,7 @@ class RentalController extends Controller{
             $rentals = Rental::findRentalsByFilter($_GET['resort'], $_GET['startDate'], $_GET['endDate'], $_GET['numberOfGuests']);
         }
 
-
         $rentalAttributes = array();
-
 
         foreach ($rentals as $rental){
             $rentalAttributes[] = $rental->getAttributes();
@@ -40,8 +32,6 @@ class RentalController extends Controller{
 
         $this->_params['allRentals'] = $rentals;
         $this->_params['allRentalAttributes'] = $rentalAttributes;
-
-
     }
 
 
@@ -72,13 +62,8 @@ class RentalController extends Controller{
 
 
 
-    public function actionNewRental(){
-
-    }
-
-
     /**
-     * Author: Hendrik Lendeckel
+     * Author Hendrik Lendeckel
      * This function creates a new Rental. The information comes from the view newRental
      * @return void
      */
@@ -132,8 +117,6 @@ class RentalController extends Controller{
                                         $isApartment, $resortName, $balcony, $rnumber, $floor, $terrace,
                                         $kitchen, $street, $houseNumber, $zipCode, $city, $state);
 
-
-
         // setting special info depending on RentalType
         if ($newRental->getChildClass() instanceof Appartment){
             $type = 'Apartment';
@@ -156,11 +139,9 @@ class RentalController extends Controller{
             $type = 'undefined';
         }
 
-
         $this->_params['type'] = $type;
         $this->_params['newRental'] = $newRental;
         $this->_params['address']   = Rental::getAddressFromRental($newRental->RentalID);
 
     }
-
 }

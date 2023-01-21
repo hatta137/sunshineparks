@@ -337,27 +337,74 @@
         <img src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
 
 
-
-
-
         <h1>Architektur</h1>
 
         <p>
-            Das Projekt wurde mithilfe des MVC Patterns umgesetzt. Aus der URL werden der Controller-Name(page), der Action-Name(view)
-            und der Logic-Name(logic), mithilfe der $_GET[ ] - Variable, gelesen. Diese drei Parameter entscheiden welcher View, mit
-            welchen Informationen gerendert wird. Wenn diese Werte nicht zuordenbar sind, wird eine Error Page aufgerufen.
+            Bei diesem Projekt wurde das MVC Pattern verwendet, um die Navigation und die Anzeige von Inhalten zu steuern.
+            Der Controller-Name (page), Action-Name (view) und Logic-Name (logic) werden aus der URL mithilfe der $_GET[ ]-Variable gelesen.
+            Diese drei Parameter bestimmen welche View mit welchen Informationen gerendert wird. Wenn diese Werte nicht zugeordnet
+            werden können, wird eine Fehlerseite aufgerufen. Wenn kein Wert angegeben wird, wird der Benutzer immer zur
+            Startseite (home.php) weitergeleitet. Zusätzlich wird vor dem Aufruf einer Seite ein Permission-Check durchgeführt,
+            um sicherzustellen, dass der Benutzer das Recht hat, diese Seite anzuzeigen. Dies ist besonders wichtig, da es einen
+            internen Bereich gibt, der nur von Mitarbeitern und Administratoren besucht werden darf.
+        </p>
+        </br>
+        <p>
+            Die meiste Logik wird in den Controllern verarbeitet. Die Models dienen als Abbilder der Datenbanktabellen und übernehmen die
+            Lese- und Schreibzugriffe auf diese. Sie stellen zudem Funktionen bereit, die von den Controllern genutzt werden, um einfachen
+            Zugriff auf die Daten zu ermöglichen. Die Controller übergeben den Views die Informationen als Array von Parametern.
+            In den Views wird die Darstellung dargestellt und die Informationen werden aus den Array-Parametern mithilfe von
+            PHP-For-Schleifen iteriert.
+        </p>
+        </br>
+        <p>
+            In den Grafiken ist dargestellt, welche Views, Controller und Models zusammenwirken und welche Datenbanken zum
+            Lesen und Schreiben von Informationen verwendet werden. Im Projekt wurde darauf geachtet, dass alle Datenbankzugriffe
+            dem CRUD-Prinzip (Create, Read, Update, Delete) entsprechen. Das Erstellen von Daten wurde mit dem Bereich der
+            Registrierung abgedeckt, das Lesen von Daten nimmt den größten Teil ein und ist in jedem Model implementiert.
+            Das Updaten von Daten wurde mit der Funktion editEmployee umgesetzt und Gäste können ihren Account mit der Löschfunktion löschen.
         </p>
 
-        <h2>Bereich Rental</h2>
+        <h2>Rental</h2>
+        <p>Nachfolgend sind die Zusammenhänge im Bereich Rental dargestellt:</p>
+        <img src="../assets/documentation/MVC/mvc-rental.png" alt="MVC-Rental">
 
-        <p>Bild einfügen</p>
+        <h2>Admin</h2>
+        <p>Nachfolgend sind die Zusammenhänge im Bereich Administration dargestellt:</p>
+        <img src="../assets/documentation/MVC/mvc-rental.png" alt="MVC-Admin">
 
-        <h2>Bereich Admin</h2>
-        <p>Bild einfügen</p>
-        <h2>Bereich Authentication</h2>
-        <p>Bild einfügen</p>
+        <h2>Authentication</h2>
+        <p>@Dario Bild einfügen</p>
 
+        <h2>Account</h2>
+        <p>@Dario Bild einfügen</p>
 
+        <h2>Registration</h2>
+        <p>@Dario Bild einfügen</p>
+
+        <h2>Documentation</h2>
+        <p>
+            Der View documentation.php wird über den Controller documentation.php aufgerufen.
+        </p>
+
+        <h2>Error</h2>
+        <p>@Dario Bild einfügen</p>
+
+        <h2>Home</h2>
+        <p>
+            Der View home.php wird über den Controller home.php aufgerufen. Über den "ZEIG ALLE" und "SUCHE" Button wird der Controller
+            rental.php aufgerufen, welcher mit den übergebenen Informationen das Anzeigen der Rentals übernimmt.
+        </p>
+
+        <h2>Imprint</h2>
+        <p>
+            Der View imprint.php wird über den Controller imprint.php aufgerufen.
+        </p>
+
+        <h2>Privacy</h2>
+        <p>
+            Der View privacy.php wird über den Controller privacy.php aufgerufen.
+        </p>
 
     </div>
 </section>
@@ -367,6 +414,28 @@
 <section id="herausforderungen" class="even">
     <div>
         <h1>Herausforderungen und deren Lösung</h1>
+
+        <h2>MVC-Pattern</h2>
+        <p>
+            Die größte Herausforderung bei diesem Projekt war die Implementierung des MVC Patterns. Unser Projekt war vorher statisch
+            und nur nach html-Seiten unterteilt. Aufgrund unseres Mangels an Erfahrung mit solchen Programmier-Patterns musste unsere
+            Gruppe die Umsetzung von Anfang an erlernen, was zu Verzögerungen in unserer Zeitplanung führte. Durch mehrere Programmier-Sprints
+            und viel Selbststudium konnten wir das MVC-Pattern schlussendlich implementieren und gleichzeitig die Funktionen der Seiten
+            programmieren. Dieses Pattern hat uns schlussendlich dabei geholfen, die Arbeit unter den Gruppenmitgliedern zu verteilen
+            und komplexe Probleme durch deren Zerteilung zu lösen.
+        </p>
+
+        <h2>CSS</h2>
+        <p>
+            Zu Beginn des Projektes wurden von allen Gruppenmitgliedern mehrere Entwürfe der Seiten gezeichnet und teilweise wurden diese
+            Mockups auch programmiert. Das finale Design wurde aus diesen Stücken zusammengestellt. Es wurde sich auch an anderen Websites
+            und Tutorials orientiert. So entstanden pro Mitglied unterschiedliche herangehensweisen an das Adressieren der HTML Sectionen und
+            deren Elemente. Das hatte zur Folge, dass der CSS-Code immer wieder unvorhergesehene Dinge bewirkte. Erst mit der Neuaufteilung
+            der Gruppe (durch MVC) hat sich ausschließlich Robin Harris um das Frontend Design und die optische Anpassung der Views gekümmert.
+            Mit dieser Zuteilung und einigen Änderungen am CSS-Code konnte ein optisch überzeugendes Auftreten umgesetzt werden.
+            Dennoch ist sich unserer Gruppe einig, bei einem nächsten Web-Projekt anders an den Frontend-Part heranzugehen. Eine einheitliche
+            Adressierung und das Arbeiten nach dieser Vorgabe sollte in Zukunft viel Trouble-Shooting ersparen.
+        </p>
     </div>
 </section>
 
@@ -380,17 +449,38 @@
 <section id="projektmanagement" class="even">
     <div>
         <h1>Projektmanagement</h1>
-        <h2>Aufteilung</h2>
-        <p>
-            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
-            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.
-            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
-            Max befasst sich mit den Models und den Anpassungen der Datenbank.
 
-            Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
-            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
-            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
-        </p>
-        <img src="../assets/documentation/MVC/ordnerstruktur.png">
+<!--        Tabelle mit Tätigkeit / zuständiger Person / benötigtem Aufwand-->
+
+        <table>
+            <thead>
+                <tr><th>Tätigkeit</th>  <th>Zuständige Person</th>  <th>Benötigter Aufwand</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+
+            </tbody>
+
+
+        </table>
+
+<!--        <h2>Aufteilung</h2>-->
+<!--        <p>-->
+<!--            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,-->
+<!--            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.-->
+<!--            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und-->
+<!--            Max befasst sich mit den Models und den Anpassungen der Datenbank.-->
+<!---->
+<!--            Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.-->
+<!--            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können-->
+<!--            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.-->
+<!--        </p>-->
+<!--        <img src="../assets/documentation/MVC/ordnerstruktur.png">-->
     </div>
 </section>
