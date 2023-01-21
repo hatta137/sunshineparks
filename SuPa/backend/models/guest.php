@@ -35,7 +35,7 @@ class Guest extends Model {
      * @return bool
      */
 
-    public static function deleteGuest($PersonID) : bool {
+    public function delete($PersonID) : bool {
 
         try {
             $db = getDB();

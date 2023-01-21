@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="../assets/css/authentication.css">
 
 <div class="LoginBox">
+
 <form action="index.php?page=registration&logic=addPerson" method="POST">
 
     <div>
@@ -37,20 +38,32 @@
             <input type="email" placeholder="Email" name="mail" required>
 
             <label>Passwort</label>
-            <input type="password" placeholder="Passwort" name="pwd" required>
-            <input type="password" placeholder="Passwort wiederholen" name="pwdrepeat" required>
+            <input id="pwd1" type="password" placeholder="Passwort" name="pwd" required>
+            <input id="pwd2" type="password" placeholder="Passwort wiederholen" name="pwdrepeat" required>
         </div>
     </div>
 
     <div class="foot">
-        <input type="submit" value="Registrieren">
+        <input id="registrate" type="submit" value="Registrieren">
         <input type="hidden" name="mode" value="7">
         <input type="hidden" name="acctype" value="G">
         Bereits ein Konto erstellt?
-        <input type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
+        <input  type="button" onclick="window.location.href='index.php?page=authentication&view=authenticationGuest'" value="Zur Anmeldung">
     </div>
 
+    <script>
 
+        submitButton = document.querySelector("#registrate");
+        function pwdRepeatCheck(){
+            if(document.querySelector("#pwd1").value === document.querySelector("#pwd2").value){
+                submitButton.disabled = false;
+            }else{
+                alert("Die Passwörter stimmen nicht überein!");
+            }
+        }
+        //submitButton.disabled = true;
+        submitButton.addEventListener("onclick", pwdRepeatCheck);
+    </script>
 </form>
 </div>
 

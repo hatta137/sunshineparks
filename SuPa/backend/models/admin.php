@@ -26,4 +26,23 @@ class Admin extends Model {
 
         return new Admin($row['AdminID']);
     }
+
+    public function delete($PersonID) : bool {
+
+        try {
+            $db = getDB();
+            $db->beginTransaction();
+
+            $stmt = $db->prepare('DELETE FROM ADMIN WHERE PersonID = ?');
+            $stmt->execute([$PersonID]);
+
+            $db->commit();
+
+            return true;
+
+        }catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return false;
+    }
 }

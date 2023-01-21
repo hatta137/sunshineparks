@@ -40,13 +40,16 @@ class AccountController extends Controller {
 
     }
 
-    public function actionDelete(){
-
+    public function actionDeletedPerson(){
+        $person = new Person($_SESSION['person']);
+        $person->getChildClass()->delete($_SESSION['person']);
+        Personmode::deletePersonMode($_SESSION['person']);
+        Person::deletePerson($_SESSION['person']);
+        $this->actionLogout();
     }
 
     public function actionLogout(){
         unset($_SESSION['person']);
-
     }
 
 
