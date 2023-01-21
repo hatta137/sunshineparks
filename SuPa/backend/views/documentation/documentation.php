@@ -102,11 +102,11 @@
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
         <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.</p>
         <p>Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
-        <img src="graphics/docu/airbnb.png" alt="Airbnb-Website">
+        <img src="../assets/documentation/Pictures/airbnb.png" alt="Airbnb-Website">
         <h3>2. CenterParcs</h3>
         <p><a href="https://www.centerparcs.de/" target=”_blank”>Link zur Website centerparcs</a></p>
         <p>Auf der CenterParcs Website haben wir uns auch einige Inspirationen geholt, welche den Seitenaufbau betreffen.</p>
-        <img src="graphics/docu/centerparcs.png" alt="CenterParcs-Website">
+        <img src="../assets/documentation/Pictures/centerparcs.png" alt="CenterParcs-Website">
     </div>
 </section>
 
@@ -115,15 +115,58 @@
         <h1>Seitenlayout</h1>
 
         <h2>Grundlayout</h2>
+
+
+        <h3>Header</h3>
+
+        <img src="../assets/documentation/Layout/Header.PNG" alt="Header der Webseite">
+
+
+        <h3>Main-Section</h3>
+
+        <ul id="main-section-gallery">
+            <li><button tabindex="1"><img src="../assets/documentation/Layout/Filterbox.png" alt="Filterbox in der Main-Section"></button></li>
+            <li><button tabindex="1"><img src="../assets/documentation/Layout/Content-Boxen-main.png" alt="Informationen über SunshineParks"></button></li>
+            <li><button tabindex="1"><img src="../assets/documentation/Layout/Buchungsablauf_Bewertungen.png" alt="Informationen zum Buchungsablauf und Kundenbewertungen"></button></li>
+            <li><button tabindex="1"><img src="../assets/documentation/Layout/Kontaktbox.png" alt="Formular zur Kontaktaufnahme"></button></li>
+            <li><button tabindex="1"><img src="../assets/documentation/Layout/Footer.png" alt="Footer der Webseite"></button></li>
+        </ul>
+
+
+        <h3>Footer</h3>
+
+        <img src="../assets/documentation/Layout/Header.PNG" alt="Header der Webseite">
+
+
+        <h4>Beschreibung</h4>
         <p>
             Hinter dem Layout steht eine Kombination aus Flex-Boxen. Jede Seite ist in drei Bereiche aufgeteilt.
-            Header (inkl. Navbar), Main-Section (variiert je nach Seite About, Testimony, Contact, ...) und Footer.
-            In der Navbar befinden sich Logo (inkl. Link auf Index-Seite), Firmenname und die eigentlichen Navigationselemente
-            in Form einer verlinkenden Liste. Der Footer enthält Navigationselemente zu den Seiten Impressum,
-            Kontakt, Datenschutz und den Nutzungsbedingungen.
+            Header (inkl. Navbar), Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer.
+            In der Navbar befinden sich Logo (enthält Link auf Index-Seite), Firmenname und die eigentlichen Navigationselemente
+            in Form einer verlinkenden Liste.
+            Der Footer enthält Navigationselemente zu den Seiten Impressum, Kontakt, Datenschutz und den Nutzungsbedingungen.
         </p>
+
         <h2>Verlinkung/Navigationsstruktur</h2>
-        <p>Bild noch einfügen!!!!</p>
+        <p>
+            Beim Aufruf unserer Webseite gelangt man zunächst auf die index.php
+            Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bspw. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
+            um sein Nutzerkonto anzulegen oder zu verwalten.
+        </p>
+        <img src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
+        <p>
+            Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt
+            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann.
+        </p>
+
+        <p>
+            Durch das Anklicken des Logos im Header wird der Nutzer egal, auf welcher Seite er sich aktuell befindet direkt zur index.php geleitet.
+            Das soll unseren Nutzern ermöglichen schhnellstmöglich zur Hauptseite unserer Webseite zu gelangen.
+
+            Unsere Hauptseite enthält zu Beginn eine Filterbox, in welcher der Nutzer die Möglichkeit hat Filterkriterien einzugeben oder sich direkt alle Rentals anzeigen zu lassen.
+            Mittels dieser Suchkriterien gelangt der Nutzer in den Buchungsbereich. Wo er sich dafür entscheiden kann ein Objekt was ihm gefällt zu Buchen oder sich mehr Informationen zum Rental anzeigen zu lassen.
+            (Diese Bereiche des Buchungsvorgangs decken wir mit unserer Websiete jedoch nicht ab).
+        </p>
 
     </div>
 </section>
@@ -139,19 +182,26 @@
             Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
         </p>
         <h2>Farben</h2>
+        <img src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
         <p>
-            Unsere Hauptfarben sind Hellblau (Keppel #48ac98), sowie die Kontrastfarben Schwarz (Mine Shaft #222222) und Weiß (White #ffffff.
-            Im Content-Bereich unterteilen wir unsere inhaltlichen Sections mit heller und dunkler Farbgebung, um eine bessere Lesbarkeit und Gliederung zu erreichen.
+            Die Primärfarben unserer Webseite sind Keppel #48ac98 und Mine Shaft #222222.
+            Keppel wird vor allem für Buttons und farbliche Hervorhebungen genutzt.
+            Mine Shaft wird für Footer, Header und Hintergründe verwendet, aber auch für Text, da wir Farbinvertierung zur Sectionaufteilung verwenden.
+            Als Sekundärfarbe verwenden wir White #ffffff für Text und Hintergründe.
         </p>
         <h2>Formen</h2>
+        <img src="../assets/documentation/Style/Icons/icons.png" alt="Beispiel für verwendete Icons im Content-Bereich">
         <p>
-            Die Buttons sind alle einheitlich designed und die Motive aus einer Bibliothek entnommen, um ein einheitliches Gesamtbild zu gewährleisten.
+            Die verwendeten Formen stammen alle aus einer Designerbibliothek von Bocicons.com, um einheitliche Motive verwenden zu können. Das Logo, sowie die verwendeten Icons
+            folgen alle demselben Stil, um ein stimmiges Gesamtbid zu erzeugen.
         </p>
         <h2>Schrift</h2>
+        <img src="../assets/documentation/Style/Fonts/font.png" alt="beau.tff Fontbeispiel">
         <p>
             Als Schriftart verwenden wir beau.tff - diese hat uns besonders durch ihre geschwungenen Bögen und gute Lesbarkeit überzeugt.
         </p>
         <h2>Positionierung</h2>
+        <img src="../assets/documentation/Layout/positionierung.png" alt="Logopositionierung und Gesamteindruck der Webseite">
         <p>
             Das Firmenlogo ist, wenn möglich und sinnvoll stets links oben auf der Webseite positioniert. Grafiken und Icons sollen sich ins Gesamtbild der Webseite einfügen und
             den Content-Bereich veranschaulichen.
@@ -164,20 +214,19 @@
 <section id="mvcPattern" class ="odd">
     <div>
         <h1>MVC Pattern</h1>
-        <img src="../assets/graphics/docu/mvcpattern.png" alt="MVC-Pattern Aufteilung">
+        <img src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
         <h2>Aufteilung</h2>
         <p>
             Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,
-            die Aufgaben unter uns zu verteilen.
+            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.
             Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und
             Max befasst sich mit den Models und den Anpassungen der Datenbank.
 
             Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.
             In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können
             und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.
-
-            --Hier noch ein Ausschnitt aus der Ordnerstruktur unseres MVC Patterns ergänzen.
         </p>
+        <img src="../assets/documentation/MVC/ordnerstruktur.png">
 
         <h2>Architektur</h2>
         <p>
@@ -234,16 +283,18 @@
 <section id="erMod" class="odd">
     <div>
         <h1>ER-Modell</h1>
-        <img src="../assets/graphics/docu/ERMv12.png" alt="Entity-Relationship-Modell">
+        <img src="../assets/documentation/DB_Diagrams/ERMv12.png" alt="Entity-Relationship-Modell">
         <p>
-        Das hier fertig abgebildete ER-Modell war in Version 1 deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass wir unser Datenbankmodell 
-        aus DB2 nicht 1zu1 übernehmen können. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder 
-        wir haben die Tabellen optimiert, um Daten Speicher einzusparen. Hier wäre der PasswordHash oder der AccountType in Person zu nennen.
-        In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann ab v7 verbessert haben.
-        Der AccountType erspart uns Computingressourcen, weil wir uns aufwändige if-Abfragen und Schleifendurchläufe ersparen.
+        Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
+        Buchungs-,Objektverwaltungs- und Account/Administrationsbereich sind die Bestandteile unseres Scopes.
 
-        PERSONMODE und MODE wurden durch den Registrierungs-und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
-        ergänzt werden. Die Erstellung der Rollen-und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere zu nennende
+        Das abgebildete ER-Modell war zu Beginn deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass eine genaue Übernahme unseres Datenbankmodell
+        aus Modul DB2 nicht möglich ist. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder
+        wir haben die Tabellen optimiert, um die Programmlogik realisieren zu können. Hier wäre der PasswordHash oder der AccountType in PERSON zu nennen.
+        In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann im weiteren Versionsverlauf verbessert haben.
+
+        PERSONMODE und MODE wurden durch den Registrierungs- und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
+        ergänzt werden. Die Erstellung der Rollen- und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere immer wiederkehrende Entwicklungsschritte
         Arbeitsschritte in unserem Projekt.
         </p>
     </div>
@@ -252,7 +303,7 @@
 <section id="reMod" class="even">
     <div>
         <h1>Relationales Modell</h1>
-        <img src="" alt="Tabellenmodell">
+        <img src="relationales Modell ergänzen" alt="Tabellenmodell">
 
     </div>
 </section>
@@ -260,14 +311,15 @@
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img src="../assets/graphics/docu/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
+        <img src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
         <p>
             Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser Verwaltungssystem benötigt.
-            Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer. Jeder Erstbesucher unserer Webseite hat automatisch die ModeID 8 und gilt als Viewer.
+            Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
+            Jeder Erstbesucher unserer Webseite hat automatisch die ModeID 8 und gilt als Viewer.
             Existiert lokal auf dem Gerät des Nutzers ein Cookie mit der SessionID, dann wird aus dem Session_Array die PersonID gelesen und das zugehörige Nutzerkonto eingeloggt mit den jeweiligen zugewiesenen Rechten.
             Meldet sich der Nutzer bei uns im System an, erhält er die Rechte die bei seinem Nutzerkonto hinterlegt sind.
-            Die Nutzerrechte werden vor jedem Aufruf gecheckt und je nachdem ob der Nutzer die Rechte hat oder nicht, wird der Zugriff gewährt oder verweigert.
-            Die komplette Rollen-Rechte-Matrix
+            Die Nutzerrechte werden vor jedem Aufruf nochmals gecheckt und je nachdem ob der Nutzer die Rechte hat oder nicht, wird der Zugriff gewährt oder verweigert.
+            Die komplette Rollen-Rechte-Matrix ist unter SuPa/assets/documentation/Files als "Berechtigungen.xlsm" zu finden.
         </p>
     </div>
 </section>
@@ -276,14 +328,27 @@
     <div>
         <h1>Flussbild Dateneingabe</h1>
         <h2>Login und Registrierung</h2>
-        <img src="../assets/graphics/docu/Login_Registration.drawio.png" alt="Flussbilddiagramm des Login und der Registrierung">
+        <img src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
+        <p>
+            Der Besucher der Webseite hat die Möglichkeit im Falle, dass er noch kein Nutzerkonto erstellt hat dieses über das Registrierungsformular vorzunehmen.
+            Im Anschluss eine erfolgreiche Registrierung ist der Nutzer dann direkt mit dem Konto angemeldet.
+            Sollte bereits ein Konto bestehen wird dies entweder direkt durch einen lokal gespeicherten Cookie erkannt und zugeordnet oder der Nutzer kann sich mit seinen Zugangsdaten im Login anmelden.
+            In beiden Fällen erhalten die Nutzer ein Feedback, indem im rechten oberen Bereich der Navbar "Hallo, VornameXY" angezeigt wird.
+        </p>
 
         <h2>Buchungsvorgang und Objektsuche</h2>
-        <img src="../assets/graphics/docu/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
-
+        <img src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
+        <p>
+            Ein Besucher der SunshineParks Webseite kann sich mit Hilfe der Filterbox auf der home.php einen Überblick über die Objekte unserer Ferienresorts verschaffen.
+            Hierzu hat er die Möglichkeit die vorgegebenen Suchkriterien zu nutzen oder sich alle buchbaren Objekte anzeigen zu lassen.
+            Daraufhin folgt eine Auflistung der gefilterten Rentals, die dann gebucht werden oder bei Interesse weitere Informationen angezeigt werden können.
+            Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
+        </p>
         <h2>Administration und Verwaltung</h2>
-        <img src="../assets/graphics/docu/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
-
+        <img src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
+        <p>
+            -Hier noch Verwaltungstext ergänzen-
+        </p>
     </div>
 </section>
 
