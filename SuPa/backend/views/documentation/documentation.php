@@ -96,6 +96,7 @@
         <h2>Ziele des Projekts</h2>
         <p>
             Dieses Projekt beschränkt sich auf die folgenden Funktionalitäten:
+        </p>
             <ul>
                 <li>Login für Gäste, Mitarbeiter und Administratoren</li>
                 <li>Darstellung der Mietobjekte (mit Filteroption)</li>
@@ -103,7 +104,7 @@
                 <li>Anlegen der Mietobjekte durch den Objektverwalter</li>
                 <li>Löschen des eigenen Kontos durch einen Gast</li>
             </ul>
-        </p>
+
     </div>
 </section>
 
@@ -202,20 +203,20 @@
         <h2>Layout</h2>
         <p>
             Das Grundlayout jeder Seite besteht aus einem Header (inklusive Navbar), einem Content-Bereich für die dynamisch erzeugten Bestandteile und einem Footer.
-
-            <h3>Header:</h3>
-            Der Header enthält in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente.
-            <br>
-            <h3>Content:</h3>
-            Der Content-Bereich wird auf jeder Seite unterschiedlich eingeleitet, schließt jedoch bündig am Header an und unterteilt sich in verschiedene Sektionen.
-            <br>
-            <h3>Footer:</h3>
-            Der Footer, der direkt nach dem Content-Bereich beginnt, markiert das Ende der Webseite.
-            <br>
-            Das Layout der Startseite beinhaltet zusätzlich folgende Bereiche:
-            About, About2, Process, Testimony und Contact.
-
         </p>
+        <h3>Header:</h3>
+        <p>Der Header enthält in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente.</p>
+        <br>
+        <h3>Content:</h3>
+        <p>Der Content-Bereich wird auf jeder Seite unterschiedlich eingeleitet, schließt jedoch bündig am Header an und unterteilt sich in verschiedene Sektionen.</p>
+        <br>
+        <h3>Footer:</h3>
+        <p>Der Footer, der direkt nach dem Content-Bereich beginnt, markiert das Ende der Webseite.</p>
+        <br>
+        <p>Das Layout der Startseite beinhaltet zusätzlich folgende Bereiche:
+            About, About2, Process, Testimony und Contact.</p>
+
+
         <h2>Farben</h2>
         <img class="AutoWidth" src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
         <p>

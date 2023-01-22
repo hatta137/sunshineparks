@@ -53,3 +53,7 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
  }
+
+#desCust p ul li{
+    font-size: 2rem;
+}
