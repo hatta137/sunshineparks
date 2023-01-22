@@ -138,7 +138,7 @@
 
         <h3>Header</h3>
 
-        <img src="../assets/documentation/Layout/Header.PNG" alt="Header der Webseite">
+        <img src="../assets/documentation/Layout/Header.png" alt="Header der Webseite">
 
 
         <h3>Main-Section</h3>
@@ -338,7 +338,7 @@
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.png" alt="Rollen- und Rechtematrix">
         <p>
             Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser System benötigt.
             Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
@@ -614,7 +614,15 @@
                 <tr><td>Design der Documentation Diagramme</td> <td>Max Schelenz</td> <td>1.5 Wochen</td></tr>
                 <tr><td>Umbau MVC-Pattern Models</td><td>Max Schelenz</td><td>3 Wochen</td></tr>
                 <tr><td>Troubleshooting Datenbank/Models</td>   <td>Max Schelenz</td>   <td>2 Wochen</td></tr>
-                <tr></tr>
+                <tr><td>Programmierung Controller MVC-Pattern: <ul>
+                            <li>account-controller</li>
+                            <li>authentication-controller</li>
+                            <li>error-controller</li>
+                            <li>registration-controller</li>
+                        </ul></td><td>Dario Daßler</td><td>3.5 Wochen</td></tr>
+                <tr><td>Permission-Core Klasse</td> <td>Dario Daßler</td> <td>2 Wochen</td></tr>
+                <tr><td>Error Views</td><td>Dario Daßler</td><td>3 Wochen</td></tr>
+                <tr><td>Trello Organisation</td><td>Dario Daßler</td><td>3 Tage</td></tr>
                 </tbody>
 
 
