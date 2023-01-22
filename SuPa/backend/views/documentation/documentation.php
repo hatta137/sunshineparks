@@ -294,16 +294,16 @@
             Ebenso aufgelistet sind die Tabelle die sich nicht im Scope befinden, sondern zum Kontext gehören. Diese erkennt man an dem fehlenden farblichen Scoperahmen aus dem ERM.
         </p>
         <h2>Administration und Accountverwaltung</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
 
         <h2>Buchungsverwaltung</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Buchungsverwaltung.png">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Buchungsverwaltung.png">
 
         <h2>Objektverwaltung</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Objektverwaltung.png">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Objektverwaltung.png">
 
         <h2>OutOfScope Tabellen</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_OutOfScopeTables.png">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_OutOfScopeTables.png">
     </div>
 </section>
 
