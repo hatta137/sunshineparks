@@ -3,24 +3,24 @@
         <h1>Erlebe einen traumhaften Urlaub in unseren Resorts!</h1>
         <p>Wohin soll es gehen?</p>
         <form action="index.php" method="get">
-            <lable><input type="hidden" name="page" value="rental">     </lable>
-            <lable><input type="hidden" name="view" value="showRental"> </lable>
-            <lable><input type="hidden" name="show" value="filter">     </lable>
-            <lable><select name="resort">
+            <label><input type="hidden" name="page" value="rental">     </label>
+            <label><input type="hidden" name="view" value="showRental"> </label>
+            <label><input type="hidden" name="show" value="filter">     </label>
+            <label><select name="resort">
                 <option value="Erfurt">Erfurt</option>
                 <option value="Usedom">Usedom</option>
                 <option value="Oberhof">Oberhof</option>
                 <option value="Berchtesgaden">Berchtesgaden</option>
-            </select></lable>
-            <lable><input type="text" name="startDate" placeholder="von"
+            </select></label>
+            <label><input type="text" name="startDate" placeholder="von"
                    onfocus="(this.type='date')"
-                   onblur="(this.type='text')"></lable>
-            <lable><input type="text" name="endDate" placeholder="bis"
+                   onblur="(this.type='text')"></label>
+            <label><input type="text" name="endDate" placeholder="bis"
                    onfocus="(this.type='date')"
-                   onblur="(this.type='text')"></lable>
-            <lable><input type="number" name="numberOfGuests" min="0" max="16" placeholder="Anzahl der Reisenden"></lable>
-            <lable><input type="submit" value="Suche"></lable>
-            <lable><input type="button" onclick="window.location.href='index.php?page=rental&view=showRental&show=all'" value="Zeig Alle"></lable>
+                   onblur="(this.type='text')"></label>
+            <label><input type="number" name="numberOfGuests" min="0" max="16" placeholder="Anzahl der Reisenden"></label>
+            <label><input type="submit" value="Suche"></label>
+            <label><input type="button" onclick="window.location.href='index.php?page=rental&view=showRental&show=all'" value="Zeig Alle"></label>
 
         </form>
     </div>
