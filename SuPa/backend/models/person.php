@@ -76,7 +76,6 @@ class Person extends Model
         }
     }
 
-    // TODO Try Catch
     /**
      * Author Dario Dassler
      * This function returns the person which is matching to the given mail address.
@@ -84,19 +83,23 @@ class Person extends Model
      * @return Person|null
      */
     public static function findByMail(string $mail) : ?Person {
-        $db = getDB();
-        $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE Mail = ?');
-        $stmt->execute([$mail]);
-        $row = $stmt->fetch();
+        try{
+            $db = getDB();
+            $stmt = $db->prepare('SELECT PersonID FROM PERSON WHERE Mail = ?');
+            $stmt->execute([$mail]);
+            $row = $stmt->fetch();
 
-        if (!$row) {
-            return null;
+            if (!$row) {
+                return null;
+            }
+
+            return new Person($row['PersonID']);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
-
-        return new Person($row['PersonID']);
+        return null;
     }
 
-    // TODO Try Catch
     /**
      * Author Dario Dassler
      * This function will return the Mode ID of the Person or Null
@@ -104,34 +107,48 @@ class Person extends Model
      */
 
     public function getPersonModeID() :?int{
-        $db = getDB();
-        $stmt = $db->prepare('SELECT ModeID FROM PERSONMODE WHERE PersonID = ?');
-        $stmt->execute([$this->PersonID]);
-        $row = $stmt->fetch();
+       try {
+            $db = getDB();
+            $stmt = $db->prepare('SELECT ModeID FROM PERSONMODE WHERE PersonID = ?');
+            $stmt->execute([$this->PersonID]);
+            $row = $stmt->fetch();
 
-        if (!$row) {
-            return null;
-        }
+            if (!$row) {
+                return null;
+            }
 
-        return $row['ModeID'];
+            return $row['ModeID'];
+       } catch (PDOException $e) {
+           echo $e->getMessage();
+       }
+        return null;
     }
 
     /**
      * Author: Dario Daßler
+     * This method returns the respective permission based on the transferred modeID and actionName
+     * @param string $action
+     * @param int $modeID
+     * @return string|null
      */
-    //TODO Try Catch + Comments
+
 
     public static function getPermission(int $modeID, string $action) :?string {
-        $db = getDB();
-        $stmt = $db->prepare('SELECT * FROM MODE WHERE ModeID = ?');
-        $stmt->execute([$modeID]);
-        $row = $stmt->fetch();
+        try {
+            $db = getDB();
+            $stmt = $db->prepare('SELECT * FROM MODE WHERE ModeID = ?');
+            $stmt->execute([$modeID]);
+            $row = $stmt->fetch();
 
-        if (!array_key_exists($action, $row)) {
-            return null;
-        }else {
-            return $row[$action];
+            if (!array_key_exists($action, $row)) {
+                return null;
+            } else {
+                return $row[$action];
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
+        return null;
 }
 
 
