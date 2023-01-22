@@ -142,7 +142,7 @@
 
         <h3>Footer</h3>
 
-        <img src="../assets/documentation/Layout/Footer.PNG" alt="Header der Webseite">
+        <img src="../assets/documentation/Layout/Footer.png" alt="Header der Webseite">
 
 
         <h4>Beschreibung</h4>
