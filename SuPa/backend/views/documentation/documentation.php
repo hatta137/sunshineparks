@@ -97,15 +97,20 @@
 <section id="resProj" class="even">
     <div>
         <h1>Recherche</h1>
+
         <h2>Ähnliche Websiten</h2>
+
         <h3>1. airbnb</h3>
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
         <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.</p>
         <p>Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
         <img src="../assets/documentation/Pictures/airbnb.png" alt="Airbnb-Website" width="75%">
+
+
         <h3>2. CenterParcs</h3>
         <p><a href="https://www.centerparcs.de/" target=”_blank”>Link zur Website centerparcs</a></p>
         <p>Auf der CenterParcs Website haben wir uns auch einige Inspirationen geholt, welche den Seitenaufbau betreffen.</p>
+
         <img src="../assets/documentation/Pictures/centerparcs.png" alt="CenterParcs-Website" width="75%">
     </div>
 </section>
@@ -221,10 +226,7 @@
         <p>
             @Hendrik bitte hier dein Part ergänzen
         </p>
-        <h2>booking</h2>
-        <p>
-            @Hendrik
-        </p>
+
         <h2>authentication</h2>
         <p>
             Die Anmeldeformulare sollen eine minimalistische und übersichtliche Gestaltung aufweisen, um Nutzern eine intuitive Navigation zu ermöglichen.
@@ -260,19 +262,22 @@
 <section id="erMod" class="even">
     <div>
         <h1>ER-Modell</h1>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/ERMv12.png" alt="Entity-Relationship-Modell">
+        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/svg_ERMv12.drawio.svg" alt="Entity-Relationship-Modell">
         <p>
         Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
-        Buchungs-,Objektverwaltungs- und Account/Administrationsbereich sind die Bestandteile unseres Scopes.
+        Accountverwaltung/Administration, Buchungsverwaltung und Objektverwaltung sind die Bestandteile unseres Scopes.
+        STRUCCHANGE,CRAFTSERVICE, MAINTENACE und CLEANING sind Teil unseres Kontexts.
 
-        Das abgebildete ER-Modell war zu Beginn deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass eine genaue Übernahme unseres Datenbankmodell
-        aus Modul DB2 nicht möglich ist. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder
+        Das abgebildete ER-Modell war zu Beginn deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass eine genaue Übernahme unseres Datenbankmodells
+        aus dem vorherigen Modul DB2 nicht möglich ist. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder
         wir haben die Tabellen optimiert, um die Programmlogik realisieren zu können. Hier wäre der PasswordHash oder der AccountType in PERSON zu nennen.
         In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann im weiteren Versionsverlauf verbessert haben.
 
         PERSONMODE und MODE wurden durch den Registrierungs- und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
-        ergänzt werden. Die Erstellung der Rollen- und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere immer wiederkehrende Entwicklungsschritte
+        ergänzt werden. Die Erstellung der Rollen- und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere immer wiederkehrende
         Arbeitsschritte in unserem Projekt.
+
+        CRAFTSERVICE, STRUCCHANGE, CLEANING und MAINTENANCE sind Relikte des 2.Semesters und befinden sich nicht in unserem Scope.
         </p>
     </div>
 </section>
@@ -280,8 +285,17 @@
 <section id="reMod" class="odd">
     <div>
         <h1>Relationales Modell</h1>
-        <img id="AutoWidth" src="relationales Modell ergänzen" alt="Tabellenmodell">
+        <h2>Administration und Accountverwaltung</h2>
+        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
 
+        <h2>Buchungsverwaltung</h2>
+        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Buchungsverwaltung.png">
+
+        <h2>Objektverwaltung</h2>
+        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Objektverwaltung.png">
+
+        <h2>OutOfScope Tabellen</h2>
+        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_OutOfScopeTables.png">
     </div>
 </section>
 
@@ -290,13 +304,13 @@
         <h1>Rollenmodell</h1>
         <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
         <p>
-            Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser Verwaltungssystem benötigt.
+            Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser System benötigt.
             Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
             Jeder Erstbesucher unserer Webseite hat automatisch die ModeID 8 und gilt als Viewer.
             Existiert lokal auf dem Gerät des Nutzers ein Cookie mit der SessionID, dann wird aus dem Session_Array die PersonID gelesen und das zugehörige Nutzerkonto eingeloggt mit den jeweiligen zugewiesenen Rechten.
             Meldet sich der Nutzer bei uns im System an, erhält er die Rechte die bei seinem Nutzerkonto hinterlegt sind.
             Die Nutzerrechte werden vor jedem Aufruf nochmals gecheckt und je nachdem ob der Nutzer die Rechte hat oder nicht, wird der Zugriff gewährt oder verweigert.
-            Die komplette Rollen-Rechte-Matrix ist unter SuPa/assets/documentation/Files als "Berechtigungen.xlsm" zu finden.
+            Die komplette Rollen-Rechte-Matrix ist unter SuPa/assets/documentation/Files/Berechtigungen.xlsm zu finden.
         </p>
     </div>
 </section>
@@ -321,7 +335,7 @@
             Daraufhin folgt eine Auflistung der gefilterten Rentals, die dann gebucht werden oder bei Interesse weitere Informationen angezeigt werden können.
             Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
         </p>
-        <h2>Administration und Verwaltung</h2>
+        <h2>Administration und Accountverwaltung</h2>
         <img id="AutoWidth" src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
         <p>
             -Hier noch Verwaltungstext ergänzen-
