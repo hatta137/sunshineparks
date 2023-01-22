@@ -4,6 +4,13 @@ require_once __DIR__.'/../models/person.php';
 
 class Permission
 {
+    /**
+     * Author: Dario Dassler
+     * This method checks the permission to start an action
+     * and returns true or false depending on what it is
+     * @param string $actionName
+     * @return bool
+     */
     public static function checkForAction(string $actionName):bool{
         if(isset($_SESSION['person'])) {
             $person = new Person($_SESSION['person']);
@@ -14,7 +21,13 @@ class Permission
         else if(is_null($permission)) return true;
         else return false;
     }
-
+    /**
+     * Author: Dario Dassler
+     * This method checks permission to open an account page
+     * and returns true or false as appropriate
+     * @param string $actionName
+     * @return bool
+     */
     public static function checkForSite(string $actionName):bool{
         if(isset($_SESSION['person'])) {
             $person = new Person($_SESSION['person']);
@@ -50,6 +63,13 @@ class Permission
             }
     }
 
+    /**
+     * Author: Dario Dassler
+     * This method checks permission to start a registration
+     * and returns true or false as appropriate
+     * @param string $actionName
+     * @return bool
+     */
     public static function checkForRegistration(int $newMode) :bool{
         if($newMode != 7){
             if(isset($_SESSION['person'])) {
@@ -63,6 +83,14 @@ class Permission
         }
         return true;
     }
+
+    /**
+     * Author: Dario Dassler
+     * This method checks permission to start a registration
+     * and returns true or false as appropriate
+     * @param string $actionName
+     * @return bool
+     */
 
     public static function checkForLogin(int $modeID, string $loginType) :bool{
         if ($modeID == 7 && $loginType != "guest") {

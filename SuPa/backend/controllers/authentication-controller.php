@@ -1,9 +1,29 @@
 <?php
 require_once __DIR__.'/../models/person.php';
-// TODO Comments
+
 class AuthenticationController extends Controller {
 
-    private function loggedIn($personMode) {
+
+    /**
+     * Author: Dario Dassler
+     * This method log the person In
+     * @param int $modeID
+     * @param int $PersonID
+     * @return void
+     */
+    public static function logIn(int $PersonID, int $modeID){
+        $_SESSION['person'] = $PersonID;
+        if($modeID == null){
+            header('location: index.php?page=error&view=noMode');
+        }else AuthenticationController::loggedIn($modeID);
+    }
+    /**
+     * Author: Dario Dassler
+     * This method forwards to the respective account page depending on the person's ModeID
+     * @param $personMode
+     * @return void
+     */
+    private static function loggedIn($personMode) {
         switch ($personMode){
             case 1:
                 header('Location: index.php?page=account&view=admin');
@@ -31,6 +51,11 @@ class AuthenticationController extends Controller {
         }
     }
 
+    /**
+     * Author Dario Dassler
+     * These methods check whether the user is already logged in based on the session.
+     * @return void
+     */
     public function actionAuthenticationGuest(){
         if(isset($_SESSION['person'])){
             $person = new Person($_SESSION['person']);
@@ -43,8 +68,12 @@ class AuthenticationController extends Controller {
         $this->actionAuthenticationGuest();
     }
 
-    // TODO Comments
-//logiiiiiiiiic
+    /**
+     * Author: Dario Dassler
+     * This method logs the user. It checks the transferred data: email and password.
+     * If all data is correct then it saves the PersonID in the session and opens the respective account page
+     * @return void
+     */
 
     public function logicLogin()
     {
@@ -65,13 +94,10 @@ class AuthenticationController extends Controller {
             header('Location: index.php?page=error&view=noAccess');
             return;
         }
-
-        $_SESSION['person'] = $person->PersonID;
         //$_SESSION['special'] = $person->getChildClass(); per personId in View gönnen
 
-        if($modeID == null){
-            header('location: index.php?page=error&view=noMode');
-        }else $this->loggedIn($modeID);
+        $this->logIn($person->PersonID, $modeID);
+
 
     }
 

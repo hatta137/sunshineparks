@@ -11,6 +11,8 @@
 </section>
 
 <!--   About/ Contentlist-->
+
+<div class="documentation">
 <section class="contentlist-privacy">
     <div>
         <h2>Entwicklung und Aufbau</h2>
@@ -102,8 +104,8 @@
 
         <h3>1. airbnb</h3>
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
-        <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.</p>
-        <p>Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
+        <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.
+        Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
         <img src="../assets/documentation/Pictures/airbnb.png" alt="Airbnb-Website" width="75%">
 
 
@@ -299,16 +301,16 @@
             Ebenso aufgelistet sind die Tabelle die sich nicht im Scope befinden, sondern zum Kontext gehören. Diese erkennt man an dem fehlenden farblichen Scoperahmen aus dem ERM.
         </p>
         <h2>Administration und Accountverwaltung</h2>
-        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
+        <img src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
 
         <h2>Buchungsverwaltung</h2>
-        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Buchungsverwaltung.png">
+        <img src="../assets/documentation/DB_Diagrams/Tabellenmodell_Buchungsverwaltung.png" alt="Tabellenmodell">
 
         <h2>Objektverwaltung</h2>
-        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Objektverwaltung.png">
+        <img src="../assets/documentation/DB_Diagrams/Tabellenmodell_Objektverwaltung.png" alt="Tabellenmodell">
 
         <h2>OutOfScope Tabellen</h2>
-        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_OutOfScopeTables.png">
+        <img src="../assets/documentation/DB_Diagrams/Tabellenmodell_OutOfScopeTables.png" alt="Tabellenmodell">
     </div>
 </section>
 
@@ -606,3 +608,5 @@
 <!--        <img src="../assets/documentation/MVC/ordnerstruktur.png">-->
     </div>
 </section>
+
+</div>
