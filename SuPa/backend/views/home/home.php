@@ -162,9 +162,9 @@
     </div>
     <div class="row">
         <form>
-            <label><input type="text" placeholder="Dein Name" id="ContactformularName" required>           </label>
-            <label><input type="email" placeholder="Deine E-Mailadresse" id="ContactformularMail" required></label>
-            <label><textarea placeholder="Deine Nachricht" id="ContactformularText" required></textarea></label>
+            <input type="text" placeholder="Dein Name" id="ContactformularName" required>
+            <input type="email" placeholder="Deine E-Mailadresse" id="ContactformularMail" required>
+            <textarea placeholder="Deine Nachricht" id="ContactformularText" required></textarea>
             <input type="submit" value="Absenden" onclick="Myfunction()" >
         </form>
     </div>
