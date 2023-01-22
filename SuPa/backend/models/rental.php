@@ -36,9 +36,7 @@ class Rental extends Model{
             $picturePath = $stmt->fetch();
 
 
-            //TODO why Bool warning?
-            // TODO Warning: Trying to access array offset on value of type bool in /opt/lampp/htdocs/SunshineParks/SuPa/backend/models/rental.php on line 38
-            if ($picturePath['Path'] === null){
+            if ($picturePath === false){
                 return "no path found in Database";
             }
             else
@@ -130,7 +128,7 @@ class Rental extends Model{
 
     }
 
-
+//TODO Comments
 
     /***
      * Author Hendrik Lendeckel

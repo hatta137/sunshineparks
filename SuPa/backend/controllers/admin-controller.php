@@ -14,7 +14,7 @@ class AdminController extends Controller{
      * an array with information about the address, and an array with information about the resort, from all employees.
      * @return void
      */
-    public function actionShowEmployees(){
+    public function actionShowEmployees() :void{
 
         // get all Employees as Array
         $allEmployees = Employee::getAllEmployees();
@@ -53,7 +53,7 @@ class AdminController extends Controller{
      * The information comes from the showEmployee view.
      * @return void
      */
-    public function actionEditEmployee(){
+    public function actionEditEmployee():void{
 
 
         $currentEmp = new Employee($_POST['EmpID']);
@@ -77,7 +77,7 @@ class AdminController extends Controller{
      * update to the view updatedEmployee. If no changes have been made, the current value is retained.
      * @throws Exception
      */
-    public function actionUpdatedEmployee(){
+    public function actionUpdatedEmployee() :void{
 
 
         $resortID = Resort::getResortIDByName($_POST['Resort']);

@@ -27,7 +27,8 @@
 
             </table>
             <input type="submit" value="edit">
-            <a href="index.php?page=admin&view=showEmployees"><input type="button" value="zurück"></a>
+            <input type="button" onclick="window.location.href='index.php?page=admin&view=showEmployees'" value="zurück">
+<!--            <a href="index.php?page=admin&view=showEmployees"><input type="button" value="zurück"></a>-->
         </form>
 
         <div id="errorMassageContainer"> </div>

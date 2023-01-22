@@ -20,7 +20,8 @@
                    onblur="(this.type='text')">
             <input type="number" name="numberOfGuests" min="0" max="16" placeholder="Anzahl der Reisenden">
             <input type="submit" value="Suche">
-            <a href="index.php?page=rental&view=showRental&show=all"><input type="button" value="Zeig Alle"></a>
+            <input type="button" onclick="window.location.href='index.php?page=rental&view=showRental&show=all'" value="Zeig Alle">
+
         </form>
     </div>
 </section>

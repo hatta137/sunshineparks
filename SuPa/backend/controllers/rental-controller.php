@@ -12,7 +12,7 @@ class RentalController extends Controller{
      * or only certain rentals depending on the filter options set
      *
      */
-    public function actionShowRental(){
+    public function actionShowRental() :void{
 
         $show = $_GET['show'];
 
@@ -43,7 +43,7 @@ class RentalController extends Controller{
      * This function provides the json_encode stream for the attributes of the rentals
      * @return void
      */
-    public function logicShowMoreRentals(){
+    public function logicShowMoreRentals() :void{
 
         // get the actual printed Rentals
         $rentalCount = $_POST["rentalCount"];
@@ -68,7 +68,7 @@ class RentalController extends Controller{
      * This function creates a new Rental. The information comes from the view newRental
      * @return void
      */
-    public function actionAddNewRental(){
+    public function actionAddNewRental() :void{
 
         $maxVisitors  = $_POST['maxVisitors'];
         $bedroom      = $_POST['bedroom'];

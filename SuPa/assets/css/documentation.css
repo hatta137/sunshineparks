@@ -39,6 +39,11 @@
 
 #docTable tr:hover {background-color: rgba(0, 0, 0, 0.19);}
 
+#main-section-gallery span{
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
 
 .documentation p{
     text-align: justify;

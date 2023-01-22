@@ -132,13 +132,12 @@
         <h3>Main-Section</h3>
         <h4>Bsp. Startseite</h4>
 
-        //TODO h4 ist nicht im label erlaubt
         <ul id="main-section-gallery">
-            <li><label>Topbox</label><button tabindex="1"><img src="../assets/documentation/Layout/Filterbox.png" alt="Filterbox in der Main-Section"></button></li>
-            <li><label><h4>About</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Content-Boxen-main.png" alt="Informationen über SunshineParks"></button></li>
-            <li><label><h4>Process</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Process.png" alt="Informationen zum Buchungsablauf und Kundenbewertungen"></button></li>
-            <li><label><h4>Testimony</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/testimony.png" alt="Formular zur Kontaktaufnahme"></button></li>
-            <li><label><h4>Contact</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Kontaktbox.png" alt="Footer der Webseite"></button></li>
+            <li><label><span>Topbox</span></label><img src="../assets/documentation/Layout/Filterbox.png" alt="Filterbox in der Main-Section"></button></li>
+            <li><label><span>About</span></label><img src="../assets/documentation/Layout/Content-Boxen-main.png" alt="Informationen über SunshineParks"></button></li>
+            <li><label><span>Process</span></label><img src="../assets/documentation/Layout/Process.png" alt="Informationen zum Buchungsablauf und Kundenbewertungen"></button></li>
+            <li><label><span>Testimony</span></label><img src="../assets/documentation/Layout/testimony.png" alt="Formular zur Kontaktaufnahme"></button></li>
+            <li><label><span>Contact</span></label><img src="../assets/documentation/Layout/Kontaktbox.png" alt="Footer der Webseite"></button></li>
         </ul>
 
 
@@ -380,7 +379,7 @@
             um sicherzustellen, dass der Benutzer das Recht hat, diese Seite anzuzeigen. Dies ist besonders wichtig, da es einen
             internen Bereich gibt, der nur von Mitarbeitern und Administratoren besucht werden darf.
         </p>
-        </br>
+        <br>
         <p>
             Die meiste Logik wird in den Controllern verarbeitet. Die Models dienen als Abbilder der Datenbanktabellen und übernehmen die
             Lese- und Schreibzugriffe auf diese. Sie stellen zudem Funktionen bereit, die von den Controllern genutzt werden, um einfachen
@@ -388,7 +387,7 @@
             In den Views wird die Darstellung dargestellt und die Informationen werden aus den Array-Parametern mithilfe von
             PHP-For-Schleifen iteriert.
         </p>
-        </br>
+        <br>
         <p>
             In den Grafiken ist dargestellt, welche Views, Controller und Models zusammenwirken und welche Datenbanken zum
             Lesen und Schreiben von Informationen verwendet werden. Im Projekt wurde darauf geachtet, dass alle Datenbankzugriffe
@@ -514,7 +513,7 @@
                 <tbody>
                 <tr><td>Ideen-Sammlung</td>                     <td>komplette Gruppe   </td>        <td>1.5 Wochen</td></tr>
                 <tr><td>Entwurf Mockups</td>                    <td>komplette Gruppe   </td>        <td>1 Woche</td></tr>
-                <tr><td>Zeitplanung + Gantt</td>                    <td>komplette Gruppe   </td>        <td>0.5 Wochen</td></tr>
+                <tr><td>Zeitplanung + Gantt</td>                    <td>komplette Gruppe</td>        <td>0.5 Wochen</td></tr>
                 <tr><td>Programmierung Grundlayout</td>         <td>Hendrik Lendeckel   </td>       <td>1 Woche</td></tr>
                 <tr><td>Programmierung Log-In Page</td>         <td>Robin Harris</td>               <td>0.5 Wochen</td></tr>
                 <tr><td>Programmierung Account-Pages</td>       <td>Hendrik Lendeckel  </td>        <td>0.5 Wochen</td></tr>
@@ -546,7 +545,7 @@
                             <li>header</li>
                         </ul></td>                              <td>Robin Harris  </td>        <td>1 Woche</td></tr>
 
-                <tr><td>Styling der Views </td>                 <td>Robin Harris  </td>        <td>4 Woche</td></tr>
+                <tr><td>Styling der Views </td>                 <td>Robin Harris  </td>        <td>4 Wochen</td></tr>
 
                 <tr><td>Programmierung Model Functions: <ul>
                             <li>findByPersonID</li>
