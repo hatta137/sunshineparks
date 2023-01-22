@@ -161,11 +161,11 @@
 
         <p>
             Durch das Anklicken des Logos im Header wird der Nutzer egal, auf welcher Seite er sich aktuell befindet direkt zur index.php geleitet.
-            Das soll unseren Nutzern ermöglichen schhnellstmöglich zur Hauptseite unserer Webseite zu gelangen.
+            Das soll unseren Nutzern ermöglichen schnellstmöglich zur Hauptseite unserer Webseite zu gelangen.
 
             Unsere Hauptseite enthält zu Beginn eine Filterbox, in welcher der Nutzer die Möglichkeit hat Filterkriterien einzugeben oder sich direkt alle Rentals anzeigen zu lassen.
             Mittels dieser Suchkriterien gelangt der Nutzer in den Buchungsbereich. Wo er sich dafür entscheiden kann ein Objekt was ihm gefällt zu Buchen oder sich mehr Informationen zum Rental anzeigen zu lassen.
-            (Diese Bereiche des Buchungsvorgangs decken wir mit unserer Websiete jedoch nicht ab).
+            (Diese Bereiche des Buchungsvorgangs decken wir mit unserer Website jedoch nicht ab).
         </p>
 
     </div>
@@ -224,34 +224,48 @@
         <p>
             @Hendrik
         </p>
-        <h2>Anmeldung</h2>
+        <h2>authentication</h2>
         <p>
-            Die Anmeldeformulare sollten möglichst minimalistisch und übersichtlich sein.
-            Damit ist dem Nutzer sofort klar wo er was eingeben muss und wie er sich anmelden kann bzw. zur Registrierung kommt, falls er noch kein Benutzerkonto besitzt.
-            Zusätzlich gibt es noch eine Schaltfläche, welche vom Login für die Gäste zum Login für den internen Bereich (und umgekehrt) führt.
-            Gäste melden sich über "Login" ein. Die anderen Rollen können sich über das Interne Formular anmelden - siehe <a href="#roleMod">Rollenmodell</a>.
-            Das Design soll zur restlichen Seite passen und somit wurden die gleichen Schaltflächen und Eingabefelder benutzt.
-            Eingabefelder besitzen einen Focus-Effekt welcher die angeklickten Inputs farbig umrandet. Schaltflächen werden mit dem Hover-Effekt Dunkler, wenn man über diese geht.
-            Für einen flüssigen Übergang der Effekte wurde eine kurze Transition definiert.
+            Die Anmeldeformulare sollen eine minimalistische und übersichtliche Gestaltung aufweisen, um Nutzern eine intuitive Navigation zu ermöglichen.
+            Es gibt eine Schaltfläche, die zwischen dem Login für Gäste und dem Login für den internen Bereich wechselt. Gäste melden sich über die
+            "Login"-Schaltfläche an, während andere Rollen sich über ein internes Formular anmelden (siehe <a href="#roleMod">Rollenmodell</a>). Das Design der Formulare soll
+            an das Design der restlichen Seite angepasst sein, indem die gleichen Schaltflächen und Eingabefelder verwendet werden. Eingabefelder besitzen
+            einen Focus-Effekt, der angeklickte Inputs farblich umrandet und Schaltflächen werden beim Überfahren dunkler dargestellt. Für einen flüssigen
+            Übergang der Effekte ist eine kurze Transition definiert.
+<!--            Die Anmeldeformulare sollten möglichst minimalistisch und übersichtlich sein.-->
+<!--            Damit ist dem Nutzer sofort klar wo er was eingeben muss und wie er sich anmelden kann bzw. zur Registrierung kommt, falls er noch kein Benutzerkonto besitzt.-->
+<!--            Zusätzlich gibt es noch eine Schaltfläche, welche vom Login für die Gäste zum Login für den internen Bereich (und umgekehrt) führt.-->
+<!--            Gäste melden sich über "Login" ein. Die anderen Rollen können sich über das interne Formular anmelden - siehe <a href="#roleMod">Rollenmodell</a>.-->
+<!--            Das Design soll zur restlichen Seite passen und somit wurden die gleichen Schaltflächen und Eingabefelder benutzt.-->
+<!--            Eingabefelder besitzen einen Focus-Effekt welcher die angeklickten Inputs farbig umrandet. Schaltflächen werden mit dem Hover-Effekt Dunkler, wenn man über diese geht.-->
+<!--            Für einen flüssigen Übergang der Effekte wurde eine kurze Transition definiert.-->
         </p>
-        <h2>Registrierung</h2>
+        <h2>registration</h2>
         <p>
-            Das Registrierungsformular ist analog zum Login aufgebaut. Aufgrund des größeren Umfangs wurde in vier Boxen eingeteilt - Name, Adresse, Telefon, Email/Passwort.
-            Jede Box besitzt die jeweiligen Eingabefelder und ist bei verkleinerung der Fensterbreite mit dem flex-wrap Effekt nach unten Stauchbar.
-            Somit sind die Boxen im Desktop Vollbild idR. nebeneinander und in der mobilen Ansicht untereinander.
-            Unten gibt es die möglichkeit über eine Schaltfläche zum Login zu wechseln.
+            Das Registrierungsformular ist ähnlich wie das Loginformular aufgebaut. Es ist in vier Boxen unterteilt, die sich auf Name, Adresse, Telefon und Email/Passwort beziehen.
+            Jede Box enthält die entsprechenden Eingabefelder und wird bei Verkleinerung des Fensters durch den flex-wrap-Effekt nach unten gestaucht.
+            Dadurch sind die Boxen im Desktop-Vollbild in der Regel nebeneinander angeordnet, während sie in der mobilen Ansicht untereinander dargestellt werden.
+            Es gibt auch eine Schaltfläche, die es ermöglicht, zum Login zu wechseln.
+<!--            Das Registrierungsformular ist analog zum Login aufgebaut. Aufgrund des größeren Umfangs wurde in vier Boxen eingeteilt - Name, Adresse, Telefon, Email/Passwort.-->
+<!--            Jede Box besitzt die jeweiligen Eingabefelder und ist bei verkleinerung der Fensterbreite mit dem flex-wrap Effekt nach unten Stauchbar.-->
+<!--            Somit sind die Boxen im Desktop Vollbild idR. nebeneinander und in der mobilen Ansicht untereinander.-->
+<!--            Unten gibt es die möglichkeit über eine Schaltfläche zum Login zu wechseln.-->
         </p>
-        <h2>allObjects</h2>
+        <h2>showRental</h2>
         <p>
-            @Hendrik
+            Je nach Angabe im home-View wird der showRental View generiert. Die einzelnen, mietbaren Ferienhäuser und Apartments sind in Boxen dargestellt.
+            In diesen Boxen ist ein Objekt-Foto sowie die grundlegenden Informationen aufgelistet. Diese wären Anzahl der Schlafzimmer, Bäder, Küchen, maximalen Gäste und Quadratmeter.
+            Außerdem wird dynamisch angezeigt, ob es sich um ein Apartment oder um ein Haus handelt und je nach Resort, ob es sich in den Bergen, der Stadt oder am Meer befindet.
+            Die letzte Information gibt Auskunft über das Vorhandensein einer Sitzmöglichkeit im Freien. Ein Haus kann eine oder keine Terrasse besitzen. Ein Apartment einen oder keinen
+            Balkon. In jeder Box befinden sich zusätzlich zwei Buttons: "Buchen" und "Mehr". Diese haben bislang keine Funktion und sollen nur dem vollständigen Design dienen.
         </p>
         <h2>imprint</h2>
         <p>
-            @Hendrik
+            Das Impressum wurde durch https://www.e-recht24.de/impressum-generator.html generiert. Die angegebenen Daten entsprechen der fiktiven Firma Sunshine Parks GmbH.
         </p>
         <h2>privacy</h2>
         <p>
-            @Hendrik
+            Die Datenschutzangaben wurden durch https://datenschutz-generator.de/ generiert. Die angegebenen Daten entsprechen der fiktiven Firma Sunshine Parks GmbH.
         </p>
     </div>
 </section>
@@ -453,7 +467,7 @@
 <!--        Tabelle mit Tätigkeit / zuständiger Person / benötigtem Aufwand-->
 
         <p>
-            In der folgenden Tabelle sind die Tätigkeiten der einzelnen Gruppenmitgliedern und deren Zeitaufwand aufgelistet.
+            In der folgenden Tabelle sind die Tätigkeiten der einzelnen Gruppenmitglieder und deren Zeitaufwand aufgelistet.
             Ein großteil der gelisteten Elemente verliefen Parallel. Deshalb konnte der zeitliche Aufwand nur grob aufgenommen werden.
             Auch die Grenzen der Zuständigkeit verschwimmt, da sich alle Gruppenmitglieder gegenseitig unterstützten.
         </p>
