@@ -442,7 +442,7 @@
         </p>
 
         <h2>Error</h2>
-        <p>@Dario Text einfügen</p>
+        <p>Die verschiedenen Error Views werden je nach Fehler aufgerufen. Es gibt die Fälle: Seite nicht existent, Kein Zugriffrecht, Fehlendes Recht, Passwort Falsch, Passwortwiederholung nicht übereinstimmend und Nutzer nicht existent</p>
 
         <h2>Home</h2>
         <p>
