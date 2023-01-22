@@ -8,12 +8,13 @@
     </div>
 
     <div class="InputZone">
-        <form class="InputBox" action="index.php?page=authentication&logic=login" method="POST">
-            <label>Email</label>
-            <input type="email" placeholder="Email Adresse" name="mail" required>
 
-            <label>Passwort</label>
-            <input type="password" placeholder="Passwort" name="pwd" required>
+        <form class="InputBox" action="index.php?page=authentication&logic=login" method="POST">
+            <label for="Email">Email</label>
+            <input id="Email" type="email" placeholder="Email Adresse" name="mail" required>
+
+            <label for="Password">Passwort</label>
+            <input id="Password" type="password" placeholder="Passwort" name="pwd" required>
 
             <input type="submit"  value="Login">
 

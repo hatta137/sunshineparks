@@ -199,9 +199,8 @@ class Rental extends Model{
         try {
             $stmtGetResortID = $db->prepare('SELECT fn_GetResortID(?) AS ID');
             $stmtGetResortID->execute([$resortName]);
-            $resortID = $stmtGetResortID->fetch()['ID'];
+            return $stmtGetResortID->fetch()['ID'];
 
-            return $resortID;
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -325,7 +324,7 @@ class Rental extends Model{
      * @param $zipCode
      * @param $city
      * @param $state
-     * @return void
+     * @return Rental
      */
     public static function newRental($maxVisitors,
                                      $bedroom,
@@ -405,8 +404,6 @@ class Rental extends Model{
                 return Appartment::findByRentalId($this->RentalID);
             } else if ($houses) {
                 return House::findByRentalId($this->RentalID);
-            } else {//noAccountType settet
-
             }
         } catch (Exception $e) {
             echo $e->getMessage();

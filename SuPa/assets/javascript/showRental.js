@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     input.type = "button";
     input.value = "Mehr";
 
-    // calling the function loadmore to print the next 6 Rentals
+    // calling the function load more to print the next 6 Rentals
     input.onclick = loadMore;
 
     let section = document.getElementsByClassName("allObjects")[0];

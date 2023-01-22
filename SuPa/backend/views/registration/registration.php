@@ -12,31 +12,31 @@
 
         <div class="InputBox">
             <label>Name</label>
-            <input type="text" placeholder="Vorname" name="fname" required>
-            <input type="text" placeholder="Nachname" name="lname" required>
+            <label><input type="text" placeholder="Vorname" name="fname" required></label>
+            <label><input type="text" placeholder="Nachname" name="lname" required></label>
             <label>Geburtsdatum</label>
-            <input type="date" name="birthdate" required>
+            <label><input type="date" name="birthdate" required></label>
             <label>Telefon</label>
-            <input type="text" placeholder="Telefon" name="phone" required>
+            <label><input type="text" placeholder="Telefon" name="phone" required></label>
         </div>
 
         <div class="InputBox">
             <label>Adresse</label>
-            <input type="text" placeholder="Straße" name="street" required>
-            <input type="text" placeholder="Hausnummer" name="housenumber" required>
-            <input type="text" placeholder="PLZ" name="zipcode" required>
-            <input type="text" placeholder="Ort" name="city" required>
-            <input type="text" placeholder="Bundesland" name="country">
+            <label><input type="text" placeholder="Straße" name="street" required></label>
+            <label><input type="text" placeholder="Hausnummer" name="housenumber" required></label>
+            <label><input type="text" placeholder="PLZ" name="zipcode" required></label>
+            <label><input type="text" placeholder="Ort" name="city" required></label>
+            <label><input type="text" placeholder="Bundesland" name="country"></label>
         </div>
 
 
         <div class="InputBox">
-            <label>Email Adresse</label>
-            <input type="email" placeholder="Email" name="mail" required>
+            <label><label>Email Adresse</label></label>
+            <label><input type="email" placeholder="Email" name="mail" required></label>
 
             <label>Passwort</label>
-            <input id="pwd1" type="password" placeholder="Passwort" name="pwd" required>
-            <input id="pwd2" type="password" placeholder="Passwort wiederholen" name="pwdrepeat" required>
+            <label><input id="pwd1" type="password" placeholder="Passwort" name="pwd" required></label>
+            <label><input id="pwd2" type="password" placeholder="Passwort wiederholen" name="pwdrepeat" required></label>
         </div>
     </div>
 
