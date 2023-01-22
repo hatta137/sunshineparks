@@ -123,19 +123,20 @@
 
 
         <h3>Main-Section</h3>
+        <h4>Bsp. Startseite</h4>
 
         <ul id="main-section-gallery">
-            <li><button tabindex="1"><img src="../assets/documentation/Layout/Filterbox.png" alt="Filterbox in der Main-Section"></button></li>
-            <li><button tabindex="1"><img src="../assets/documentation/Layout/Content-Boxen-main.png" alt="Informationen über SunshineParks"></button></li>
-            <li><button tabindex="1"><img src="../assets/documentation/Layout/Buchungsablauf_Bewertungen.png" alt="Informationen zum Buchungsablauf und Kundenbewertungen"></button></li>
-            <li><button tabindex="1"><img src="../assets/documentation/Layout/Kontaktbox.png" alt="Formular zur Kontaktaufnahme"></button></li>
-            <li><button tabindex="1"><img src="../assets/documentation/Layout/Footer.png" alt="Footer der Webseite"></button></li>
+            <li><label><h4>Topbox</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Filterbox.png" alt="Filterbox in der Main-Section"></button></li>
+            <li><label><h4>About</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Content-Boxen-main.png" alt="Informationen über SunshineParks"></button></li>
+            <li><label><h4>Process</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Process.png" alt="Informationen zum Buchungsablauf und Kundenbewertungen"></button></li>
+            <li><label><h4>Testimony</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/testimony.png" alt="Formular zur Kontaktaufnahme"></button></li>
+            <li><label><h4>Contact</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Kontaktbox.png" alt="Footer der Webseite"></button></li>
         </ul>
 
 
         <h3>Footer</h3>
 
-        <img src="../assets/documentation/Layout/Header.PNG" alt="Header der Webseite">
+        <img src="../assets/documentation/Layout/Footer.PNG" alt="Header der Webseite">
 
 
         <h4>Beschreibung</h4>
@@ -153,7 +154,7 @@
             Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bspw. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
             um sein Nutzerkonto anzulegen oder zu verwalten.
         </p>
-        <img src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
+        <img id="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
         <p>
             Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt
             auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann.
@@ -165,7 +166,7 @@
 
             Unsere Hauptseite enthält zu Beginn eine Filterbox, in welcher der Nutzer die Möglichkeit hat Filterkriterien einzugeben oder sich direkt alle Rentals anzeigen zu lassen.
             Mittels dieser Suchkriterien gelangt der Nutzer in den Buchungsbereich. Wo er sich dafür entscheiden kann ein Objekt was ihm gefällt zu Buchen oder sich mehr Informationen zum Rental anzeigen zu lassen.
-            (Diese Bereiche des Buchungsvorgangs decken wir mit unserer Websiete jedoch nicht ab).
+            (Diese Bereiche des Buchungsvorgangs decken wir mit unserer Website jedoch nicht ab).
         </p>
 
     </div>
@@ -182,7 +183,7 @@
             Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
         </p>
         <h2>Farben</h2>
-        <img src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
+        <img id="AutoWidth" src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
         <p>
             Die Primärfarben unserer Webseite sind Keppel #48ac98 und Mine Shaft #222222.
             Keppel wird vor allem für Buttons und farbliche Hervorhebungen genutzt.
@@ -190,13 +191,13 @@
             Als Sekundärfarbe verwenden wir White #ffffff für Text und Hintergründe.
         </p>
         <h2>Formen</h2>
-        <img src="../assets/documentation/Style/Icons/icons.png" alt="Beispiel für verwendete Icons im Content-Bereich">
+        <img id="AutoWidth" src="../assets/documentation/Style/Icons/icons.png" alt="Beispiel für verwendete Icons im Content-Bereich">
         <p>
             Die verwendeten Formen stammen alle aus einer Designerbibliothek von Bocicons.com, um einheitliche Motive verwenden zu können. Das Logo, sowie die verwendeten Icons
             folgen alle demselben Stil, um ein stimmiges Gesamtbid zu erzeugen.
         </p>
         <h2>Schrift</h2>
-        <img src="../assets/documentation/Style/Fonts/font.png" alt="beau.tff Fontbeispiel">
+        <img id="AutoWidth" src="../assets/documentation/Style/Fonts/font.png" alt="beau.tff Fontbeispiel">
         <p>
             Als Schriftart verwenden wir beau.tff - diese hat uns besonders durch ihre geschwungenen Bögen und gute Lesbarkeit überzeugt.
         </p>
@@ -224,46 +225,33 @@
         <p>
             @Hendrik
         </p>
-        <h2>Anmeldung</h2>
+        <h2>authentication</h2>
         <p>
             Die Anmeldeformulare sollen eine minimalistische und übersichtliche Gestaltung aufweisen, um Nutzern eine intuitive Navigation zu ermöglichen.
             Es gibt eine Schaltfläche, die zwischen dem Login für Gäste und dem Login für den internen Bereich wechselt. Gäste melden sich über die
-            "Login"-Schaltfläche an, während andere Rollen sich über ein internes Formular anmelden (siehe <a href="#roleMod">Rollenmodell</a>). Das Design der Formulare soll
-            an das Design der restlichen Seite angepasst sein, indem die gleichen Schaltflächen und Eingabefelder verwendet werden. Eingabefelder besitzen
-            einen Focus-Effekt, der angeklickte Inputs farblich umrandet und Schaltflächen werden beim Überfahren dunkler dargestellt. Für einen flüssigen
-            Übergang der Effekte ist eine kurze Transition definiert.
-
-<!--         Die Anmeldeformulare sollten möglichst minimalistisch und übersichtlich sein.-->
-<!--         Damit ist dem Nutzer sofort klar wo er was eingeben muss und wie er sich anmelden kann bzw. zur Registrierung kommt, falls er noch kein Benutzerkonto besitzt. -->
-<!--         Zusätzlich gibt es einen Button, welcher vom Login für die Gäste zum Login für den internen Bereich (und umgekehrt) führt. -->
-<!--         Gäste melden sich über "Login" ein. Alle anderen Rollen (außer Viewer) können sich über das Interne Formular anmelden - siehe <a href="#roleMod">Rollenmodell</a>.-->
-<!--         Das Design soll zur restlichen Seite passen und somit wurden die gleichen Schaltflächen und Eingabefelder benutzt.-->
-<!--         Eingabefelder besitzen einen Focus-Effekt welcher die angeklickten Inputs farbig umrandet. Schaltflächen werden mit dem Hover-Effekt Dunkler, wenn man über diese geht.-->
-<!--         Für einen flüssigen Übergang der Effekte wurde eine kurze Transition definiert. -->
-
+            "Login"-Schaltfläche an, während andere Rollen sich über ein internes Formular anmelden (siehe <a href="#roleMod">Rollenmodell</a>).
         </p>
-        <h2>Registrierung</h2>
+        <h2>Rregistration</h2>
         <p>
-            Das Registrierungsformular ist analog zum Login aufgebaut. Aufgrund des größeren Umfangs wurde in vier Boxen eingeteilt - Name, Adresse, Telefon, Email/Passwort.
-            Jede Box besitzt die jeweiligen Eingabefelder und ist bei verkleinerung der Fensterbreite mit dem flex-wrap Effekt nach unten Stauchbar.
-            Somit sind die Boxen im Desktop Vollbild idR. nebeneinander und in der mobilen Ansicht untereinander.
-            Unten gibt es die möglichkeit über eine Schaltfläche zum Login zu wechseln.
-
-  <!--          Das Registrierungsformular ist analog zum Login aufgebaut. Die Eingabefälder sind nach Kategorie in Containern (InputBox) sortiert          -->
-  <!--          Durch die flex-wrap Eigenschaften sind die Container im Desktop Vollbild nebeneinander und in der mobilen Ansicht untereinander angereiht.  -->
-  <!--          Unterhalb gibt es die Möglichkeit über eine Schaltfläche zum Login zu wechseln.                                                             -->
+            Das Registrierungsformular ist ähnlich wie das Loginformular aufgebaut. Die Eingabefälder sind nach Kategorie in Containern (InputBox) sortiert.
+            Durch die flex-wrap Eigenschaften sind die Container im Desktop-Vollbild nebeneinander und in der mobilen Ansicht untereinander angereiht.
+            Unterhalb gibt es die Möglichkeit über einen Button zum Login zu wechseln.
         </p>
-        <h2>allObjects</h2>
+        <h2>showRental</h2>
         <p>
-            @Hendrik
+            Je nach Angabe im home-View wird der showRental View generiert. Die einzelnen, mietbaren Ferienhäuser und Apartments sind in Boxen dargestellt.
+            In diesen Boxen ist ein Objekt-Foto sowie die grundlegenden Informationen aufgelistet. Diese wären Anzahl der Schlafzimmer, Bäder, Küchen, maximalen Gäste und Quadratmeter.
+            Außerdem wird dynamisch angezeigt, ob es sich um ein Apartment oder um ein Haus handelt und je nach Resort, ob es sich in den Bergen, der Stadt oder am Meer befindet.
+            Die letzte Information gibt Auskunft über das Vorhandensein einer Sitzmöglichkeit im Freien. Ein Haus kann eine oder keine Terrasse besitzen. Ein Apartment einen oder keinen
+            Balkon. In jeder Box befinden sich zusätzlich zwei Buttons: "Buchen" und "Mehr". Diese haben bislang keine Funktion und sollen nur dem vollständigen Design dienen.
         </p>
         <h2>imprint</h2>
         <p>
-            @Hendrik
+            Das Impressum wurde durch https://www.e-recht24.de/impressum-generator.html generiert. Die angegebenen Daten entsprechen der fiktiven Firma Sunshine Parks GmbH.
         </p>
         <h2>privacy</h2>
         <p>
-            @Hendrik
+            Die Datenschutzangaben wurden durch https://datenschutz-generator.de/ generiert. Die angegebenen Daten entsprechen der fiktiven Firma Sunshine Parks GmbH.
         </p>
     </div>
 </section>
@@ -272,7 +260,7 @@
 <section id="erMod" class="even">
     <div>
         <h1>ER-Modell</h1>
-        <img src="../assets/documentation/DB_Diagrams/ERMv12.png" alt="Entity-Relationship-Modell">
+        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/ERMv12.png" alt="Entity-Relationship-Modell">
         <p>
         Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
         Buchungs-,Objektverwaltungs- und Account/Administrationsbereich sind die Bestandteile unseres Scopes.
@@ -292,7 +280,7 @@
 <section id="reMod" class="odd">
     <div>
         <h1>Relationales Modell</h1>
-        <img src="relationales Modell ergänzen" alt="Tabellenmodell">
+        <img id="AutoWidth" src="relationales Modell ergänzen" alt="Tabellenmodell">
 
     </div>
 </section>
@@ -300,7 +288,7 @@
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
+        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
         <p>
             Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser Verwaltungssystem benötigt.
             Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
@@ -317,7 +305,7 @@
     <div>
         <h1>Flussbild Dateneingabe</h1>
         <h2>Login und Registrierung</h2>
-        <img src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
+        <img id="AutoWidth" src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
         <p>
             Der Besucher der Webseite hat die Möglichkeit im Falle, dass er noch kein Nutzerkonto erstellt hat dieses über das Registrierungsformular vorzunehmen.
             Im Anschluss eine erfolgreiche Registrierung ist der Nutzer dann direkt mit dem Konto angemeldet.
@@ -326,7 +314,7 @@
         </p>
 
         <h2>Buchungsvorgang und Objektsuche</h2>
-        <img src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
+        <img id="AutoWidth" src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
         <p>
             Ein Besucher der SunshineParks Webseite kann sich mit Hilfe der Filterbox auf der home.php einen Überblick über die Objekte unserer Ferienresorts verschaffen.
             Hierzu hat er die Möglichkeit die vorgegebenen Suchkriterien zu nutzen oder sich alle buchbaren Objekte anzeigen zu lassen.
@@ -334,7 +322,7 @@
             Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
         </p>
         <h2>Administration und Verwaltung</h2>
-        <img src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
+        <img id="AutoWidth" src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
         <p>
             -Hier noch Verwaltungstext ergänzen-
         </p>
@@ -346,7 +334,7 @@
     <div>
         <h1>MVC Pattern</h1>
         <h2>Allgemein</h2>
-        <img src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
+        <img id="AutoWidth" src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
 
 
         <h1>Architektur</h1>
