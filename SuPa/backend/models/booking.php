@@ -10,7 +10,15 @@ class Booking extends Model {
 
         try {
             $db = getDB();
+
             $db->beginTransaction();
+
+            $stmtBookingID = $db->prepare('SELECT BookingID FROM BOOKING WHERE GuestID = ?');
+            $stmtBookingID->execute([$GuestID]);
+            $row = $stmtBookingID->fetch();
+
+            $stmtDetail = $db->prepare('DELETE FROM BOOKINGDETAIL WHERE BookingID = ?');
+            $stmtDetail->execute([$row['BookingID']]);
 
             $stmt = $db->prepare('DELETE FROM BOOKING WHERE GuestID = ?');
             $stmt->execute([$GuestID]);
