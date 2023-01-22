@@ -61,10 +61,7 @@ class AuthenticationController extends Controller {
         }
         $modeID = $person->getPersonModeID();
         $loginType = $_POST['authType'];
-        if ($modeID == 7 && $loginType != "guest") {
-            header('Location: index.php?page=error&view=noAccess');
-            return;
-        } else if (($modeID < 7 && $modeID > 0) && $loginType != "intern") {
+        if(!Permission::checkForLogin($modeID, $loginType)){
             header('Location: index.php?page=error&view=noAccess');
             return;
         }
