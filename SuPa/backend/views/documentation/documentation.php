@@ -442,7 +442,14 @@
 
 <section id="besonderheiten" class="odd">
     <div>
-        <h1>Besonderheiten</h1>
+        <h1>Besonderheiten & Known Bugs</h1>
+
+        <h2>Datenbank Import</h2>
+        <p>
+            Auf einigen Linux Systemen, die wir getestet haben, musste ein mysql_upgrade durchgeführt werden. Erst dann konnte die Datenbank vollständig importiert werden.
+        </p>
+
+        <h2></h2>
     </div>
 </section>
 

@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/../models/rental.php';
 require_once __DIR__.'/../models/person.php';
+require_once __DIR__.'/../models/rentalpictures.php';
 class RentalController extends Controller{
 
 
@@ -83,6 +84,8 @@ class RentalController extends Controller{
         $state        = "GER";
         $rnumber   = $_POST['rnumber'];
         $floor        = $_POST['floor'];
+        $typeNameForPicPath = "";
+
 
 
         $freeseat = $_POST['freeseat'];
@@ -96,6 +99,9 @@ class RentalController extends Controller{
         {
             $terrace = 'Y';
             $balcony = 'N';
+        }else if ($freeseat === "none"){
+            $terrace = 'N';
+            $balcony = 'N';
         }
 
         if (isset($_POST['type'])){
@@ -103,20 +109,31 @@ class RentalController extends Controller{
                 $terrace = 'N';
                 $kitchen = 0;
                 $isApartment = true;
-
+                $typeNameForPicPath = "Appartment";
             }
             if($_POST['type'] === "House"){
                 $balcony = 'N';
                 $rnumber = 0;
                 $floor = 0;
                 $isApartment = 0;
+                $typeNameForPicPath = "House";
             }
         }
+
+        $destinationPicturePath = "../assets/graphics/Objekte/".$typeNameForPicPath."/".$resortName."/";
+        $destinationFile = $destinationPicturePath.basename($_FILES['picture']['name']);
+
+
+        if(move_uploaded_file($_FILES["picture"]["tmp_name"], $destinationFile)){
+            echo "Datei erfolgreich hochgeladen";
+        }else
+            echo "Fehler bei Bildhochladen";
 
         $newRental = Rental::newRental($maxVisitors, $bedroom, $bathroom, $sqrMeter, $status,
                                         $isApartment, $resortName, $balcony, $rnumber, $floor, $terrace,
                                         $kitchen, $street, $houseNumber, $zipCode, $city, $state);
 
+        $newRentalPicture = Rentalpictures::newRentalPicture($destinationFile, $newRental->RentalID);
         // setting special info depending on RentalType
         if ($newRental->getChildClass() instanceof Appartment){
             $type = 'Apartment';
@@ -138,6 +155,9 @@ class RentalController extends Controller{
         {
             $type = 'undefined';
         }
+
+
+
 
         $this->_params['type'] = $type;
         $this->_params['newRental'] = $newRental;
