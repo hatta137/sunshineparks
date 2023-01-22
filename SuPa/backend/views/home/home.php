@@ -3,24 +3,24 @@
         <h1>Erlebe einen traumhaften Urlaub in unseren Resorts!</h1>
         <p>Wohin soll es gehen?</p>
         <form action="index.php" method="get">
-            <input type="hidden" name="page" value="rental">
-            <input type="hidden" name="view" value="showRental">
-            <input type="hidden" name="show" value="filter">
-            <select name="resort">
+            <lable><input type="hidden" name="page" value="rental">     </lable>
+            <lable><input type="hidden" name="view" value="showRental"> </lable>
+            <lable><input type="hidden" name="show" value="filter">     </lable>
+            <lable><select name="resort">
                 <option value="Erfurt">Erfurt</option>
                 <option value="Usedom">Usedom</option>
                 <option value="Oberhof">Oberhof</option>
                 <option value="Berchtesgaden">Berchtesgaden</option>
-            </select>
-            <input type="text" name="startDate" placeholder="von"
+            </select></lable>
+            <lable><input type="text" name="startDate" placeholder="von"
                    onfocus="(this.type='date')"
-                   onblur="(this.type='text')">
-            <input type="text" name="endDate" placeholder="bis"
+                   onblur="(this.type='text')"></lable>
+            <lable><input type="text" name="endDate" placeholder="bis"
                    onfocus="(this.type='date')"
-                   onblur="(this.type='text')">
-            <input type="number" name="numberOfGuests" min="0" max="16" placeholder="Anzahl der Reisenden">
-            <input type="submit" value="Suche">
-            <input type="button" onclick="window.location.href='index.php?page=rental&view=showRental&show=all'" value="Zeig Alle">
+                   onblur="(this.type='text')"></lable>
+            <lable><input type="number" name="numberOfGuests" min="0" max="16" placeholder="Anzahl der Reisenden"></lable>
+            <lable><input type="submit" value="Suche"></lable>
+            <lable><input type="button" onclick="window.location.href='index.php?page=rental&view=showRental&show=all'" value="Zeig Alle"></lable>
 
         </form>
     </div>
@@ -162,9 +162,9 @@
     </div>
     <div class="row">
         <form>
-            <input type="text" placeholder="Dein Name" id="ContactformularName" required>
-            <input type="email" placeholder="Deine E-Mailadresse" id="ContactformularMail" required>
-            <textarea placeholder="Deine Nachricht" id="ContactformularText" required></textarea>
+            <lable><input type="text" placeholder="Dein Name" id="ContactformularName" required>           </lable>
+            <lable><input type="email" placeholder="Deine E-Mailadresse" id="ContactformularMail" required></lable>
+            <lable><textarea placeholder="Deine Nachricht" id="ContactformularText" required></textarea></lable>
             <input type="submit" value="Absenden" onclick="Myfunction()" >
         </form>
     </div>

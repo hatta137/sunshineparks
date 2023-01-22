@@ -149,7 +149,7 @@
         <h4>Beschreibung</h4>
         <p>
             Hinter dem Layout steht eine Kombination aus Flex-Boxen.
-            Jede Seite ist in drei Bereiche aufgeteilt: Header inklusive Navbar, Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. </br>
+            Jede Seite ist in drei Bereiche aufgeteilt: Header inklusive Navbar, Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. <br>
             Im Header befinden sich Logo (enthält Link auf Index-Seite), Headline und die eigentlichen Navigationselemente in Form einer verlinkenden Liste.
             Eine Line Gradient liegt über dem Hintergrundbild der Topbox und generiert einen schattenartigen Effekt.
             Die Topbox enthält die Filterbox für die Rentals und den Buchungsvorgang.
@@ -170,7 +170,7 @@
         <img class="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
         <p>
             Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt
-            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann. </br>
+            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann. <br>
 
             Durch das Anklicken des Logos oder der Überschrift im Header wird der Nutzer egal, auf welcher Seite er sich aktuell befindet direkt zur index.php geleitet.
             Das soll unseren Nutzern ermöglichen schnellstmöglich zur Hauptseite unserer Webseite zu gelangen.

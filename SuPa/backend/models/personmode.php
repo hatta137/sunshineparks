@@ -16,7 +16,7 @@ class Personmode extends Model{
      * @param $modeID
      * @return void
      */
-    public function updateModeID($modeID){
+    public function updateModeID($modeID) :void{
 
         $db = getDB();
 

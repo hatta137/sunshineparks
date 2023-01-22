@@ -42,9 +42,9 @@ class Mode extends Model{
                                                        WHERE Role = ?');
             $stmtGetModeFromJob->execute([$role]);
             $modeIDRow = $stmtGetModeFromJob->fetch();
-            $modeID = $modeIDRow['ModeID'];
+            return  $modeIDRow['ModeID'];
 
-            return $modeID;
+
         } catch (Exception $e) {
             echo $e->getMessage();
         }

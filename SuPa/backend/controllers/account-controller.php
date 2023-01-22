@@ -15,35 +15,7 @@ class AccountController extends Controller {
         return Permission::checkForSite($this->_actionLogicName);
     }
 
-    public function actionGuest(){
 
-    }
-
-    public function actionManager(){
-
-    }
-
-    public function actionAdmin(){
-
-
-
-    }
-
-    public function actionCleaning(){
-
-    }
-
-    public function actionMaintenance(){
-
-    }
-
-    public function actionRental(){
-
-    }
-
-    public function actionBooking(){
-
-    }
 
     /**
      * Author: Dario Dassler

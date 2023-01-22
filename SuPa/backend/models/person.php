@@ -152,8 +152,9 @@ class Person extends Model
 }
 
 
+
     /**
-     * Author: Max Schelenz
+     * Author Max Schelenz
      * Adds a new person from type guest with all its values to ADDR, GUEST, PERSON and PERSONMODE.
      * @param $FirstName
      * @param $LastName
@@ -168,13 +169,15 @@ class Person extends Model
      * @param $City
      * @param $State
      * @param $ModeID
-     * @return Person|null The person object if it is successfully added, or null if not.
+     * @param $Job
+     * @param $ResortID
+     * @param $Manager
+     * @return Person|null
      */
 
 
     public static function newPerson($FirstName, $LastName, $DateOfBirth, $Tel, $Mail, $AccountType, $PasswordHash,
-                                     $Street, $HNumber, $ZipCode, $City, $State, $ModeID, $Job = null, $ResortID = null, $Manager = null) : ?Person
-    {
+                                     $Street, $HNumber, $ZipCode, $City, $State, $ModeID, $Job = null, $ResortID = null, $Manager = null) : ?Person{
 
         try {
 
