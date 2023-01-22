@@ -20,7 +20,7 @@
 
 
 
-    <link rel="icon" type="image/png" href="../assets/graphics/LogoIconNB.png" sizes="lg">
+    <link rel="icon" type="image/png" href="../assets/graphics/LogoIconNB.png" >
 </head>
 <body>
 

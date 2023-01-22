@@ -29,7 +29,7 @@
                 <input type="number" name="bedroom" placeholder="Anzahl Schlafzimmer">
                 <input type="number" name="bathroom" placeholder="Anzahl Badezimmer">
                 <input type="number" name="sqrMeter" placeholder="Anzahl Quadratmeter">
-                <input type="file"   name="picture"  id="picture" placeholder="Object Foto">
+                <input type="file"   name="picture"  id="picture">
 
 
             </div>
@@ -45,11 +45,11 @@
 
                 <fieldset>
                     <p>Freisitz:</p>
-                    <input type="radio" id="balcony" name="freeseat" placeholder="Balkon" value="balcony">
+                    <input type="radio" id="balcony" name="freeseat"  value="balcony">
                     <label for="balcony">Balkon</label>
-                    <input type="radio" id="terrace" name="freeseat" placeholder="Terrasse" value="terrace">
+                    <input type="radio" id="terrace" name="freeseat"  value="terrace">
                     <label for="terrace">Terrasse</label>
-                    <input type="radio" id="none" name="freeseat" placeholder="Kein" value="none">
+                    <input type="radio" id="none" name="freeseat"  value="none">
                     <label for="terrace">Kein</label>
                 </fieldset>
 

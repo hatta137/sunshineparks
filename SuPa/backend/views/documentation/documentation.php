@@ -125,8 +125,9 @@
         <h3>Main-Section</h3>
         <h4>Bsp. Startseite</h4>
 
+        //TODO h4 ist nicht im label erlaubt
         <ul id="main-section-gallery">
-            <li><label><h4>Topbox</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Filterbox.png" alt="Filterbox in der Main-Section"></button></li>
+            <li><label>Topbox</label><button tabindex="1"><img src="../assets/documentation/Layout/Filterbox.png" alt="Filterbox in der Main-Section"></button></li>
             <li><label><h4>About</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Content-Boxen-main.png" alt="Informationen über SunshineParks"></button></li>
             <li><label><h4>Process</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/Process.png" alt="Informationen zum Buchungsablauf und Kundenbewertungen"></button></li>
             <li><label><h4>Testimony</h4></label><button tabindex="1"><img src="../assets/documentation/Layout/testimony.png" alt="Formular zur Kontaktaufnahme"></button></li>
@@ -183,7 +184,7 @@
             Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
         </p>
         <h2>Farben</h2>
-        <img id="AutoWidth" src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
+        <img class="AutoWidth" src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
         <p>
             Die Primärfarben unserer Webseite sind Keppel #48ac98 und Mine Shaft #222222.
             Keppel wird vor allem für Buttons und farbliche Hervorhebungen genutzt.
@@ -191,13 +192,13 @@
             Als Sekundärfarbe verwenden wir White #ffffff für Text und Hintergründe.
         </p>
         <h2>Formen</h2>
-        <img id="AutoWidth" src="../assets/documentation/Style/Icons/icons.png" alt="Beispiel für verwendete Icons im Content-Bereich">
+        <img class="AutoWidth" src="../assets/documentation/Style/Icons/icons.png" alt="Beispiel für verwendete Icons im Content-Bereich">
         <p>
             Die verwendeten Formen stammen alle aus einer Designerbibliothek von Bocicons.com, um einheitliche Motive verwenden zu können. Das Logo, sowie die verwendeten Icons
             folgen alle demselben Stil, um ein stimmiges Gesamtbid zu erzeugen.
         </p>
         <h2>Schrift</h2>
-        <img id="AutoWidth" src="../assets/documentation/Style/Fonts/font.png" alt="beau.tff Fontbeispiel">
+        <img class="AutoWidth" src="../assets/documentation/Style/Fonts/font.png" alt="beau.tff Fontbeispiel">
         <p>
             Als Schriftart verwenden wir beau.tff - diese hat uns besonders durch ihre geschwungenen Bögen und gute Lesbarkeit überzeugt.
         </p>
@@ -371,7 +372,7 @@
 
         <h2>Admin</h2>
         <p>Nachfolgend sind die Zusammenhänge im Bereich Administration dargestellt:</p>
-        <img src="../assets/documentation/MVC/mvc-rental.png" alt="MVC-Admin">
+        <img src="../assets/documentation/MVC/mvc-admin.png" alt="MVC-Admin">
 
         <h2>Authentication</h2>
         <p>@Dario Bild einfügen</p>

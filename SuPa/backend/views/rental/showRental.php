@@ -26,7 +26,7 @@
                         <tr><td>Küchen:</td><td><?=$allRentalAttributes[$i]['Kitchen']?></td></tr>
                         <tr><td>Max. Gäste:</td><td><?= $rental->MaxVisitor?></td></tr>
                         <tr><td>Quadratmeter:</td><td><?= $rental->SqrMeter?></td></tr>
-                        <tr><td><?= $allRentalAttributes[$i]['OutdoorSeating']?></td></tr>
+                        <tr><td>Sitzgelegenheit:</td><td><?= $allRentalAttributes[$i]['OutdoorSeating']?></td></tr>
                         </tbody>
                     </table>
                     <input type="button"  value="BUCHEN">
