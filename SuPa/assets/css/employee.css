@@ -2,9 +2,10 @@
 .showEmployees, .editEmployee{
     margin: 5rem 5rem 10rem 5rem;
     overflow: auto;
+
 }
 .showEmployees input, .editEmployee input{
-    width: 50%
+    /*width: 50%*/
 }
 
 #empTable {

@@ -2,6 +2,7 @@
 
         <h1>Mitarbeiter Nr. <?= $currentEmp->EmpID?> bearbeiten:</h1>
 
+    <div class="row">
         <form action="index.php?page=admin&view=updatedEmployee" method="post" id="editEmployeeForm">
             <table id="empTable">
                 <tr><th>ID</th><td>             <?= $currentEmp->EmpID?>           </td><td> <input type="hidden"      name="EmpID" value=<?= $currentEmp->EmpID?>>                            </td></tr>
@@ -28,8 +29,10 @@
             </table>
             <input type="submit" value="edit">
             <input type="button" onclick="window.location.href='index.php?page=admin&view=showEmployees'" value="zurück">
-<!--            <a href="index.php?page=admin&view=showEmployees"><input type="button" value="zurück"></a>-->
+
         </form>
+    </div>
+
 
         <div id="errorMassageContainer"> </div>
 

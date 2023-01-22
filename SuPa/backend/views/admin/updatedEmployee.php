@@ -3,7 +3,9 @@
         <h1>Aktuelle Mitarbeiterinformationen:</h1>
 
 
+    <div class="row">
 
+        <div>
             <table id="empTable">
                 <tbody>
                 <tr><th>Mitarbeiter ID:</th>    <td><?= $updatedEmp->EmpID ?></td></tr>
@@ -23,10 +25,9 @@
                 </tbody>
             </table>
 
+            <input type="button" onclick="window.location.href='index.php?page=account&view=admin'" value="zurück">
+        </div>
 
-
-        <a href="index.php?page=account&view=admin"><input type="button" value="zurück"></a>
-
-
+    </div>
 
 </section>
