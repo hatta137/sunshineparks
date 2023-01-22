@@ -93,6 +93,17 @@
             der Sunshine Parks, je nach Rolle im Unternehmen, anmelden können und bestimmte Informationen abrufen und eingeben
             können. Im Bereich Rollenmodell werden diese Aufgaben aufgeführt.
         </p>
+        <h2>Ziele des Projekts</h2>
+        <p>
+            Dieses Projekt beschränkt sich auf die folgenden Funktionalitäten:
+            <ul>
+                <li>Login für Gäste, Mitarbeiter und Administratoren</li>
+                <li>Darstellung der Mietobjekte (mit Filteroption)</li>
+                <li>Editieren der Mitarbeiter durch den Administrator</li>
+                <li>Anlegen der Mietobjekte durch den Objektverwalter</li>
+                <li>Löschen des eigenen Kontos durch einen Gast</li>
+            </ul>
+        </p>
     </div>
 </section>
 
@@ -105,7 +116,7 @@
         <h3>1. airbnb</h3>
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
         <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.
-        Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
+        Des Weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
         <img src="../assets/documentation/Pictures/airbnb.png" alt="Airbnb-Website" width="75%">
 
 
@@ -148,29 +159,27 @@
 
         <h4>Beschreibung</h4>
         <p>
-            Hinter dem Layout steht eine Kombination aus Flex-Boxen.
-            Jede Seite ist in drei Bereiche aufgeteilt: Header inklusive Navbar, Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. <br>
-            Im Header befinden sich Logo (enthält Link auf Index-Seite), Headline und die eigentlichen Navigationselemente in Form einer verlinkenden Liste.
-            Eine Line Gradient liegt über dem Hintergrundbild der Topbox und generiert einen schattenartigen Effekt.
-            Die Topbox enthält die Filterbox für die Rentals.
-            Die About-Page steht für die Vision und Historie der SunshineParks.
-            Im Abschnitt Process beschreiben wir wie ein Buchungsvorgang abläuft.
-            Testimonys haben wir eingebaut, um für den Besucher der Webseite eine gewisse Interaktion und Austausch mit früheren Besuchern der SunshineParks möglich zu machen, indem man Bewertungen abgeben kann, was uns zum einen Feedback gibt und zum anderen
-            neue Besucher bei ihrer Buchungsentscheidung unterstützt.
-            Die Kontaktbox dient zur Kontaktaufnahme, falls der Nutzer ein wichtiges Anliegen hat kann er hier eine Nachricht verfassen.
-            Der Footer enthält Navigationselemente zu den Seiten Impressum, Kontakt, Datenschutz und den Nutzungsbedingungen.
+            Das Layout basiert auf einer Kombination von Flex-Boxen und ist in drei Bereiche unterteilt: Header (inklusive Navbar),
+            Main-Section (die je nach Seite unterschiedlich ist, z.B. About, Testimony, Contact, Administration) und Footer.
+            Im Header befinden sich das Logo (mit einem Link zur Index-Seite), die Headline und die Navigationselemente in Form einer verlinkten Liste.
+            Ein Line-Gradient wird über dem Hintergrundbild der Topbox platziert und generiert einen schattigen Effekt.
+            In der Topbox befindet sich auch die Filterbox für die Rentals. Die About-Page präsentiert die Vision und Historie der SunshineParks.
+            Im Abschnitt "Process" erklären wir, wie der Buchungsvorgang funktioniert. Testimonials wurden eingebaut,
+            um Besuchern der Webseite Rezensionen zu präsentieren.
+            Am Seitenende befindet sich ein Kontaktformular.
+            Der Footer enthält Navigationselemente zu Impressum, Kontakt, Datenschutz und Nutzungsbedingungen.
         </p>
 
         <h2>Verlinkung/Navigationsstruktur</h2>
         <p>
-            Beim Aufruf unserer Website gelangt man zunächst auf die index.php
-            Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bspw. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
+            Beim Aufruf unserer Website gelangt man zunächst auf die index.php.
+            Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bsp. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
             um sein Nutzerkonto anzulegen oder zu verwalten.
         </p>
         <img class="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
         <p>
             Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt,
-            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons zwsichen den Seiten navigieren kann. <br>
+            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons zwischen den Seiten navigieren kann. <br>
 
             Durch das Anklicken des Logos oder der Überschrift im Header wird der Nutzer egal, auf welcher Seite er sich aktuell befindet direkt zur index.php geleitet.
             Das soll unseren Nutzern ermöglichen schnellstmöglich zur Hauptseite unserer Webseite zu gelangen.
@@ -192,17 +201,27 @@
         <h1>Design</h1>
         <h2>Layout</h2>
         <p>
-            Beim Layout haben wir uns dafür entschieden eine moderne Anordnung zu verwenden.
-            Beginnend mit einem Header, welcher in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente enthält.
+            Das Grundlayout jeder Seite besteht aus einem Header (inklusive Navbar), einem Content-Bereich für die dynamisch erzeugten Bestandteile und einem Footer.
+
+            <h3>Header:</h3>
+            Der Header enthält in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente.
+            <br>
+            <h3>Content:</h3>
             Der Content-Bereich wird auf jeder Seite unterschiedlich eingeleitet, schließt jedoch bündig am Header an und unterteilt sich in verschiedene Sektionen.
-            Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
+            <br>
+            <h3>Footer:</h3>
+            Der Footer, der direkt nach dem Content-Bereich beginnt, markiert das Ende der Webseite.
+            <br>
+            Das Layout der Startseite beinhaltet zusätzlich folgende Bereiche:
+            About, About2, Process, Testimony und Contact.
+
         </p>
         <h2>Farben</h2>
         <img class="AutoWidth" src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
         <p>
             Die Primärfarben unserer Webseite sind Keppel #48ac98 und Mine Shaft #222222.
             Keppel wird vor allem für Buttons und farbliche Hervorhebungen genutzt.
-            Mine Shaft wird für Footer, Header und Hintergründe verwendet, aber auch für Text, da wir Farbinvertierung zur Sectionaufteilung verwenden.
+            Mine Shaft wird für Footer, Header und Hintergründe verwendet, aber auch für Text, da wir Farbinvertierung zur Aufteilung der Sections verwenden.
             Als Sekundärfarbe verwenden wir White #ffffff für Text und Hintergründe.
         </p>
         <h2>Formen</h2>
@@ -232,9 +251,16 @@
 <section id="siteFunc" class="odd">
     <div>
         <h1>Funktionalitäten/Architektur der Seiten</h1>
-        <h2>index</h2>
+        <h2>home</h2>
         <p>
-            @Hendrik bitte hier dein Part ergänzen
+            Die Startseite besteht aus dem Suchbereich für die Ferienhäuser und Apartments und einem Informationsbereich über das Unternehmen und die Ferienresorts.
+            Im Suchbereich hat der User zwei Möglichkeiten sich diese Objekte anzeigen zu lassen:
+            <br>
+            1. Alle existierenden Objekte
+            <br>
+            2. Objekte die den Filterangaben entsprechen
+
+
         </p>
 
         <h2>authentication</h2>
@@ -287,7 +313,7 @@
         ergänzt werden. Die Erstellung der Rollen- und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere immer wiederkehrende
         Arbeitsschritte in unserem Projekt.
 
-        CRAFTSERVICE, STRUCCHANGE, CLEANING und MAINTENANCE sind Relikte des 2.Semesters und befinden sich nicht in unserem Scope.
+        CRAFTSERVICE, STRUCCHANGE, CLEANING und MAINTENANCE sind Relikte des zweiten Semesters und befinden sich nicht in unserem Scope.
         </p>
     </div>
 </section>
