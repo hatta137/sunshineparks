@@ -47,7 +47,7 @@
             Unser Kunde “Sunshine Parks GmbH” betreibt vier Ferienresorts in Deutschland. Diese befinden
             sich in Erfurt, Oberhof, Berchtesgaden und auf Usedom. Zur Vermietung stehen Ferienwohnun-
             gen und Häuser für unterschiedlich viele Gäste. Die Feriendörfer verfügen über unterschiedlich
-            große Kapazitäten in Bezug auf die Wohnungen und Häuser. Organisatorisch ist die Sunshine
+            große Kapazitäten im Bezug auf die Wohnungen und Häuser. Organisatorisch ist die Sunshine
             Parks GmbH aufgeteilt in einen Hauptsitz und den vier Außenstellen, den Resorts.
         </p>
         <br>
@@ -152,10 +152,10 @@
             Jede Seite ist in drei Bereiche aufgeteilt: Header inklusive Navbar, Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. <br>
             Im Header befinden sich Logo (enthält Link auf Index-Seite), Headline und die eigentlichen Navigationselemente in Form einer verlinkenden Liste.
             Eine Line Gradient liegt über dem Hintergrundbild der Topbox und generiert einen schattenartigen Effekt.
-            Die Topbox enthält die Filterbox für die Rentals und den Buchungsvorgang.
+            Die Topbox enthält die Filterbox für die Rentals.
             Die About-Page steht für die Vision und Historie der SunshineParks.
             Im Abschnitt Process beschreiben wir wie ein Buchungsvorgang abläuft.
-            Testimonys haben wir eingebaut, um für den Besucher der Webseite eine gewisse Interaktion und Austausch mit früheren Besuchern der SunshineParks möglich zu machen, indem man Bewertungen abgeben kann, was uns zum einen Feedback gibt und zum Anderen
+            Testimonys haben wir eingebaut, um für den Besucher der Webseite eine gewisse Interaktion und Austausch mit früheren Besuchern der SunshineParks möglich zu machen, indem man Bewertungen abgeben kann, was uns zum einen Feedback gibt und zum anderen
             neue Besucher bei ihrer Buchungsentscheidung unterstützt.
             Die Kontaktbox dient zur Kontaktaufnahme, falls der Nutzer ein wichtiges Anliegen hat kann er hier eine Nachricht verfassen.
             Der Footer enthält Navigationselemente zu den Seiten Impressum, Kontakt, Datenschutz und den Nutzungsbedingungen.
@@ -163,14 +163,14 @@
 
         <h2>Verlinkung/Navigationsstruktur</h2>
         <p>
-            Beim Aufruf unserer Webseite gelangt man zunächst auf die index.php
+            Beim Aufruf unserer Website gelangt man zunächst auf die index.php
             Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bspw. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
             um sein Nutzerkonto anzulegen oder zu verwalten.
         </p>
         <img class="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
         <p>
-            Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt
-            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann. <br>
+            Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt,
+            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons zwsichen den Seiten navigieren kann. <br>
 
             Durch das Anklicken des Logos oder der Überschrift im Header wird der Nutzer egal, auf welcher Seite er sich aktuell befindet direkt zur index.php geleitet.
             Das soll unseren Nutzern ermöglichen schnellstmöglich zur Hauptseite unserer Webseite zu gelangen.
