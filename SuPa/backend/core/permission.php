@@ -50,8 +50,8 @@ class Permission
             }
     }
 
-    public static function checkForRegistration() :bool{
-        if($_POST['mode'] != 7){
+    public static function checkForRegistration(int $newMode) :bool{
+        if($newMode != 7){
             if(isset($_SESSION['person'])) {
                 $person = new Person($_SESSION['person']);
                 if ($person->getPersonModeID() != 1){
