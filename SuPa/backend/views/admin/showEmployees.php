@@ -1,4 +1,4 @@
-<div class="showEmployees">
+<section class="showEmployees">
 
     <h1>Mitarbeiter SunshineParks:</h1>
 
@@ -56,4 +56,4 @@
 
     <a href="index.php?page=account&view=admin"><input type="button" value="zurück"></a>
 
-</div>
+</section>

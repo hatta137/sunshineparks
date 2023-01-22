@@ -165,7 +165,7 @@
             Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bspw. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
             um sein Nutzerkonto anzulegen oder zu verwalten.
         </p>
-        <img id="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
+        <img class="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
         <p>
             Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt
             auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann. </br>
@@ -266,7 +266,7 @@
 <section id="erMod" class="even">
     <div>
         <h1>ER-Modell</h1>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/svg_ERMv12.drawio.svg" alt="Entity-Relationship-Modell">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/svg_ERMv12.drawio.svg" alt="Entity-Relationship-Modell">
         <p>
         Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
         Accountverwaltung/Administration, Buchungsverwaltung und Objektverwaltung sind die Bestandteile unseres Scopes.
@@ -294,23 +294,23 @@
             Ebenso aufgelistet sind die Tabelle die sich nicht im Scope befinden, sondern zum Kontext gehören. Diese erkennt man an dem fehlenden farblichen Scoperahmen aus dem ERM.
         </p>
         <h2>Administration und Accountverwaltung</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
 
         <h2>Buchungsverwaltung</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Buchungsverwaltung.png">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Buchungsverwaltung.png">
 
         <h2>Objektverwaltung</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Objektverwaltung.png">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Objektverwaltung.png">
 
         <h2>OutOfScope Tabellen</h2>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_OutOfScopeTables.png">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_OutOfScopeTables.png">
     </div>
 </section>
 
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.PNG" alt="Rollen- und Rechtematrix">
         <p>
             Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser System benötigt.
             Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
@@ -327,7 +327,7 @@
     <div>
         <h1>Flussbild Dateneingabe</h1>
         <h2>Login und Registrierung</h2>
-        <img id="AutoWidth" src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
+        <img class="AutoWidth" src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
         <p>
             Der Besucher der Webseite hat die Möglichkeit im Falle, dass er noch kein Nutzerkonto erstellt hat dieses über das Registrierungsformular vorzunehmen.
             Im Anschluss eine erfolgreiche Registrierung ist der Nutzer dann direkt mit dem Konto angemeldet.
@@ -336,7 +336,7 @@
         </p>
 
         <h2>Buchungsvorgang und Objektsuche</h2>
-        <img id="AutoWidth" src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
+        <img class="AutoWidth" src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
         <p>
             Ein Besucher der SunshineParks Webseite kann sich mit Hilfe der Filterbox auf der home.php einen Überblick über die Objekte unserer Ferienresorts verschaffen.
             Hierzu hat er die Möglichkeit die vorgegebenen Suchkriterien zu nutzen oder sich alle buchbaren Objekte anzeigen zu lassen.
@@ -344,7 +344,7 @@
             Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
         </p>
         <h2>Administration und Accountverwaltung</h2>
-        <img id="AutoWidth" src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
+        <img class="AutoWidth" src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
         <p>
             Um auf die Funktionen der Administration/Accountverwaltung zuzugreifen muss sich der Nutzer anmelden und im Anschluss mit den seinem Account zugewiesenen Berechtigungen den Accountbereich aufrufen.
             Dementsprechend hat er dort dann Zugriff auf die verschiedenen Funktionalitäten, indem er die jeweiligen Buttons betätigt.
@@ -359,7 +359,7 @@
     <div>
         <h1>MVC Pattern</h1>
         <h2>Allgemein</h2>
-        <img id="AutoWidth" src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
+        <img class="AutoWidth" src="../assets/documentation/MVC/mvcpattern.png" alt="MVC-Pattern Aufteilung">
 
 
         <h1>Architektur</h1>

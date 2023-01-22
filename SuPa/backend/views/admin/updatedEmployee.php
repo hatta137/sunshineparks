@@ -1,4 +1,4 @@
-<div class="showEmployees">
+<section class="showEmployees">
 
         <h1>Aktuelle Mitarbeiterinformationen:</h1>
 
@@ -29,4 +29,4 @@
 
 
 
-</div>
+</section>

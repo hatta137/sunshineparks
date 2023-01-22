@@ -1,4 +1,4 @@
-<div class="editEmployee">
+<section class="editEmployee">
 
         <h1>Mitarbeiter Nr. <?= $currentEmp->EmpID?> bearbeiten:</h1>
 
@@ -32,4 +32,4 @@
 
         <div id="errorMassageContainer"> </div>
 
-</div>
+</section>
