@@ -119,6 +119,7 @@ class Person extends Model
     /**
      * Author: Dario Daßler
      */
+    //TODO Try Catch + Comments
 
     public static function getPermission(int $modeID, string $action) :?string {
         $db = getDB();

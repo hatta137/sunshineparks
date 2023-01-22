@@ -133,7 +133,7 @@ class Rental extends Model{
 
     /***
      * Author Hendrik Lendeckel
-     * @param $resort
+     * @param $resortName
      * @param $startDate
      * @param $endDate
      * @param $numberOfGuests
