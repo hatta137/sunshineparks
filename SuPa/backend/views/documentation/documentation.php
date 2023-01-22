@@ -449,6 +449,14 @@
             Auf einigen Linux Systemen, die wir getestet haben, musste ein mysql_upgrade durchgeführt werden. Erst dann konnte die Datenbank vollständig importiert werden.
         </p>
 
+        <h2>Rechte für Fileupload</h2>
+        <p>
+            Auf dem getesteten Linux System mussten die Rechte angepasst werden, damit php Bilder in den richtigen Ordner verschieben darf.
+            Dies ist erforderlich für die addNewRental.php.
+            Folgender Befehl wurde verwendet:
+            sudo find /opt/lampp/htdocs/assets/graphics -type d -exec chmod 777 '{}' \;
+        </p>
+
         <h2></h2>
     </div>
 </section>
