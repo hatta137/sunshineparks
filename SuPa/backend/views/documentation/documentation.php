@@ -93,6 +93,17 @@
             der Sunshine Parks, je nach Rolle im Unternehmen, anmelden können und bestimmte Informationen abrufen und eingeben
             können. Im Bereich Rollenmodell werden diese Aufgaben aufgeführt.
         </p>
+        <h2>Ziele des Projekts</h2>
+        <p>
+            Dieses Projekt beschränkt sich auf die folgenden Funktionalitäten:
+            <ul>
+                <li>Login für Gäste, Mitarbeiter und Administratoren</li>
+                <li>Darstellung der Mietobjekte (mit Filteroption)</li>
+                <li>Editieren der Mitarbeiter durch den Administrator</li>
+                <li>Anlegen der Mietobjekte durch den Objektverwalter</li>
+                <li>Löschen des eigenen Kontos durch einen Gast</li>
+            </ul>
+        </p>
     </div>
 </section>
 
@@ -148,29 +159,27 @@
 
         <h4>Beschreibung</h4>
         <p>
-            Hinter dem Layout steht eine Kombination aus Flex-Boxen.
-            Jede Seite ist in drei Bereiche aufgeteilt: Header inklusive Navbar, Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. <br>
-            Im Header befinden sich Logo (enthält Link auf Index-Seite), Headline und die eigentlichen Navigationselemente in Form einer verlinkenden Liste.
-            Eine Line Gradient liegt über dem Hintergrundbild der Topbox und generiert einen schattenartigen Effekt.
-            Die Topbox enthält die Filterbox für die Rentals.
-            Die About-Page steht für die Vision und Historie der SunshineParks.
-            Im Abschnitt Process beschreiben wir wie ein Buchungsvorgang abläuft.
-            Testimonys haben wir eingebaut, um für den Besucher der Webseite eine gewisse Interaktion und Austausch mit früheren Besuchern der SunshineParks möglich zu machen, indem man Bewertungen abgeben kann, was uns zum einen Feedback gibt und zum anderen
-            neue Besucher bei ihrer Buchungsentscheidung unterstützt.
-            Die Kontaktbox dient zur Kontaktaufnahme, falls der Nutzer ein wichtiges Anliegen hat kann er hier eine Nachricht verfassen.
-            Der Footer enthält Navigationselemente zu den Seiten Impressum, Kontakt, Datenschutz und den Nutzungsbedingungen.
+            Das Layout basiert auf einer Kombination von Flex-Boxen und ist in drei Bereiche unterteilt: Header (inklusive Navbar),
+            Main-Section (die je nach Seite unterschiedlich ist, z.B. About, Testimony, Contact, Administration) und Footer.
+            Im Header befinden sich das Logo (mit einem Link zur Index-Seite), die Headline und die Navigationselemente in Form einer verlinkten Liste.
+            Ein Line-Gradient wird über dem Hintergrundbild der Topbox platziert und generiert einen schattigen Effekt.
+            In der Topbox befindet sich auch die Filterbox für die Rentals. Die About-Page präsentiert die Vision und Historie der SunshineParks.
+            Im Abschnitt "Process" erklären wir, wie der Buchungsvorgang funktioniert. Testimonials wurden eingebaut,
+            um Besuchern der Webseite Rezensionen zu präsentieren.
+            Am Seitenende befindet sich ein Kontaktformular.
+            Der Footer enthält Navigationselemente zu Impressum, Kontakt, Datenschutz und Nutzungsbedingungen.
         </p>
 
         <h2>Verlinkung/Navigationsstruktur</h2>
         <p>
-            Beim Aufruf unserer Website gelangt man zunächst auf die index.php
-            Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bspw. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
+            Beim Aufruf unserer Website gelangt man zunächst auf die index.php.
+            Dort hat der Nutzer nun die Möglichkeit in der Navbar die Navigationselemente wie bsp. Account zu nutzen, um in den Accountbereich mit Login und Registrierung zu gelangen,
             um sein Nutzerkonto anzulegen oder zu verwalten.
         </p>
         <img class="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
         <p>
             Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt,
-            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons zwsichen den Seiten navigieren kann. <br>
+            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons zwischen den Seiten navigieren kann. <br>
 
             Durch das Anklicken des Logos oder der Überschrift im Header wird der Nutzer egal, auf welcher Seite er sich aktuell befindet direkt zur index.php geleitet.
             Das soll unseren Nutzern ermöglichen schnellstmöglich zur Hauptseite unserer Webseite zu gelangen.
@@ -192,17 +201,27 @@
         <h1>Design</h1>
         <h2>Layout</h2>
         <p>
-            Beim Layout haben wir uns dafür entschieden eine moderne Anordnung zu verwenden.
-            Beginnend mit einem Header, welcher in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente enthält.
+            Das Grundlayout jeder Seite besteht aus einem Header (inklusive Navbar), einem Content-Bereich für die dynamisch erzeugten Bestandteile und einem Footer.
+
+            <h3>Header:</h3>
+            Der Header enthält in der linken oberen Ecke das Firmenlogo, zentriert den Firmennamen sowie rechtsbündig die Navigationselemente.
+            <br>
+            <h3>Content:</h3>
             Der Content-Bereich wird auf jeder Seite unterschiedlich eingeleitet, schließt jedoch bündig am Header an und unterteilt sich in verschiedene Sektionen.
-            Das Ende der Webseite stellt der Footer dar, welcher direkt nach dem Content-Bereich beginnt.
+            <br>
+            <h3>Footer:</h3>
+            Der Footer, der direkt nach dem Content-Bereich beginnt, markiert das Ende der Webseite.
+            <br>
+            Das Layout der Startseite beinhaltet zusätzlich folgende Bereiche:
+            About, About2, Process, Testimony und Contact.
+
         </p>
         <h2>Farben</h2>
         <img class="AutoWidth" src="../assets/documentation/Style/Colours/colours.png" alt="Primär-und Sekundärfarben der SunshineParks Webseite">
         <p>
             Die Primärfarben unserer Webseite sind Keppel #48ac98 und Mine Shaft #222222.
             Keppel wird vor allem für Buttons und farbliche Hervorhebungen genutzt.
-            Mine Shaft wird für Footer, Header und Hintergründe verwendet, aber auch für Text, da wir Farbinvertierung zur Sectionaufteilung verwenden.
+            Mine Shaft wird für Footer, Header und Hintergründe verwendet, aber auch für Text, da wir Farbinvertierung zur Aufteilung der Sections verwenden.
             Als Sekundärfarbe verwenden wir White #ffffff für Text und Hintergründe.
         </p>
         <h2>Formen</h2>
@@ -232,9 +251,16 @@
 <section id="siteFunc" class="odd">
     <div>
         <h1>Funktionalitäten/Architektur der Seiten</h1>
-        <h2>index</h2>
+        <h2>home</h2>
         <p>
-            @Hendrik bitte hier dein Part ergänzen
+            Die Startseite besteht aus dem Suchbereich für die Ferienhäuser und Apartments und einem Informationsbereich über das Unternehmen und die Ferienresorts.
+            Im Suchbereich hat der User zwei Möglichkeiten sich diese Objekte anzeigen zu lassen:
+            <br>
+            1. Alle existierenden Objekte
+            <br>
+            2. Objekte die den Filterangaben entsprechen
+
+
         </p>
 
         <h2>authentication</h2>
@@ -274,20 +300,15 @@
         <h1>ER-Modell</h1>
         <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/svg_ERMv12.drawio.svg" alt="Entity-Relationship-Modell">
         <p>
-        Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
-        Accountverwaltung/Administration, Buchungsverwaltung und Objektverwaltung sind die Bestandteile unseres Scopes.
-        STRUCCHANGE,CRAFTSERVICE, MAINTENACE und CLEANING sind Teil unseres Kontexts.
-
-        Das abgebildete ER-Modell war zu Beginn deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass eine genaue Übernahme unseres Datenbankmodells
-        aus dem vorherigen Modul DB2 nicht möglich ist. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder
-        wir haben die Tabellen optimiert, um die Programmlogik realisieren zu können. Hier wäre der PasswordHash oder der AccountType in PERSON zu nennen.
-        In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann im weiteren Versionsverlauf verbessert haben.
-
-        PERSONMODE und MODE wurden durch den Registrierungs- und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
-        ergänzt werden. Die Erstellung der Rollen- und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere immer wiederkehrende
-        Arbeitsschritte in unserem Projekt.
-
-        CRAFTSERVICE, STRUCCHANGE, CLEANING und MAINTENANCE sind Relikte des 2.Semesters und befinden sich nicht in unserem Scope.
+            Unser ER-Modell ist farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt, um die Tabellen besser zu differenzieren und zuzuordnen.
+            Die Bereiche Accountverwaltung/Administration, Buchungsverwaltung und Objektverwaltung sind Bestandteile unseres Projekts.
+            STRUCCHANGE, CRAFTSERVICE, MAINTENANCE und CLEANING sind Teil unseres Kontexts.
+            Das ER-Modell war am Anfang einfacher gehalten, aber während der Projektarbeit haben wir festgestellt, dass eine genaue Übernahme des Datenbankmodells aus dem vorherigen Modul DB2 nicht möglich war.
+            Es kam immer wieder zu strukturellen Veränderungen in der Datenbank, um die Abläufe zu realisieren oder wir haben die Tabellen optimiert, um die Programmlogik zu realisieren.
+            Hierbei sind der PasswordHash oder der AccountType in der Tabelle PERSON zu nennen.
+            Personmode und Mode wurden durch den Registrierungs- und Authentifizierungsbereich benötigt, der im vorherigen Semester noch außerhalb unseres Scopes lag und nun ergänzt werden musste.
+            Die Erstellung der Rollen- und Rechte-Matrix sowie die parallelen Anpassungen der CSV-Imports und des Tabellenmodells sind weitere immer wiederkehrende Arbeitsschritte in unserem Projekt.
+            CRAFTSERVICE, STRUCCHANGE, CLEANING und MAINTENANCE sind Relikte des 2.Semesters und befinden sich nicht in unserem Scope.
         </p>
     </div>
 </section>
@@ -335,27 +356,26 @@
         <h2>Login und Registrierung</h2>
         <img class="AutoWidth" src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
         <p>
-            Der Besucher der Webseite hat die Möglichkeit im Falle, dass er noch kein Nutzerkonto erstellt hat dieses über das Registrierungsformular vorzunehmen.
-            Im Anschluss eine erfolgreiche Registrierung ist der Nutzer dann direkt mit dem Konto angemeldet.
-            Sollte bereits ein Konto bestehen wird dies entweder direkt durch einen lokal gespeicherten Cookie erkannt und zugeordnet oder der Nutzer kann sich mit seinen Zugangsdaten im Login anmelden.
-            In beiden Fällen erhalten die Nutzer ein Feedback, indem im rechten oberen Bereich der Navbar "Hallo, VornameXY" angezeigt wird.
+            Der Besucher der Webseite hat die Möglichkeit, über das Registrierungsformular ein Nutzerkonto zu erstellen, falls er noch keines hat.
+            Nach erfolgreicher Registrierung ist der Nutzer direkt mit seinem Konto angemeldet.
+            Wenn bereits ein Konto vorhanden ist, wird dies entweder durch einen lokal gespeicherten Cookie erkannt und zugeordnet oder der Nutzer kann sich mit seinen Zugangsdaten im Login anmelden.
+            In beiden Fällen erhält der Nutzer ein Feedback, indem im rechten oberen Bereich der Navbar "Hallo, -Vorname- " angezeigt wird.
         </p>
 
         <h2>Buchungsvorgang und Objektsuche</h2>
         <img class="AutoWidth" src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
         <p>
-            Ein Besucher der SunshineParks Webseite kann sich mit Hilfe der Filterbox auf der home.php einen Überblick über die Objekte unserer Ferienresorts verschaffen.
-            Hierzu hat er die Möglichkeit die vorgegebenen Suchkriterien zu nutzen oder sich alle buchbaren Objekte anzeigen zu lassen.
-            Daraufhin folgt eine Auflistung der gefilterten Rentals, die dann gebucht werden oder bei Interesse weitere Informationen angezeigt werden können.
-            Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
+            Ein Besucher der SunshineParks-Webseite kann sich mithilfe der Filterbox auf der Startseite (home.php) einen Überblick über die verfügbaren Unterkünfte in unseren Ferienresorts verschaffen.
+            Hier hat er die Möglichkeit, die vorgegebenen Suchkriterien zu nutzen oder sich alle verfügbaren Unterkünfte anzeigen zu lassen.
+            Es folgt eine Auflistung der gefilterten Unterkünfte, die dann gebucht werden können oder bei Interesse weitere Informationen angezeigt werden können.
+            Der tatsächliche Buchungsvorgang wird in unserem Projekt jedoch nicht weiter abgedeckt.
         </p>
         <h2>Administration und Accountverwaltung</h2>
         <img class="AutoWidth" src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
         <p>
-            Um auf die Funktionen der Administration/Accountverwaltung zuzugreifen muss sich der Nutzer anmelden und im Anschluss mit den seinem Account zugewiesenen Berechtigungen den Accountbereich aufrufen.
-            Dementsprechend hat er dort dann Zugriff auf die verschiedenen Funktionalitäten, indem er die jeweiligen Buttons betätigt.
-            In dem FlowChart-Diagramm sind die auch wirklich funktional hinterlegten Buttons unseres Systems grün gekennzeichnet.
-            Funktional nicht hinterlegte Buttons wiederum sind rot markiert - diese decken wir mit unserem System derzeit noch NICHT ab.
+            Um auf die Funktionen der Administration/Accountverwaltung zugreifen zu können, muss sich der Nutzer anmelden und danach, je nach seinen Zugriffsrechten, den Accountbereich aufrufen.
+            Er hat dann Zugriff auf die verschiedenen Funktionalitäten, indem er die jeweiligen Buttons auswählt.
+            Im FlowChart-Diagramm sind die funktional verfügbaren Buttons grün markiert, während die nicht verfügbaren Buttons rot gekennzeichnet sind und momentan noch nicht von unserem System unterstützt werden.
         </p>
     </div>
 </section>
@@ -371,29 +391,23 @@
         <h1>Architektur</h1>
 
         <p>
-            Bei diesem Projekt wurde das MVC Pattern verwendet, um die Navigation und die Anzeige von Inhalten zu steuern.
-            Der Controller-Name (page), Action-Name (view) und Logic-Name (logic) werden aus der URL mithilfe der $_GET[ ]-Variable gelesen.
-            Diese drei Parameter bestimmen welche View mit welchen Informationen gerendert wird. Wenn diese Werte nicht zugeordnet
-            werden können, wird eine Fehlerseite aufgerufen. Wenn kein Wert angegeben wird, wird der Benutzer immer zur
-            Startseite (home.php) weitergeleitet. Zusätzlich wird vor dem Aufruf einer Seite ein Permission-Check durchgeführt,
-            um sicherzustellen, dass der Benutzer das Recht hat, diese Seite anzuzeigen. Dies ist besonders wichtig, da es einen
-            internen Bereich gibt, der nur von Mitarbeitern und Administratoren besucht werden darf.
+            Bei diesem Projekt wurde das MVC-Muster verwendet, um die Navigation und die Anzeige von Inhalten zu steuern.
+            Der Controller-Name (page), Action-Name (view) und Logic-Name (logic) werden aus der URL mithilfe der $_GET[ ]-Variable gelesen. Diese drei Parameter bestimmen, welche View mit welchen Informationen gerendert wird.
+            Wenn diese Werte nicht zugeordnet werden können, wird eine Fehlerseite aufgerufen. Wenn kein Wert angegeben wird, wird der Benutzer immer zur Startseite (home.php) weitergeleitet.
+            Ein Permission-Check wird vor dem Aufruf einer Seite durchgeführt, um sicherzustellen, dass der Benutzer das Recht hat, diese Seite anzuzeigen, insbesondere im internen Bereich, der nur von Mitarbeitern und Administratoren besucht werden darf.
         </p>
         <br>
         <p>
-            Die meiste Logik wird in den Controllern verarbeitet. Die Models dienen als Abbilder der Datenbanktabellen und übernehmen die
-            Lese- und Schreibzugriffe auf diese. Sie stellen zudem Funktionen bereit, die von den Controllern genutzt werden, um einfachen
-            Zugriff auf die Daten zu ermöglichen. Die Controller übergeben den Views die Informationen als Array von Parametern.
-            In den Views wird die Darstellung dargestellt und die Informationen werden aus den Array-Parametern mithilfe von
-            PHP-For-Schleifen iteriert.
+            Die meiste Logik wird in den Controllern verarbeitet, während die Models als Abbilder der Datenbanktabellen dienen und die Lese- und Schreibzugriffe auf diese übernehmen.
+            Sie stellen auch Funktionen bereit, die von den Controllern genutzt werden, um einen einfachen Zugriff auf die Daten zu ermöglichen. Die Controller übergeben die Informationen an die Views als Array von Parametern.
+            In den Views wird die Darstellung dargestellt und die Informationen werden mithilfe von PHP-For-Schleifen aus den Array-Parametern iteriert.
         </p>
         <br>
         <p>
-            In den Grafiken ist dargestellt, welche Views, Controller und Models zusammenwirken und welche Datenbanken zum
-            Lesen und Schreiben von Informationen verwendet werden. Im Projekt wurde darauf geachtet, dass alle Datenbankzugriffe
-            dem CRUD-Prinzip (Create, Read, Update, Delete) entsprechen. Das Erstellen von Daten wurde mit dem Bereich der
-            Registrierung abgedeckt, das Lesen von Daten nimmt den größten Teil ein und ist in jedem Model implementiert.
-            Das Updaten von Daten wurde mit der Funktion editEmployee umgesetzt und Gäste können ihren Account mit der Löschfunktion löschen.
+            In den Grafiken wird dargestellt, wie die Zusammenarbeit von Views, Controllern und Models sowie die Verwendung von Datenbanken zum Lesen und Schreiben von Informationen aussehen.
+            Im Projekt wurde sichergestellt, dass alle Datenbankzugriffe dem CRUD-Prinzip (Create, Read, Update, Delete) entsprechen.
+            Das Erstellen von Daten wurde durch die Registrierungsfunktion abgedeckt, das Lesen von Daten nimmt den größten Teil ein und ist in jedem Model implementiert.
+            Das Aktualisieren von Daten wurde durch die Funktion "editEmployee" umgesetzt und Gäste können ihr Konto mit der Löschfunktion löschen.
         </p>
 
         <h2>Rental</h2>
@@ -448,24 +462,19 @@
 
         <h2>MVC-Pattern</h2>
         <p>
-            Die größte Herausforderung bei diesem Projekt war die Implementierung des MVC Patterns. Unser Projekt war vorher statisch
-            und nur nach html-Seiten unterteilt. Aufgrund unseres Mangels an Erfahrung mit solchen Programmier-Patterns musste unsere
-            Gruppe die Umsetzung von Anfang an erlernen, was zu Verzögerungen in unserer Zeitplanung führte. Durch mehrere Programmier-Sprints
-            und viel Selbststudium konnten wir das MVC-Pattern schlussendlich implementieren und gleichzeitig die Funktionen der Seiten
-            programmieren. Dieses Pattern hat uns schlussendlich dabei geholfen, die Arbeit unter den Gruppenmitgliedern zu verteilen
-            und komplexe Probleme durch deren Zerteilung zu lösen.
+            Die größte Herausforderung bei diesem Projekt war die Implementierung des MVC-Patterns, da unser Projekt zuvor statisch und nur nach HTML-Seiten unterteilt war.
+            Unsere Gruppe musste aufgrund unseres Mangels an Erfahrung mit diesem Programmier-Pattern von Anfang an lernen, wie man es umsetzt, was zu Verzögerungen in der Zeitplanung führte.
+            Durch mehrere Programmier-Sprints und viel Selbststudium konnten wir das MVC-Pattern schließlich erfolgreich implementieren und gleichzeitig die Funktionen der Seiten programmieren.
+            Dieses Pattern hat uns geholfen, die Arbeit unter den Gruppenmitgliedern besser zu verteilen und komplexe Probleme durch deren Zerteilung zu lösen.
         </p>
 
         <h2>CSS</h2>
         <p>
-            Zu Beginn des Projektes wurden von allen Gruppenmitgliedern mehrere Entwürfe der Seiten gezeichnet und teilweise wurden diese
-            Mockups auch programmiert. Das finale Design wurde aus diesen Stücken zusammengestellt. Es wurde sich auch an anderen Websites
-            und Tutorials orientiert. So entstanden pro Mitglied unterschiedliche herangehensweisen an das Adressieren der HTML Sectionen und
-            deren Elemente. Das hatte zur Folge, dass der CSS-Code immer wieder unvorhergesehene Dinge bewirkte. Erst mit der Neuaufteilung
-            der Gruppe (durch MVC) hat sich ausschließlich Robin Harris um das Frontend Design und die optische Anpassung der Views gekümmert.
-            Mit dieser Zuteilung und einigen Änderungen am CSS-Code konnte ein optisch überzeugendes Auftreten umgesetzt werden.
-            Dennoch ist sich unsere Gruppe einig, bei einem nächsten Web-Projekt anders an den Frontend-Part heranzugehen. Eine einheitliche
-            Adressierung und das Arbeiten nach dieser Vorgabe sollte in Zukunft viel Trouble-Shooting ersparen.
+            Zu Beginn des Projekts erstellten alle Gruppenmitglieder mehrere Entwürfe der Seiten und einige dieser Mockups wurden sogar programmiert.
+            Das finale Design wurde aus diesen Stücken zusammengestellt und dabei wurden auch andere Websites und Tutorials als Inspiration genommen.
+            Dies führte dazu, dass jedes Mitglied unterschiedliche Ansätze bei der Adressierung der HTML-Sektionen und deren Elemente verwendete, was zu Problemen mit dem CSS-Code führte.
+            Erst durch die Neuaufteilung der Gruppe und die Zuteilung von Robin Harris als verantwortlichen für das Frontend-Design und die optische Anpassung der Views konnte ein optisch ansprechendes Ergebnis erzielt werden.
+            Trotzdem ist sich die Gruppe einig, bei zukünftigen Web-Projekten anders an den Frontend-Teil heranzugehen, indem eine einheitliche Adressierung und Arbeitsweise verwendet werden, um mögliche Probleme zu vermeiden.
         </p>
         <h2>Datenbank-Importskripte</h2>
         <p>
@@ -601,18 +610,7 @@
 
         </table>
 
-<!--        <h2>Aufteilung</h2>-->
-<!--        <p>-->
-<!--            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,-->
-<!--            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.-->
-<!--            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und-->
-<!--            Max befasst sich mit den Models und den Anpassungen der Datenbank.-->
-<!---->
-<!--            Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.-->
-<!--            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können-->
-<!--            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.-->
-<!--        </p>-->
-<!--        <img src="../assets/documentation/MVC/ordnerstruktur.png">-->
+
     </div>
 </section>
 
