@@ -610,18 +610,7 @@
 
         </table>
 
-<!--        <h2>Aufteilung</h2>-->
-<!--        <p>-->
-<!--            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,-->
-<!--            die Aufgaben unter uns zu verteilen. Trotzdem hat natürlich jeder überall mit am Code geschrieben oder Optimierungen vorgenommen.-->
-<!--            Robin kümmert sich um die Views, Dario und Hendrik haben die Controller untereinander aufgeteilt und-->
-<!--            Max befasst sich mit den Models und den Anpassungen der Datenbank.-->
-<!---->
-<!--            Während des Entwicklungsprozesses sind uns kleinere Fehler aufgefallen, bspw. in der Datenbankstruktur oder in den logischen Abläufen.-->
-<!--            In solchen Fällen wurde dann in der Gruppe oder mit dem Verantwortlichen Rücksprache gehalten, wie wir das Problem am besten lösen können-->
-<!--            und im Anschluss wurde sich an das Bugfixing begeben, teilweise zu zweit oder zu dritt oder manchmal auch alleine, wenn der Lösungsweg klar war.-->
-<!--        </p>-->
-<!--        <img src="../assets/documentation/MVC/ordnerstruktur.png">-->
+
     </div>
 </section>
 
