@@ -179,7 +179,7 @@
             Mittels dieser Suchkriterien gelangt der Nutzer in den Buchungsbereich. Wo er sich dafür entscheiden kann ein Objekt was ihm gefällt zu Buchen oder sich mehr Informationen zum Rental anzeigen zu lassen.
             (Diese Bereiche des Buchungsvorgangs decken wir mit unserer Website jedoch nicht ab).
         </p>
-        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/SitemapingForAGuest.png">
+        <img src="../assets/documentation/DB_Diagrams/SitemapingForAGuest.png">
         <p>
             Die gezeigte Sitemap stellt alle aufrufbaren Seiten aus der Sicht einen Guests dar und dient dazu einen Überblick der Navigationsstruktur bereitzustellen. Rot hinterlegte Seiten enthalten keine weitere Funktionalität, grün hinterlegte Seiten dagegen schon.
         </p>
