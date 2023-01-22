@@ -9,38 +9,45 @@
 
 
                 <h2>Adressinformationen</h2>
-                <input type="text" name="street" placeholder="Straße">
-                <input type="text" name="houseNumber" placeholder="Hausnummer">
-                <input type="text" name="zipCode" placeholder="PLZ">
-                <input type="text" name="city" placeholder="Stadt">
+
+                <label><input type="text" name="street" placeholder="Straße"></label>
+
+                <label><input type="text" name="houseNumber" placeholder="Hausnummer"></label>
+
+                <label> <input type="text" name="zipCode" placeholder="PLZ"></label>
+
+                <label> <input type="text" name="city" placeholder="Stadt"></label>
 
             </div>
 
             <div class="newRental-middle">
 
                 <h2>Objektinformationen</h2>
-                <select name="resort">
-                    <option value="Usedom">Usedom</option>
-                    <option value="Erfurt">Erfurt</option>
-                    <option value="Oberhof">Oberhof</option>
-                    <option value="Berchtesgaden">Berchtesgaden</option>
-                </select>
-                <input type="number" name="maxVisitors" placeholder="Maximale Besucherzahl">
-                <input type="number" name="bedroom" placeholder="Anzahl Schlafzimmer">
-                <input type="number" name="bathroom" placeholder="Anzahl Badezimmer">
-                <input type="number" name="sqrMeter" placeholder="Anzahl Quadratmeter">
-                <input type="file"   name="picture"  id="picture">
+                <label>
+                    <select name="resort">
+                        <option value="Usedom">Usedom</option>
+                        <option value="Erfurt">Erfurt</option>
+                        <option value="Oberhof">Oberhof</option>
+                        <option value="Berchtesgaden">Berchtesgaden</option>
+                    </select>
+                </label>
+                <label><input type="number" name="maxVisitors" placeholder="Maximale Besucherzahl"></label>
+                <label><input type="number" name="bedroom" placeholder="Anzahl Schlafzimmer"></label>
+                <label><input type="number" name="bathroom" placeholder="Anzahl Badezimmer"></label>
+                <label><input type="number" name="sqrMeter" placeholder="Anzahl Quadratmeter"></label>
+                <label><input type="file"   name="picture"  id="picture"></label>
 
 
             </div>
             <div class="newRental-right">
 
                 <h2>Objekt Spezialisierung</h2>
-                <select name="type">
-                    <option value="Apartment">Apartment</option>
-                    <option value="House">House</option>
-                </select>
-
+                <label>
+                    <select name="type">
+                        <option value="Apartment">Apartment</option>
+                        <option value="House">House</option>
+                    </select>
+                </label>
 
 
                 <fieldset>
@@ -49,16 +56,16 @@
                     <label for="balcony">Balkon</label>
                     <input type="radio" id="terrace" name="freeseat"  value="terrace">
                     <label for="terrace">Terrasse</label>
-                    <input type="radio" id="none" name="freeseat"  value="none">
+                    <label for="none"></label><input type="radio" id="none" name="freeseat" value="none">
                     <label for="terrace">Kein</label>
                 </fieldset>
 
                 <h3>Bei Apartments</h3>
-                <input type="number" name="rnumber" placeholder="Zimmernummer">
-                <input type="number" name="floor" placeholder="Etage">
+                <label><input type="number" name="rnumber" placeholder="Zimmernummer"></label>
+                <label><input type="number" name="floor" placeholder="Etage"></label>
 
                 <h3>Bei Häusern</h3>
-                <input type="number" name="kitchen" placeholder="Anzahl Küchen">
+                <label><input type="number" name="kitchen" placeholder="Anzahl Küchen"></label>
 
 
 
