@@ -178,6 +178,10 @@
             Mittels dieser Suchkriterien gelangt der Nutzer in den Buchungsbereich. Wo er sich dafür entscheiden kann ein Objekt was ihm gefällt zu Buchen oder sich mehr Informationen zum Rental anzeigen zu lassen.
             (Diese Bereiche des Buchungsvorgangs decken wir mit unserer Website jedoch nicht ab).
         </p>
+        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/SitemapingForAGuest.png">
+        <p>
+            Die gezeigte Sitemap stellt alle aufrufbaren Seiten aus der Sicht einen Guests dar und dient dazu einen Überblick der Navigationsstruktur bereitzustellen. Rot hinterlegte Seiten enthalten keine weitere Funktionalität, grün hinterlegte Seiten dagegen schon.
+        </p>
 
     </div>
 </section>
@@ -495,8 +499,8 @@
 
         <p>
             In der folgenden Tabelle sind die Tätigkeiten der einzelnen Gruppenmitglieder und deren Zeitaufwand aufgelistet.
-            Ein großteil der gelisteten Elemente verliefen Parallel. Deshalb konnte der zeitliche Aufwand nur grob aufgenommen werden.
-            Auch die Grenzen der Zuständigkeit verschwimmt, da sich alle Gruppenmitglieder gegenseitig unterstützten.
+            Ein Großteil der gelisteten Elemente verliefen Parallel. Deshalb konnte der zeitliche Aufwand nur grob aufgenommen werden.
+            Auch die Grenzen der Zuständigkeit verschwimmen, da sich alle Gruppenmitglieder gegenseitig unterstützten.
         </p>
         <br/><br/>
 
@@ -579,7 +583,10 @@
                             <li>deleteEmployee</li>
                             <li>deletePersonMode</li>
                             <li>getAddressFromRental</li>
-                        </ul></td>  <td>Max Schelenz</td> <td></td></tr>
+                        </ul></td>          <td>Max Schelenz</td>       <td>3 Wochen</td></tr>
+                <tr><td>Bearbeitung der Datenbankdateien</td>   <td>Max Schelenz</td>   <td>2.5 Wochen</td></tr>
+                <tr><td>Programmierung Grunddesign Documentation</td>   <td>Max Schelenz</td>   <td>1 Woche</td></tr>
+                <tr><td>Design der Documentation Diagramme</td> <td>Max Schelenz</td> <td>1.5 Wochen</td></tr>
                 </tbody>
 
 

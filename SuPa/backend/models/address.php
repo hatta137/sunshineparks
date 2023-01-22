@@ -79,7 +79,9 @@ class Address extends Model {
      * @return Address|null The Address object if it is found, or null if it is not found.
      */
     public static function findByValues(string $Street, string $HNumber, string $ZipCode, string $City, string $State): ?Address{
+
         $db = getDB();
+
         try {
             $stmt = $db->prepare('SELECT AddrID FROM ADDR WHERE Street = ? AND HNumber = ? AND ZipCode = ? AND City = ? AND State = ?');
             $stmt->execute([$Street, $HNumber, $ZipCode, $City, $State]);
