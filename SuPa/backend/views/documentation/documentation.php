@@ -339,7 +339,7 @@
 <section id="roleMod" class="odd">
     <div>
         <h1>Rollenmodell</h1>
-        <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.png" alt="Rollen- und Rechtematrix">
+        <img src="../assets/documentation/DB_Diagrams/RollenRechteMatrix.png" alt="Rollen- und Rechtematrix">
         <p>
             Die Rollen-Rechte-Matrix zeigt die 8 verschiedenen Modes, die unser System benötigt.
             Admin, Cleaning, Maintenance, Manager, Rental, Booking, Guest und Viewer.
