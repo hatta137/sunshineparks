@@ -245,7 +245,7 @@
         </p>
         <h2>registration</h2>
         <p>
-            Das Registrierungsformular ist ähnlich wie das Loginformular aufgebaut. Die Eingabefälder sind nach Kategorie in Containern (InputBox) sortiert.
+            Das Registrierungsformular ist ähnlich wie das Loginformular aufgebaut. Die Eingabefelder sind nach Kategorie in Containern (InputBox) sortiert.
             Durch die flex-wrap Eigenschaften sind die Container im Desktop-Vollbild nebeneinander und in der mobilen Ansicht untereinander angereiht.
             Unterhalb gibt es die Möglichkeit über einen Button zum Login zu wechseln.
         </p>
@@ -464,7 +464,7 @@
             deren Elemente. Das hatte zur Folge, dass der CSS-Code immer wieder unvorhergesehene Dinge bewirkte. Erst mit der Neuaufteilung
             der Gruppe (durch MVC) hat sich ausschließlich Robin Harris um das Frontend Design und die optische Anpassung der Views gekümmert.
             Mit dieser Zuteilung und einigen Änderungen am CSS-Code konnte ein optisch überzeugendes Auftreten umgesetzt werden.
-            Dennoch ist sich unserer Gruppe einig, bei einem nächsten Web-Projekt anders an den Frontend-Part heranzugehen. Eine einheitliche
+            Dennoch ist sich unsere Gruppe einig, bei einem nächsten Web-Projekt anders an den Frontend-Part heranzugehen. Eine einheitliche
             Adressierung und das Arbeiten nach dieser Vorgabe sollte in Zukunft viel Trouble-Shooting ersparen.
         </p>
         <h2>Datenbank-Importskripte</h2>
@@ -595,6 +595,7 @@
                 <tr><td>Programmierung Grunddesign Documentation</td>   <td>Max Schelenz</td>   <td>1 Woche</td></tr>
                 <tr><td>Design der Documentation Diagramme</td> <td>Max Schelenz</td> <td>1.5 Wochen</td></tr>
                 <tr><td>Umbau MVC-Pattern Models</td><td>Max Schelenz</td><td>3 Wochen</td></tr>
+                <tr><td>Troubleshooting Datenbank/Models</td>   <td>Max Schelenz</td>   <td>2 Wochen</td></tr>
                 </tbody>
 
 
