@@ -10,7 +10,7 @@ class RegistrationController extends Controller{
 
     public function logicAddPerson(){
         if($_POST['pwd']===$_POST['pwdrepeat']) {
-            if(Permission::checkForRegistration()) {
+            if(Permission::checkForRegistration($_POST['mode'])) {
                 $person = Person::newPerson($_POST['fname'], $_POST['lname'], $_POST['birthdate'], $_POST['phone'], $_POST['mail'], $_POST['acctype'], password_hash($_POST['pwd'], PASSWORD_DEFAULT), $_POST['street'], $_POST['housenumber'], $_POST['zipcode'], $_POST['city'], $_POST['country'], $_POST['mode']);
                 $_SESSION['person'] = $person->PersonID;
                 $personMode = $person->getPersonModeID();
