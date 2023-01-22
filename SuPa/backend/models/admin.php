@@ -27,6 +27,7 @@ class Admin extends Model {
         return new Admin($row['AdminID']);
     }
 
+    //TODO Comments
     public function delete($PersonID) : bool {
 
         try {

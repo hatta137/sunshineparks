@@ -452,19 +452,68 @@
 
 <!--        Tabelle mit Tätigkeit / zuständiger Person / benötigtem Aufwand-->
 
+        <p>
+            In der folgenden Tabelle sind die Tätigkeiten der einzelnen Gruppenmitgliedern und deren Zeitaufwand aufgelistet.
+            Ein großteil der gelisteten Elemente verliefen Parallel. Deshalb konnte der zeitliche Aufwand nur grob aufgenommen werden.
+            Auch die Grenzen der Zuständigkeit verschwimmt, da sich alle Gruppenmitglieder gegenseitig unterstützten.
+        </p>
         <table>
             <thead>
                 <tr><th>Tätigkeit</th>  <th>Zuständige Person</th>  <th>Benötigter Aufwand</th></tr>
             </thead>
             <tbody>
-                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
-                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
-                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
-                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
-                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
-                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
-                <tr><td>Ideen-Sammlung</td>komplette Gruppe<td>     </td>1.5 Wochen<td></td></tr>
+                <tr><td>Ideen-Sammlung</td>                     <td>komplette Gruppe   </td>        <td>1.5 Wochen</td></tr>
+                <tr><td>Entwurf Mockups</td>                    <td>komplette Gruppe   </td>        <td>1 Woche</td></tr>
+                <tr><td>Zeitplanung + Gantt</td>                    <td>komplette Gruppe   </td>        <td>0.5 Wochen</td></tr>
+                <tr><td>Programmierung Grundlayout</td>         <td>Hendrik Lendeckel   </td>       <td>1 Woche</td></tr>
+                <tr><td>Programmierung Log-In Page</td>         <td>Robin Harris</td>               <td>0.5 Wochen</td></tr>
+                <tr><td>Programmierung Account-Pages</td>       <td>Hendrik Lendeckel  </td>        <td>0.5 Wochen</td></tr>
+                <tr><td>Programmierung All Rental Page</td>     <td>Hendrik Lendeckel   </td>       <td>0.5 Wochen</td></tr>
+                <tr><td>Umsetzung MVC-Pattern</td>              <td>Hendrik Lendeckel  </td>        <td>3 Wochen</td></tr>
+                <tr><td>Programmierung Rental-Controller</td>   <td>Hendrik Lendeckel   </td>       <td>1 Woche</td></tr>
+                <tr><td>Programmierung Admin-Controller</td>    <td>Hendrik Lendeckel  </td>        <td>1 Woche</td></tr>
+                <tr><td>Programmierung Views: <ul>
+                            <li>admin</li>
+                            <li>booking</li>
+                            <li>editEmployee</li>
+                            <li>showEmployee</li>
+                            <li>updatedEmployee</li>
+                            <li>documentation</li>
+                            <li>footer</li>
+                            <li>header</li>
+                            <li>home</li>
+                            <li>imprint</li>
+                            <li>privacy</li>
+                            <li>addNewRental</li>
+                            <li>newRental</li>
+                            <li>showRental</li>
+                        </ul></td>                    <td>Hendrik Lendeckel  </td>        <td>1 Woche</td></tr>
 
+                <tr><td>Programmierung Model Functions: <ul>
+                            <li>findByPersonID</li>
+                            <li>updateAddress</li>
+                            <li>findByRentalId</li>
+                            <li>getResort</li>
+                            <li>getAllEmployees</li>
+                            <li>updateEmp</li>
+                            <li>findByRentalId</li>
+                            <li>getModeIDFromJob</li>
+                            <li>updatePerson</li>
+                            <li>updateModeID</li>
+                            <li>getRentalPicturePath</li>
+                            <li>getAllRental</li>
+                            <li>getRentalType</li>
+                            <li>findRentalsByFilter</li>
+                            <li>getResortIdByResortName</li>
+                            <li>getNumberOfKitchen</li>
+                            <li>getTypeOfRentalOutdoorSeating</li>
+                            <li>newRental</li>
+                            <li>getChildClass</li>
+                            <li>getMoreRentalsThen</li>
+                            <li>getResortNameByID</li>
+                            <li>getResortIDByName</li>
+                        </ul></td>   <td>Hendrik Lendeckel   </td>       <td>1 Woche</td></tr>
+                <tr><td>Datenbank Änderungen (neue Tabellen)</td>    <td>Hendrik Lendeckel & Max Schelenz </td>        <td>2 Woche</td></tr>
             </tbody>
 
 

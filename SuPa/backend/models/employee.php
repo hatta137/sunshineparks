@@ -122,6 +122,7 @@ class Employee extends Model
 
     }
 
+    //TODO Comments
     public function delete($PersonID) : bool {
 
         try {
