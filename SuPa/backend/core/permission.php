@@ -64,4 +64,12 @@ class Permission
         return true;
     }
 
+    public static function checkForLogin(int $modeID, string $loginType) :bool{
+        if ($modeID == 7 && $loginType != "guest") {
+            return false;
+        } else if (($modeID < 7 && $modeID > 0) && $loginType != "intern") {
+            return false;
+        }else return true;
+    }
+
 }

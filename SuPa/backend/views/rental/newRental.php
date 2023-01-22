@@ -1,6 +1,6 @@
 <section class="newRental">
 
-    <form action="index.php?page=rental&view=addNewRental" method="post">
+    <form action="index.php?page=rental&view=addNewRental" method="post" enctype="multipart/form-data">
         <div class="row">
             <h1>Ein neues Objekt anlegen</h1>
         </div>
@@ -29,6 +29,7 @@
                 <input type="number" name="bedroom" placeholder="Anzahl Schlafzimmer">
                 <input type="number" name="bathroom" placeholder="Anzahl Badezimmer">
                 <input type="number" name="sqrMeter" placeholder="Anzahl Quadratmeter">
+                <input type="file"   name="picture"  id="picture" placeholder="Object Foto">
 
 
             </div>
@@ -43,10 +44,13 @@
 
 
                 <fieldset>
+                    <p>Freisitz:</p>
                     <input type="radio" id="balcony" name="freeseat" placeholder="Balkon" value="balcony">
                     <label for="balcony">Balkon</label>
                     <input type="radio" id="terrace" name="freeseat" placeholder="Terrasse" value="terrace">
-                    <label for="terrace">Terasse</label>
+                    <label for="terrace">Terrasse</label>
+                    <input type="radio" id="none" name="freeseat" placeholder="Kein" value="none">
+                    <label for="terrace">Kein</label>
                 </fieldset>
 
                 <h3>Bei Apartments</h3>
@@ -55,6 +59,8 @@
 
                 <h3>Bei Häusern</h3>
                 <input type="number" name="kitchen" placeholder="Anzahl Küchen">
+
+
 
 
             </div>
