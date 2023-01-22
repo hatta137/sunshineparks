@@ -38,3 +38,13 @@
 }
 
 #docTable tr:hover {background-color: rgba(0, 0, 0, 0.19);}
+
+
+.documentation p{
+    text-align: justify;
+}
+
+.documentation img{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+ }
