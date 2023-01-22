@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/../models/person.php';
+require_once __DIR__.'/../models/booking.php';
 
 
 
@@ -24,6 +25,7 @@ class AccountController extends Controller {
      */
     public function actionDeletedPerson(){
         $person = new Person($_SESSION['person']);
+        if($person->AccountType == "G") Booking::delete(Guest::findByPersonId($person->PersonID)->GuestID);
         $person->getChildClass()->delete($_SESSION['person']);
         Personmode::deletePersonMode($_SESSION['person']);
         Person::deletePerson($_SESSION['person']);
