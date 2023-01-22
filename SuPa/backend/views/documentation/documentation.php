@@ -116,7 +116,7 @@
         <h3>1. airbnb</h3>
         <p><a href="https://www.airbnb.de/" target=”_blank”>Link zur Website airbnb</a></p>
         <p>An der airbnb-Website hat uns das Design der einzelnen Unterkünfte und deren Anordnung (Kacheln) sehr gut gefallen.
-        Des Weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
+        Des weiteren fanden wir das minimalistische Design ansprechend und waren vom responsive-Design überzeugt.</p>
         <img src="../assets/documentation/Pictures/airbnb.png" alt="Airbnb-Website" width="75%">
 
 
@@ -300,20 +300,15 @@
         <h1>ER-Modell</h1>
         <img class="AutoWidth" src="../assets/documentation/DB_Diagrams/svg_ERMv12.drawio.svg" alt="Entity-Relationship-Modell">
         <p>
-        Unser ER-Modell ist zur besseren Differenzierung und Zuordnung der Tabellen farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt.
-        Accountverwaltung/Administration, Buchungsverwaltung und Objektverwaltung sind die Bestandteile unseres Scopes.
-        STRUCCHANGE,CRAFTSERVICE, MAINTENACE und CLEANING sind Teil unseres Kontexts.
-
-        Das abgebildete ER-Modell war zu Beginn deutlich einfacher gehalten, aber während der Projektarbeit ist uns aufgefallen, dass eine genaue Übernahme unseres Datenbankmodells
-        aus dem vorherigen Modul DB2 nicht möglich ist. Immer wieder kam es zu strukturellen Veränderung in der Datenbank, um die Abläufe realisieren zu können oder
-        wir haben die Tabellen optimiert, um die Programmlogik realisieren zu können. Hier wäre der PasswordHash oder der AccountType in PERSON zu nennen.
-        In vorherigen Versionen hatten wir den PasswordHash noch in den ChildTabellen EMP, GUEST und ADMIN untergebracht, was wir dann im weiteren Versionsverlauf verbessert haben.
-
-        PERSONMODE und MODE wurden durch den Registrierungs- und Authentifizierungsbereich benötigt. Dieser lag im zweiten Semester noch außerhalb unseres Scopes und musste nun
-        ergänzt werden. Die Erstellung der Rollen- und Rechte Matrix, sowie die paralellen Anpassungen der csv_Imports und des Tabellenmodells sind weitere immer wiederkehrende
-        Arbeitsschritte in unserem Projekt.
-
-        CRAFTSERVICE, STRUCCHANGE, CLEANING und MAINTENANCE sind Relikte des zweiten Semesters und befinden sich nicht in unserem Scope.
+            Unser ER-Modell ist farblich in die verschiedenen Hauptbereiche unserer Webseite unterteilt, um die Tabellen besser zu differenzieren und zuzuordnen.
+            Die Bereiche Accountverwaltung/Administration, Buchungsverwaltung und Objektverwaltung sind Bestandteile unseres Projekts.
+            STRUCCHANGE, CRAFTSERVICE, MAINTENANCE und CLEANING sind Teil unseres Kontexts.
+            Das ER-Modell war am Anfang einfacher gehalten, aber während der Projektarbeit haben wir festgestellt, dass eine genaue Übernahme des Datenbankmodells aus dem vorherigen Modul DB2 nicht möglich war.
+            Es kam immer wieder zu strukturellen Veränderungen in der Datenbank, um die Abläufe zu realisieren oder wir haben die Tabellen optimiert, um die Programmlogik zu realisieren.
+            Hierbei sind der PasswordHash oder der AccountType in der Tabelle PERSON zu nennen.
+            Personmode und Mode wurden durch den Registrierungs- und Authentifizierungsbereich benötigt, der im vorherigen Semester noch außerhalb unseres Scopes lag und nun ergänzt werden musste.
+            Die Erstellung der Rollen- und Rechte-Matrix sowie die parallelen Anpassungen der CSV-Imports und des Tabellenmodells sind weitere immer wiederkehrende Arbeitsschritte in unserem Projekt.
+            CRAFTSERVICE, STRUCCHANGE, CLEANING und MAINTENANCE sind Relikte des 2.Semesters und befinden sich nicht in unserem Scope.
         </p>
     </div>
 </section>
@@ -361,27 +356,26 @@
         <h2>Login und Registrierung</h2>
         <img class="AutoWidth" src="../assets/documentation/FlowCharts/Login_Registration.drawio.png" alt="Flussbilddiagramm des Logins und der Registrierung">
         <p>
-            Der Besucher der Webseite hat die Möglichkeit im Falle, dass er noch kein Nutzerkonto erstellt hat dieses über das Registrierungsformular vorzunehmen.
-            Im Anschluss eine erfolgreiche Registrierung ist der Nutzer dann direkt mit dem Konto angemeldet.
-            Sollte bereits ein Konto bestehen wird dies entweder direkt durch einen lokal gespeicherten Cookie erkannt und zugeordnet oder der Nutzer kann sich mit seinen Zugangsdaten im Login anmelden.
-            In beiden Fällen erhalten die Nutzer ein Feedback, indem im rechten oberen Bereich der Navbar "Hallo, VornameXY" angezeigt wird.
+            Der Besucher der Webseite hat die Möglichkeit, über das Registrierungsformular ein Nutzerkonto zu erstellen, falls er noch keines hat.
+            Nach erfolgreicher Registrierung ist der Nutzer direkt mit seinem Konto angemeldet.
+            Wenn bereits ein Konto vorhanden ist, wird dies entweder durch einen lokal gespeicherten Cookie erkannt und zugeordnet oder der Nutzer kann sich mit seinen Zugangsdaten im Login anmelden.
+            In beiden Fällen erhält der Nutzer ein Feedback, indem im rechten oberen Bereich der Navbar "Hallo, -Vorname- " angezeigt wird.
         </p>
 
         <h2>Buchungsvorgang und Objektsuche</h2>
         <img class="AutoWidth" src="../assets/documentation/FlowCharts/Buchungsvorgang_Objektsuche.drawio.png" alt="Flussbilddiagramm des Buchungsvorgangs und der Objektsuche">
         <p>
-            Ein Besucher der SunshineParks Webseite kann sich mit Hilfe der Filterbox auf der home.php einen Überblick über die Objekte unserer Ferienresorts verschaffen.
-            Hierzu hat er die Möglichkeit die vorgegebenen Suchkriterien zu nutzen oder sich alle buchbaren Objekte anzeigen zu lassen.
-            Daraufhin folgt eine Auflistung der gefilterten Rentals, die dann gebucht werden oder bei Interesse weitere Informationen angezeigt werden können.
-            Diesen "Kaufvorgang" decken wir in unserem Projekt jedoch nicht weiter ab.
+            Ein Besucher der SunshineParks-Webseite kann sich mithilfe der Filterbox auf der Startseite (home.php) einen Überblick über die verfügbaren Unterkünfte in unseren Ferienresorts verschaffen.
+            Hier hat er die Möglichkeit, die vorgegebenen Suchkriterien zu nutzen oder sich alle verfügbaren Unterkünfte anzeigen zu lassen.
+            Es folgt eine Auflistung der gefilterten Unterkünfte, die dann gebucht werden können oder bei Interesse weitere Informationen angezeigt werden können.
+            Der tatsächliche Buchungsvorgang wird in unserem Projekt jedoch nicht weiter abgedeckt.
         </p>
         <h2>Administration und Accountverwaltung</h2>
         <img class="AutoWidth" src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
         <p>
-            Um auf die Funktionen der Administration/Accountverwaltung zuzugreifen muss sich der Nutzer anmelden und im Anschluss mit den seinem Account zugewiesenen Berechtigungen den Accountbereich aufrufen.
-            Dementsprechend hat er dort dann Zugriff auf die verschiedenen Funktionalitäten, indem er die jeweiligen Buttons betätigt.
-            In dem FlowChart-Diagramm sind die auch wirklich funktional hinterlegten Buttons unseres Systems grün gekennzeichnet.
-            Funktional nicht hinterlegte Buttons wiederum sind rot markiert - diese decken wir mit unserem System derzeit noch NICHT ab.
+            Um auf die Funktionen der Administration/Accountverwaltung zugreifen zu können, muss sich der Nutzer anmelden und danach, je nach seinen Zugriffsrechten, den Accountbereich aufrufen.
+            Er hat dann Zugriff auf die verschiedenen Funktionalitäten, indem er die jeweiligen Buttons auswählt.
+            Im FlowChart-Diagramm sind die funktional verfügbaren Buttons grün markiert, während die nicht verfügbaren Buttons rot gekennzeichnet sind und momentan noch nicht von unserem System unterstützt werden.
         </p>
     </div>
 </section>
@@ -397,29 +391,23 @@
         <h1>Architektur</h1>
 
         <p>
-            Bei diesem Projekt wurde das MVC Pattern verwendet, um die Navigation und die Anzeige von Inhalten zu steuern.
-            Der Controller-Name (page), Action-Name (view) und Logic-Name (logic) werden aus der URL mithilfe der $_GET[ ]-Variable gelesen.
-            Diese drei Parameter bestimmen welche View mit welchen Informationen gerendert wird. Wenn diese Werte nicht zugeordnet
-            werden können, wird eine Fehlerseite aufgerufen. Wenn kein Wert angegeben wird, wird der Benutzer immer zur
-            Startseite (home.php) weitergeleitet. Zusätzlich wird vor dem Aufruf einer Seite ein Permission-Check durchgeführt,
-            um sicherzustellen, dass der Benutzer das Recht hat, diese Seite anzuzeigen. Dies ist besonders wichtig, da es einen
-            internen Bereich gibt, der nur von Mitarbeitern und Administratoren besucht werden darf.
+            Bei diesem Projekt wurde das MVC-Muster verwendet, um die Navigation und die Anzeige von Inhalten zu steuern.
+            Der Controller-Name (page), Action-Name (view) und Logic-Name (logic) werden aus der URL mithilfe der $_GET[ ]-Variable gelesen. Diese drei Parameter bestimmen, welche View mit welchen Informationen gerendert wird.
+            Wenn diese Werte nicht zugeordnet werden können, wird eine Fehlerseite aufgerufen. Wenn kein Wert angegeben wird, wird der Benutzer immer zur Startseite (home.php) weitergeleitet.
+            Ein Permission-Check wird vor dem Aufruf einer Seite durchgeführt, um sicherzustellen, dass der Benutzer das Recht hat, diese Seite anzuzeigen, insbesondere im internen Bereich, der nur von Mitarbeitern und Administratoren besucht werden darf.
         </p>
         <br>
         <p>
-            Die meiste Logik wird in den Controllern verarbeitet. Die Models dienen als Abbilder der Datenbanktabellen und übernehmen die
-            Lese- und Schreibzugriffe auf diese. Sie stellen zudem Funktionen bereit, die von den Controllern genutzt werden, um einfachen
-            Zugriff auf die Daten zu ermöglichen. Die Controller übergeben den Views die Informationen als Array von Parametern.
-            In den Views wird die Darstellung dargestellt und die Informationen werden aus den Array-Parametern mithilfe von
-            PHP-For-Schleifen iteriert.
+            Die meiste Logik wird in den Controllern verarbeitet, während die Models als Abbilder der Datenbanktabellen dienen und die Lese- und Schreibzugriffe auf diese übernehmen.
+            Sie stellen auch Funktionen bereit, die von den Controllern genutzt werden, um einen einfachen Zugriff auf die Daten zu ermöglichen. Die Controller übergeben die Informationen an die Views als Array von Parametern.
+            In den Views wird die Darstellung dargestellt und die Informationen werden mithilfe von PHP-For-Schleifen aus den Array-Parametern iteriert.
         </p>
         <br>
         <p>
-            In den Grafiken ist dargestellt, welche Views, Controller und Models zusammenwirken und welche Datenbanken zum
-            Lesen und Schreiben von Informationen verwendet werden. Im Projekt wurde darauf geachtet, dass alle Datenbankzugriffe
-            dem CRUD-Prinzip (Create, Read, Update, Delete) entsprechen. Das Erstellen von Daten wurde mit dem Bereich der
-            Registrierung abgedeckt, das Lesen von Daten nimmt den größten Teil ein und ist in jedem Model implementiert.
-            Das Updaten von Daten wurde mit der Funktion editEmployee umgesetzt und Gäste können ihren Account mit der Löschfunktion löschen.
+            In den Grafiken wird dargestellt, wie die Zusammenarbeit von Views, Controllern und Models sowie die Verwendung von Datenbanken zum Lesen und Schreiben von Informationen aussehen.
+            Im Projekt wurde sichergestellt, dass alle Datenbankzugriffe dem CRUD-Prinzip (Create, Read, Update, Delete) entsprechen.
+            Das Erstellen von Daten wurde durch die Registrierungsfunktion abgedeckt, das Lesen von Daten nimmt den größten Teil ein und ist in jedem Model implementiert.
+            Das Aktualisieren von Daten wurde durch die Funktion "editEmployee" umgesetzt und Gäste können ihr Konto mit der Löschfunktion löschen.
         </p>
 
         <h2>Rental</h2>
@@ -474,24 +462,19 @@
 
         <h2>MVC-Pattern</h2>
         <p>
-            Die größte Herausforderung bei diesem Projekt war die Implementierung des MVC Patterns. Unser Projekt war vorher statisch
-            und nur nach html-Seiten unterteilt. Aufgrund unseres Mangels an Erfahrung mit solchen Programmier-Patterns musste unsere
-            Gruppe die Umsetzung von Anfang an erlernen, was zu Verzögerungen in unserer Zeitplanung führte. Durch mehrere Programmier-Sprints
-            und viel Selbststudium konnten wir das MVC-Pattern schlussendlich implementieren und gleichzeitig die Funktionen der Seiten
-            programmieren. Dieses Pattern hat uns schlussendlich dabei geholfen, die Arbeit unter den Gruppenmitgliedern zu verteilen
-            und komplexe Probleme durch deren Zerteilung zu lösen.
+            Die größte Herausforderung bei diesem Projekt war die Implementierung des MVC-Patterns, da unser Projekt zuvor statisch und nur nach HTML-Seiten unterteilt war.
+            Unsere Gruppe musste aufgrund unseres Mangels an Erfahrung mit diesem Programmier-Pattern von Anfang an lernen, wie man es umsetzt, was zu Verzögerungen in der Zeitplanung führte.
+            Durch mehrere Programmier-Sprints und viel Selbststudium konnten wir das MVC-Pattern schließlich erfolgreich implementieren und gleichzeitig die Funktionen der Seiten programmieren.
+            Dieses Pattern hat uns geholfen, die Arbeit unter den Gruppenmitgliedern besser zu verteilen und komplexe Probleme durch deren Zerteilung zu lösen.
         </p>
 
         <h2>CSS</h2>
         <p>
-            Zu Beginn des Projektes wurden von allen Gruppenmitgliedern mehrere Entwürfe der Seiten gezeichnet und teilweise wurden diese
-            Mockups auch programmiert. Das finale Design wurde aus diesen Stücken zusammengestellt. Es wurde sich auch an anderen Websites
-            und Tutorials orientiert. So entstanden pro Mitglied unterschiedliche herangehensweisen an das Adressieren der HTML Sectionen und
-            deren Elemente. Das hatte zur Folge, dass der CSS-Code immer wieder unvorhergesehene Dinge bewirkte. Erst mit der Neuaufteilung
-            der Gruppe (durch MVC) hat sich ausschließlich Robin Harris um das Frontend Design und die optische Anpassung der Views gekümmert.
-            Mit dieser Zuteilung und einigen Änderungen am CSS-Code konnte ein optisch überzeugendes Auftreten umgesetzt werden.
-            Dennoch ist sich unsere Gruppe einig, bei einem nächsten Web-Projekt anders an den Frontend-Part heranzugehen. Eine einheitliche
-            Adressierung und das Arbeiten nach dieser Vorgabe sollte in Zukunft viel Trouble-Shooting ersparen.
+            Zu Beginn des Projekts erstellten alle Gruppenmitglieder mehrere Entwürfe der Seiten und einige dieser Mockups wurden sogar programmiert.
+            Das finale Design wurde aus diesen Stücken zusammengestellt und dabei wurden auch andere Websites und Tutorials als Inspiration genommen.
+            Dies führte dazu, dass jedes Mitglied unterschiedliche Ansätze bei der Adressierung der HTML-Sektionen und deren Elemente verwendete, was zu Problemen mit dem CSS-Code führte.
+            Erst durch die Neuaufteilung der Gruppe und die Zuteilung von Robin Harris als verantwortlichen für das Frontend-Design und die optische Anpassung der Views konnte ein optisch ansprechendes Ergebnis erzielt werden.
+            Trotzdem ist sich die Gruppe einig, bei zukünftigen Web-Projekten anders an den Frontend-Teil heranzugehen, indem eine einheitliche Adressierung und Arbeitsweise verwendet werden, um mögliche Probleme zu vermeiden.
         </p>
         <h2>Datenbank-Importskripte</h2>
         <p>
