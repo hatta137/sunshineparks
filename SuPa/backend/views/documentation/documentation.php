@@ -469,26 +469,10 @@
             Ein großteil der gelisteten Elemente verliefen Parallel. Deshalb konnte der zeitliche Aufwand nur grob aufgenommen werden.
             Auch die Grenzen der Zuständigkeit verschwimmt, da sich alle Gruppenmitglieder gegenseitig unterstützten.
         </p>
-
-        <table id="docTable">
-            <thead>
-                <tr><th>Tätigkeit</th>  <th>Zuständige Person</th>  <th>Benötigter Aufwand</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Ideen-Sammlung</td> <td>komplette Gruppe</td> <td>1 Woche</td></tr>
-                <tr><td>Grobes Design der Seiten</td> <td>komplette Gruppe</td> <td>1 Woche</td></tr>
-                <tr><td>Views schreiben</td> <td>Hendrik, Robin</td> <td>4 Wochen</td></tr>
-                <tr><td>Styling der Views</td> <td>Hendrik, Robin</td> <td>4 Wochen</td></tr>
-                <tr><td>Ideen-Sammlung</td> <td>komplette Gruppe</td> <td>1.5 Wochen</td></tr>
-                <tr><td>Ideen-Sammlung</td> <td>komplette Gruppe</td> <td>1.5 Wochen</td></tr>
-                <tr><td>Ideen-Sammlung</td> <td>komplette Gruppe</td> <td>1.5 Wochen</td></tr>
-                <tr><td>Ideen-Sammlung</td> <td>komplette Gruppe</td> <td>1.5 Wochen</td></tr>
-            </tbody>
+        <br/><br/>
 
 
-
-<!---
-            <table>
+            <table id="docTable">
                 <thead>
                 <tr><th>Tätigkeit</th>  <th>Zuständige Person</th>  <th>Benötigter Aufwand</th></tr>
                 </thead>
@@ -518,7 +502,16 @@
                             <li>addNewRental</li>
                             <li>newRental</li>
                             <li>showRental</li>
-                        </ul></td>                    <td>Hendrik Lendeckel  </td>        <td>1 Woche</td></tr>
+                        </ul></td>                              <td>Hendrik Lendeckel  </td>        <td>1 Woche</td></tr>
+
+                <tr><td>Programmierung Views: <ul>
+                            <li>authenticationGuest</li>
+                            <li>authenticationLogin</li>
+                            <li>registration</li>
+                            <li>header</li>
+                        </ul></td>                              <td>Robin Harris  </td>        <td>1 Woche</td></tr>
+
+                <tr><td>Styling der Views </td>                 <td>Robin Harris  </td>        <td>4 Woche</td></tr>
 
                 <tr><td>Programmierung Model Functions: <ul>
                             <li>findByPersonID</li>
@@ -549,7 +542,7 @@
 
 
         </table>
-        -->
+
 <!--        <h2>Aufteilung</h2>-->
 <!--        <p>-->
 <!--            Nach den Übungsstunden zum MVC Pattern haben wir uns gemeinschaftlich dafür entschieden,-->
