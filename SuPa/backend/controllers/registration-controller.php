@@ -4,9 +4,6 @@ require_once __DIR__.'/../controllers/authentication-controller.php';
 
 class RegistrationController extends Controller{
 
-    public function actionRegistration(){
-
-    }
 
     /**
      * Author Dario Dassler
