@@ -467,6 +467,12 @@
             Dennoch ist sich unserer Gruppe einig, bei einem nächsten Web-Projekt anders an den Frontend-Part heranzugehen. Eine einheitliche
             Adressierung und das Arbeiten nach dieser Vorgabe sollte in Zukunft viel Trouble-Shooting ersparen.
         </p>
+        <h2>Datenbank-Importskripte</h2>
+        <p>
+            Eine sehr große Herausforderung war es die Importskripte die wir für die Erstellung eines Datenbankbackups benötigen erfolgreich zu importieren.
+            Auf einer Windows Maschine kam es immer wieder zu Problemen mit Fremdschlüsseln oder eingetragenen Werten. Auf Linux hingegen liefen die erstellten Skripte einwandfrei durch und wir konnten das Datenbankbackup ohne jegliche Probleme erstellen.
+            So kam es dazu, dass sich zusätzlich noch mittels VirtualBox eine Linux-VM installiert wurde, um die Importskripts zuverlässig erstellen zu können.
+        </p>
     </div>
 </section>
 
@@ -588,6 +594,7 @@
                 <tr><td>Bearbeitung der Datenbankdateien</td>   <td>Max Schelenz</td>   <td>2.5 Wochen</td></tr>
                 <tr><td>Programmierung Grunddesign Documentation</td>   <td>Max Schelenz</td>   <td>1 Woche</td></tr>
                 <tr><td>Design der Documentation Diagramme</td> <td>Max Schelenz</td> <td>1.5 Wochen</td></tr>
+                <tr><td>Umbau MVC-Pattern Models</td><td>Max Schelenz</td><td>3 Wochen</td></tr>
                 </tbody>
 
 

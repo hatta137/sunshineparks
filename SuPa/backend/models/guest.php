@@ -55,7 +55,7 @@ class Guest extends Model {
 
             return true;
 
-        }catch (PDOException $e) {
+        }catch (Exception $e) {
             echo $e->getMessage();
         }
 
