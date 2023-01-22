@@ -421,13 +421,20 @@
         <img src="../assets/documentation/MVC/mvc-admin.png" alt="MVC-Admin">
 
         <h2>Authentication</h2>
-        <p>@Dario Bild einfügen</p>
+        <p>Nachfolgend sind die Zusammenhänge im Bereich Authentification dargestellt:</p>
+        <img src="../assets/documentation/MVC/mvc-authentication.png" alt="MVC-Authentification">
 
         <h2>Account</h2>
-        <p>@Dario Bild einfügen</p>
+        <p>Nachfolgend sind die Zusammenhänge im Bereich Account dargestellt:</p>
+        <img src="../assets/documentation/MVC/mvc-account.png" alt="MVC-Account">
 
         <h2>Registration</h2>
-        <p>@Dario Bild einfügen</p>
+        <p>Nachfolgend sind die Zusammenhänge im Bereich Registration dargestellt</p>
+        <img src="../assets/documentation/MVC/mvc-registration.png" alt="MVC-Registration">
+
+        <h2>Permission</h2>
+        <p>Nachfolgend sind die Zusammenhänge im Bereich Permissions dargestellt:</p>
+        <img src="../assets/documentation/MVC/mvc-permission.png" alt="MVC-Permissions">
 
         <h2>Documentation</h2>
         <p>
@@ -435,7 +442,7 @@
         </p>
 
         <h2>Error</h2>
-        <p>@Dario Bild einfügen</p>
+        <p>@Dario Text einfügen</p>
 
         <h2>Home</h2>
         <p>
@@ -480,9 +487,10 @@
         </p>
         <h2>Datenbank-Importskripte</h2>
         <p>
-            Eine sehr große Herausforderung war es die Importskripte die wir für die Erstellung eines Datenbankbackups benötigen erfolgreich zu importieren.
-            Auf einer Windows Maschine kam es immer wieder zu Problemen mit Fremdschlüsseln oder eingetragenen Werten. Auf Linux hingegen liefen die erstellten Skripte einwandfrei durch und wir konnten das Datenbankbackup ohne jegliche Probleme erstellen.
-            So kam es dazu, dass sich zusätzlich noch mittels VirtualBox eine Linux-VM installiert wurde, um die Importskripts zuverlässig erstellen zu können.
+            Eine große Herausforderung war es, die Importskripte für die Erstellung eines Datenbankbackups erfolgreich zu importieren.
+            Auf einer Windows-Maschine gab es immer wieder Probleme mit Fremdschlüsseln oder eingetragenen Werten.
+            Auf Linux hingegen liefen die erstellten Skripte problemlos und wir konnten das Datenbankbackup ohne Schwierigkeiten erstellen.
+            Daher musste zusätzlich eine Linux-VM mittels VirtualBox installiert werden, um die Importskripts zuverlässig erstellen zu können.
         </p>
     </div>
 </section>
@@ -607,6 +615,7 @@
                 <tr><td>Design der Documentation Diagramme</td> <td>Max Schelenz</td> <td>1.5 Wochen</td></tr>
                 <tr><td>Umbau MVC-Pattern Models</td><td>Max Schelenz</td><td>3 Wochen</td></tr>
                 <tr><td>Troubleshooting Datenbank/Models</td>   <td>Max Schelenz</td>   <td>2 Wochen</td></tr>
+                <tr></tr>
                 </tbody>
 
 
