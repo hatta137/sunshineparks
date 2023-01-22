@@ -12,3 +12,29 @@
 .odd a{
     color: #222
 }
+
+#docTable {
+    border-collapse: collapse;
+    font-size: 10rem;
+
+}
+
+#docTable td, #docTable th {
+    border: 1px solid #ddd;
+    padding: 0 1rem 0 1rem;
+}
+
+
+#docTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #46A998;
+    color: white;
+}
+
+#docTable input{
+    width: 100%;
+}
+
+#docTable tr:hover {background-color: rgba(0, 0, 0, 0.19);}

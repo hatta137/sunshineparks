@@ -39,7 +39,7 @@ a:hover {
     color: #48AC98;
     transition: all 0.5s ease-in;
 }
-h1,h2,h3{
+h1,h2,h3,h4{
     margin: 1.6rem 0;
 }
 
@@ -55,6 +55,12 @@ h3{
     font-weight: 800;
     font-size: 1.8rem;
 }
+
+h4{
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
 p{
     font-weight: 400;
     font-size: 1.8rem;
@@ -62,6 +68,12 @@ p{
 img{
     width: 100%;
 }
+
+#AutoWidth{
+    width:auto;
+    padding: 1rem 0 1rem 0 ;
+}
+
 .row{
     display: flex;
     justify-content: space-between;
