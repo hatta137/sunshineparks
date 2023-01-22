@@ -7,7 +7,7 @@ class Admin extends Model {
         parent::__construct("ADMIN", "AdminID", $adminID);
     }
 
-    // TODO Try Catch
+
     /**
      * Author: Max Schelenz
      * Finds a admin object by its personid.
@@ -15,16 +15,24 @@ class Admin extends Model {
      * @return Admin|null The admin object if it is found, or null if it is not found.
      */
     public static function findByPersonID($personId) : ?Admin {
-        $db = getDB();
-        $stmt = $db->prepare('SELECT AdminID FROM ADMIN WHERE PersonID = ?');
-        $stmt->execute([$personId]);
-        $row = $stmt->fetch();
 
-        if (!$row) {
-            return null;
+        $db = getDB();
+
+        try{
+            $stmt = $db->prepare('SELECT AdminID FROM ADMIN WHERE PersonID = ?');
+            $stmt->execute([$personId]);
+            $row = $stmt->fetch();
+
+            if (!$row) {
+                return null;
+            }
+
+        }catch(Exception $e) {
+            echo $e->getMessage();
         }
 
         return new Admin($row['AdminID']);
+
     }
 
 
@@ -50,6 +58,8 @@ class Admin extends Model {
         }catch (PDOException $e) {
             echo $e->getMessage();
         }
+
         return false;
+
     }
 }
