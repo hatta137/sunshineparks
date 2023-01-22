@@ -8,7 +8,7 @@ class Address extends Model {
     }
 
     /***
-     * Autor Hendrik Lendeckel
+     * Author Hendrik Lendeckel
      * This function returns the appropriate address for the person using the PersonID.
      * @param $personID
      * @return Address|null
@@ -67,7 +67,6 @@ class Address extends Model {
 
 
 
-    // TODO Try Catch
     /**
      * Author: Max Schelenz
      * Finds an address object by its street, house number, zip code, city, and state.
@@ -79,16 +78,20 @@ class Address extends Model {
      *
      * @return Address|null The Address object if it is found, or null if it is not found.
      */
-    public static function findByValues(string $Street, string $HNumber, string $ZipCode, string $City, string $State): ?Address {
+    public static function findByValues(string $Street, string $HNumber, string $ZipCode, string $City, string $State): ?Address{
         $db = getDB();
+        try {
+            $stmt = $db->prepare('SELECT AddrID FROM ADDR WHERE Street = ? AND HNumber = ? AND ZipCode = ? AND City = ? AND State = ?');
+            $stmt->execute([$Street, $HNumber, $ZipCode, $City, $State]);
+            $row = $stmt->fetch();
 
-        $stmt = $db->prepare('SELECT AddrID FROM ADDR WHERE Street = ? AND HNumber = ? AND ZipCode = ? AND City = ? AND State = ?');
-        $stmt->execute([$Street, $HNumber, $ZipCode, $City, $State]);
-        $row = $stmt->fetch();
+            if (!$row) {
+                return null;
+            }
 
-        if (!$row) {
-            return null;
-        }
+        }catch (Exception $e) {
+                echo $e->getMessage();
+            }
 
         return new Address($row['AddrID']);
     }

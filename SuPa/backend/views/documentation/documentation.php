@@ -148,8 +148,8 @@
         <h4>Beschreibung</h4>
         <p>
             Hinter dem Layout steht eine Kombination aus Flex-Boxen.
-            Jede Seite ist in drei Bereiche aufgeteilt: Header (inkl. Navbar), Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. </br>
-            In der Navbar befinden sich Logo (enthält Link auf Index-Seite), Firmenname und die eigentlichen Navigationselemente in Form einer verlinkenden Liste.
+            Jede Seite ist in drei Bereiche aufgeteilt: Header inklusive Navbar, Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. </br>
+            Im Header befinden sich Logo (enthält Link auf Index-Seite), Headline und die eigentlichen Navigationselemente in Form einer verlinkenden Liste.
             Die Topbox ist mit einem Line-Gradient gestyled und enthält  die Filterbox für die Rentals und den Buchungsvorgang.
             Die About-Page steht für die Vision und Historie der SunshineParks.
             Im Abschnitt Process beschreiben wir wie ein Buchungsvorgang abläuft.

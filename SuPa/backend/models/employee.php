@@ -14,7 +14,6 @@ class Employee extends Model
     }
 
 
-    // TODO Try Catch
     /**
      * Author: Max Schelenz
      * Finds an employee obejct by its personid.
@@ -22,14 +21,20 @@ class Employee extends Model
      * @return Employee|null The employee object if it is found, or null if it is not found.
      */
     public static function findByPersonId($personId) : ?Employee {
+
         $db = getDB();
 
-        $stmt = $db->prepare('SELECT EmpID FROM EMP WHERE PersonID = ?');
-        $stmt->execute([$personId]);
-        $row = $stmt->fetch();
+        try{
+            $stmt = $db->prepare('SELECT EmpID FROM EMP WHERE PersonID = ?');
+            $stmt->execute([$personId]);
+            $row = $stmt->fetch();
 
-        if (!$row) {
-            return null;
+            if (!$row) {
+                return null;
+            }
+
+        }catch(Exception $e) {
+            echo $e->getMessage();
         }
 
         return new Employee($row['EmpID']);
@@ -144,6 +149,7 @@ class Employee extends Model
         }catch (PDOException $e) {
             echo $e->getMessage();
         }
+
         return false;
     }
 
