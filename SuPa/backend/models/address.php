@@ -71,7 +71,6 @@ class Address extends Model {
     /**
      * Author: Max Schelenz
      * Finds an address object by its street, house number, zip code, city, and state.
-     *
      * @param string $Street The street of the address.
      * @param string $HNumber The house number of the address.
      * @param string $ZipCode The zip code of the address.

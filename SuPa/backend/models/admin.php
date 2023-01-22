@@ -27,7 +27,13 @@ class Admin extends Model {
         return new Admin($row['AdminID']);
     }
 
-    //TODO Comments
+
+    /**
+     * Author: Max Schelenz
+     * Deletes an admin object by its PersonID.
+     * @param $PersonID
+     * @return bool
+     */
     public function delete($PersonID) : bool {
 
         try {

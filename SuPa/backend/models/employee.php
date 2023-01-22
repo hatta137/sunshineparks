@@ -122,7 +122,12 @@ class Employee extends Model
 
     }
 
-    //TODO Comments
+    /**
+     * Author:Max Schelenz
+     * Deletes an employee object by its PersonID.
+     * @param $PersonID
+     * @return bool
+     */
     public function delete($PersonID) : bool {
 
         try {

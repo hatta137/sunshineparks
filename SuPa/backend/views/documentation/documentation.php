@@ -146,10 +146,15 @@
 
         <h4>Beschreibung</h4>
         <p>
-            Hinter dem Layout steht eine Kombination aus Flex-Boxen. Jede Seite ist in drei Bereiche aufgeteilt.
-            Header (inkl. Navbar), Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer.
-            In der Navbar befinden sich Logo (enthält Link auf Index-Seite), Firmenname und die eigentlichen Navigationselemente
-            in Form einer verlinkenden Liste.
+            Hinter dem Layout steht eine Kombination aus Flex-Boxen.
+            Jede Seite ist in drei Bereiche aufgeteilt: Header (inkl. Navbar), Main-Section (variiert je nach Seite About, Testimony, Contact, Administration ...) und Footer. </br>
+            In der Navbar befinden sich Logo (enthält Link auf Index-Seite), Firmenname und die eigentlichen Navigationselemente in Form einer verlinkenden Liste.
+            Die Topbox ist mit einem Line-Gradient gestyled und enthält  die Filterbox für die Rentals und den Buchungsvorgang.
+            Die About-Page steht für die Vision und Historie der SunshineParks.
+            Im Abschnitt Process beschreiben wir wie ein Buchungsvorgang abläuft.
+            Testimonys haben wir eingebaut, um für den Besucher der Webseite eine gewisse Interaktion und Austausch mit früheren Besuchern der SunshineParks möglich zu machen, indem man Bewertungen abgeben kann, was uns zum einen Feedback gibt und zum Anderen
+            neue Besucher bei ihrer Buchungsentscheidung unterstützt.
+            Die Kontaktbox dient zur Kontaktaufnahme, falls der Nutzer ein wichtiges Anliegen hat kann er hier eine Nachricht verfassen.
             Der Footer enthält Navigationselemente zu den Seiten Impressum, Kontakt, Datenschutz und den Nutzungsbedingungen.
         </p>
 
@@ -162,10 +167,8 @@
         <img id="AutoWidth" src="../assets/documentation/Layout/NavigationselementeHeader.png" alt="Navigationselemente Help, About und Account im Header">
         <p>
             Ist der Nutzer angemeldet werden ihm im Accountbereich je nachdem welche Rolle und Rechte seinem Account zugewiesen sind verschiedene Funktionalitäten und Unterseiten angezeigt
-            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann.
-        </p>
+            auf welche er Zugriff erhält und sich durch Betätigen der jeweiligen Buttons dahin navigieren kann. </br>
 
-        <p>
             Durch das Anklicken des Logos oder der Überschrift im Header wird der Nutzer egal, auf welcher Seite er sich aktuell befindet direkt zur index.php geleitet.
             Das soll unseren Nutzern ermöglichen schnellstmöglich zur Hauptseite unserer Webseite zu gelangen.
 
@@ -285,6 +288,10 @@
 <section id="reMod" class="odd">
     <div>
         <h1>Relationales Modell</h1>
+        <p>
+            Die folgenden Tabellenmodelle sind alle zum besseren Verständnis den verschiedenen Scopes aus dem ER-Modell zugeordnet und enthalten alle wichtigen Informationen wie Spaltenname, verwendeter Datentyp, Null-Option und Bedingungen.
+            Ebenso aufgelistet sind die Tabelle die sich nicht im Scope befinden, sondern zum Kontext gehören. Diese erkennt man an dem fehlenden farblichen Scoperahmen aus dem ERM.
+        </p>
         <h2>Administration und Accountverwaltung</h2>
         <img id="AutoWidth" src="../assets/documentation/DB_Diagrams/Tabellenmodell_Administration_Accountverwaltung.png" alt="Tabellenmodell">
 
@@ -338,7 +345,10 @@
         <h2>Administration und Accountverwaltung</h2>
         <img id="AutoWidth" src="../assets/documentation/FlowCharts/Verwaltung_Administration.drawio.png" alt="Flussbilddiagramm der Administration und Verwaltung">
         <p>
-            -Hier noch Verwaltungstext ergänzen-
+            Um auf die Funktionen der Administration/Accountverwaltung zuzugreifen muss sich der Nutzer anmelden und im Anschluss mit den seinem Account zugewiesenen Berechtigungen den Accountbereich aufrufen.
+            Dementsprechend hat er dort dann Zugriff auf die verschiedenen Funktionalitäten, indem er die jeweiligen Buttons betätigt.
+            In dem FlowChart-Diagramm sind die auch wirklich funktional hinterlegten Buttons unseres Systems grün gekennzeichnet.
+            Funktional nicht hinterlegte Buttons wiederum sind rot markiert - diese decken wir mit unserem System derzeit noch NICHT ab.
         </p>
     </div>
 </section>
@@ -546,7 +556,20 @@
                             <li>getResortNameByID</li>
                             <li>getResortIDByName</li>
                         </ul></td>   <td>Hendrik Lendeckel   </td>       <td>1 Woche</td></tr>
-                <tr><td>Datenbank Änderungen (neue Tabellen)</td>    <td>Hendrik Lendeckel & Max Schelenz </td>        <td>2 Woche</td></tr>
+                <tr><td>Datenbank Änderungen (neue Tabellen)</td>    <td>Hendrik Lendeckel & Max Schelenz </td>        <td>2 Wochen</td></tr>
+
+                <tr><td>Programmierung der Model Functions: <ul>
+                            <li>findByValues</li>
+                            <li>findByPersonID</li>
+                            <li>getChildClass</li>
+                            <li>newPerson</li>
+                            <li>deletePerson</li>
+                            <li>deleteGuest</li>
+                            <li>deleteAdmin</li>
+                            <li>deleteEmployee</li>
+                            <li>deletePersonMode</li>
+                            <li>getAddressFromRental</li>
+                        </ul></td>  <td>Max Schelenz</td> <td></td></tr>
                 </tbody>
 
 
