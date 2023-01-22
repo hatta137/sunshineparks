@@ -97,6 +97,7 @@
         <p>
             Dieses Projekt beschränkt sich auf die folgenden Funktionalitäten:
         </p>
+        <div>
             <ul>
                 <li>Login für Gäste, Mitarbeiter und Administratoren</li>
                 <li>Darstellung der Mietobjekte (mit Filteroption)</li>
@@ -104,7 +105,7 @@
                 <li>Anlegen der Mietobjekte durch den Objektverwalter</li>
                 <li>Löschen des eigenen Kontos durch einen Gast</li>
             </ul>
-
+        </div>
     </div>
 </section>
 
