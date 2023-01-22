@@ -231,7 +231,7 @@
             Es gibt eine Schaltfläche, die zwischen dem Login für Gäste und dem Login für den internen Bereich wechselt. Gäste melden sich über die
             "Login"-Schaltfläche an, während andere Rollen sich über ein internes Formular anmelden (siehe <a href="#roleMod">Rollenmodell</a>).
         </p>
-        <h2>Rregistration</h2>
+        <h2>registration</h2>
         <p>
             Das Registrierungsformular ist ähnlich wie das Loginformular aufgebaut. Die Eingabefälder sind nach Kategorie in Containern (InputBox) sortiert.
             Durch die flex-wrap Eigenschaften sind die Container im Desktop-Vollbild nebeneinander und in der mobilen Ansicht untereinander angereiht.
